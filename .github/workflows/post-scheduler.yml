@@ -1,0 +1,47 @@
+name: Post scheduler
+
+on:
+  schedule:
+    # Every 15 minutes (UTC). Note: GitHub may delay cron by up to ~15 min under load.
+    - cron: "*/15 * * * *"
+  workflow_dispatch:  # allow manual triggering from the Actions tab
+
+permissions:
+  contents: write  # needed to commit the updated queue back
+
+concurrency:
+  group: post-scheduler
+  cancel-in-progress: false  # never cancel mid-post; let it finish
+
+jobs:
+  process-queue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests python-dotenv
+
+      - name: Run queue processor
+        env:
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python code/process_queue.py
+
+      - name: Commit updated queue
+        run: |
+          if git diff --quiet posts_queue.json; then
+            echo "Queue unchanged — nothing to commit."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add posts_queue.json
+            git commit -m "Update queue from scheduled run [skip ci]"
+            git push
+          fi
