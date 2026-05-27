@@ -32,6 +32,11 @@ def load_queue() -> dict:
 def save_queue(queue: dict):
     with open(QUEUE_PATH, "w", encoding="utf-8") as f:
         json.dump(queue, f, indent=2, ensure_ascii=False)
+    # Mirror to docs/ so the GitHub Pages dashboard can fetch it from same dir
+    docs_copy = REPO_ROOT / "docs" / "posts_queue.json"
+    docs_copy.parent.mkdir(exist_ok=True)
+    with open(docs_copy, "w", encoding="utf-8") as f:
+        json.dump(queue, f, indent=2, ensure_ascii=False)
 
 
 def new_post_id(scheduled_dt_utc: datetime) -> str:

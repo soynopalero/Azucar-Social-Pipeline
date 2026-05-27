@@ -29,8 +29,10 @@ voice-dictation/
 VADS/
 flyer-layers/
 Pics for lolipop/
-docs/
 .claude/
+
+# Auto-generated calendar view (rebuilt by code/view_calendar.py)
+posts_calendar.html
 
 # Local media at repo root (we upload to catbox.moe instead)
 /*.jpg
