@@ -14,10 +14,18 @@ Credentials are read from environment variables (set as GitHub repo secrets):
 import os
 import sys
 from datetime import datetime, timezone
+from pathlib import Path
 
 import requests
 
 from queue_utils import load_queue, save_queue, from_utc_iso
+
+# Load .env when running locally (no-op in GitHub Actions where env is set natively)
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).resolve().parent / ".env")
+except ImportError:
+    pass
 
 PAGE_ACCESS_TOKEN = os.environ.get("FB_PAGE_ACCESS_TOKEN")
 IG_USER_ID = os.environ.get("IG_USER_ID")
