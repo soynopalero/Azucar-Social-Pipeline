@@ -1,0 +1,46 @@
+# Credentials — NEVER commit
+.env
+*.env
+code/.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+env/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Unrelated projects living in the same parent folder
+azucar-website/
+voice-dictation/
+VADS/
+flyer-layers/
+Pics for lolipop/
+docs/
+.claude/
+
+# Local media at repo root (we upload to catbox.moe instead)
+/*.jpg
+/*.jpeg
+/*.png
+/*.mp4
+/*.mov
+/*.gif
+code/*.jpg
+code/*.jpeg
+code/*.png
+code/*.mp4
+code/*.mov
