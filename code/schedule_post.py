@@ -1,15 +1,19 @@
 """
 schedule_post.py
 ----------------
-Add a scheduled Instagram post to posts_queue.json.
+Add scheduled post(s) to posts_queue.json for one or more platforms.
 
 Usage:
-    python schedule_post.py --image "flyer.jpg" --caption "..." --when "2026-06-13 16:00"
-    python schedule_post.py --image "flyer.jpg" --caption-file "caption.txt" --when "2026-06-13 16:00"
+    # Single platform (instagram by default)
+    python schedule_post.py --image flyer.jpg --caption-file caption.txt --when "2026-06-13 16:00"
 
-Times are interpreted as Pacific time. Image is uploaded to catbox.moe and
-only the URL is stored in the queue. After updating the queue, the script
-commits the change and pushes to GitHub so the cloud workflow can post it.
+    # Multi-platform: creates one queue entry per platform, same scheduled time
+    python schedule_post.py --image flyer.jpg --caption-file caption.txt \
+        --when "2026-06-13 16:00" --platforms instagram facebook
+
+Times are interpreted as Pacific time. Image is uploaded to catbox.moe once
+and the URL is reused across all platform entries. After updating the queue,
+the script commits and pushes to GitHub so the cloud workflow can post it.
 """
 
 import argparse
@@ -25,12 +29,18 @@ from queue_utils import (
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Schedule an Instagram post")
+    parser = argparse.ArgumentParser(description="Schedule a post for one or more platforms")
     parser.add_argument("--image", type=str, required=True, help="Path to image file")
     parser.add_argument("--caption", type=str, help="Caption text")
     parser.add_argument("--caption-file", type=str, help="Path to a UTF-8 text file containing the caption")
     parser.add_argument("--when", type=str, required=True, help="Scheduled time (Pacific). Format: YYYY-MM-DD HH:MM")
-    parser.add_argument("--platform", type=str, default="instagram", choices=["instagram"], help="Target platform")
+    parser.add_argument(
+        "--platforms",
+        nargs="+",
+        default=["instagram"],
+        choices=["instagram", "facebook"],
+        help="Target platforms (one or more, space-separated). Default: instagram",
+    )
     parser.add_argument("--no-push", action="store_true", help="Skip git commit/push (queue saved locally only)")
     args = parser.parse_args()
 
@@ -55,33 +65,40 @@ def main():
 
     image_url = upload_image_to_catbox(args.image)
 
-    post_id = new_post_id(scheduled_utc)
     now_utc_iso = datetime.now(timezone.utc).isoformat()
-
-    entry = {
-        "id": post_id,
-        "platform": args.platform,
-        "scheduled_for_utc": to_utc_iso(scheduled_local),
-        "image_url": image_url,
-        "caption": caption,
-        "status": "pending",
-        "created_at": now_utc_iso,
-        "posted_at": None,
-        "result": None,
-    }
+    scheduled_iso = to_utc_iso(scheduled_local)
 
     queue = load_queue()
-    queue["posts"].append(entry)
+    created_ids = []
+    for platform in args.platforms:
+        post_id = new_post_id(scheduled_utc)
+        entry = {
+            "id": post_id,
+            "platform": platform,
+            "scheduled_for_utc": scheduled_iso,
+            "image_url": image_url,
+            "caption": caption,
+            "status": "pending",
+            "created_at": now_utc_iso,
+            "posted_at": None,
+            "result": None,
+        }
+        queue["posts"].append(entry)
+        created_ids.append((post_id, platform))
+
     save_queue(queue)
 
-    print(f"\n✅ Scheduled post {post_id}")
-    print(f"   Platform:   {args.platform}")
-    print(f"   When:       {fmt_local(entry['scheduled_for_utc'])}")
-    print(f"   Image:      {image_url}")
-    print(f"   Caption:    {caption[:80]}{'...' if len(caption) > 80 else ''}")
+    print(f"\n✅ Scheduled {len(created_ids)} post(s)")
+    for pid, platform in created_ids:
+        print(f"   [{platform}] {pid}")
+    print(f"   When:    {fmt_local(scheduled_iso)}")
+    print(f"   Image:   {image_url}")
+    print(f"   Caption: {caption[:80]}{'...' if len(caption) > 80 else ''}")
 
     if not args.no_push:
-        git_commit_and_push(f"Schedule post {post_id} for {fmt_local(entry['scheduled_for_utc'])}")
+        platforms_str = "+".join(args.platforms)
+        commit_msg = f"Schedule {platforms_str} post(s) for {fmt_local(scheduled_iso)}"
+        git_commit_and_push(commit_msg)
 
 
 if __name__ == "__main__":

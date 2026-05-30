@@ -8,7 +8,7 @@ scheduled_for_utc <= now), updates the queue, and exits.
 The GitHub Actions workflow handles committing the updated queue back.
 
 Credentials are read from environment variables (set as GitHub repo secrets):
-    FB_PAGE_ACCESS_TOKEN, IG_USER_ID
+    FB_PAGE_ACCESS_TOKEN, IG_USER_ID, FB_PAGE_ID
 """
 
 import os
@@ -29,6 +29,7 @@ except ImportError:
 
 PAGE_ACCESS_TOKEN = os.environ.get("FB_PAGE_ACCESS_TOKEN")
 IG_USER_ID = os.environ.get("IG_USER_ID")
+FB_PAGE_ID = os.environ.get("FB_PAGE_ID")
 API_VERSION = "v19.0"
 BASE_URL = f"https://graph.facebook.com/{API_VERSION}"
 
@@ -52,10 +53,38 @@ def post_to_instagram(image_url: str, caption: str) -> dict:
     return {"ok": False, "error": f"publish failed: {publish}"}
 
 
+def post_to_facebook(image_url: str, caption: str) -> dict:
+    """Post a photo to the FB Page via Graph API using a remote image URL.
+
+    Returns {'ok': True, 'id': ...} or {'ok': False, 'error': ...}.
+    """
+    response = requests.post(
+        f"{BASE_URL}/{FB_PAGE_ID}/photos",
+        data={
+            "url": image_url,
+            "message": caption,
+            "access_token": PAGE_ACCESS_TOKEN,
+        },
+        timeout=120,
+    ).json()
+    if "id" in response:
+        return {"ok": True, "id": response["id"], "post_id": response.get("post_id")}
+    return {"ok": False, "error": f"FB post failed: {response}"}
+
+
 def main():
-    if not PAGE_ACCESS_TOKEN or not IG_USER_ID:
-        print("❌ Missing FB_PAGE_ACCESS_TOKEN or IG_USER_ID in env")
-        sys.exit(1)
+    missing = [k for k, v in {
+        "FB_PAGE_ACCESS_TOKEN": PAGE_ACCESS_TOKEN,
+        "IG_USER_ID": IG_USER_ID,
+        "FB_PAGE_ID": FB_PAGE_ID,
+    }.items() if not v]
+    if missing:
+        # IG_USER_ID and FB_PAGE_ID are only required for their respective platforms,
+        # but we error early if FB_PAGE_ACCESS_TOKEN is missing (used by both).
+        if "FB_PAGE_ACCESS_TOKEN" in missing:
+            print(f"❌ Missing required env var(s): {', '.join(missing)}")
+            sys.exit(1)
+        print(f"⚠️  Missing env var(s): {', '.join(missing)} — will skip posts that need them.")
 
     queue = load_queue()
     posts = queue.get("posts", [])
@@ -79,16 +108,28 @@ def main():
         print(f"    Scheduled: {entry['scheduled_for_utc']}")
         print(f"    Platform:  {entry['platform']}")
 
-        if entry["platform"] != "instagram":
-            print(f"    ⚠️  Unsupported platform '{entry['platform']}' — skipping")
+        platform = entry["platform"]
+        if platform == "instagram":
+            if not IG_USER_ID:
+                print(f"    ⚠️  IG_USER_ID not set — skipping")
+                continue
+            result = post_to_instagram(entry["image_url"], entry["caption"])
+            result_label = "Instagram media id"
+        elif platform == "facebook":
+            if not FB_PAGE_ID:
+                print(f"    ⚠️  FB_PAGE_ID not set — skipping")
+                continue
+            result = post_to_facebook(entry["image_url"], entry["caption"])
+            result_label = "Facebook post id"
+        else:
+            print(f"    ⚠️  Unsupported platform '{platform}' — skipping")
             continue
 
-        result = post_to_instagram(entry["image_url"], entry["caption"])
         entry["posted_at"] = datetime.now(timezone.utc).isoformat()
         if result["ok"]:
             entry["status"] = "posted"
-            entry["result"] = f"Instagram media id: {result['id']}"
-            print(f"    ✅ Posted! IG media id: {result['id']}")
+            entry["result"] = f"{result_label}: {result['id']}"
+            print(f"    ✅ Posted! {result_label}: {result['id']}")
         else:
             entry["status"] = "failed"
             entry["result"] = result["error"]
