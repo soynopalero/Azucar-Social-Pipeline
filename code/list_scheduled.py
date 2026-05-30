@@ -36,10 +36,13 @@ PAGE_ACCESS_TOKEN = os.getenv("FB_PAGE_ACCESS_TOKEN")
 GRAPH_API = "https://graph.facebook.com/v19.0"
 
 
-def get_pending_ig() -> list:
-    """Return pending Instagram posts from our queue, sorted by scheduled time."""
+def get_pending_by_platform(platform: str) -> list:
+    """Return pending posts for a specific platform from our queue, sorted by scheduled time."""
     queue = load_queue()
-    pending = [p for p in queue.get("posts", []) if p["status"] == "pending"]
+    pending = [
+        p for p in queue.get("posts", [])
+        if p["status"] == "pending" and p.get("platform") == platform
+    ]
     pending.sort(key=lambda p: p["scheduled_for_utc"])
     return pending
 
@@ -77,30 +80,40 @@ def fmt_fb_time(ts) -> str:
     return dt.strftime("%Y-%m-%d %I:%M %p %Z").replace(" 0", " ")
 
 
-def render_text(ig_pending: list, fb_scheduled: list):
-    total = len(ig_pending) + len(fb_scheduled)
+def _print_pipeline_entries(entries: list):
+    if not entries:
+        print("  (none)\n")
+        return
+    for p in entries:
+        caption_preview = p["caption"].split("\n")[0][:60]
+        print(f"  • {fmt_local(p['scheduled_for_utc'])}")
+        print(f"    {caption_preview}")
+        print(f"    id: {p['id']}  |  image: {p['image_url']}")
+        print()
+
+
+def render_text(ig_pending: list, fb_pending: list, fb_native: list):
+    total = len(ig_pending) + len(fb_pending) + len(fb_native)
     print(f"📅 Scheduled posts (Pacific time) — {total} total\n")
 
     print("─" * 70)
     print(f"📷 INSTAGRAM — pipeline queue ({len(ig_pending)} pending)")
     print("─" * 70)
-    if not ig_pending:
-        print("  (none)\n")
-    else:
-        for p in ig_pending:
-            caption_preview = p["caption"].split("\n")[0][:60]
-            print(f"  • {fmt_local(p['scheduled_for_utc'])}")
-            print(f"    {caption_preview}")
-            print(f"    id: {p['id']}  |  image: {p['image_url']}")
-            print()
+    _print_pipeline_entries(ig_pending)
 
     print("─" * 70)
-    print(f"📘 FACEBOOK — Graph API scheduled_posts ({len(fb_scheduled)} scheduled)")
+    print(f"📘 FACEBOOK — pipeline queue ({len(fb_pending)} pending)")
     print("─" * 70)
-    if not fb_scheduled:
+    _print_pipeline_entries(fb_pending)
+
+    print("─" * 70)
+    print(f"📘 FACEBOOK — Graph API native scheduled_posts ({len(fb_native)} scheduled)")
+    print("    (posts scheduled directly on Facebook, not through our pipeline)")
+    print("─" * 70)
+    if not fb_native:
         print("  (none)\n")
     else:
-        for p in fb_scheduled:
+        for p in fb_native:
             msg_preview = (p.get("message") or "").split("\n")[0][:60]
             print(f"  • {fmt_fb_time(p.get('scheduled_publish_time'))}")
             print(f"    {msg_preview}")
@@ -111,43 +124,45 @@ def render_text(ig_pending: list, fb_scheduled: list):
     print("    (no public API). Check business.facebook.com directly for those.")
 
 
-def render_json(ig_pending: list, fb_scheduled: list):
+def render_json(ig_pending: list, fb_pending: list, fb_native: list):
+    def serialize_pipeline(p):
+        return {
+            "id": p["id"],
+            "platform": p.get("platform"),
+            "scheduled_for_local": fmt_local(p["scheduled_for_utc"]),
+            "scheduled_for_utc": p["scheduled_for_utc"],
+            "caption_first_line": p["caption"].split("\n")[0],
+            "image_url": p["image_url"],
+        }
     out = {
-        "instagram_pipeline_pending": [
-            {
-                "id": p["id"],
-                "scheduled_for_local": fmt_local(p["scheduled_for_utc"]),
-                "scheduled_for_utc": p["scheduled_for_utc"],
-                "caption_first_line": p["caption"].split("\n")[0],
-                "image_url": p["image_url"],
-            }
-            for p in ig_pending
-        ],
-        "facebook_graph_scheduled": [
+        "instagram_pipeline_pending": [serialize_pipeline(p) for p in ig_pending],
+        "facebook_pipeline_pending": [serialize_pipeline(p) for p in fb_pending],
+        "facebook_graph_native_scheduled": [
             {
                 "id": p["id"],
                 "scheduled_for_local": fmt_fb_time(p.get("scheduled_publish_time")),
                 "scheduled_publish_time_epoch": p.get("scheduled_publish_time"),
                 "message_first_line": (p.get("message") or "").split("\n")[0],
             }
-            for p in fb_scheduled
+            for p in fb_native
         ],
     }
     print(json.dumps(out, indent=2, ensure_ascii=False))
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Show scheduled posts across IG queue + FB Graph API")
+    parser = argparse.ArgumentParser(description="Show scheduled posts across IG queue + FB queue + FB native Graph API")
     parser.add_argument("--json", action="store_true", help="Machine-readable JSON output")
     args = parser.parse_args()
 
-    ig_pending = get_pending_ig()
-    fb_scheduled = get_scheduled_fb()
+    ig_pending = get_pending_by_platform("instagram")
+    fb_pending = get_pending_by_platform("facebook")
+    fb_native = get_scheduled_fb()
 
     if args.json:
-        render_json(ig_pending, fb_scheduled)
+        render_json(ig_pending, fb_pending, fb_native)
     else:
-        render_text(ig_pending, fb_scheduled)
+        render_text(ig_pending, fb_pending, fb_native)
 
 
 if __name__ == "__main__":
