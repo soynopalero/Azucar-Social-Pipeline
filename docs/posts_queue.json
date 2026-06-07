@@ -389,10 +389,10 @@
       "scheduled_for_utc": "2026-06-07T01:30:00+00:00",
       "image_url": "https://files.catbox.moe/5bag1w.jpg",
       "caption": "Twenty years in the making 💃\n\nValeria Sanchez is the kind of artist you only get to witness if you are paying attention. She trained at the Escuela de Bellas Artes in both Mexican folklórico and flamenco, and she has carried that training onto stages all around the world. Twenty years of dedication to her craft, and she is nowhere near slowing down. On top of performing, she teaches, passing everything she knows on to the next generation of dancers.\n\nAt Latino/a Pride she takes the stage as a soloist. When the music starts and that skirt begins to fly, you will understand exactly why people call this an art form. It is power, history, and pure beauty all moving at once, and it is rare to see it this close to home.\n\nDo not look away for a second. You are going to want to remember this one.\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
-      "status": "pending",
+      "status": "failed",
       "created_at": "2026-06-04T22:15:17.380674+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-06-07T08:38:57.256467+00:00",
+      "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'AS8q9j4XcGo1DX-MAQ_tnFg'}}",
       "gcal_event_id": "3pfeoo9umib2o9dk4rq7n7dm2o"
     },
     {
@@ -401,10 +401,10 @@
       "scheduled_for_utc": "2026-06-07T01:30:00+00:00",
       "image_url": "https://files.catbox.moe/5bag1w.jpg",
       "caption": "Twenty years in the making 💃\n\nValeria Sanchez is the kind of artist you only get to witness if you are paying attention. She trained at the Escuela de Bellas Artes in both Mexican folklórico and flamenco, and she has carried that training onto stages all around the world. Twenty years of dedication to her craft, and she is nowhere near slowing down. On top of performing, she teaches, passing everything she knows on to the next generation of dancers.\n\nAt Latino/a Pride she takes the stage as a soloist. When the music starts and that skirt begins to fly, you will understand exactly why people call this an art form. It is power, history, and pure beauty all moving at once, and it is rare to see it this close to home.\n\nDo not look away for a second. You are going to want to remember this one.\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-06-04T22:15:17.380674+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-06-07T08:39:03.401922+00:00",
+      "result": "Facebook post id: 1598070472321078",
       "gcal_event_id": "3pfeoo9umib2o9dk4rq7n7dm2o"
     },
     {
