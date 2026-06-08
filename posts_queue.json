@@ -77,10 +77,10 @@
       "scheduled_for_utc": "2026-06-08T19:00:00+00:00",
       "image_url": "https://files.catbox.moe/o8cxfk.jpg",
       "caption": "Conoce a la diva. 💗\n\nALYANA AMORE.\n\nHay drag queens. Y luego hay Alyana. La diferencia está en la pose, en cómo entra a un cuarto, en cómo la luz cae sobre ella antes que sobre cualquiera más. Es esa cualidad que no se enseña — se vive, se trabaja, se gana. 🌹✨\n\nCuando Alyana sube al escenario, el público no aplaude por costumbre — aplaude porque no le queda otra. Glamour, carisma, control absoluto del momento. Es la diva que te recuerda por qué el drag es un arte.\n\nEl 20 de junio, viene preparada. Y DJ ShaReal viene con el setlist perfecto para acompañarla. 🎧🔥\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About — Pasco WA\n🎟️ Reservaciones GRATIS — DM @vidaamore o @alyanaamore\n\n@alyanaamore @vidaamoredivasshow\n\n#AlyanaAmore #VADS #OrgulloLGBTQ #ElTributo #AzucarPasco #DragRoyalty #DJShaReal",
-      "status": "pending",
+      "status": "failed",
       "created_at": "2026-05-30T02:58:37.205627+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-06-08T21:16:25.563739+00:00",
+      "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'AMXvuJn8o19sCLPwB0f0pHn'}}",
       "campaign": "vida_amore_june_20"
     },
     {
@@ -89,10 +89,10 @@
       "scheduled_for_utc": "2026-06-08T19:00:00+00:00",
       "image_url": "https://files.catbox.moe/o8cxfk.jpg",
       "caption": "Conoce a la diva. 💗\n\nALYANA AMORE.\n\nHay drag queens. Y luego hay Alyana. La diferencia está en la pose, en cómo entra a un cuarto, en cómo la luz cae sobre ella antes que sobre cualquiera más. Es esa cualidad que no se enseña — se vive, se trabaja, se gana. 🌹✨\n\nCuando Alyana sube al escenario, el público no aplaude por costumbre — aplaude porque no le queda otra. Glamour, carisma, control absoluto del momento. Es la diva que te recuerda por qué el drag es un arte.\n\nEl 20 de junio, viene preparada. Y DJ ShaReal viene con el setlist perfecto para acompañarla. 🎧🔥\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About — Pasco WA\n🎟️ Reservaciones GRATIS — DM @vidaamore o @alyanaamore\n\n@alyanaamore @vidaamoredivasshow\n\n#AlyanaAmore #VADS #OrgulloLGBTQ #ElTributo #AzucarPasco #DragRoyalty #DJShaReal",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-05-30T02:58:37.205627+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-06-08T21:16:38.929861+00:00",
+      "result": "Facebook post id: 1599579785503480",
       "campaign": "vida_amore_june_20"
     },
     {
