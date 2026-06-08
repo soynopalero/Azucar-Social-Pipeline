@@ -437,10 +437,10 @@
       "scheduled_for_utc": "2026-06-08T01:30:00+00:00",
       "image_url": "https://files.catbox.moe/2ja7ja.jpg",
       "caption": "We begin by honoring our ancestors 🪶\n\nBefore the music and the dancing take over, we take a moment to honor where we come from. Tonatiuh Xocoyotzin joins us to bless Latino/a Pride with sacred danza, a form of Mexican Indigenous dance that has been carried through generations. He will be accompanied by a drummer and by our own Samadhi Curandera.\n\nThis is so much more than a performance. Tonatiuh will share what these dances mean, why they matter, and how they connect us to our roots, especially on a day when we gather to celebrate being fully and proudly ourselves. There is something powerful about holding space for tradition and queerness in the very same breath, and that is exactly what this moment is about.\n\nCome with an open heart and an open mind, and let yourself actually feel it.\n\n@tonamarezoficial\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
-      "status": "pending",
+      "status": "failed",
       "created_at": "2026-06-04T22:16:03.263427+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-06-08T12:47:15.293746+00:00",
+      "result": "container creation failed: {'error': {'message': 'Timeout', 'type': 'OAuthException', 'code': -2, 'error_subcode': 2207003, 'is_transient': False, 'error_user_title': 'Timeout', 'error_user_msg': 'It takes too long to download the media.', 'fbtrace_id': 'ALGjDOw22oUOrtcblM55gbO'}}",
       "gcal_event_id": "r35uipjm5pvi7doo27qbg8i0m0"
     },
     {
@@ -449,10 +449,10 @@
       "scheduled_for_utc": "2026-06-08T01:30:00+00:00",
       "image_url": "https://files.catbox.moe/2ja7ja.jpg",
       "caption": "We begin by honoring our ancestors 🪶\n\nBefore the music and the dancing take over, we take a moment to honor where we come from. Tonatiuh Xocoyotzin joins us to bless Latino/a Pride with sacred danza, a form of Mexican Indigenous dance that has been carried through generations. He will be accompanied by a drummer and by our own Samadhi Curandera.\n\nThis is so much more than a performance. Tonatiuh will share what these dances mean, why they matter, and how they connect us to our roots, especially on a day when we gather to celebrate being fully and proudly ourselves. There is something powerful about holding space for tradition and queerness in the very same breath, and that is exactly what this moment is about.\n\nCome with an open heart and an open mind, and let yourself actually feel it.\n\n@tonamarezoficial\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
-      "status": "pending",
+      "status": "failed",
       "created_at": "2026-06-04T22:16:03.263427+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-06-08T12:47:44.680806+00:00",
+      "result": "FB post failed: {'error': {'message': 'Missing or invalid image file', 'type': 'OAuthException', 'code': 324, 'error_subcode': 2069019, 'is_transient': True, 'error_user_title': 'Image Required', 'error_user_msg': 'Make sure your Page post includes an image that can be used in an ad.', 'fbtrace_id': 'AbkbVnzsM2Hfvprqvicdfph'}}",
       "gcal_event_id": "r35uipjm5pvi7doo27qbg8i0m0"
     },
     {
