@@ -101,10 +101,10 @@
       "scheduled_for_utc": "2026-06-10T19:00:00+00:00",
       "image_url": "https://files.catbox.moe/afez7w.jpg",
       "caption": "¿Lista para Victoria? 💋\n\nVICTORIA AMORE.\n\nLa elegancia hecha drag. El rojo no es un color, es una declaración — y Victoria lo lleva como armadura. Cuando sube al escenario, no necesita hablar para que sepas quién es: lo dice la mirada, lo dice la entrada, lo dicen las curvas que se mueven con propósito. 👑🌹\n\nEs la queen que viene de la escuela clásica del drag: presencia, control, y un performance que entiende el silencio tanto como entiende el grito. Cada número de Victoria es una pieza completa — principio, desarrollo, momento.\n\nY atrás de ella, DJ ShaReal poniéndole el ritmo. Porque Victoria no canta sola — la noche entera la respalda. 🎧\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About — Pasco WA\n🎟️ Reserva tu mesa GRATIS — DM @vidaamore o @alyanaamore\n\n@vidaamoredivasshow\n\n#VictoriaAmore #VADS #OrgulloLGBTQ #ElTributo #AzucarPasco #DragQueen #DJShaReal",
-      "status": "pending",
+      "status": "failed",
       "created_at": "2026-05-30T02:58:37.205627+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-06-10T21:27:29.005975+00:00",
+      "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'AJSAyUCy8eFRd19thgbTYu5'}}",
       "campaign": "vida_amore_june_20"
     },
     {
@@ -113,10 +113,10 @@
       "scheduled_for_utc": "2026-06-10T19:00:00+00:00",
       "image_url": "https://files.catbox.moe/afez7w.jpg",
       "caption": "¿Lista para Victoria? 💋\n\nVICTORIA AMORE.\n\nLa elegancia hecha drag. El rojo no es un color, es una declaración — y Victoria lo lleva como armadura. Cuando sube al escenario, no necesita hablar para que sepas quién es: lo dice la mirada, lo dice la entrada, lo dicen las curvas que se mueven con propósito. 👑🌹\n\nEs la queen que viene de la escuela clásica del drag: presencia, control, y un performance que entiende el silencio tanto como entiende el grito. Cada número de Victoria es una pieza completa — principio, desarrollo, momento.\n\nY atrás de ella, DJ ShaReal poniéndole el ritmo. Porque Victoria no canta sola — la noche entera la respalda. 🎧\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About — Pasco WA\n🎟️ Reserva tu mesa GRATIS — DM @vidaamore o @alyanaamore\n\n@vidaamoredivasshow\n\n#VictoriaAmore #VADS #OrgulloLGBTQ #ElTributo #AzucarPasco #DragQueen #DJShaReal",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-05-30T02:58:37.205627+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-06-10T21:27:35.861910+00:00",
+      "result": "Facebook post id: 1601466521981473",
       "campaign": "vida_amore_june_20"
     },
     {
