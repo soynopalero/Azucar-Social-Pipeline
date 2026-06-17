@@ -197,10 +197,10 @@
       "scheduled_for_utc": "2026-06-17T19:00:00+00:00",
       "image_url": "https://files.catbox.moe/o8cxfk.jpg",
       "caption": "⏳ 3 DÍAS.\n\nALYANA AMORE. Glamour máximo. ✨🌹\n\nTres días para que ella suba al escenario y todo el mundo entienda lo que es presencia. Tres días para que DJ ShaReal le ponga la canción exacta. Tres días para que tú estés ahí — o te quedes contando lo que te perdiste.\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About\n🎟️ Reservaciones GRATIS — DM @vidaamore o @alyanaamore\n\n@alyanaamore @vidaamoredivasshow\n\n#AlyanaAmore #OrgulloLGBTQ #ElTributo #VADS #3Days #DJShaReal",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-05-30T02:58:37.205627+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-06-17T21:21:03.258316+00:00",
+      "result": "Instagram media id: 18104490512063513",
       "campaign": "vida_amore_june_20"
     },
     {
@@ -209,10 +209,10 @@
       "scheduled_for_utc": "2026-06-17T19:00:00+00:00",
       "image_url": "https://files.catbox.moe/o8cxfk.jpg",
       "caption": "⏳ 3 DÍAS.\n\nALYANA AMORE. Glamour máximo. ✨🌹\n\nTres días para que ella suba al escenario y todo el mundo entienda lo que es presencia. Tres días para que DJ ShaReal le ponga la canción exacta. Tres días para que tú estés ahí — o te quedes contando lo que te perdiste.\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About\n🎟️ Reservaciones GRATIS — DM @vidaamore o @alyanaamore\n\n@alyanaamore @vidaamoredivasshow\n\n#AlyanaAmore #OrgulloLGBTQ #ElTributo #VADS #3Days #DJShaReal",
-      "status": "pending",
+      "status": "failed",
       "created_at": "2026-05-30T02:58:37.205627+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-06-17T21:21:14.927108+00:00",
+      "result": "FB post failed: {'error': {'code': 1, 'message': \"Please reduce the amount of data you're asking for, then retry your request\"}}",
       "campaign": "vida_amore_june_20"
     },
     {
