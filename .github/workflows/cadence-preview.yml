@@ -27,12 +27,13 @@ jobs:
 
       - name: Commit preview
         run: |
-          if git diff --quiet docs/cadence_preview.md 2>/dev/null; then
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/cadence_preview.md
+          # Use --cached so a brand-new (untracked) preview file is detected too.
+          if git diff --cached --quiet; then
             echo "Preview unchanged — nothing to commit."
           else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add docs/cadence_preview.md
             git commit -m "Update cadence preview [skip ci]"
             git push
           fi

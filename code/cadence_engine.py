@@ -5,9 +5,18 @@ cadence_engine.py
 Read the Azucar Events Monday board and compute the social-media posting
 SCHEDULE for each eligible event, following the agreed cadence.
 
-DRY-RUN ONLY (for now): it prints and (with --write) saves a preview of what it
-WOULD queue. It does NOT post anything and does NOT touch posts_queue.json.
-Wiring it to actually enqueue + the Telegram caption approval come next.
+Default run is a DRY-RUN preview (prints; --write saves docs/cadence_preview.md).
+
+--enqueue adds the LIVE layer, driven by the Caption Status text column on Monday:
+    (empty)/regenerate -> draft 4 caption variants (Claude) -> save to Monday ->
+                          send to Telegram with Approve/Redraft buttons
+    needs_review       -> waiting on the Telegram approval; do nothing
+    approved           -> upload flyer to catbox once, write the full cadence
+                          schedule into posts_queue.json (captions rotate across
+                          slots, one entry per platform) -> mark queued
+    queued             -> done; never double-queued (pending entries for an event
+                          are replaced if it's ever re-approved)
+Nothing is ever posted without a human tapping Approve in Telegram.
 
 Cadence (Standard), anchored to weeks-before-event. If an event is created late,
 it simply starts at whichever bucket applies:
@@ -45,12 +54,14 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 PREVIEW_PATH = REPO_ROOT / "docs" / "cadence_preview.md"
 
 # Live board column ids
-COL_DATE    = "date_mm3h56jc"
-COL_PHASE   = "color_mm3hz990"
-COL_DESC    = "long_text_mm4nvacq"
-COL_PRICE   = "text_mm4nazaw"
-COL_FLYER   = "file_mm4nnwtq"
-COL_CADENCE = "color_mm4nsvqh"
+COL_DATE           = "date_mm3h56jc"
+COL_PHASE          = "color_mm3hz990"
+COL_DESC           = "long_text_mm4nvacq"
+COL_PRICE          = "text_mm4nazaw"
+COL_FLYER          = "file_mm4nnwtq"
+COL_CADENCE        = "color_mm4nsvqh"
+COL_CAPTIONS       = "long_text_mm4wcfk4"   # AI caption variants (JSON array)
+COL_CAPTION_STATUS = "text_mm4wk4kr"        # ""/needs_review/approved/queued/regenerate
 
 HIDDEN_PHASES = {"Cancelled", "Completed"}
 PLATFORMS = ["instagram", "facebook"]
@@ -148,6 +159,10 @@ def parse_item(item):
         except (json.JSONDecodeError, TypeError):
             pass
 
+    flyer_asset_id = None
+    if files:
+        flyer_asset_id = files[0].get("assetId") or files[0].get("asset_id")
+
     return {
         "id": item["id"],
         "name": (item.get("name") or "").strip() or None,
@@ -157,6 +172,9 @@ def parse_item(item):
         "description": txt(COL_DESC),
         "price": txt(COL_PRICE),
         "has_flyer": len(files) > 0,
+        "flyer_asset_id": flyer_asset_id,
+        "captions_json": txt(COL_CAPTIONS),
+        "caption_status": (txt(COL_CAPTION_STATUS) or "").strip().lower(),
     }
 
 
@@ -252,6 +270,182 @@ def fmt_dt(x):
     return x.strftime("%a %b ") + str(x.day) + ", " + x.strftime("%I:%M %p").lstrip("0")
 
 
+# ---------- Live layer: Monday writes, caption drafting, Telegram, queueing ----------
+def envvar(name):
+    return (os.environ.get(name) or "").strip()
+
+
+def monday_set_text(item_id, column_id, value):
+    monday_query(
+        "mutation($b: ID!, $i: ID!, $c: String!, $v: String!) {"
+        " change_simple_column_value(board_id: $b, item_id: $i, column_id: $c, value: $v) { id } }",
+        {"b": BOARD_ID, "i": item_id, "c": column_id, "v": value},
+    )
+
+
+def monday_set_long_text(item_id, column_id, text):
+    monday_query(
+        "mutation($b: ID!, $i: ID!, $c: String!, $v: JSON!) {"
+        " change_column_value(board_id: $b, item_id: $i, column_id: $c, value: $v) { id } }",
+        {"b": BOARD_ID, "i": item_id, "c": column_id, "v": json.dumps({"text": text})},
+    )
+
+
+CAPTION_SYSTEM = """You are the social media copywriter for Azucar — a Latinx bar, restaurant, and live venue at Out & About in Pasco, WA.
+
+Voice: energetic, sensorial, bilingual — lead in English, sprinkle Spanish where it lands naturally. Emojis welcome. Short punchy lines. Never corporate, never "Join us for".
+
+Hard rules:
+- NEVER use the words "nightclub", "queer", or "gay" (positioning constraints). Say "Latinx" when referencing community.
+- Every caption ends with, on separate lines: a date/time line, "📍 Azucar at Out & About — 327 W Lewis St, Pasco WA", a price line, an age line if age is given, then 6-10 hashtags including #AzucarPasco and #OutAndAbout.
+
+Output ONLY a JSON array of caption strings. No preamble, no code fences."""
+
+
+def draft_captions(e, n=4):
+    key = envvar("ANTHROPIC_API_KEY")
+    if not key:
+        raise RuntimeError("ANTHROPIC_API_KEY not set")
+    user = (
+        f"Draft {n} distinct Instagram/Facebook captions for this event. Angles: "
+        "1) hype announcement, 2) vibe/sensory, 3) community/come-as-you-are, 4) info-forward. "
+        "They rotate through a multi-week campaign, so make each stand alone.\n\n"
+        f"Event: {e['name']}\nDate: {e['date']}\nDescription: {e['description']}\nPrice: {e['price']}"
+    )
+    body = {"model": "claude-sonnet-5", "max_tokens": 2000, "system": CAPTION_SYSTEM,
+            "messages": [{"role": "user", "content": user}]}
+    req = urllib.request.Request(
+        "https://api.anthropic.com/v1/messages", data=json.dumps(body).encode(),
+        headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
+    )
+    with urllib.request.urlopen(req, timeout=120) as r:
+        data = json.loads(r.read())
+    text = data["content"][0]["text"]
+    start, end = text.find("["), text.rfind("]")
+    caps = json.loads(text[start:end + 1])
+    caps = [c.strip() for c in caps if isinstance(c, str) and c.strip()]
+    if not caps:
+        raise RuntimeError("model returned no captions")
+    return caps[:n]
+
+
+def tg_call(method, payload):
+    token = envvar("TELEGRAM_BOT_TOKEN")
+    if not token:
+        raise RuntimeError("TELEGRAM_BOT_TOKEN not set")
+    req = urllib.request.Request(
+        f"https://api.telegram.org/bot{token}/{method}",
+        data=json.dumps(payload).encode(), headers={"content-type": "application/json"},
+    )
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.loads(r.read())
+
+
+def notify_captions_review(e, captions):
+    parts = [f"📣 Captions ready — {e['name']} ({e['date']}, {(e['cadence'] or '?').capitalize()} cadence)", ""]
+    for i, c in enumerate(captions, 1):
+        short = c if len(c) <= 700 else c[:700] + "…"
+        parts.append(f"— Variant {i} —\n{short}\n")
+    parts.append("✅ Approve queues the full posting schedule (posts rotate through the variants). ✏️ Redraft asks for fresh takes.")
+    tg_call("sendMessage", {
+        "chat_id": envvar("TELEGRAM_CHAT_ID"),
+        "text": "\n".join(parts),
+        "reply_markup": {"inline_keyboard": [[
+            {"text": "✅ Approve", "callback_data": f"cap:approve:{e['id']}"},
+            {"text": "✏️ Redraft", "callback_data": f"cap:regen:{e['id']}"},
+        ]]},
+    })
+
+
+def download_flyer(e):
+    data = monday_query(
+        "query($ids: [ID!]!) { assets(ids: $ids) { id public_url url } }",
+        {"ids": [str(e["flyer_asset_id"])]},
+    )
+    a = (data.get("assets") or [None])[0]
+    if not a:
+        raise RuntimeError(f"flyer asset {e['flyer_asset_id']} not found")
+    url = a.get("public_url") or a.get("url")
+    import tempfile
+    path = Path(tempfile.gettempdir()) / f"cadence_flyer_{e['id']}.jpg"
+    with urllib.request.urlopen(url, timeout=60) as r, open(path, "wb") as f:
+        f.write(r.read())
+    return str(path)
+
+
+def enqueue_event(e, captions, now):
+    import queue_utils as qu  # sibling module; hosts to catbox + saves the queue
+
+    today = now.astimezone(LOCAL_TZ).date()
+    ed = dt.date.fromisoformat(e["date"])
+    slots = [(d, s) for (d, s) in schedule_for(ed, e["cadence"], today) if to_local_dt(d, s) >= now]
+    if not slots:
+        return 0
+
+    image_url = qu.upload_image_to_catbox(download_flyer(e))
+    queue = qu.load_queue()
+    # Replace any pending entries for this event (re-approval refreshes cleanly;
+    # already-posted entries are never touched).
+    queue["posts"] = [p for p in queue["posts"]
+                      if not (p.get("monday_event_id") == e["id"] and p.get("status") == "pending")]
+
+    created = now.isoformat()
+    campaign = "cadence_" + "".join(ch if ch.isalnum() else "_" for ch in (e["name"] or "").lower()).strip("_")
+    for i, (d, s) in enumerate(slots):
+        utc = to_local_dt(d, s).astimezone(dt.timezone.utc)
+        for platform in PLATFORMS:
+            queue["posts"].append({
+                "id": qu.new_post_id(utc),
+                "platform": platform,
+                "scheduled_for_utc": utc.isoformat(),
+                "image_url": image_url,
+                "caption": captions[i % len(captions)],
+                "status": "pending",
+                "created_at": created,
+                "posted_at": None,
+                "result": None,
+                "campaign": campaign,
+                "monday_event_id": e["id"],
+                "slot": s,
+            })
+    qu.save_queue(queue)
+    return len(slots) * len(PLATFORMS)
+
+
+def run_enqueue(events, today, now):
+    print("=== LIVE enqueue pass ===")
+    for e in events:
+        if eligibility(e, today):
+            continue  # preview already explains skips
+        st = e.get("caption_status") or ""
+        try:
+            if st in ("", "regenerate"):
+                caps = draft_captions(e)
+                monday_set_long_text(e["id"], COL_CAPTIONS, json.dumps(caps, ensure_ascii=False))
+                monday_set_text(e["id"], COL_CAPTION_STATUS, "needs_review")
+                notify_captions_review(e, caps)
+                print(f"• drafted {len(caps)} captions, sent for review: {e['name']}")
+            elif st == "needs_review":
+                print(f"• awaiting Telegram approval: {e['name']}")
+            elif st == "approved":
+                caps = json.loads(e.get("captions_json") or "[]")
+                if not caps:
+                    raise RuntimeError("approved but no captions stored on Monday")
+                n = enqueue_event(e, caps, now)
+                monday_set_text(e["id"], COL_CAPTION_STATUS, "queued")
+                tg_call("sendMessage", {
+                    "chat_id": envvar("TELEGRAM_CHAT_ID"),
+                    "text": f"📅 Queued {n} posts for {e['name']} through {e['date']}. They'll go out automatically on schedule.",
+                })
+                print(f"• queued {n} entries: {e['name']}")
+            elif st == "queued":
+                print(f"• already queued: {e['name']}")
+            else:
+                print(f"• unknown caption status '{st}': {e['name']} (fix the Caption Status column)")
+        except Exception as ex:
+            print(f"• ERROR {e['name']}: {ex}")
+
+
 # ---------- Preview ----------
 def build_preview(events, today, now):
     eligible, skipped = [], []
@@ -310,8 +504,10 @@ def selftest():
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Compute the social cadence schedule (dry-run).")
+    ap = argparse.ArgumentParser(description="Compute the social cadence schedule (dry-run by default).")
     ap.add_argument("--write", action="store_true", help="save preview to docs/cadence_preview.md")
+    ap.add_argument("--enqueue", action="store_true",
+                    help="LIVE: draft captions -> Telegram approval -> write approved schedules into posts_queue.json")
     ap.add_argument("--selftest", action="store_true", help="offline schedule-math test (no Monday call)")
     args = ap.parse_args()
 
@@ -320,7 +516,13 @@ def main():
 
     now = dt.datetime.now(dt.timezone.utc)
     today = now.astimezone(LOCAL_TZ).date()
-    md = build_preview(fetch_events(), today, now)
+    events = fetch_events()
+
+    if args.enqueue:
+        run_enqueue(events, today, now)
+        print()
+
+    md = build_preview(events, today, now)
     print(md)
     if args.write:
         PREVIEW_PATH.parent.mkdir(exist_ok=True)
