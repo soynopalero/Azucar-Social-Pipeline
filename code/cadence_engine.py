@@ -62,6 +62,7 @@ COL_FLYER          = "file_mm4nnwtq"
 COL_CADENCE        = "color_mm4nsvqh"
 COL_CAPTIONS       = "long_text_mm4wcfk4"   # AI caption variants (JSON array)
 COL_CAPTION_STATUS = "text_mm4wk4kr"        # ""/needs_review/approved/queued/regenerate
+COL_CREATED_BY     = "text_mm4wnp8g"        # Telegram chat id of the event's creator
 
 HIDDEN_PHASES = {"Cancelled", "Completed"}
 PLATFORMS = ["instagram", "facebook"]
@@ -175,6 +176,7 @@ def parse_item(item):
         "flyer_asset_id": flyer_asset_id,
         "captions_json": txt(COL_CAPTIONS),
         "caption_status": (txt(COL_CAPTION_STATUS) or "").strip().lower(),
+        "created_by": (txt(COL_CREATED_BY) or "").strip() or None,
     }
 
 
@@ -344,6 +346,11 @@ def tg_call(method, payload):
         return json.loads(r.read())
 
 
+def chat_for(e):
+    """DM the event's creator; hand-made Monday events fall back to the default chat."""
+    return e.get("created_by") or envvar("TELEGRAM_CHAT_ID")
+
+
 def notify_captions_review(e, captions):
     parts = [f"📣 Captions ready — {e['name']} ({e['date']}, {(e['cadence'] or '?').capitalize()} cadence)", ""]
     for i, c in enumerate(captions, 1):
@@ -351,7 +358,7 @@ def notify_captions_review(e, captions):
         parts.append(f"— Variant {i} —\n{short}\n")
     parts.append("✅ Approve queues the full posting schedule (posts rotate through the variants). ✏️ Redraft asks for fresh takes.")
     tg_call("sendMessage", {
-        "chat_id": envvar("TELEGRAM_CHAT_ID"),
+        "chat_id": chat_for(e),
         "text": "\n".join(parts),
         "reply_markup": {"inline_keyboard": [[
             {"text": "✅ Approve", "callback_data": f"cap:approve:{e['id']}"},
@@ -438,7 +445,7 @@ def run_enqueue(events, today, now):
                 n = enqueue_event(e, caps, now)
                 monday_set_text(e["id"], COL_CAPTION_STATUS, "queued")
                 tg_call("sendMessage", {
-                    "chat_id": envvar("TELEGRAM_CHAT_ID"),
+                    "chat_id": chat_for(e),
                     "text": f"📅 Queued {n} posts for {e['name']} through {e['date']}. They'll go out automatically on schedule.",
                 })
                 print(f"• queued {n} entries: {e['name']}")
