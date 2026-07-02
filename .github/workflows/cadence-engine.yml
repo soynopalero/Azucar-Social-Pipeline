@@ -41,6 +41,7 @@ jobs:
         run: python code/cadence_engine.py --enqueue --write
 
       - name: Commit queue + preview
+        if: always()   # commit whatever the engine produced, even when it exits red
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
