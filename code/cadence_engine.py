@@ -15,7 +15,8 @@ it simply starts at whichever bucket applies:
     3 weeks      : 3 posts
     2 weeks      : 5 posts
     week of      : every remaining day (incl. day-of)
-Aggressive : same days, doubled (a morning AND an evening post each day).
+Aggressive : identical to Standard for the lead-up weeks; only the WEEK OF the
+             event doubles to 2 posts/day (morning + evening).
 Light      : 1/wk far out, 2 the week before, every-other-day the week of.
 Off / no flyer / no price / no description / past / cancelled / completed: skipped.
 
@@ -228,7 +229,9 @@ def schedule_for(event_date, cadence, today, horizon_weeks=HORIZON_WEEKS):
             slot = "evening" if toggle % 2 == 0 else "morning"
             toggle += 1
             picks.append((d, slot))
-            if cadence == "aggressive":
+            # Aggressive only doubles the WEEK OF the event (w == 1): a morning AND an
+            # evening post each day. The lead-up weeks stay identical to Standard.
+            if cadence == "aggressive" and w == 1:
                 picks.append((d, "morning" if slot == "evening" else "evening"))
     seen, out = set(), []
     for d, s in sorted(picks, key=lambda x: (x[0], SLOTS[x[1]])):
