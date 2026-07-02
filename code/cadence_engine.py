@@ -320,7 +320,10 @@ def draft_captions(e, n=4):
     )
     with urllib.request.urlopen(req, timeout=120) as r:
         data = json.loads(r.read())
-    text = data["content"][0]["text"]
+    # The model may emit a thinking block before the text block — join text blocks only.
+    text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text").strip()
+    if not text:
+        raise RuntimeError(f"no text block in model response: {json.dumps(data)[:300]}")
     start, end = text.find("["), text.rfind("]")
     caps = json.loads(text[start:end + 1])
     caps = [c.strip() for c in caps if isinstance(c, str) and c.strip()]
@@ -414,6 +417,7 @@ def enqueue_event(e, captions, now):
 
 def run_enqueue(events, today, now):
     print("=== LIVE enqueue pass ===")
+    failures = 0
     for e in events:
         if eligibility(e, today):
             continue  # preview already explains skips
@@ -443,7 +447,9 @@ def run_enqueue(events, today, now):
             else:
                 print(f"• unknown caption status '{st}': {e['name']} (fix the Caption Status column)")
         except Exception as ex:
-            print(f"• ERROR {e['name']}: {ex}")
+            failures += 1
+            print(f"• ERROR {e['name']}: {type(ex).__name__}: {ex}")
+    return failures
 
 
 # ---------- Preview ----------
@@ -518,8 +524,9 @@ def main():
     today = now.astimezone(LOCAL_TZ).date()
     events = fetch_events()
 
+    failures = 0
     if args.enqueue:
-        run_enqueue(events, today, now)
+        failures = run_enqueue(events, today, now)
         print()
 
     md = build_preview(events, today, now)
@@ -528,6 +535,10 @@ def main():
         PREVIEW_PATH.parent.mkdir(exist_ok=True)
         PREVIEW_PATH.write_text(md, encoding="utf-8")
         print(f"\nWrote {PREVIEW_PATH}")
+
+    if failures:
+        # Fail the workflow loudly — a silent green run hides broken captioning.
+        sys.exit(f"{failures} event(s) failed during the enqueue pass — see ERROR lines above.")
 
 
 if __name__ == "__main__":
