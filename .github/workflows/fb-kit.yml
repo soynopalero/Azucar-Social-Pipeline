@@ -1,0 +1,44 @@
+name: FB Event Kit refresh
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # every 30 min, same cadence as the website sync
+  workflow_dispatch: {}       # manual "Run workflow" button
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fb-kit
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pillow
+
+      - name: Build FB kit
+        env:
+          MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
+        run: python code/build_fb_kit.py
+
+      - name: Commit if the kit changed
+        run: |
+          git config user.name "fb-kit-bot"
+          git config user.email "actions@github.com"
+          git add docs/fb_kit.json docs/media/fb-kit/
+          # Ignore the generated_at timestamp so we only commit real changes
+          if git diff --cached --quiet -I '"generated_at"'; then
+            echo "Kit unchanged — nothing to commit."
+          else
+            git commit -m "FB kit refresh [skip ci]"
+            git push
+          fi
