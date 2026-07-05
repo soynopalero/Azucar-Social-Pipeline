@@ -63,6 +63,7 @@ COL_CADENCE        = "color_mm4nsvqh"
 COL_CAPTIONS       = "long_text_mm4wcfk4"   # AI caption variants (JSON array)
 COL_CAPTION_STATUS = "text_mm4wk4kr"        # ""/needs_review/approved/queued/regenerate
 COL_CREATED_BY     = "text_mm4wnp8g"        # Telegram chat id of the event's creator
+COL_LANGUAGE       = "dropdown_mm4z9x97"    # Caption Language: English/Spanish/Bilingual (empty = English)
 
 HIDDEN_PHASES = {"Cancelled", "Completed"}
 PLATFORMS = ["instagram", "facebook"]
@@ -160,9 +161,12 @@ def parse_item(item):
         except (json.JSONDecodeError, TypeError):
             pass
 
-    flyer_asset_id = None
-    if files:
-        flyer_asset_id = files[0].get("assetId") or files[0].get("asset_id")
+    flyer_assets = [f.get("assetId") or f.get("asset_id") for f in files]
+    flyer_assets = [a for a in flyer_assets if a]
+    flyer_asset_id = flyer_assets[0] if flyer_assets else None
+
+    lang_c = cv.get(COL_LANGUAGE) or {}
+    language = (lang_c.get("text") or "").strip().lower() or "english"
 
     return {
         "id": item["id"],
@@ -177,6 +181,8 @@ def parse_item(item):
         "captions_json": txt(COL_CAPTIONS),
         "caption_status": (txt(COL_CAPTION_STATUS) or "").strip().lower(),
         "created_by": (txt(COL_CREATED_BY) or "").strip() or None,
+        "flyer_assets": flyer_assets,
+        "language": language,
     }
 
 
@@ -293,34 +299,155 @@ def monday_set_long_text(item_id, column_id, text):
     )
 
 
-CAPTION_SYSTEM = """You are the social media copywriter for Azucar — a Latinx bar, restaurant, and live venue at Out & About in Pasco, WA.
+# ---------- Weekday ground truth ----------
+# The model never decides the weekday: code computes it, injects it, and
+# corrects any slip in the finished captions.
+WEEKDAYS_EN = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+WEEKDAYS_ES = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
 
-Voice: energetic, sensorial, bilingual — lead in English, sprinkle Spanish where it lands naturally. Emojis welcome. Short punchy lines. Never corporate, never "Join us for".
 
-Hard rules:
+def event_weekday(date_iso):
+    try:
+        i = dt.date.fromisoformat(date_iso).weekday()
+        return WEEKDAYS_EN[i], WEEKDAYS_ES[i]
+    except (ValueError, TypeError):
+        return None, None
+
+
+def fix_weekdays(text, date_iso):
+    en, es = event_weekday(date_iso)
+    if not en:
+        return text
+    import re
+    for i, w in enumerate(WEEKDAYS_EN):
+        if w != en:
+            text = re.sub(r"\b" + w + r"\b", en, text)
+    for i, w in enumerate(WEEKDAYS_ES):
+        if w != es:
+            text = re.sub(w, es, text)
+            text = re.sub(w.capitalize(), es.capitalize(), text)
+    return text
+
+
+# ---------- Grounding: caption history + runbooks (local repo files) ----------
+def _name_tokens(name):
+    import re
+    return [t for t in re.split(r"[^a-záéíóúñü]+", (name or "").lower()) if len(t) >= 4]
+
+
+def caption_history(name, limit=3):
+    tokens = _name_tokens(name)
+    if not tokens:
+        return []
+    try:
+        posts = json.loads((REPO_ROOT / "posts_queue.json").read_text(encoding="utf-8")).get("posts", [])
+    except (OSError, json.JSONDecodeError):
+        return []
+    out, seen = [], set()
+    for p in reversed(posts):
+        cap = p.get("caption") or ""
+        if not cap or cap in seen:
+            continue
+        hay = ((p.get("campaign") or "") + " " + cap[:160]).lower()
+        if any(t in hay for t in tokens):
+            out.append(cap)
+            seen.add(cap)
+            if len(out) >= limit:
+                break
+    return out
+
+
+def find_runbook(name):
+    tokens = _name_tokens(name)
+    rb_dir = REPO_ROOT / "runbooks"
+    if not tokens or not rb_dir.is_dir():
+        return None
+    for f in sorted(rb_dir.glob("*.md")):
+        if any(t in f.name.lower() for t in tokens):
+            return f.read_text(encoding="utf-8")[:3000]
+    return None
+
+
+def flyer_images_b64(e, cap=4):
+    """Download the event's flyer files from Monday, return base64 strings for vision."""
+    import base64
+    out = []
+    for asset_id in (e.get("flyer_assets") or [])[:cap]:
+        try:
+            data = monday_query(
+                "query($ids: [ID!]!) { assets(ids: $ids) { id public_url url } }",
+                {"ids": [str(asset_id)]},
+            )
+            a = (data.get("assets") or [None])[0]
+            url = a and (a.get("public_url") or a.get("url"))
+            if not url:
+                continue
+            with urllib.request.urlopen(url, timeout=60) as r:
+                out.append(base64.b64encode(r.read()).decode())
+        except Exception as ex:
+            print(f"  flyer image fetch failed ({asset_id}): {ex}")
+    return out
+
+
+def caption_system(language, weekday_en, weekday_es):
+    lang = {
+        "spanish": "Write captions in SPANISH only.",
+        "bilingual": "Write captions BILINGUAL — natural Spanglish, lead English, weave Spanish in.",
+    }.get(language, "Write captions in ENGLISH, with at most an occasional Spanish word where it lands naturally.")
+    weekday = (
+        f"\n- The event is on {weekday_en} (Spanish: {weekday_es}). If you mention a weekday, "
+        "it MUST be that one — never any other." if weekday_en else ""
+    )
+    return f"""You are the social media copywriter for Azucar — a Latinx bar, restaurant, and live venue at Out & About in Pasco, WA.
+
+Voice: FOMO-driven, fun, energetic, sensorial. Full campaign captions like the venue's past hits — a hook that stops the scroll, a body that builds the night (who, what sounds, what it feels like, why you can't miss it), then the info block. Emojis welcome. Short punchy lines inside a longer caption (~150-220 words). Never corporate, never "Join us for".
+
+{lang}
+
+GROUNDING — hard rules:
+- Use ONLY performer names, hosts, times, and facts that appear in the event details, the flyer image(s), the past captions, or the runbook provided. NEVER invent names, guests, specials, or details. If you don't know who's performing, hype the night without naming anyone.{weekday}
 - NEVER use the words "nightclub", "queer", or "gay" (positioning constraints). Say "Latinx" when referencing community.
 - Every caption ends with, on separate lines: a date/time line, "📍 Azucar at Out & About — 327 W Lewis St, Pasco WA", a price line, an age line if age is given, then 6-10 hashtags including #AzucarPasco and #OutAndAbout.
 
-Output ONLY a JSON array of caption strings. No preamble, no code fences."""
+Output ONLY a JSON array of exactly 4 caption strings. No preamble, no code fences."""
 
 
 def draft_captions(e, n=4):
     key = envvar("ANTHROPIC_API_KEY")
     if not key:
         raise RuntimeError("ANTHROPIC_API_KEY not set")
+
+    weekday_en, weekday_es = event_weekday(e["date"])
+    history = caption_history(e["name"])
+    runbook = find_runbook(e["name"])
+    images = flyer_images_b64(e)
+
     user = (
-        f"Draft {n} distinct Instagram/Facebook captions for this event. Angles: "
+        f"Draft {n} distinct captions for this event's multi-week posting campaign. Angles: "
         "1) hype announcement, 2) vibe/sensory, 3) community/come-as-you-are, 4) info-forward. "
-        "They rotate through a multi-week campaign, so make each stand alone.\n\n"
-        f"Event: {e['name']}\nDate: {e['date']}\nDescription: {e['description']}\nPrice: {e['price']}"
+        "They rotate across many days, so each must stand alone.\n\n"
+        f"Event: {e['name']}\nDate: {e['date']}" + (f" ({weekday_en})" if weekday_en else "") + "\n"
+        f"Description: {e['description']}\nPrice: {e['price']}"
     )
-    body = {"model": "claude-sonnet-5", "max_tokens": 2000, "system": CAPTION_SYSTEM,
-            "messages": [{"role": "user", "content": user}]}
+    if history:
+        user += "\n\nPast captions for this show (match their voice and their FACTS — hosts and names in them are real):\n"
+        user += "\n\n".join(f"[{i+1}] {h[:900]}" for i, h in enumerate(history))
+    if runbook:
+        user += f"\n\nRunbook for this recurring show (canonical facts — hosts, times, rituals):\n{runbook}"
+    if images:
+        user += "\n\nThe flyer image(s) are attached — read them: lineup names, times, and themes on the artwork are real and usable."
+
+    content = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b}} for b in images]
+    content.append({"type": "text", "text": user})
+
+    body = {"model": "claude-sonnet-5", "max_tokens": 3500,
+            "system": caption_system(e.get("language"), weekday_en, weekday_es),
+            "messages": [{"role": "user", "content": content}]}
     req = urllib.request.Request(
         "https://api.anthropic.com/v1/messages", data=json.dumps(body).encode(),
         headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
     )
-    with urllib.request.urlopen(req, timeout=120) as r:
+    with urllib.request.urlopen(req, timeout=180) as r:
         data = json.loads(r.read())
     # The model may emit a thinking block before the text block — join text blocks only.
     text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text").strip()
@@ -328,7 +455,7 @@ def draft_captions(e, n=4):
         raise RuntimeError(f"no text block in model response: {json.dumps(data)[:300]}")
     start, end = text.find("["), text.rfind("]")
     caps = json.loads(text[start:end + 1])
-    caps = [c.strip() for c in caps if isinstance(c, str) and c.strip()]
+    caps = [fix_weekdays(c.strip(), e["date"]) for c in caps if isinstance(c, str) and c.strip()]
     if not caps:
         raise RuntimeError("model returned no captions")
     return caps[:n]
@@ -367,20 +494,26 @@ def notify_captions_review(e, captions):
     })
 
 
-def download_flyer(e):
-    data = monday_query(
-        "query($ids: [ID!]!) { assets(ids: $ids) { id public_url url } }",
-        {"ids": [str(e["flyer_asset_id"])]},
-    )
-    a = (data.get("assets") or [None])[0]
-    if not a:
-        raise RuntimeError(f"flyer asset {e['flyer_asset_id']} not found")
-    url = a.get("public_url") or a.get("url")
+def download_flyer_files(e, cap=6):
+    """Download all of the event's flyer files from Monday; returns local paths."""
     import tempfile
-    path = Path(tempfile.gettempdir()) / f"cadence_flyer_{e['id']}.jpg"
-    with urllib.request.urlopen(url, timeout=60) as r, open(path, "wb") as f:
-        f.write(r.read())
-    return str(path)
+    paths = []
+    for idx, asset_id in enumerate((e.get("flyer_assets") or [])[:cap]):
+        data = monday_query(
+            "query($ids: [ID!]!) { assets(ids: $ids) { id public_url url } }",
+            {"ids": [str(asset_id)]},
+        )
+        a = (data.get("assets") or [None])[0]
+        url = a and (a.get("public_url") or a.get("url"))
+        if not url:
+            continue
+        path = Path(tempfile.gettempdir()) / f"cadence_flyer_{e['id']}_{idx}.jpg"
+        with urllib.request.urlopen(url, timeout=60) as r, open(path, "wb") as f:
+            f.write(r.read())
+        paths.append(str(path))
+    if not paths:
+        raise RuntimeError(f"no downloadable flyer files for event {e['id']}")
+    return paths
 
 
 def enqueue_event(e, captions, now):
@@ -392,7 +525,8 @@ def enqueue_event(e, captions, now):
     if not slots:
         return 0
 
-    image_url = qu.upload_image_to_catbox(download_flyer(e))
+    # Host every flyer once; posts rotate through them for feed variety.
+    image_urls = [qu.upload_image_to_catbox(p) for p in download_flyer_files(e)]
     queue = qu.load_queue()
     # Replace any pending entries for this event (re-approval refreshes cleanly;
     # already-posted entries are never touched).
@@ -408,7 +542,7 @@ def enqueue_event(e, captions, now):
                 "id": qu.new_post_id(utc),
                 "platform": platform,
                 "scheduled_for_utc": utc.isoformat(),
-                "image_url": image_url,
+                "image_url": image_urls[i % len(image_urls)],
                 "caption": captions[i % len(captions)],
                 "status": "pending",
                 "created_at": created,
