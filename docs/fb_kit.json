@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-07-04T19:45:00",
+ "generated_at": "2026-07-05T03:16:34",
  "events": [
   {
    "item_id": "12424060899",
-   "name": "Noche Latina — con Cynthia Marche",
+   "name": "Noche Latina",
    "date_display": "Jul 25, 2026",
    "start_time": "10:00 PM",
    "end_date_display": "Jul 26, 2026",
@@ -13,6 +13,19 @@
    "eventbrite_url": "https://www.eventbrite.com/e/noche-latina-con-cynthia-marche-tickets-1992967257717",
    "flyer": "media/fb-kit/12424060899_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12424060899"
+  },
+  {
+   "item_id": "12425641604",
+   "name": "Night of Kings; An all King Drag Show",
+   "date_display": "Jul 26, 2026",
+   "start_time": "8:00 PM",
+   "end_date_display": "Jul 27, 2026",
+   "end_time": "12:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "The kings are taking over the Main Floor at Azúcar. Night of Kings is a full-throttle celebration of masculine drag energy—all swagger, all presence, all night. Cherry Pop's hosting the chaos while Dea handles the soundtrack, and the lineup reads like a who's who of regional royalty: Sr Knight Haven Rexia, Jen Durless, Puddlezz, Dick Van Dykeotomy, Edward Demizer, Dominic Trix, Beah Hazard, Phish Takho—each bringing their own flavor of studs and heartthrobs to the stage.\n\nThis is the kind of show where the energy hits different. Kings move different. They command the room with a magnetism that pulls you in, and on July 26th, you're witnessing the best of them in one place. The Main Floor is about to feel the full weight of their presence—smooth, sharp, electric.\n\nCome for the performances. Stay for the ritual. Bring your crew.\n\n🗓️ Domingo 26 de julio — Show 8:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $15-$25\n\n🎟️ Tickets: https://www.eventbrite.com/e/1992954447401?aff=oddtdtcreator",
+   "eventbrite_url": "https://www.eventbrite.com/e/1992954447401?aff=oddtdtcreator",
+   "flyer": "media/fb-kit/12425641604_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12425641604"
   }
  ]
 }
