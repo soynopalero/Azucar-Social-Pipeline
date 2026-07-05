@@ -26,7 +26,7 @@
   .card h2 { font-size: 1.15rem; margin-bottom: 2px; color: var(--pink); }
   .card .when { color: var(--muted); font-size: .9rem; margin-bottom: 14px; }
   .flyer-row { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
-  .flyer-row img { width: 110px; border-radius: 8px; border: 1px solid var(--line); }
+  .flyer-row img { width: min(320px, 55%); border-radius: 8px; border: 1px solid var(--line); }
   .flyer-row .fl-actions { display: flex; flex-direction: column; gap: 8px; }
   .field { border-top: 1px solid var(--line); padding: 11px 0; display: grid; grid-template-columns: 26px 1fr auto; gap: 10px; align-items: center; }
   .step { width: 26px; height: 26px; border-radius: 50%; background: #37304a; color: #fff; display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: 700; }
@@ -80,7 +80,7 @@ async function load() {
       <div class="flyer-row">
         <img src="${esc(ev.flyer)}" alt="flyer">
         <div class="fl-actions">
-          <a class="dl" href="${esc(ev.flyer)}" download>⬇ Save flyer<br><small>(cover photo)</small></a>
+          <a class="dl" href="${esc(ev.flyer)}" download>⬇ Save cover<br><small>(FB event size)</small></a>
         </div>
       </div>
       ${field(1, 'Event name', ev.name)}

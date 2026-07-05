@@ -38,6 +38,11 @@ COL_AGE = "color_mm4p6jsr"
 COL_EVENTBRITE = "link_mm4nmhe3"
 COL_FB_EVENT = "link_mm4xv1nv"
 COL_FLYER = "file_mm4nnwtq"
+COL_COVER = "file_mm4t6n8c"  # optional user-uploaded wide FB/Eventbrite cover
+
+# FB event cover target (~1.91:1)
+COVER_W, COVER_H = 1920, 1005
+LANDSCAPE_OK = 1.7  # aspect ratio at/above which a flyer is used as-is
 
 HIDDEN_PHASES = {"Cancelled", "Completed"}
 VENUE_ADDRESS = "327 W Lewis St, Pasco, WA 99301"
@@ -119,8 +124,8 @@ def fmt_time(hour: int, minute: int) -> str:
     return f"{h12}:{minute:02d} {suffix}"
 
 
-def download_flyer(item: dict) -> str | None:
-    c = col(item, COL_FLYER)
+def download_file_col(item: dict, col_id: str, suffix: str) -> Path | None:
+    c = col(item, col_id)
     try:
         files = json.loads(c.get("value") or "{}").get("files") or []
     except (json.JSONDecodeError, TypeError):
@@ -142,10 +147,53 @@ def download_flyer(item: dict) -> str | None:
     if ext.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
         ext = ".jpg"
     KIT_MEDIA.mkdir(parents=True, exist_ok=True)
-    out = KIT_MEDIA / f"{item['id']}{ext}"
+    out = KIT_MEDIA / f"{item['id']}{suffix}{ext}"
     with urllib.request.urlopen(url, timeout=30) as r:
         out.write_bytes(r.read())
-    return f"media/fb-kit/{out.name}"
+    return out
+
+
+def make_fb_cover(src: Path, out: Path) -> None:
+    """1920x1005 FB event cover: full flyer centered, blurred flyer as the wings."""
+    from PIL import Image, ImageEnhance, ImageFilter
+
+    img = Image.open(src).convert("RGB")
+    # Background: scale-to-fill, center-crop, blur + darken
+    scale = max(COVER_W / img.width, COVER_H / img.height)
+    bw, bh = round(img.width * scale), round(img.height * scale)
+    bg = img.resize((bw, bh)).crop((
+        (bw - COVER_W) // 2, (bh - COVER_H) // 2,
+        (bw - COVER_W) // 2 + COVER_W, (bh - COVER_H) // 2 + COVER_H,
+    ))
+    bg = ImageEnhance.Brightness(bg.filter(ImageFilter.GaussianBlur(42))).enhance(0.55)
+    # Foreground: full flyer, fit to cover height
+    fh = COVER_H
+    fw = round(img.width * fh / img.height)
+    fg = img.resize((fw, fh))
+    bg.paste(fg, ((COVER_W - fw) // 2, 0))
+    bg.save(out, "JPEG", quality=88)
+
+
+def resolve_cover(item: dict) -> str | None:
+    """FB-ready image for the kit. Priority: user-uploaded Event Cover column >
+    already-landscape flyer as-is > auto-generated blurred-wings cover."""
+    from PIL import Image
+
+    custom = download_file_col(item, COL_COVER, "_cover")
+    if custom:
+        return f"media/fb-kit/{custom.name}"
+
+    flyer = download_file_col(item, COL_FLYER, "")
+    if not flyer:
+        return None
+    with Image.open(flyer) as im:
+        aspect = im.width / im.height
+    if aspect >= LANDSCAPE_OK:
+        return f"media/fb-kit/{flyer.name}"  # already event-shaped
+
+    generated = KIT_MEDIA / f"{item['id']}_cover.jpg"
+    make_fb_cover(flyer, generated)
+    return f"media/fb-kit/{generated.name}"
 
 
 def build_description(item: dict, event_date: dt.date, start_str: str,
@@ -192,8 +240,8 @@ def main() -> int:
             print(f"  skip {item['name']!r}: no description on Monday")
             continue
 
-        flyer = download_flyer(item)
-        if not flyer:
+        cover = resolve_cover(item)
+        if not cover:
             print(f"  skip {item['name']!r}: no flyer on Monday")
             continue
 
@@ -213,7 +261,7 @@ def main() -> int:
             "location": VENUE_ADDRESS,
             "description": build_description(item, event_date, start_str, eb),
             "eventbrite_url": eb,
-            "flyer": flyer,
+            "flyer": cover,
             "monday_url": f"https://nopaleros-org.monday.com/boards/{BOARD_ID}/pulses/{item['id']}",
         })
         print(f"  ✓ {item['name']!r} on {date_iso}")
