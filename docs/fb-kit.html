@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>FB Event Kit — Azúcar</title>
+<style>
+  :root {
+    --pink: #ff2d87; --dark: #16121d; --card: #221c2e; --line: #37304a;
+    --text: #f4f0fa; --muted: #a99fc0; --ok: #2ecc71;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--dark); color: var(--text); font: 16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 20px 14px 80px; }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  .sub { color: var(--muted); font-size: .92rem; margin-bottom: 18px; }
+  .toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+  .btn-big {
+    display: inline-block; background: #1877f2; color: #fff; text-decoration: none;
+    padding: 12px 18px; border-radius: 10px; font-weight: 700; font-size: .95rem;
+  }
+  .hint { background: #2a2438; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; font-size: .88rem; color: var(--muted); margin-bottom: 24px; }
+  .hint b { color: var(--text); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-bottom: 28px; }
+  .card h2 { font-size: 1.15rem; margin-bottom: 2px; color: var(--pink); }
+  .card .when { color: var(--muted); font-size: .9rem; margin-bottom: 14px; }
+  .flyer-row { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+  .flyer-row img { width: 110px; border-radius: 8px; border: 1px solid var(--line); }
+  .flyer-row .fl-actions { display: flex; flex-direction: column; gap: 8px; }
+  .field { border-top: 1px solid var(--line); padding: 11px 0; display: grid; grid-template-columns: 26px 1fr auto; gap: 10px; align-items: center; }
+  .step { width: 26px; height: 26px; border-radius: 50%; background: #37304a; color: #fff; display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: 700; }
+  .fld label { display: block; font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 2px; }
+  .fld .val { font-size: .95rem; word-break: break-word; white-space: pre-wrap; }
+  .fld .val.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .copy, .dl {
+    background: var(--pink); border: 0; color: #fff; font-weight: 700; font-size: .85rem;
+    padding: 9px 16px; border-radius: 8px; cursor: pointer; text-decoration: none; text-align: center;
+  }
+  .copy.copied { background: var(--ok); }
+  .dl { background: #4a4361; }
+  .done { margin-top: 14px; border-top: 1px dashed var(--line); padding-top: 12px; font-size: .88rem; color: var(--muted); }
+  .done a { color: var(--pink); }
+  .empty { text-align: center; color: var(--muted); padding: 60px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📘 FB Event Kit</h1>
+  <div class="sub">Every field below is in the exact order Facebook's form asks for it. Copy → paste → next. ~1 minute per event.</div>
+
+  <div class="toolbar">
+    <a class="btn-big" href="https://www.facebook.com/events/create/" target="_blank" rel="noopener">➕ Open Facebook → Create event</a>
+  </div>
+
+  <div class="hint">
+    <b>Before you paste:</b> in Facebook's create dialog, make sure the host (profile picture dropdown at the top) is set to
+    <b>Out And About</b> — the Page, not your personal profile. When the event is live, paste its URL back into the
+    Monday item (link at the bottom of each card) so it drops off this list.
+  </div>
+
+  <div id="kit"></div>
+</div>
+
+<script>
+async function load() {
+  const res = await fetch('fb_kit.json?' + Date.now());
+  const data = await res.json();
+  const kit = document.getElementById('kit');
+  if (!data.events.length) {
+    kit.innerHTML = '<div class="empty">🎉 Nothing pending — every event with an Eventbrite page already has its Facebook event.</div>';
+    return;
+  }
+  for (const ev of data.events) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <h2>${esc(ev.name)}</h2>
+      <div class="when">${esc(ev.date_display)} · ${esc(ev.start_time)} — ${esc(ev.end_time)}</div>
+      <div class="flyer-row">
+        <img src="${esc(ev.flyer)}" alt="flyer">
+        <div class="fl-actions">
+          <a class="dl" href="${esc(ev.flyer)}" download>⬇ Save flyer<br><small>(cover photo)</small></a>
+        </div>
+      </div>
+      ${field(1, 'Event name', ev.name)}
+      ${field(2, 'Start date', ev.date_display)}
+      ${field(3, 'Start time', ev.start_time)}
+      ${field(4, 'End date', ev.end_date_display)}
+      ${field(5, 'End time', ev.end_time)}
+      ${field(6, 'Location', ev.location)}
+      ${field(7, 'Description (ticket link included)', ev.description, true)}
+      <div class="done">✅ Event live? <a href="${esc(ev.monday_url)}" target="_blank" rel="noopener">Open the Monday item</a> and paste the Facebook event URL into <b>Facebook Event URL</b> — it disappears from this list on the next refresh.</div>
+    `;
+    kit.appendChild(card);
+  }
+  document.querySelectorAll('.copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(btn.dataset.v);
+      btn.textContent = '✓ Copied'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 1600);
+    });
+  });
+}
+function field(step, label, value, clamp) {
+  return `<div class="field">
+    <div class="step">${step}</div>
+    <div class="fld"><label>${esc(label)}</label><div class="val${clamp ? ' clamp' : ''}">${esc(value)}</div></div>
+    <button class="copy" data-v="${esc(value)}">COPY</button>
+  </div>`;
+}
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+load();
+</script>
+</body>
+</html>
