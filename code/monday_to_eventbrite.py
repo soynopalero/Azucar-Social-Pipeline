@@ -248,6 +248,34 @@ def eb_publish(event_id: str) -> None:
         fail("publish", r)
 
 
+def refresh_fb_kit_now() -> None:
+    """Rebuild the FB kit and push it immediately so the page updates in ~1 min
+    instead of waiting for the 30-min cron (which stays on as the backstop)."""
+    import subprocess
+
+    import build_fb_kit
+    print("\nRefreshing FB kit...")
+    build_fb_kit.main()
+
+    def git(*args, check=True):
+        return subprocess.run(["git", *args], cwd=REPO_ROOT, check=check)
+
+    try:
+        git("add", "docs/fb_kit.json", "docs/media/fb-kit")
+        unchanged = git("diff", "--cached", "--quiet", "-I", '"generated_at"',
+                        check=False).returncode == 0
+        if unchanged:
+            git("reset", "-q", "docs/fb_kit.json", "docs/media/fb-kit")
+            print("FB kit unchanged — nothing to push.")
+            return
+        git("commit", "-m", "FB kit refresh [skip ci]")
+        git("pull", "--rebase", "--autostash")
+        git("push")
+        print("FB kit pushed — the kit page updates in ~1 minute.")
+    except subprocess.CalledProcessError as e:
+        print(f"FB kit push failed ({e}) — no harm done, the 30-min cron will catch it.")
+
+
 # ─── Per-item pipeline ───────────────────────────────────────────────────────
 
 def readiness(item: dict) -> tuple[bool, str]:
@@ -267,7 +295,7 @@ def readiness(item: dict) -> tuple[bool, str]:
     return True, "ready"
 
 
-def process_item(item: dict, dry_run: bool) -> None:
+def process_item(item: dict, dry_run: bool) -> bool:
     name = item["name"].strip()
     date_iso = col(item, COL_DATE).get("date")
     hour = col(item, COL_TIME).get("hour")
@@ -284,13 +312,13 @@ def process_item(item: dict, dry_run: bool) -> None:
     cover = resolve_eb_cover(item)
     if not cover:
         print("  SKIP: no flyer on the Monday item")
-        return
+        return False
     print(f"  cover         : {cover.name}")
 
     if dry_run:
         print("  DRY RUN — no Eventbrite event created. Description preview:")
         print("  " + desc_html[:220].replace("\n", " ") + "…")
-        return
+        return False
 
     image_id = eb_upload_image(cover)
     print(f"  image uploaded: {image_id}")
@@ -302,8 +330,8 @@ def process_item(item: dict, dry_run: bool) -> None:
     print(f"  published     : {event['url']}")
 
     monday_write_eventbrite_url(item["id"], event["url"], f"Eventbrite — {name}")
-    print("  Monday updated: Eventbrite URL written back "
-          "(FB kit picks it up within 30 min)")
+    print("  Monday updated: Eventbrite URL written back")
+    return True
 
 
 def main() -> int:
@@ -337,8 +365,9 @@ def main() -> int:
             print("Nothing pending — every ready event already has an Eventbrite URL.")
             return 0
 
-    for item in targets:
-        process_item(item, args.dry_run)
+    created = sum(process_item(item, args.dry_run) for item in targets)
+    if created:
+        refresh_fb_kit_now()
     return 0
 
 
