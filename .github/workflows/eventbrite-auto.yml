@@ -1,0 +1,42 @@
+name: Eventbrite auto-create
+
+# Fired by the Telegram bot the moment an event is published to Monday
+# (workflow_dispatch via GITHUB_TRIGGER_TOKEN — same mechanism as the cadence
+# engine). Creates Eventbrite pages for every ready item that doesn't have one,
+# writes the URL back to Monday, and refreshes the FB Event Kit.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eventbrite-auto
+  cancel-in-progress: false
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pillow requests
+
+      - name: Git identity (the script pushes the FB kit refresh itself)
+        run: |
+          git config user.name "eventbrite-bot"
+          git config user.email "actions@github.com"
+
+      - name: Wait for Monday file uploads to settle
+        run: sleep 20
+
+      - name: Create Eventbrite events for all pending items
+        env:
+          MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
+        run: python code/monday_to_eventbrite.py --all-pending
