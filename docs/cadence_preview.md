@@ -1,15 +1,25 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-04 09:57 PDT - **nothing posted, queue untouched**
+Generated 2026-07-04 20:56 PDT - **nothing posted, queue untouched**
 
-Eligible events: **2** - Skipped: **34**
+Eligible events: **3** - Skipped: **35**
 
-## Noche Latina - 2026-07-25  (Standard)
-16 posts x 2 platforms = **32** queue entries
+## Testing for your life - 2026-07-16  (Light)
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Jul 4, 7:00 PM | evening |
+| Thu Jul 9, 11:00 AM | morning |
+| Fri Jul 10, 7:00 PM | evening |
+| Sun Jul 12, 11:00 AM | morning |
+| Tue Jul 14, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+
+## Noche Latina - 2026-07-25  (Standard)
+15 posts x 2 platforms = **30** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Sun Jul 5, 11:00 AM | morning |
 | Wed Jul 8, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
@@ -27,11 +37,10 @@ Eligible events: **2** - Skipped: **34**
 | Sat Jul 25, 11:00 AM | morning |
 
 ## Night of Kings; An all King Drag Show - 2026-07-26  (Standard)
-17 posts x 2 platforms = **34** queue entries
+16 posts x 2 platforms = **32** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Jul 4, 7:00 PM | evening |
 | Sun Jul 5, 11:00 AM | morning |
 | Mon Jul 6, 7:00 PM | evening |
 | Thu Jul 9, 11:00 AM | morning |
@@ -56,6 +65,7 @@ Eligible events: **2** - Skipped: **34**
 - **Aubs Take Over — July** - no cadence set, no flyer, no price, no description
 - **Aubs Take Over — June** - date in the past, no cadence set, no flyer, no price, no description
 - **Azúcar House Party — DJ Lalique Debut** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
+- **Azúcar testing** - cadence = Off
 - **Cabana Bass** - no cadence set, no flyer, no price, no description
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Drag Wheel of Pride — Anthem Edition (All Ages)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -88,4 +98,4 @@ Eligible events: **2** - Skipped: **34**
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show — Saturday June 20, 9pm-2am** - no date, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 66**
+**Total queue entries that would be created: 72**
