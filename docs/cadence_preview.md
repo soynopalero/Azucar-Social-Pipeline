@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-05 10:02 PDT - **nothing posted, queue untouched**
+Generated 2026-07-06 11:07 PDT - **nothing posted, queue untouched**
 
 Eligible events: **3** - Skipped: **35**
 
@@ -9,7 +9,7 @@ Eligible events: **3** - Skipped: **35**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 5, 7:00 PM | evening |
+| Mon Jul 6, 7:00 PM | evening |
 | Thu Jul 9, 11:00 AM | morning |
 | Fri Jul 10, 7:00 PM | evening |
 | Sun Jul 12, 11:00 AM | morning |
@@ -21,7 +21,7 @@ Eligible events: **3** - Skipped: **35**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 5, 7:00 PM | evening |
+| Mon Jul 6, 7:00 PM | evening |
 | Wed Jul 8, 11:00 AM | morning |
 | Sat Jul 11, 7:00 PM | evening |
 | Sun Jul 12, 11:00 AM | morning |
@@ -38,26 +38,25 @@ Eligible events: **3** - Skipped: **35**
 | Sat Jul 25, 7:00 PM | evening |
 
 ## Night of Kings; An all King Drag Show - 2026-07-26  (Standard)
-16 posts x 2 platforms = **32** queue entries
+15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 5, 7:00 PM | evening |
-| Mon Jul 6, 11:00 AM | morning |
-| Thu Jul 9, 7:00 PM | evening |
-| Sun Jul 12, 11:00 AM | morning |
-| Mon Jul 13, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sun Jul 19, 7:00 PM | evening |
-| Mon Jul 20, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
-| Wed Jul 22, 11:00 AM | morning |
-| Thu Jul 23, 7:00 PM | evening |
-| Fri Jul 24, 11:00 AM | morning |
-| Sat Jul 25, 7:00 PM | evening |
-| Sun Jul 26, 11:00 AM | morning |
+| Mon Jul 6, 7:00 PM | evening |
+| Thu Jul 9, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+| Mon Jul 13, 11:00 AM | morning |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Mon Jul 20, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
+| Thu Jul 23, 11:00 AM | morning |
+| Fri Jul 24, 7:00 PM | evening |
+| Sat Jul 25, 11:00 AM | morning |
+| Sun Jul 26, 7:00 PM | evening |
 
 ---
 
@@ -99,4 +98,4 @@ Eligible events: **3** - Skipped: **35**
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show — Saturday June 20, 9pm-2am** - no date, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 74**
+**Total queue entries that would be created: 72**
