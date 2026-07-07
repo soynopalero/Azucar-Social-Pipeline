@@ -1,0 +1,14 @@
+{
+  "vida_amore_june_20": {
+    "name": "Orgullo LGBTQ+: El Tributo — Vida Amore",
+    "event_date": "2026-06-20",
+    "tag": "👑 Drag",
+    "flyer_grad": "linear-gradient(135deg,#7B2FF0,#2b6cf0)"
+  },
+  "__oneoffs": {
+    "name": "Earlier one-off posts (Spring 2026)",
+    "event_date": "2026-06-19",
+    "tag": "🗂️ One-offs",
+    "flyer_grad": "linear-gradient(135deg,#2F9E6B,#7B2FF0)"
+  }
+}
