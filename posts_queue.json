@@ -602,9 +602,9 @@
     {
       "id": "20260713_020000_te5t01",
       "platform": "instagram",
-      "scheduled_for_utc": "2026-07-13T02:00:00+00:00",
+      "scheduled_for_utc": "2026-07-13T02:00:00.000Z",
       "image_url": "",
-      "caption": "Test post from your new Post Manager 🎛️ — open me, change this caption, hit Save... then delete me!",
+      "caption": "anythin",
       "status": "pending",
       "created_at": "2026-07-07T05:15:14.786842+00:00",
       "posted_at": null,
