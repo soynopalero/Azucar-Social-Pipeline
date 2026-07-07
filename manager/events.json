@@ -1,0 +1,614 @@
+{
+  "generated_at": "2026-07-05T04:40:57.176279+00:00",
+  "note": "Prototype data. 'real' events come from your live posts_queue.json; 'sample' events are demo-only and vanish when live data is wired.",
+  "events": [
+    {
+      "id": "vida_amore_june_20",
+      "name": "Orgullo LGBTQ+: El Tributo — Vida Amore",
+      "event_date": "2026-06-20",
+      "tag": "👑 Drag",
+      "flyer_grad": "linear-gradient(135deg,#7B2FF0,#2b6cf0)",
+      "source": "real",
+      "posts": [
+        {
+          "ids": [
+            "20260601_190000_1ad6c6",
+            "20260601_190000_147919"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-01T19:00:00+00:00",
+          "scheduled_display": "Mon Jun 1 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/92wryj.jpg"
+          ],
+          "caption": "🌈 Pasco, marca tu calendario. 🌈\n\nORGULLO LGBTQ+: EL TRIBUTO está aquí.\n25 años de Vida Amore — Washington's longest running drag show — llegan a Azúcar con todo el reparto: Vida, Alyana, Victoria y Labebota. Cuatro reinas que llevan décadas haciendo lo que casi nadie en este estado ha hecho — sostener un show, una comunidad, y un legado del mismo tamaño. 👑✨\n\nY la noche tiene banda sonora: DJ ShaReal en los decks, manteniendo la energía desde que se abre la puerta. 🎧🔥\n\n🗓️ Sábado 20 de junio\n⏰ Doors 8:30pm • Show 9:30pm\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n💵 $20 cover • 21+\n🎟️ Reservaciones de mesa GRATIS — DM directo a @vidaamore o @alyanaamore\n\nEsto no es solo un show. Es legado, comunidad, amor. Y orgullo del puro. 🪩💗\n\n@vidaamore @alyanaamore @vidaamoredivasshow\n\n#OrgulloLGBTQ #ElTributo #VidaAmore #VADS #AzucarPasco #PridePasco #DragQueens #25Years #TriCitiesPride #LatinxPride #OutAndAbout #DJShaReal",
+          "status": "posted",
+          "result": "Instagram media id: 17907658740426489"
+        },
+        {
+          "ids": [
+            "20260604_190000_1c7ea9",
+            "20260604_190000_26f50b"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-04T19:00:00+00:00",
+          "scheduled_display": "Thu Jun 4 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/i7vou3.jpg"
+          ],
+          "caption": "Meet your headliner. 👑\n\nVIDA AMORE.\n\n25 años. Léelo otra vez — 25 AÑOS. Vida no llegó al escenario, Vida CONSTRUYÓ el escenario. Antes de que el drag fuera mainstream, antes de que las apps existieran, antes de que la comunidad en el Tri-Cities tuviera un espacio propio — Vida ya estaba ahí, haciendo lo que nadie más quería hacer. 💚✨\n\nCada show de los últimos 25 años empieza con la misma decisión: dar la cara, brillar, y abrir el camino. Esa decisión es la que le dio forma a Washington's longest running drag show. Y el 20 de junio, esa decisión se celebra.\n\nMúsica por DJ ShaReal — la banda sonora del legado. 🎧\n\n🗓️ Sábado 20 de junio • Show 9:30pm\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ Reservaciones GRATIS — DM @vidaamore o @alyanaamore\n\n@vidaamore @vidaamoredivasshow\n\n#VidaAmore #VADS #OrgulloLGBTQ #ElTributo #AzucarPasco #DragLegend #25Years #DJShaReal",
+          "status": "posted",
+          "result": "Instagram media id: 18122492254648190"
+        },
+        {
+          "ids": [
+            "20260608_190000_a1df56",
+            "20260608_190000_138d79"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-08T19:00:00+00:00",
+          "scheduled_display": "Mon Jun 8 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/o8cxfk.jpg"
+          ],
+          "caption": "Conoce a la diva. 💗\n\nALYANA AMORE.\n\nHay drag queens. Y luego hay Alyana. La diferencia está en la pose, en cómo entra a un cuarto, en cómo la luz cae sobre ella antes que sobre cualquiera más. Es esa cualidad que no se enseña — se vive, se trabaja, se gana. 🌹✨\n\nCuando Alyana sube al escenario, el público no aplaude por costumbre — aplaude porque no le queda otra. Glamour, carisma, control absoluto del momento. Es la diva que te recuerda por qué el drag es un arte.\n\nEl 20 de junio, viene preparada. Y DJ ShaReal viene con el setlist perfecto para acompañarla. 🎧🔥\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About — Pasco WA\n🎟️ Reservaciones GRATIS — DM @vidaamore o @alyanaamore\n\n@alyanaamore @vidaamoredivasshow\n\n#AlyanaAmore #VADS #OrgulloLGBTQ #ElTributo #AzucarPasco #DragRoyalty #DJShaReal",
+          "status": "failed",
+          "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'AMXvuJn8o19sCLPwB0f0pHn'}}"
+        },
+        {
+          "ids": [
+            "20260610_190000_9708bb",
+            "20260610_190000_71cebc"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-10T19:00:00+00:00",
+          "scheduled_display": "Wed Jun 10 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/afez7w.jpg"
+          ],
+          "caption": "¿Lista para Victoria? 💋\n\nVICTORIA AMORE.\n\nLa elegancia hecha drag. El rojo no es un color, es una declaración — y Victoria lo lleva como armadura. Cuando sube al escenario, no necesita hablar para que sepas quién es: lo dice la mirada, lo dice la entrada, lo dicen las curvas que se mueven con propósito. 👑🌹\n\nEs la queen que viene de la escuela clásica del drag: presencia, control, y un performance que entiende el silencio tanto como entiende el grito. Cada número de Victoria es una pieza completa — principio, desarrollo, momento.\n\nY atrás de ella, DJ ShaReal poniéndole el ritmo. Porque Victoria no canta sola — la noche entera la respalda. 🎧\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About — Pasco WA\n🎟️ Reserva tu mesa GRATIS — DM @vidaamore o @alyanaamore\n\n@vidaamoredivasshow\n\n#VictoriaAmore #VADS #OrgulloLGBTQ #ElTributo #AzucarPasco #DragQueen #DJShaReal",
+          "status": "failed",
+          "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'AJSAyUCy8eFRd19thgbTYu5'}}"
+        },
+        {
+          "ids": [
+            "20260612_190000_d79013",
+            "20260612_190000_176fb9"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-12T19:00:00+00:00",
+          "scheduled_display": "Fri Jun 12 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/lamz6z.jpg"
+          ],
+          "caption": "LABEBOTA AMORE. 💜\n\nLa carta loca del mazo. La energía que rompe el escenario en dos. Si las otras divas son el legado, la elegancia y la presencia — Labebota es el momento que te saca de la silla. 🪩🔥\n\nCuando ella aparece, el público se levanta. No porque alguien lo pidió, no porque la canción lo amerita — porque no hay otra opción. Su drag es físico, es eléctrico, es el tipo de performance que te deja con el corazón acelerado y la voz ronca de tanto gritar.\n\nY la noche entera la sostiene DJ ShaReal — el único que puede seguirle el ritmo. 🎧\n\n20 de junio. Ven a ver por qué. ✨\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About — Pasco WA\n🎟️ Reservaciones GRATIS — DM @vidaamore o @alyanaamore\n\n@vidaamoredivasshow\n\n#LabebotaAmore #VADS #OrgulloLGBTQ #ElTributo #AzucarPasco #DragQueens #DJShaReal",
+          "status": "posted",
+          "result": "Instagram media id: 18591198607006106"
+        },
+        {
+          "ids": [
+            "20260615_190000_31a3c6",
+            "20260615_190000_948719"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-15T19:00:00+00:00",
+          "scheduled_display": "Mon Jun 15 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/92wryj.jpg"
+          ],
+          "caption": "⏳ 5 DÍAS para ORGULLO LGBTQ+: EL TRIBUTO.\n\nCinco días. Las cuatro divas — Vida, Alyana, Victoria, Labebota — calentando entre bastidores. DJ ShaReal armando el setlist que va a definir la noche. Y Azúcar preparando el espacio para una de las noches más esperadas del año. 👑✨\n\n¿Ya reservaste tu mesa? Las mesas se llenan rápido. Y no quieres ver el show de pie cuando podrías estar sentade con tu crew, copa en mano, primera fila. 💗\n\nReservaciones GRATIS — pero hay que pedirlas. DM a Vida o a Alyana directo y ellas te apartan tu mesa.\n\n🗓️ Sábado 20 de junio\n⏰ Doors 8:30pm • Show 9:30pm\n📍 Azúcar at Out & About — Pasco WA\n💵 $20 cover • 21+\n🎟️ Reserva ahora: DM @vidaamore o @alyanaamore\n\n@vidaamore @alyanaamore @vidaamoredivasshow\n\n#OrgulloLGBTQ #ElTributo #VADS #AzucarPasco #PridePasco #5Days #DJShaReal",
+          "status": "failed",
+          "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'Akj2VwvORC6Vub9BWjfTTFH'}}"
+        },
+        {
+          "ids": [
+            "20260616_190000_f0c9cf",
+            "20260616_190000_d81dce"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-16T19:00:00+00:00",
+          "scheduled_display": "Tue Jun 16 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/i7vou3.jpg"
+          ],
+          "caption": "⏳ 4 DÍAS.\n\nVIDA AMORE viene a abrir el escenario. 25 años de carrera no se improvisan — se preparan. Y ella ya está lista. 👑\n\nDJ ShaReal armando los beats. Vida ensayando los detalles. La cuenta regresiva no es un truco — es una promesa.\n\n¿Y tú? ¿Ya reservaste? 🎟️\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About\n🎟️ Reservaciones GRATIS — DM @vidaamore o @alyanaamore\n\n@vidaamore @vidaamoredivasshow\n\n#VidaAmore #OrgulloLGBTQ #ElTributo #VADS #4Days #DJShaReal",
+          "status": "posted",
+          "result": "Instagram media id: 18093401021360128"
+        },
+        {
+          "ids": [
+            "20260617_190000_c611ed",
+            "20260617_190000_b47d3c"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-17T19:00:00+00:00",
+          "scheduled_display": "Wed Jun 17 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/o8cxfk.jpg"
+          ],
+          "caption": "⏳ 3 DÍAS.\n\nALYANA AMORE. Glamour máximo. ✨🌹\n\nTres días para que ella suba al escenario y todo el mundo entienda lo que es presencia. Tres días para que DJ ShaReal le ponga la canción exacta. Tres días para que tú estés ahí — o te quedes contando lo que te perdiste.\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About\n🎟️ Reservaciones GRATIS — DM @vidaamore o @alyanaamore\n\n@alyanaamore @vidaamoredivasshow\n\n#AlyanaAmore #OrgulloLGBTQ #ElTributo #VADS #3Days #DJShaReal",
+          "status": "failed",
+          "result": "FB post failed: {'error': {'code': 1, 'message': \"Please reduce the amount of data you're asking for, then retry your request\"}}"
+        },
+        {
+          "ids": [
+            "20260618_190000_544260",
+            "20260618_190000_5ef92e"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-18T19:00:00+00:00",
+          "scheduled_display": "Thu Jun 18 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/afez7w.jpg"
+          ],
+          "caption": "⏳ 2 DÍAS.\n\nVICTORIA AMORE. La elegancia que se hace esperar. 💋\n\nDos días. Dos. La diva que entiende el silencio antes del aplauso ya tiene su vestuario listo, su música escogida — y DJ ShaReal sincronizando cada beat.\n\nTrae a tu mamá. Trae a tu crew. Trae a tu ex. Es Pride — todo el mundo cabe.\n\n🗓️ Sábado 20 de junio • 9:30pm\n📍 Azúcar at Out & About\n🎟️ Reservaciones GRATIS — DM @vidaamore o @alyanaamore\n\n@vidaamoredivasshow\n\n#VictoriaAmore #OrgulloLGBTQ #ElTributo #VADS #2Days #DJShaReal",
+          "status": "posted",
+          "result": "Instagram media id: 18123688753671427"
+        },
+        {
+          "ids": [
+            "20260619_190000_f4397d",
+            "20260619_190000_7b7ce6"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-19T19:00:00+00:00",
+          "scheduled_display": "Fri Jun 19 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/92wryj.jpg"
+          ],
+          "caption": "🚨 MAÑANA. 🚨\n\nORGULLO LGBTQ+: EL TRIBUTO.\n\nDespués de 25 años de Vida Amore — esta es la noche. Las cuatro divas — Vida, Alyana, Victoria, Labebota — en un solo escenario. DJ ShaReal armando una noche que va a hacer historia. Y Azúcar abriendo las puertas para que todo el mundo vea por qué este es el show más respetado del estado. 💗👑✨\n\nSi no tienes mesa, llega temprano. Doors a las 8:30pm. Si tienes mesa, ya sabes — llega con todo, con tu crew, con tus tacones, con tu mejor versión. 🪩\n\n🗓️ MAÑANA — Sábado 20 de junio\n⏰ Doors 8:30pm • Show 9:30pm\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n💵 $20 cover • 21+\n🎟️ Última oportunidad — DM @vidaamore o @alyanaamore para mesa\n\n@vidaamore @alyanaamore @vidaamoredivasshow\n\n#OrgulloLGBTQ #ElTributo #VADS #AzucarPasco #PridePasco #Tomorrow #VidaAmore #DJShaReal",
+          "status": "posted",
+          "result": "Instagram media id: 18345644338216109"
+        }
+      ]
+    },
+    {
+      "id": "spring_2026_oneoffs",
+      "name": "Earlier one-off posts (Spring 2026)",
+      "event_date": "2026-06-13",
+      "tag": "🗂️ One-offs",
+      "flyer_grad": "linear-gradient(135deg,#2F9E6B,#7B2FF0)",
+      "source": "real",
+      "posts": [
+        {
+          "ids": [
+            "20260527_014500_d7c448"
+          ],
+          "platforms": [
+            "instagram"
+          ],
+          "scheduled_for_utc": "2026-05-27T01:45:00+00:00",
+          "scheduled_display": "Tue May 26 · 6:45 PM",
+          "images": [
+            "https://files.catbox.moe/1z7gce.jpg"
+          ],
+          "caption": "¿Tú y quién más? 🌈🇲🇽\n\nLATINO/A PRIDE 2026 — el más grande del año en Pasco.\nBandas en vivo. Más de 15 vendedores. Y la dance party que vas a recordar todo el verano. 💃🪩🔥\n\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🗓️ Sábado 13 de junio • 4pm hasta tarde\n👨‍👩‍👧 All ages until 9pm | 21+ after 9pm\n\nTrae a tu crew. Trae a tu mamá. Trae a tu ex (es Pride, perdonamos). 🌈\n\n#LatinoPride #LatinxPride #PridePasco #TriCitiesPride #AzucarPasco #OutAndAbout #Orgullo2026 #LGBTQLatinx #PNWPride #WashingtonPride",
+          "status": "posted",
+          "result": "Instagram media id: 18009305162907626"
+        },
+        {
+          "ids": [
+            "20260527_044500_f1d214"
+          ],
+          "platforms": [
+            "instagram"
+          ],
+          "scheduled_for_utc": "2026-05-27T04:51:10.050189+00:00",
+          "scheduled_display": "Tue May 26 · 9:51 PM",
+          "images": [
+            "https://files.catbox.moe/dt1mke.png"
+          ],
+          "caption": "The house is yours. 🏠 Except this time, you don't have to clean up 😌\n\nAZÚCAR HOUSE PARTY — the vibes you've been throwing at home, but with better sound, better lights, and bartenders who actually know what they're doing. 🪩🍻\n\nDouble debut behind the decks: DJ LALIQUE + a special guest DJ — both stepping into Azúcar for the first time. 🎧🔥 They came to stay.\n\n🍻 Beer pong • 💃 all the hits • ✨ light show • a dance floor that hits different\n\n🗓️ Saturday, May 30, 2026\n⏰ 9pm — close\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🪪 21+ only\n\nBring your crew. Bring your besties. Bring the party shoes. 💃\nThe house party you've been waiting for.\n\n#AzucarPasco #HouseParty #DJLalique #OutAndAbout #PascoNights #TriCitiesNightlife #LatinxNightlife #QueerNightlife #21Plus #PNWParty #TriCitiesWA",
+          "status": "posted",
+          "result": "Instagram media id: 17865266487565643"
+        },
+        {
+          "ids": [
+            "20260605_013000_4454cd",
+            "20260605_013000_23cf59"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-05T01:30:00+00:00",
+          "scheduled_display": "Thu Jun 4 · 6:30 PM",
+          "images": [
+            "https://files.catbox.moe/0geqwe.jpg"
+          ],
+          "caption": "The biggest Latino Pride in Eastern Washington is back 🏳️‍🌈🌽\n\nMark your calendar, because Saturday June 13 is going to be a whole day and night of celebration. Latino/a Pride is back, and once again it is the largest Latino Pride in all of Eastern Washington, hosted right here by Azúcar at Out & About.\n\nWe start outside with a full festival from 4PM until 9PM. Think food, drinks, a beer garden, vendors, and live entertainment all afternoon long, and it is all ages, so bring the whole familia. Our folklórico dancers, our drag performers, our DJ, and our cultural artists will all be taking the stage throughout the evening.\n\nThen at 9PM we open the doors and take the party inside Azúcar. We kick the night off with another full drag show, and after that we keep it going with two rooms running all night. One room will be playing English hip hop and dance music, and the other will be Spanish music from open to close. Two vibes, one building, zero reasons to go home early.\n\nThis is our city, our culture, and our community out loud and unapologetic. Come celebrate with us.\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "posted",
+          "result": "Instagram media id: 18069350195341010"
+        },
+        {
+          "ids": [
+            "20260605_020000_4972ea",
+            "20260605_020000_1d55e8"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-05T02:00:00+00:00",
+          "scheduled_display": "Thu Jun 4 · 7:00 PM",
+          "images": [
+            "https://files.catbox.moe/6lv475.jpg"
+          ],
+          "caption": "Meet your hosts for the night 🌟🏳️‍🌈\n\nLatino/a Pride is being opened and hosted all night long by two of our next generation reinas, Abele Fantasy and Bali, and this is exactly the moment we have been building toward. We love putting the new wave of drag front and center, and these two have absolutely earned the spotlight.\n\nAbele Fantasy first caught our eye at our amateur contest, but do not let the word amateur fool you for a second. She has been performing for years and she is a genuinely talented, polished artist who knows how to command a room. She is local, she is fierce, and she does it all like she has nothing to prove.\n\nThen there is Bali, and honey, you already know. She brings the comedy, the camp, and a Selena tribute that had the whole room screaming the first time she did it. Anyone who caught her at our NextGen show can tell you she was born for this stage.\n\nPut these two together on one mic and you get a whole show inside the show. Come out, tip your hosts well, and support next generation drag the way it deserves.\n\n@abele_fantasy and @tranyliciousss\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "posted",
+          "result": "Instagram media id: 18008789759870793"
+        },
+        {
+          "ids": [
+            "20260605_190000_7ea3d6",
+            "20260605_190000_fd29e5"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-05T19:00:00+00:00",
+          "scheduled_display": "Fri Jun 5 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/w7zr2n.jpg"
+          ],
+          "caption": "La madrina has entered the building 👑\n\nIf you have been anywhere near the drag scene in Eastern Washington over the last many years, you already know Frivola. She is the madrina, she is the blueprint, and she is one of the longest reigning queens this side of the state. The résumé speaks for itself. She has spent years hosting Miss Washington Universe and she has sent her girls off to snatch crowns all across the nation.\n\nFrivola does not simply host a show, she runs the entire kingdom. When she takes that microphone, the room falls in line. You sit down, you pay attention, and yes, you tip her well. There is a reason every queen in the area knows her name, and a reason the crowd treats her like royalty.\n\nWe are beyond honored to have her gracing our Latino/a Pride stage this year. Come witness the queen who paved the way and somehow still does it better than most.\n\n@frivola_infiniti_montesdeoca\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "failed",
+          "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'AX3Sj0IX79jaOuFv12E3zjL'}}"
+        },
+        {
+          "ids": [
+            "20260606_013000_2d4d13",
+            "20260606_013000_2a108b"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-06T01:30:00+00:00",
+          "scheduled_display": "Fri Jun 5 · 6:30 PM",
+          "images": [
+            "https://files.catbox.moe/riyy5p.jpg"
+          ],
+          "caption": "Your in house DJ is ready for you 🎧\n\nThe energy of any Azúcar night lives and dies by the booth, and ours is in very good hands. DJ EMXP is our in house DJ, and she knows exactly how to read a room and keep it moving. Expect cumbias, banda, reggaetón, house, and just about everything in between, all blended into one long reason to never leave the dance floor.\n\nShe is not new to this either. EMXP has performed all across the state, and her most recent gig had her running the techno stage at the Lollipop raves. If you missed her there, consider this your second chance, because she is bringing that exact same heat to Latino/a Pride.\n\nWear the comfortable shoes. Once she gets going, your hips are not going to bother asking for your permission.\n\n@dj_emxp\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "posted",
+          "result": "Instagram media id: 18392816656093808"
+        },
+        {
+          "ids": [
+            "20260606_190000_2d8a9d",
+            "20260606_190000_6c6356"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-06T19:00:00+00:00",
+          "scheduled_display": "Sat Jun 6 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/l75fms.jpg"
+          ],
+          "caption": "Say hello to our newest queen 💖\n\nEvery star has a first night somewhere, and Latino/a Pride is going to be Kendra Montaner's debut here in our area. She may be new to our stage, but she is far from new to the art. Kendra has been performing in her hometown for years, quietly building her craft and her confidence, and now she is ready to introduce herself to the Tri Cities.\n\nThis is exactly the kind of moment we live for at Azúcar, opening the stage to young queens who are hungry, talented, and ready for their shot. There is something special about being in the room for someone's very first performance in a new city, and we want you there for it.\n\nCome give Kendra the loud, loving, over the top welcome that every new queen deserves. Be the crowd she remembers for the rest of her career.\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "posted",
+          "result": "Instagram media id: 18081597323637814"
+        },
+        {
+          "ids": [
+            "20260607_013000_1c1d0d",
+            "20260607_013000_81b6a5"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-07T01:30:00+00:00",
+          "scheduled_display": "Sat Jun 6 · 6:30 PM",
+          "images": [
+            "https://files.catbox.moe/5bag1w.jpg"
+          ],
+          "caption": "Twenty years in the making 💃\n\nValeria Sanchez is the kind of artist you only get to witness if you are paying attention. She trained at the Escuela de Bellas Artes in both Mexican folklórico and flamenco, and she has carried that training onto stages all around the world. Twenty years of dedication to her craft, and she is nowhere near slowing down. On top of performing, she teaches, passing everything she knows on to the next generation of dancers.\n\nAt Latino/a Pride she takes the stage as a soloist. When the music starts and that skirt begins to fly, you will understand exactly why people call this an art form. It is power, history, and pure beauty all moving at once, and it is rare to see it this close to home.\n\nDo not look away for a second. You are going to want to remember this one.\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "failed",
+          "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'AS8q9j4XcGo1DX-MAQ_tnFg'}}"
+        },
+        {
+          "ids": [
+            "20260607_190000_c72d7b",
+            "20260607_190000_a3a07f"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-07T19:00:00+00:00",
+          "scheduled_display": "Sun Jun 7 · 12:00 PM",
+          "images": [
+            "https://files.catbox.moe/1d8gtv.jpg"
+          ],
+          "caption": "Folklórico royalty, right here at home 👢\n\nFor the very first time at Azúcar, we get to welcome Ballet Folklórico Cielo de México to our Pride stage. This is a local Tri Cities treasure, a crew of five to ten dancers bringing the traditional dances of northern México to life with the skirts, the boots, and the zapateado that you feel in your chest.\n\nThese dancers perform all throughout the year, and their famous annual showcase is honestly one of the most beautiful things you can experience locally. If you have never seen it, put it on your list, because it is the kind of show people talk about for weeks afterward. For now, we are lucky enough to have them at Azúcar, and we could not be more proud to share our stage with them.\n\nThey also teach all ages, so if watching them makes you want to learn, they are the ones to find. Come celebrate culture that lives and breathes right here at home.\n\nfacebook.com/cielodemexicotricities\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "posted",
+          "result": "Instagram media id: 18100673861142976"
+        },
+        {
+          "ids": [
+            "20260608_013000_7d0577",
+            "20260608_013000_b473cf"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-08T01:30:00+00:00",
+          "scheduled_display": "Sun Jun 7 · 6:30 PM",
+          "images": [
+            "https://files.catbox.moe/2ja7ja.jpg"
+          ],
+          "caption": "We begin by honoring our ancestors 🪶\n\nBefore the music and the dancing take over, we take a moment to honor where we come from. Tonatiuh Xocoyotzin joins us to bless Latino/a Pride with sacred danza, a form of Mexican Indigenous dance that has been carried through generations. He will be accompanied by a drummer and by our own Samadhi Curandera.\n\nThis is so much more than a performance. Tonatiuh will share what these dances mean, why they matter, and how they connect us to our roots, especially on a day when we gather to celebrate being fully and proudly ourselves. There is something powerful about holding space for tradition and queerness in the very same breath, and that is exactly what this moment is about.\n\nCome with an open heart and an open mind, and let yourself actually feel it.\n\n@tonamarezoficial\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "failed",
+          "result": "container creation failed: {'error': {'message': 'Timeout', 'type': 'OAuthException', 'code': -2, 'error_subcode': 2207003, 'is_transient': False, 'error_user_title': 'Timeout', 'error_user_msg': 'It takes too long to download the media.', 'fbtrace_id': 'ALGjDOw22oUOrtcblM55gbO'}}"
+        },
+        {
+          "ids": [
+            "20260609_013000_46064f",
+            "20260609_013000_7b5f40"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-09T01:30:00+00:00",
+          "scheduled_display": "Mon Jun 8 · 6:30 PM",
+          "images": [
+            "https://files.catbox.moe/d297lm.jpg"
+          ],
+          "caption": "Healing is part of the party 🌿\n\nPride days are big, beautiful, and a whole lot of feeling all at once, so we made sure to take care of you. Samadhi Curandera, one of our beloved local curanderas, will be set up at the first aid tent all event long, offering rapid limpias to anyone who needs one.\n\nMaybe you need a quick energetic cleanse, maybe you need a blessing, or maybe you just need a quiet moment to ground yourself between the music and the crowd. Whatever it is, she is there for it. Samadhi is a trusted healer in our community, and she is someone you can reach out to for support well beyond this one day.\n\nStop by the tent, take a breath, and let yourself be cared for. You deserve that too.\n\n@samadhi_curandera\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "posted",
+          "result": "Instagram media id: 17891875305503894"
+        },
+        {
+          "ids": [
+            "20260610_013000_54537d",
+            "20260610_013000_feb01a"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-10T01:30:00+00:00",
+          "scheduled_display": "Tue Jun 9 · 6:30 PM",
+          "images": [
+            "https://files.catbox.moe/mthn5t.jpg"
+          ],
+          "caption": "Come for the queens, stay for the goods 🛍️\n\nThe stage is only half the fun. Our Latino/a Pride vendor village is fully stacked, so bring a little cash and an empty tote, because you are absolutely going to want to take something home with you.\n\nThe Mad Tatter is our resident tattoo artist, ready to send you home with fresh ink and a story to go with it. Belinda's Bloom brings the flowers and that pop of color every good celebration needs. Mad Art Club shows up as your friendly neighborhood art collective right here in the Tri Cities. Bro and Sister Lemonade is sibling powered and seriously sour, the exact kind of refreshing that hits perfectly on a warm Pride afternoon.\n\nFree Mom Hugs will be there too, offering exactly what the name promises, and if you know, you know just how much that can mean to someone. Siren is on hand for photography, so you walk away with a moment worth framing. Rooted Care Collective is bringing the massage therapists, because even your shoulders deserve a little Pride treatment. And Aub's Banana Bread is rounding it out with bread so good we are choosing to keep most of the jokes to ourselves.\n\nPull up, support local, and treat yourself a little. You earned it.\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "posted",
+          "result": "Instagram media id: 18399430519154586"
+        },
+        {
+          "ids": [
+            "20260611_013000_13bff3",
+            "20260611_013000_1c94d3"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-11T01:30:00+00:00",
+          "scheduled_display": "Wed Jun 10 · 6:30 PM",
+          "images": [
+            "https://files.catbox.moe/5y6prj.jpg"
+          ],
+          "caption": "This one is for our familia 🫶\n\nWe are coming up on a whole year of Azúcar, and what a year it has been. A year of late nights, lip syncs, packed dance floors, found family, and more joy than we ever expected to fit into this little corner of Pasco. None of it would be possible without the people behind the scenes.\n\nThis post is for Team Azúcar and for every single volunteer who is helping make Latino/a Pride happen. The folks who show up early, stay late, carry the boxes, pour the drinks, and pour their whole hearts into this community are the real highlight of the entire thing. We see you, we appreciate you, and we genuinely could not do any of this without you.\n\nFrom our familia to yours, thank you. Now let us go celebrate the right way, together.\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "failed",
+          "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'AGvYpfW5lJJvXVATCmZr6YS'}}"
+        },
+        {
+          "ids": [
+            "20260612_013000_8937d5",
+            "20260612_013000_4940ab"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-12T01:30:00+00:00",
+          "scheduled_display": "Thu Jun 11 · 6:30 PM",
+          "images": [
+            "https://files.catbox.moe/o1i1xj.jpg"
+          ],
+          "caption": "Two days out. Look at this lineup. 🏳️‍🌈\n\nWe are two days away from the largest Latino Pride in Eastern Washington, and the lineup speaks for itself. Folklórico and flamenco, sacred danza, a curandera holding healing space, and a stage full of drag queens both legendary and brand new. Add hosts who keep the whole night moving and a DJ who refuses to let you sit down, and you already have a Saturday worth clearing your calendar for.\n\nThen there is everything around the stage. A full festival with food, drinks, a beer garden, and over fifteen vendors, all ages until 9PM. After that we move inside for another drag show and two rooms of music all night, English hip hop and dance in one and Spanish all night long in the other.\n\nThis is our culture, our community, and our joy, all in one place. Two days. Do not make other plans.\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "failed",
+          "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'ARNG5t-G8v7Fk-90wVKOCqg'}}"
+        },
+        {
+          "ids": [
+            "20260613_013000_588391",
+            "20260613_013000_101c43"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-13T01:30:00+00:00",
+          "scheduled_display": "Fri Jun 12 · 6:30 PM",
+          "images": [
+            "https://files.catbox.moe/0geqwe.jpg"
+          ],
+          "caption": "It all goes down TOMORROW 🏳️‍🌈\n\nThis is your last reminder to clear your Saturday, because tomorrow we throw the largest Latino Pride in Eastern Washington. Festival outside from 4 to 9 with food, drinks, a beer garden, vendors, and entertainment all afternoon, all ages. Then at 9 we take it inside for another drag show and two rooms of music all night, English hip hop and dance in one room and Spanish all night in the other.\n\nBring your people. Bring your familia. Bring comfortable shoes and an open heart. We will see you tomorrow.\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "posted",
+          "result": "Instagram media id: 18105960433982352"
+        },
+        {
+          "ids": [
+            "20260613_180000_27f16c",
+            "20260613_180000_f5b727"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-06-13T18:00:00+00:00",
+          "scheduled_display": "Sat Jun 13 · 11:00 AM",
+          "images": [
+            "https://files.catbox.moe/0geqwe.jpg"
+          ],
+          "caption": "TODAY is the day 🌽🏳️‍🌈\n\nIt is finally here. Latino/a Pride takes over Pasco today. The festival starts at 4PM outside and it is all ages, then the party moves inside at 9PM for the grown folks. Food, drinks, a beer garden, drag, dancing, and two rooms going until late. Come through, bring the familia, and let us celebrate our culture out loud.\n\nWe have been waiting all year for this. See you tonight.\n\nLatino/a Pride, presented by Azúcar at Out & About. The largest Latino Pride in Eastern Washington.\nSaturday, June 13. Festival outside 4PM to 9PM, all ages. Doors open inside at 9PM, 21 and up.\n327 W Lewis St, Pasco.\n\n#Azucar #OutAndAbout #LatinoPride #LatinaPride #Pasco #TriCities #Pride2026",
+          "status": "failed",
+          "result": "publish failed: {'error': {'message': 'Media ID is not available', 'type': 'OAuthException', 'code': 9007, 'error_subcode': 2207027, 'is_transient': False, 'error_user_title': 'Cannot Publish', 'error_user_msg': 'The media is not ready for publishing, please wait for a moment', 'fbtrace_id': 'ALCn_YM2j0IULYfSObRS4yX'}}"
+        }
+      ]
+    },
+    {
+      "id": "noche_vaquera_sample",
+      "name": "Noche Vaquera",
+      "tag": "🤠 Monthly",
+      "event_date": "2026-07-11",
+      "flyer_grad": "linear-gradient(135deg,#B70F49,#FF7A2F)",
+      "source": "sample",
+      "posts": [
+        {
+          "ids": [
+            "sample_851c36"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-07-06T02:00:00+00:00",
+          "scheduled_display": "Sun Jul 5 · 7:00 PM",
+          "images": [],
+          "image_grad": "linear-gradient(135deg,#B70F49,#FF7A2F)",
+          "caption": "Ponte las botas 🤠 Noche Vaquera regresa. Cumbia, banda y mucho perreo. Sábado — puertas 9PM.",
+          "status": "pending",
+          "result": ""
+        },
+        {
+          "ids": [
+            "sample_af26a3"
+          ],
+          "platforms": [
+            "instagram"
+          ],
+          "scheduled_for_utc": "2026-07-07T22:00:00+00:00",
+          "scheduled_display": "Tue Jul 7 · 3:00 PM",
+          "images": [],
+          "image_grad": "linear-gradient(135deg,#7B2FF0,#2b6cf0)",
+          "caption": "Se viene lo bueno 🐎 ¿Ya tienes tu sombrero listo?",
+          "status": "pending",
+          "result": ""
+        },
+        {
+          "ids": [
+            "sample_3da6e5"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-07-10T18:00:00+00:00",
+          "scheduled_display": "Fri Jul 10 · 11:00 AM",
+          "images": [],
+          "image_grad": "linear-gradient(135deg,#FF7A2F,#E9930B)",
+          "caption": "HOY nos ponemos vaqueros. 9PM. Trae al crew. 🤠🔥",
+          "status": "pending",
+          "result": ""
+        }
+      ]
+    },
+    {
+      "id": "vida_amore_sample",
+      "name": "Vida Amore · Summer Drag",
+      "tag": "👑 Drag",
+      "event_date": "2026-07-18",
+      "flyer_grad": "linear-gradient(135deg,#7B2FF0,#E5195E)",
+      "source": "sample",
+      "posts": [
+        {
+          "ids": [
+            "sample_f787f9"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-07-09T02:00:00+00:00",
+          "scheduled_display": "Wed Jul 8 · 7:00 PM",
+          "images": [],
+          "image_grad": "linear-gradient(135deg,#7B2FF0,#E5195E)",
+          "caption": "Las reinas regresan 👑 Vida Amore — una noche de puro glamour. Reserva tu mesa por DM.",
+          "status": "pending",
+          "result": ""
+        },
+        {
+          "ids": [
+            "sample_7935b7"
+          ],
+          "platforms": [
+            "instagram",
+            "facebook"
+          ],
+          "scheduled_for_utc": "2026-07-13T18:00:00+00:00",
+          "scheduled_display": "Mon Jul 13 · 11:00 AM",
+          "images": [],
+          "image_grad": "linear-gradient(135deg,#E5195E,#FF7A2F)",
+          "caption": "El escenario está listo 💅 ¿Y tú?",
+          "status": "pending",
+          "result": ""
+        }
+      ]
+    },
+    {
+      "id": "social_sundays_sample",
+      "name": "Social Sundays",
+      "tag": "☀️ Weekly",
+      "event_date": "2026-07-08",
+      "flyer_grad": "linear-gradient(135deg,#2F9E6B,#2b6cf0)",
+      "source": "sample",
+      "posts": [
+        {
+          "ids": [
+            "sample_bcbdd9"
+          ],
+          "platforms": [
+            "instagram"
+          ],
+          "scheduled_for_utc": "2026-07-06T22:00:00+00:00",
+          "scheduled_display": "Mon Jul 6 · 3:00 PM",
+          "images": [],
+          "image_grad": "linear-gradient(135deg,#2F9E6B,#E9930B)",
+          "caption": "Domingo relajado con los tuyos ☀️ 2x1 en margaritas hasta las 8.",
+          "status": "pending",
+          "result": ""
+        }
+      ]
+    }
+  ]
+}

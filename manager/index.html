@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Azúcar Post Manager</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="glyph">A</span>
+    <span>Post Manager<br><span class="sub">Azúcar · Out &amp; About</span></span>
+  </div>
+  <span class="spacer"></span>
+  <div class="seg" id="seg">
+    <button data-view="upcoming" class="active">Upcoming <span class="b" id="seg-up">0</span></button>
+    <button data-view="history">History <span class="b" id="seg-hist">0</span></button>
+  </div>
+  <div class="who"><span class="avatar">P</span>Pedro</div>
+</header>
+
+<main class="page">
+
+  <!-- LIST VIEW -->
+  <section class="view active" id="v-list">
+    <div class="viewhead">
+      <h1 id="list-title">Upcoming events</h1>
+      <span class="count" id="list-count"></span>
+      <span class="note" id="list-note"></span>
+      <span class="spacer"></span>
+      <button class="btn btn-primary" id="btn-new">＋ New event</button>
+    </div>
+    <div class="samplebar" id="samplebar">
+      ✨ <span><b>Heads up:</b> the colorful cards below are <b>sample</b> upcoming events so you can click around. Your real posts are in <b>History</b>. Both go live for real once we wire the backend.</span>
+    </div>
+    <div class="events" id="eventlist"></div>
+  </section>
+
+  <!-- DETAIL VIEW -->
+  <section class="view" id="v-detail">
+    <span class="back" id="btn-back">← All events</span>
+    <div class="detailhead">
+      <h1 id="d-name"></h1>
+      <span class="date" id="d-date"></span>
+    </div>
+    <div id="d-controls"></div>
+    <div id="postlist"></div>
+  </section>
+
+</main>
+
+<!-- EDIT MODAL -->
+<div class="overlay" id="overlay">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="e-title">
+    <div class="sheet-head">
+      <h3 id="e-title">Edit post</h3>
+      <button class="x" id="e-close" aria-label="Close">✕</button>
+    </div>
+    <div class="sheet-body">
+      <div class="field">
+        <label>Photos</label>
+        <div class="photos" id="e-photos"></div>
+        <div class="charcount" style="text-align:left">The first photo is what gets posted — one photo per post for now.</div>
+        <input type="file" id="e-file" accept="image/*" style="display:none">
+      </div>
+      <div class="field">
+        <label>Caption</label>
+        <textarea class="ta" id="e-cap" placeholder="Write your caption… emojis and #hashtags welcome"></textarea>
+        <div class="charcount" id="e-chars">0 characters</div>
+      </div>
+      <div class="field">
+        <label>Publish date &amp; time (Pacific)</label>
+        <input class="inp" type="datetime-local" id="e-when">
+      </div>
+      <div class="leadnote">🕐 <span><b>Posts publish at least 2 hours out.</b> This is the earliest queued post — no instant posting. Need it live right now? Post it manually on Facebook.</span></div>
+      <div class="field">
+        <label>Post to</label>
+        <div class="toggles">
+          <label class="tog instagram" data-plat="instagram"><span class="sw"></span>Instagram</label>
+          <label class="tog facebook" data-plat="facebook"><span class="sw"></span>Facebook</label>
+        </div>
+      </div>
+      <div class="err" id="e-err"></div>
+    </div>
+    <div class="sheet-foot">
+      <button class="btn btn-danger" id="e-delete">Delete</button>
+      <span class="grow"></span>
+      <button class="btn btn-ghost" id="e-cancel">Cancel</button>
+      <button class="btn btn-primary" id="e-save">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><span class="tk">✓</span><span id="toast-msg">Saved</span></div>
+
+<script src="app.js"></script>
+</body>
+</html>
