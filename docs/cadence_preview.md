@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-06 11:07 PDT - **nothing posted, queue untouched**
+Generated 2026-07-07 10:54 PDT - **nothing posted, queue untouched**
 
 Eligible events: **3** - Skipped: **35**
 
@@ -9,7 +9,7 @@ Eligible events: **3** - Skipped: **35**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Jul 6, 7:00 PM | evening |
+| Tue Jul 7, 7:00 PM | evening |
 | Thu Jul 9, 11:00 AM | morning |
 | Fri Jul 10, 7:00 PM | evening |
 | Sun Jul 12, 11:00 AM | morning |
@@ -21,8 +21,8 @@ Eligible events: **3** - Skipped: **35**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Jul 6, 7:00 PM | evening |
-| Wed Jul 8, 11:00 AM | morning |
+| Tue Jul 7, 7:00 PM | evening |
+| Thu Jul 9, 11:00 AM | morning |
 | Sat Jul 11, 7:00 PM | evening |
 | Sun Jul 12, 11:00 AM | morning |
 | Tue Jul 14, 7:00 PM | evening |
@@ -42,7 +42,7 @@ Eligible events: **3** - Skipped: **35**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Jul 6, 7:00 PM | evening |
+| Tue Jul 7, 7:00 PM | evening |
 | Thu Jul 9, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 | Mon Jul 13, 11:00 AM | morning |
