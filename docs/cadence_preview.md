@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-08 11:43 PDT - **nothing posted, queue untouched**
+Generated 2026-07-08 12:31 PDT - **nothing posted, queue untouched**
 
-Eligible events: **5** - Skipped: **36**
+Eligible events: **6** - Skipped: **36**
 
 ## Build you own carabiner - 2026-07-12  (Aggressive)
 9 posts x 2 platforms = **18** queue entries
@@ -73,6 +73,34 @@ Eligible events: **5** - Skipped: **36**
 | Thu Jul 23, 11:00 AM | morning |
 | Fri Jul 24, 7:00 PM | evening |
 | Sat Jul 25, 11:00 AM | morning |
+| Sun Jul 26, 7:00 PM | evening |
+
+## Night of Kings - 2026-07-26  (Aggressive)
+22 posts x 2 platforms = **44** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Wed Jul 8, 7:00 PM | evening |
+| Fri Jul 10, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+| Mon Jul 13, 11:00 AM | morning |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Mon Jul 20, 11:00 AM | morning |
+| Mon Jul 20, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
+| Thu Jul 23, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Fri Jul 24, 7:00 PM | evening |
+| Sat Jul 25, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
 | Sun Jul 26, 7:00 PM | evening |
 
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
@@ -146,4 +174,4 @@ Eligible events: **5** - Skipped: **36**
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show — Saturday June 20, 9pm-2am** - no date, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 142**
+**Total queue entries that would be created: 186**
