@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-08T18:43:46",
+ "generated_at": "2026-07-08T19:31:26",
  "events": [
   {
    "item_id": "12424060899",
@@ -65,6 +65,19 @@
    "eventbrite_url": "https://www.eventbrite.com/e/karaoke-tickets-1993554295563",
    "flyer": "media/fb-kit/12481755388_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12481755388"
+  },
+  {
+   "item_id": "12482489057",
+   "name": "Night of Kings",
+   "date_display": "Jul 26, 2026",
+   "start_time": "8:00 PM",
+   "end_date_display": "Jul 27, 2026",
+   "end_time": "12:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "The main floor is about to get low and slow. Night of Kings brings drag kings from the Tri-Cities and beyond — we're talking heartbreaker energy, magnetic presence, the kind of performers who make you forget to breathe. These aren't your typical drag moments; this is the swagger, the charm, the undeniable pull of kings commanding the room.\n\nCherry Pop is spinning all night, keeping the temperature exactly where it needs to be. The vibe: intimate but electric. The mood: everyone's here to witness, to cheer, to feel something. Expect sharp fits, killer moves, and performances that hit different.\n\nAzúcar's main floor becomes the stage. Grab a drink, find your spot, and get ready to crown these kings.\n\n🗓️ Domingo 26 de julio — Show 8:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $15-$20\n\n🎟️ Tickets: https://www.eventbrite.com/e/1992954447401?aff=oddtdtcreator",
+   "eventbrite_url": "https://www.eventbrite.com/e/1992954447401?aff=oddtdtcreator",
+   "flyer": "media/fb-kit/12482489057_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12482489057"
   }
  ]
 }
