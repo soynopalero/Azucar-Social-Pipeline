@@ -526,14 +526,25 @@ def chat_for(e):
 
 
 def notify_captions_review(e, captions):
-    parts = [f"📣 Captions ready — {e['name']} ({e['date']}, {(e['cadence'] or '?').capitalize()} cadence)", ""]
+    """Telegram caps messages at 4096 chars — a 10-caption curated set is far
+    bigger, so captions go out in batches and the buttons ride the last message."""
+    chat = chat_for(e)
+    tg_call("sendMessage", {"chat_id": chat, "text":
+            f"📣 Captions ready — {e['name']} ({e['date']}, "
+            f"{(e['cadence'] or '?').capitalize()} cadence) — {len(captions)} variants incoming:"})
+    buf = ""
     for i, c in enumerate(captions, 1):
-        short = c if len(c) <= 700 else c[:700] + "…"
-        parts.append(f"— Variant {i} —\n{short}\n")
-    parts.append("✅ Approve queues the full posting schedule (posts rotate through the variants). ✏️ Redraft asks for fresh takes.")
+        short = c if len(c) <= 900 else c[:900] + "…"
+        block = f"— Variant {i} —\n{short}\n\n"
+        if buf and len(buf) + len(block) > 3500:
+            tg_call("sendMessage", {"chat_id": chat, "text": buf.rstrip()})
+            buf = ""
+        buf += block
+    if buf:
+        tg_call("sendMessage", {"chat_id": chat, "text": buf.rstrip()})
     tg_call("sendMessage", {
-        "chat_id": chat_for(e),
-        "text": "\n".join(parts),
+        "chat_id": chat,
+        "text": "✅ Approve queues the full posting schedule (each caption posts with its matching flyer). ✏️ Redraft asks for fresh takes.",
         "reply_markup": {"inline_keyboard": [[
             {"text": "✅ Approve", "callback_data": f"cap:approve:{e['id']}"},
             {"text": "✏️ Redraft", "callback_data": f"cap:regen:{e['id']}"},
