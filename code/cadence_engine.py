@@ -494,7 +494,7 @@ def notify_captions_review(e, captions):
     })
 
 
-def download_flyer_files(e, cap=6):
+def download_flyer_files(e, cap=12):
     """Download all of the event's flyer files from Monday; returns local paths."""
     import tempfile
     paths = []
