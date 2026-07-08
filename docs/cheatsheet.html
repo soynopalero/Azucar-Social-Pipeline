@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>How to run the event machine — Azúcar</title>
+<style>
+  :root {
+    --pink: #ff2d87; --dark: #16121d; --card: #221c2e; --line: #37304a;
+    --text: #f4f0fa; --muted: #a99fc0; --ok: #2ecc71;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--dark); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 20px 14px 80px; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  .sub { color: var(--muted); font-size: .92rem; margin-bottom: 22px; }
+  h2 { font-size: 1.05rem; color: var(--pink); margin: 26px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin-bottom: 14px; }
+  .cmd { font-family: ui-monospace, Consolas, monospace; background: #37304a; padding: 2px 8px; border-radius: 6px; font-size: .92rem; }
+  ul, ol { margin: 8px 0 0 22px; }
+  li { margin-bottom: 7px; }
+  .muted { color: var(--muted); }
+  .links a { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; color: var(--text); text-decoration: none; font-weight: 600; }
+  .links a small { display: block; color: var(--muted); font-weight: 400; margin-top: 2px; }
+  .msg { border-left: 3px solid var(--pink); padding: 8px 12px; margin: 8px 0; background: #2a2438; border-radius: 0 8px 8px 0; font-size: .92rem; }
+  .msg b { color: var(--pink); }
+  .warn { border-left-color: #fdab3d; }
+  .warn b { color: #fdab3d; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🌶️ How to run the event machine</h1>
+  <div class="sub">Everything happens in the Telegram bot (@AzucarEventsBot). You do three things: <b>tell it about events, tap Approve, and paste into Facebook.</b> The machine does the rest — Monday, Eventbrite, the website, and all the social posts.</div>
+
+  <h2>The three commands</h2>
+  <div class="card">
+    <ul>
+      <li><span class="cmd">/new</span> — create an event. Answer the questions; it writes everything to Monday, builds the Eventbrite page, and plans the social campaign.</li>
+      <li><span class="cmd">/update</span> — change an existing event. Pick it from the list, then just <b>say what you want in your own words</b> (voice-to-text works): <i>"move it to Aug 29"</i>, <i>"price is $20"</i>, <i>"new flyers"</i>. You can send new flyers and tell it the stories behind them — the posts will use those stories.</li>
+      <li><span class="cmd">/cancel</span> — bail out of whatever's in progress. Nothing is saved. <b>If the bot ever seems stuck or confused, send /cancel and start over.</b></li>
+    </ul>
+  </div>
+
+  <h2>Flyers: two rules</h2>
+  <div class="card">
+    <ul>
+      <li><b>Send the main flyer first</b> — the first one becomes the website image.</li>
+      <li>When it asks <i>"any story behind these flyers?"</i> — <b>tell it!</b> "It's Alexa's debut", "Cherry Pop is hosting". Each performer's story gets posted with <i>their</i> flyer.</li>
+    </ul>
+  </div>
+
+  <h2>Messages you'll get, and what they mean</h2>
+  <div class="card">
+    <div class="msg"><b>"✅ Created on Monday board"</b> — event saved. The website picks it up automatically.</div>
+    <div class="msg"><b>"🎟️ Eventbrite page is being created…"</b> — wait ~2 min, then a message arrives with the Eventbrite link and the FB kit link.</div>
+    <div class="msg"><b>"🖼 Flyers are syncing…"</b> — new flyers are being attached. You'll get a message when they land.</div>
+    <div class="msg"><b>"📣 Captions ready — N variants"</b> — read them, then tap <b>✅ Approve</b> (posts get scheduled automatically) or <b>✏️ Redraft</b> (fresh ones come back). <b>Nothing posts until you approve.</b></div>
+    <div class="msg"><b>"📅 Queued N posts"</b> — done! The posts go out on their own schedule.</div>
+    <div class="msg warn"><b>No message when you expected one?</b> Wait 5 minutes (things run in ~2-min cycles). Still nothing → screenshot the last thing you see and send it to Pedro.</div>
+  </div>
+
+  <h2>Your one manual job: the Facebook event (~1 min)</h2>
+  <div class="card">
+    <ol>
+      <li>Open the <b>FB Event Kit</b> (link below) — every event that still needs a Facebook page is listed.</li>
+      <li>Tap <b>➕ Open Facebook → Create event</b>. Make sure the host is <b>Out And About</b> (the Page, not yourself).</li>
+      <li>Go down the numbered COPY buttons: name, dates, times, location, description, ticket link. Save the cover image and upload it.</li>
+      <li>Publish. Copy the new Facebook event's URL, open the Monday item (link at the bottom of the card), paste it into <b>Facebook Event URL</b>.</li>
+      <li>The card disappears on the next refresh. (You can also 🗂 Archive a card to tuck it away on your device; past events vanish on their own.)</li>
+    </ol>
+  </div>
+
+  <h2>Bookmarks</h2>
+  <div class="links">
+    <a href="fb-kit.html">📘 FB Event Kit<small>Copy-paste cockpit for creating Facebook events</small></a>
+    <a href="index.html">📊 Post calendar<small>Everything scheduled, posted, or failed — updates itself</small></a>
+    <a href="https://nopaleros-org.monday.com/boards/18414182966" target="_blank" rel="noopener">📋 Monday Events board<small>The single source of truth behind everything</small></a>
+  </div>
+
+  <h2>Good to know</h2>
+  <div class="card">
+    <ul>
+      <li>Eventbrite pages and Facebook events <b>don't update themselves</b> when you /update an event — the bot reminds you with direct links when it matters.</li>
+      <li>Approving new captions for an event <b>replaces its scheduled posts</b> — anything already posted stays.</li>
+      <li>Only upcoming events can be updated. Past ones are history.</li>
+      <li class="muted">Something broken or weird? Screenshot it. Every mystery so far has been solved with one screenshot.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

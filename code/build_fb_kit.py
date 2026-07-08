@@ -254,6 +254,7 @@ def main() -> int:
         kit_events.append({
             "item_id": item["id"],
             "name": item["name"].strip(),
+            "date_iso": date_iso,
             "date_display": fmt_date(event_date),
             "start_time": start_str,
             "end_date_display": fmt_date(end_date),
@@ -266,6 +267,7 @@ def main() -> int:
         })
         print(f"  ✓ {item['name']!r} on {date_iso}")
 
+    kit_events.sort(key=lambda e: (e["date_iso"], e["item_id"]))  # soonest first
     KIT_JSON.write_text(
         json.dumps({"generated_at": dt.datetime.now().isoformat(timespec="seconds"),
                     "events": kit_events}, ensure_ascii=False, indent=1),

@@ -20,11 +20,15 @@
     display: inline-block; background: #1877f2; color: #fff; text-decoration: none;
     padding: 12px 18px; border-radius: 10px; font-weight: 700; font-size: .95rem;
   }
+  .btn-big.alt { background: #4a4361; }
   .hint { background: #2a2438; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; font-size: .88rem; color: var(--muted); margin-bottom: 24px; }
   .hint b { color: var(--text); }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-bottom: 28px; }
+  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
   .card h2 { font-size: 1.15rem; margin-bottom: 2px; color: var(--pink); }
   .card .when { color: var(--muted); font-size: .9rem; margin-bottom: 14px; }
+  .arch-btn { background: none; border: 1px solid var(--line); color: var(--muted); font-size: .78rem; padding: 6px 10px; border-radius: 8px; cursor: pointer; white-space: nowrap; }
+  .arch-btn:hover { color: var(--text); border-color: var(--muted); }
   .flyer-row { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
   .flyer-row img { width: min(320px, 55%); border-radius: 8px; border: 1px solid var(--line); }
   .flyer-row .fl-actions { display: flex; flex-direction: column; gap: 8px; }
@@ -42,6 +46,9 @@
   .done { margin-top: 14px; border-top: 1px dashed var(--line); padding-top: 12px; font-size: .88rem; color: var(--muted); }
   .done a { color: var(--pink); }
   .empty { text-align: center; color: var(--muted); padding: 60px 0; }
+  details.archived { margin-top: 30px; color: var(--muted); }
+  details.archived summary { cursor: pointer; font-size: .9rem; padding: 8px 0; }
+  .arch-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-top: 8px; font-size: .9rem; }
 </style>
 </head>
 <body>
@@ -51,32 +58,65 @@
 
   <div class="toolbar">
     <a class="btn-big" href="https://www.facebook.com/events/create/" target="_blank" rel="noopener">➕ Open Facebook → Create event</a>
+    <a class="btn-big alt" href="cheatsheet.html">📖 Cheat sheet</a>
   </div>
 
   <div class="hint">
     <b>Before you paste:</b> in Facebook's create dialog, make sure the host (profile picture dropdown at the top) is set to
     <b>Out And About</b> — the Page, not your personal profile. When the event is live, paste its URL back into the
-    Monday item (link at the bottom of each card) so it drops off this list.
+    Monday item (link at the bottom of each card) so it drops off this list everywhere.
+    <b>🗂 Archive</b> hides a card on this device only; past events disappear for everyone automatically.
   </div>
 
   <div id="kit"></div>
+  <div id="archived-box"></div>
 </div>
 
 <script>
+const AR_KEY = 'fbkit_archived_v1';
+let DATA = { events: [] };
+
+function getArchived() {
+  try { return new Set(JSON.parse(localStorage.getItem(AR_KEY) || '[]')); }
+  catch { return new Set(); }
+}
+function setArchived(s) { localStorage.setItem(AR_KEY, JSON.stringify([...s])); }
+
 async function load() {
   const res = await fetch('fb_kit.json?' + Date.now());
-  const data = await res.json();
+  DATA = await res.json();
+  // Housekeeping: forget archive flags for events no longer on the kit
+  // (past events are auto-dropped by the generator).
+  const ids = new Set(DATA.events.map(e => e.item_id));
+  const ar = getArchived();
+  let changed = false;
+  for (const id of [...ar]) if (!ids.has(id)) { ar.delete(id); changed = true; }
+  if (changed) setArchived(ar);
+  render();
+}
+
+function render() {
+  const ar = getArchived();
   const kit = document.getElementById('kit');
-  if (!data.events.length) {
+  const archBox = document.getElementById('archived-box');
+  const active = DATA.events.filter(e => !ar.has(e.item_id));
+  const hidden = DATA.events.filter(e => ar.has(e.item_id));
+
+  kit.innerHTML = '';
+  if (!active.length) {
     kit.innerHTML = '<div class="empty">🎉 Nothing pending — every event with an Eventbrite page already has its Facebook event.</div>';
-    return;
   }
-  for (const ev of data.events) {
+  for (const ev of active) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-      <h2>${esc(ev.name)}</h2>
-      <div class="when">${esc(ev.date_display)} · ${esc(ev.start_time)} — ${esc(ev.end_time)}</div>
+      <div class="card-head">
+        <div>
+          <h2>${esc(ev.name)}</h2>
+          <div class="when">${esc(ev.date_display)} · ${esc(ev.start_time)} — ${esc(ev.end_time)}</div>
+        </div>
+        <button class="arch-btn" data-arch="${esc(ev.item_id)}">🗂 Archive</button>
+      </div>
       <div class="flyer-row">
         <img src="${esc(ev.flyer)}" alt="flyer">
         <div class="fl-actions">
@@ -95,6 +135,20 @@ async function load() {
     `;
     kit.appendChild(card);
   }
+
+  archBox.innerHTML = '';
+  if (hidden.length) {
+    const det = document.createElement('details');
+    det.className = 'archived';
+    det.innerHTML = `<summary>🗂 Archived on this device (${hidden.length})</summary>` +
+      hidden.map(ev => `
+        <div class="arch-row">
+          <span>${esc(ev.name)} — ${esc(ev.date_display)}</span>
+          <button class="arch-btn" data-restore="${esc(ev.item_id)}">↩ Restore</button>
+        </div>`).join('');
+    archBox.appendChild(det);
+  }
+
   document.querySelectorAll('.copy').forEach(btn => {
     btn.addEventListener('click', async () => {
       await navigator.clipboard.writeText(btn.dataset.v);
@@ -102,7 +156,18 @@ async function load() {
       setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 1600);
     });
   });
+  document.querySelectorAll('[data-arch]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ar = getArchived(); ar.add(btn.dataset.arch); setArchived(ar); render();
+    });
+  });
+  document.querySelectorAll('[data-restore]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ar = getArchived(); ar.delete(btn.dataset.restore); setArchived(ar); render();
+    });
+  });
 }
+
 function field(step, label, value, clamp) {
   return `<div class="field">
     <div class="step">${step}</div>
