@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-08 10:23 PDT - **nothing posted, queue untouched**
+Generated 2026-07-08 10:59 PDT - **nothing posted, queue untouched**
 
-Eligible events: **4** - Skipped: **35**
+Eligible events: **4** - Skipped: **36**
 
 ## Build you own carabiner - 2026-07-12  (Aggressive)
 10 posts x 2 platforms = **20** queue entries
@@ -19,18 +19,6 @@ Eligible events: **4** - Skipped: **35**
 | Sat Jul 11, 7:00 PM | evening |
 | Sun Jul 12, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
-
-## Testing for your life - 2026-07-16  (Light)
-6 posts x 2 platforms = **12** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Wed Jul 8, 7:00 PM | evening |
-| Thu Jul 9, 11:00 AM | morning |
-| Fri Jul 10, 7:00 PM | evening |
-| Sun Jul 12, 11:00 AM | morning |
-| Tue Jul 14, 7:00 PM | evening |
-| Thu Jul 16, 11:00 AM | morning |
 
 ## Noche Latina - 2026-07-25  (Standard)
 15 posts x 2 platforms = **30** queue entries
@@ -74,6 +62,36 @@ Eligible events: **4** - Skipped: **35**
 | Sat Jul 25, 11:00 AM | morning |
 | Sun Jul 26, 7:00 PM | evening |
 
+## Sappholicious Burlesque show - 2026-08-22  (Standard)
+24 posts x 2 platforms = **48** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sun Jul 12, 7:00 PM | evening |
+| Wed Jul 15, 11:00 AM | morning |
+| Sat Jul 18, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
+| Sat Jul 25, 11:00 AM | morning |
+| Sun Jul 26, 7:00 PM | evening |
+| Wed Jul 29, 11:00 AM | morning |
+| Sat Aug 1, 7:00 PM | evening |
+| Sun Aug 2, 11:00 AM | morning |
+| Wed Aug 5, 7:00 PM | evening |
+| Sat Aug 8, 11:00 AM | morning |
+| Sun Aug 9, 7:00 PM | evening |
+| Tue Aug 11, 11:00 AM | morning |
+| Wed Aug 12, 7:00 PM | evening |
+| Thu Aug 13, 11:00 AM | morning |
+| Sat Aug 15, 7:00 PM | evening |
+| Sun Aug 16, 11:00 AM | morning |
+| Mon Aug 17, 7:00 PM | evening |
+| Tue Aug 18, 11:00 AM | morning |
+| Wed Aug 19, 7:00 PM | evening |
+| Thu Aug 20, 11:00 AM | morning |
+| Fri Aug 21, 7:00 PM | evening |
+| Sat Aug 22, 11:00 AM | morning |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -81,7 +99,7 @@ Eligible events: **4** - Skipped: **35**
 - **Aubs Take Over — July** - no cadence set, no flyer, no price, no description
 - **Aubs Take Over — June** - date in the past, no cadence set, no flyer, no price, no description
 - **Azúcar House Party — DJ Lalique Debut** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
-- **Azúcar testing** - cadence = Off
+- **Azúcar testing** - phase = Cancelled, cadence = Off
 - **Cabana Bass** - no cadence set, no flyer, no price, no description
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Drag Wheel of Pride — Anthem Edition (All Ages)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -106,6 +124,7 @@ Eligible events: **4** - Skipped: **35**
 - **Rop Jams & Kinky Kareoke** - date in the past, no cadence set, no flyer, no price, no description
 - **Sip & Strut Dance Class with Frankie** - date in the past, no cadence set, no flyer, no price, no description
 - **Spring into frienship; Diamond Art night** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
+- **Testing for your life** - phase = Cancelled
 - **Testing out the name** - date in the past, no flyer
 - **Tha Cookout** - no cadence set, no flyer, no price, no description
 - **Tricities After Party — Rohla** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -114,4 +133,4 @@ Eligible events: **4** - Skipped: **35**
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show — Saturday June 20, 9pm-2am** - no date, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 92**
+**Total queue entries that would be created: 128**
