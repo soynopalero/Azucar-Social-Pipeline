@@ -64,6 +64,7 @@ COL_CAPTIONS       = "long_text_mm4wcfk4"   # AI caption variants (JSON array)
 COL_CAPTION_STATUS = "text_mm4wk4kr"        # ""/needs_review/approved/queued/regenerate
 COL_CREATED_BY     = "text_mm4wnp8g"        # Telegram chat id of the event's creator
 COL_LANGUAGE       = "dropdown_mm4z9x97"    # Caption Language: English/Spanish/Bilingual (empty = English)
+COL_CAMPAIGN_NOTES = "long_text_mm52r831"   # performer stories/context from the bot's /update flow
 
 HIDDEN_PHASES = {"Cancelled", "Completed"}
 PLATFORMS = ["instagram", "facebook"]
@@ -179,6 +180,7 @@ def parse_item(item):
         "has_flyer": len(files) > 0,
         "flyer_asset_id": flyer_asset_id,
         "captions_json": txt(COL_CAPTIONS),
+        "campaign_notes": txt(COL_CAMPAIGN_NOTES),
         "caption_status": (txt(COL_CAPTION_STATUS) or "").strip().lower(),
         "created_by": (txt(COL_CREATED_BY) or "").strip() or None,
         "flyer_assets": flyer_assets,
@@ -409,7 +411,7 @@ GROUNDING — hard rules:
 - NEVER use the words "nightclub", "queer", or "gay" (positioning constraints). Say "Latinx" when referencing community.
 - Every caption ends with, on separate lines: a date/time line, "📍 Azucar at Out & About — 327 W Lewis St, Pasco WA", a price line, an age line if age is given, then 6-10 hashtags including #AzucarPasco and #OutAndAbout.
 
-Output ONLY a JSON array of exactly 4 caption strings. No preamble, no code fences."""
+Output ONLY a JSON array of objects, each {"flyer": <image number, 1-based>, "caption": "<caption text>"}. No preamble, no code fences."""
 
 
 def draft_captions(e, n=4):
@@ -420,22 +422,41 @@ def draft_captions(e, n=4):
     weekday_en, weekday_es = event_weekday(e["date"])
     history = caption_history(e["name"])
     runbook = find_runbook(e["name"])
-    images = flyer_images_b64(e)
+    images = flyer_images_b64(e, cap=8)
 
-    user = (
-        f"Draft {n} distinct captions for this event's multi-week posting campaign. Angles: "
-        "1) hype announcement, 2) vibe/sensory, 3) community/come-as-you-are, 4) info-forward. "
-        "They rotate across many days, so each must stand alone.\n\n"
+    if len(images) > 1:
+        n = min(10, max(4, len(images) + 2))
+        user = (
+            f"This event has {len(images)} flyer images attached, in order (image 1 = first). "
+            "CURATE the campaign — study each image and decide what it is: a full-cast/hero flyer, "
+            "an individual performer spotlight, or a variant.\n"
+            f"Draft ~{n} captions, each PAIRED to the image it belongs with:\n"
+            "- For the hero/full-cast flyer: 2-3 campaign captions (hype announcement, vibe/sensory, info-forward).\n"
+            "- For each individual performer flyer: ONE spotlight caption about THAT performer "
+            "(their name is on the artwork; use the campaign notes for their story — debut, birthday, hosting, etc.).\n"
+            "- Order the array: hero captions first, then spotlights.\n"
+            "Every caption must stand alone and still end with the full info block.\n\n"
+        )
+    else:
+        user = (
+            f"Draft {n} distinct captions for this event's multi-week posting campaign. Angles: "
+            "1) hype announcement, 2) vibe/sensory, 3) community/come-as-you-are, 4) info-forward. "
+            "They rotate across many days, so each must stand alone. Pair every caption with image 1.\n\n"
+        )
+    user += (
         f"Event: {e['name']}\nDate: {e['date']}" + (f" ({weekday_en})" if weekday_en else "") + "\n"
         f"Description: {e['description']}\nPrice: {e['price']}"
     )
+    if e.get("campaign_notes"):
+        user += ("\n\nCampaign notes from the venue (REAL facts about the performers/night — "
+                 f"feature them in the matching captions):\n{e['campaign_notes'][:1500]}")
     if history:
         user += "\n\nPast captions for this show (match their voice and their FACTS — hosts and names in them are real):\n"
         user += "\n\n".join(f"[{i+1}] {h[:900]}" for i, h in enumerate(history))
     if runbook:
         user += f"\n\nRunbook for this recurring show (canonical facts — hosts, times, rituals):\n{runbook}"
     if images:
-        user += "\n\nThe flyer image(s) are attached — read them: lineup names, times, and themes on the artwork are real and usable."
+        user += "\n\nThe flyer image(s) are attached in order — read them: lineup names, times, and themes on the artwork are real and usable."
 
     content = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b}} for b in images]
     content.append({"type": "text", "text": user})
@@ -454,8 +475,18 @@ def draft_captions(e, n=4):
     if not text:
         raise RuntimeError(f"no text block in model response: {json.dumps(data)[:300]}")
     start, end = text.find("["), text.rfind("]")
-    caps = json.loads(text[start:end + 1])
-    caps = [fix_weekdays(c.strip(), e["date"]) for c in caps if isinstance(c, str) and c.strip()]
+    raw = json.loads(text[start:end + 1])
+    # Normalize to paired dicts: {"flyer": 1-based index or None, "caption": str}.
+    caps = []
+    for item in raw:
+        if isinstance(item, dict) and str(item.get("caption") or "").strip():
+            fl = item.get("flyer")
+            fl = int(fl) if isinstance(fl, (int, float, str)) and str(fl).isdigit() else None
+            if fl is not None and images:
+                fl = max(1, min(fl, len(images)))
+            caps.append({"flyer": fl, "caption": fix_weekdays(str(item["caption"]).strip(), e["date"])})
+        elif isinstance(item, str) and item.strip():
+            caps.append({"flyer": None, "caption": fix_weekdays(item.strip(), e["date"])})
     if not caps:
         raise RuntimeError("model returned no captions")
     return caps[:n]
@@ -516,6 +547,18 @@ def download_flyer_files(e, cap=12):
     return paths
 
 
+def _caption_text(cap):
+    return cap["caption"] if isinstance(cap, dict) else cap
+
+
+def _paired_image(cap, image_urls, i):
+    """Curated pairing: a caption drafted for flyer N posts WITH flyer N.
+    Legacy string captions (and unpaired ones) rotate through the set."""
+    if isinstance(cap, dict) and cap.get("flyer"):
+        return image_urls[(int(cap["flyer"]) - 1) % len(image_urls)]
+    return image_urls[i % len(image_urls)]
+
+
 def enqueue_event(e, captions, now):
     import queue_utils as qu  # sibling module; hosts to catbox + saves the queue
 
@@ -545,8 +588,8 @@ def enqueue_event(e, captions, now):
                 "id": qu.new_post_id(utc),
                 "platform": platform,
                 "scheduled_for_utc": utc.isoformat(),
-                "image_url": image_urls[i % len(image_urls)],
-                "caption": captions[i % len(captions)],
+                "image_url": _paired_image(captions[i % len(captions)], image_urls, i),
+                "caption": _caption_text(captions[i % len(captions)]),
                 "status": "pending",
                 "created_at": created,
                 "posted_at": None,
@@ -574,6 +617,28 @@ def host_image_on_pages(local_path, event_id, idx):
     dest = CADENCE_MEDIA / f"{event_id}_{idx}{ext}"
     shutil.copyfile(local_path, dest)
     return f"{PAGES_BASE}/media/cadence/{dest.name}"
+
+
+CAPTIONS_DIR = REPO_ROOT / "docs" / "captions"
+
+
+def save_captions_file(item_id, caps):
+    """Full paired captions live in the repo (committed by the workflow) —
+    Monday's long_text 2000-char cap only holds a preview."""
+    CAPTIONS_DIR.mkdir(parents=True, exist_ok=True)
+    (CAPTIONS_DIR / f"{item_id}.json").write_text(
+        json.dumps({"captions": caps}, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+def load_captions_file(item_id):
+    p = CAPTIONS_DIR / f"{item_id}.json"
+    if not p.exists():
+        return None
+    try:
+        caps = json.loads(p.read_text(encoding="utf-8")).get("captions")
+        return caps or None
+    except (OSError, json.JSONDecodeError):
+        return None
 
 
 def fit_captions_for_monday(caps, budget=1900):
@@ -623,15 +688,20 @@ def run_enqueue(events, today, now):
         st = e.get("caption_status") or ""
         try:
             if st in ("", "regenerate"):
-                caps = fit_captions_for_monday(draft_captions(e))
-                monday_set_long_text(e["id"], COL_CAPTIONS, json.dumps(caps, ensure_ascii=False))
+                caps = draft_captions(e)  # paired dicts {flyer, caption}
+                save_captions_file(e["id"], caps)  # full set, no truncation
+                texts = [c["caption"] for c in caps]
+                monday_set_long_text(e["id"], COL_CAPTIONS,
+                                     json.dumps(fit_captions_for_monday(texts), ensure_ascii=False))
                 monday_set_text(e["id"], COL_CAPTION_STATUS, "needs_review")
-                notify_captions_review(e, caps)
+                notify_captions_review(e, texts)
                 print(f"• drafted {len(caps)} captions, sent for review: {e['name']}")
             elif st == "needs_review":
                 print(f"• awaiting Telegram approval: {e['name']}")
             elif st == "approved":
-                caps = parse_captions(e.get("captions_json"))
+                # Prefer the repo file (full paired set); fall back to the
+                # Monday column (bot-approved intake captions, plain strings).
+                caps = load_captions_file(e["id"]) or parse_captions(e.get("captions_json"))
                 if not caps:
                     raise RuntimeError("approved but no captions stored on Monday")
                 n = enqueue_event(e, caps, now)
