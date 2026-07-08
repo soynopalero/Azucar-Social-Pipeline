@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-08 10:59 PDT - **nothing posted, queue untouched**
+Generated 2026-07-08 11:29 PDT - **nothing posted, queue untouched**
 
 Eligible events: **4** - Skipped: **36**
 
 ## Build you own carabiner - 2026-07-12  (Aggressive)
-10 posts x 2 platforms = **20** queue entries
+9 posts x 2 platforms = **18** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Jul 8, 11:00 AM | morning |
 | Wed Jul 8, 7:00 PM | evening |
 | Thu Jul 9, 11:00 AM | morning |
 | Thu Jul 9, 7:00 PM | evening |
@@ -133,4 +132,4 @@ Eligible events: **4** - Skipped: **36**
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show — Saturday June 20, 9pm-2am** - no date, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 128**
+**Total queue entries that would be created: 126**
