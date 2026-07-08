@@ -78,7 +78,8 @@ def load_dotenv() -> None:
 
 
 def fail(label: str, resp: requests.Response) -> None:
-    sys.exit(f"!! {label} FAILED — HTTP {resp.status_code}\n{resp.text}")
+    # Raise (not sys.exit) so one bad item can't abort the whole --all-pending run.
+    raise RuntimeError(f"{label} FAILED — HTTP {resp.status_code}\n{resp.text}")
 
 
 # ─── Monday helpers ──────────────────────────────────────────────────────────
@@ -392,10 +393,23 @@ def main() -> int:
             print("Nothing pending — every ready event already has an Eventbrite URL.")
             return 0
 
-    created = [r for r in (process_item(item, args.dry_run) for item in targets) if r]
+    created, failed = [], []
+    for item in targets:
+        try:
+            r = process_item(item, args.dry_run)
+            if r:
+                created.append(r)
+        except Exception:
+            import traceback
+            print(f"\n!! {item['name']!r} failed — continuing with the rest:")
+            traceback.print_exc()
+            failed.append(item["name"])
     if created:
         refresh_fb_kit_now()
         notify_telegram(created)
+    if failed:
+        print(f"\n{len(failed)} item(s) failed: {failed}")
+        return 1
     return 0
 
 
