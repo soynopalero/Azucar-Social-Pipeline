@@ -1,15 +1,31 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-07 10:54 PDT - **nothing posted, queue untouched**
+Generated 2026-07-08 10:12 PDT - **nothing posted, queue untouched**
 
-Eligible events: **3** - Skipped: **35**
+Eligible events: **4** - Skipped: **35**
+
+## Build you own carabiner - 2026-07-12  (Aggressive)
+10 posts x 2 platforms = **20** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Wed Jul 8, 11:00 AM | morning |
+| Wed Jul 8, 7:00 PM | evening |
+| Thu Jul 9, 11:00 AM | morning |
+| Thu Jul 9, 7:00 PM | evening |
+| Fri Jul 10, 11:00 AM | morning |
+| Fri Jul 10, 7:00 PM | evening |
+| Sat Jul 11, 11:00 AM | morning |
+| Sat Jul 11, 7:00 PM | evening |
+| Sun Jul 12, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
 
 ## Testing for your life - 2026-07-16  (Light)
 6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 7, 7:00 PM | evening |
+| Wed Jul 8, 7:00 PM | evening |
 | Thu Jul 9, 11:00 AM | morning |
 | Fri Jul 10, 7:00 PM | evening |
 | Sun Jul 12, 11:00 AM | morning |
@@ -21,8 +37,8 @@ Eligible events: **3** - Skipped: **35**
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 7, 7:00 PM | evening |
-| Thu Jul 9, 11:00 AM | morning |
+| Wed Jul 8, 7:00 PM | evening |
+| Fri Jul 10, 11:00 AM | morning |
 | Sat Jul 11, 7:00 PM | evening |
 | Sun Jul 12, 11:00 AM | morning |
 | Tue Jul 14, 7:00 PM | evening |
@@ -42,8 +58,8 @@ Eligible events: **3** - Skipped: **35**
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 7, 7:00 PM | evening |
-| Thu Jul 9, 11:00 AM | morning |
+| Wed Jul 8, 7:00 PM | evening |
+| Fri Jul 10, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 | Mon Jul 13, 11:00 AM | morning |
 | Wed Jul 15, 7:00 PM | evening |
@@ -98,4 +114,4 @@ Eligible events: **3** - Skipped: **35**
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show — Saturday June 20, 9pm-2am** - no date, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 72**
+**Total queue entries that would be created: 92**
