@@ -411,7 +411,7 @@ GROUNDING — hard rules:
 - NEVER use the words "nightclub", "queer", or "gay" (positioning constraints). Say "Latinx" when referencing community.
 - Every caption ends with, on separate lines: a date/time line, "📍 Azucar at Out & About — 327 W Lewis St, Pasco WA", a price line, an age line if age is given, then 6-10 hashtags including #AzucarPasco and #OutAndAbout.
 
-Output ONLY a JSON array of objects, each {"flyer": <image number, 1-based>, "caption": "<caption text>"}. No preamble, no code fences."""
+Output ONLY a JSON array of objects, each {{"flyer": <image number, 1-based>, "caption": "<caption text>"}}. No preamble, no code fences."""
 
 
 def draft_captions(e, n=4):
