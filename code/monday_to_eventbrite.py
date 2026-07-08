@@ -248,6 +248,32 @@ def eb_publish(event_id: str) -> None:
         fail("publish", r)
 
 
+def notify_telegram(created: list[tuple[str, str, str]]) -> None:
+    """Send Pedro + Jayme the 'it's done' message on Telegram: Eventbrite link(s),
+    the FB kit link, and the Monday item. No-op unless TELEGRAM_BOT_TOKEN is set."""
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    chat_ids = [c.strip() for c in
+                os.environ.get("TELEGRAM_NOTIFY_CHAT_IDS", "").split(",") if c.strip()]
+    if not token or not chat_ids or not created:
+        return
+    blocks = [
+        f"🎟️ {name}\nEventbrite: {eb_url}\nMonday: {monday_url}"
+        for name, eb_url, monday_url in created
+    ]
+    msg = ("✅ Eventbrite created for "
+           f"{len(created)} event{'s' if len(created) > 1 else ''}:\n\n"
+           + "\n\n".join(blocks)
+           + "\n\n📘 FB Event Kit is ready to copy-paste (new Eventbrite link included):"
+             "\nhttps://soynopalero.github.io/Azucar-Social-Pipeline/fb-kit.html")
+    for cid in chat_ids:
+        try:
+            requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
+                          json={"chat_id": cid, "text": msg,
+                                "disable_web_page_preview": True}, timeout=15)
+        except requests.RequestException as e:
+            print(f"Telegram notify to {cid} failed: {e}")
+
+
 def refresh_fb_kit_now() -> None:
     """Rebuild the FB kit and push it immediately so the page updates in ~1 min
     instead of waiting for the 30-min cron (which stays on as the backstop)."""
@@ -295,7 +321,7 @@ def readiness(item: dict) -> tuple[bool, str]:
     return True, "ready"
 
 
-def process_item(item: dict, dry_run: bool) -> bool:
+def process_item(item: dict, dry_run: bool) -> tuple[str, str, str] | None:
     name = item["name"].strip()
     date_iso = col(item, COL_DATE).get("date")
     hour = col(item, COL_TIME).get("hour")
@@ -312,13 +338,13 @@ def process_item(item: dict, dry_run: bool) -> bool:
     cover = resolve_eb_cover(item)
     if not cover:
         print("  SKIP: no flyer on the Monday item")
-        return False
+        return None
     print(f"  cover         : {cover.name}")
 
     if dry_run:
         print("  DRY RUN — no Eventbrite event created. Description preview:")
         print("  " + desc_html[:220].replace("\n", " ") + "…")
-        return False
+        return None
 
     image_id = eb_upload_image(cover)
     print(f"  image uploaded: {image_id}")
@@ -331,7 +357,8 @@ def process_item(item: dict, dry_run: bool) -> bool:
 
     monday_write_eventbrite_url(item["id"], event["url"], f"Eventbrite — {name}")
     print("  Monday updated: Eventbrite URL written back")
-    return True
+    monday_url = f"https://nopaleros-org.monday.com/boards/{BOARD_ID}/pulses/{item['id']}"
+    return (name, event["url"], monday_url)
 
 
 def main() -> int:
@@ -365,9 +392,10 @@ def main() -> int:
             print("Nothing pending — every ready event already has an Eventbrite URL.")
             return 0
 
-    created = sum(process_item(item, args.dry_run) for item in targets)
+    created = [r for r in (process_item(item, args.dry_run) for item in targets) if r]
     if created:
         refresh_fb_kit_now()
+        notify_telegram(created)
     return 0
 
 

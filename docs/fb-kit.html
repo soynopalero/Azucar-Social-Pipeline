@@ -90,6 +90,7 @@ async function load() {
       ${field(5, 'End time', ev.end_time)}
       ${field(6, 'Location', ev.location)}
       ${field(7, 'Description (ticket link included)', ev.description, true)}
+      ${field(8, 'Ticket link — for FB\'s "Add ticket link" field', ev.eventbrite_url)}
       <div class="done">✅ Event live? <a href="${esc(ev.monday_url)}" target="_blank" rel="noopener">Open the Monday item</a> and paste the Facebook event URL into <b>Facebook Event URL</b> — it disappears from this list on the next refresh.</div>
     `;
     kit.appendChild(card);

@@ -39,4 +39,8 @@ jobs:
       - name: Create Eventbrite events for all pending items
         env:
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
+          # Telegram "done" message (Pedro + Jayme). Silently skipped if the
+          # TELEGRAM_BOT_TOKEN secret hasn't been added to this repo yet.
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_NOTIFY_CHAT_IDS: "5056319378,8734741621"
         run: python code/monday_to_eventbrite.py --all-pending
