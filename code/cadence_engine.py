@@ -556,6 +556,44 @@ def enqueue_event(e, captions, now):
     return len(slots) * len(PLATFORMS)
 
 
+def fit_captions_for_monday(caps, budget=1900):
+    """Monday's long_text API writes silently truncate around 2,000 chars —
+    storing fewer whole captions beats storing corrupted JSON. (Root cause of
+    the Jul 5–8 enqueue failures.)"""
+    caps = list(caps)
+    while len(caps) > 1 and len(json.dumps(caps, ensure_ascii=False)) > budget:
+        caps.pop()
+    if caps and len(json.dumps(caps, ensure_ascii=False)) > budget:
+        c = caps[0][: budget - 60]
+        caps = [c[: max(c.rfind(" "), 1)] + " …"]
+    return caps
+
+
+def parse_captions(raw):
+    """Parse the captions column; salvage complete strings from truncated JSON
+    (events approved through the bot before the truncation fix)."""
+    raw = (raw or "").strip()
+    if not raw:
+        return []
+    try:
+        caps = json.loads(raw)
+        return [c.strip() for c in caps if isinstance(c, str) and c.strip()]
+    except json.JSONDecodeError:
+        pass
+    dec, caps, i = json.JSONDecoder(), [], raw.find('"')
+    while i != -1:
+        try:
+            s, end = dec.raw_decode(raw, i)
+        except json.JSONDecodeError:
+            break
+        if isinstance(s, str) and s.strip():
+            caps.append(s.strip())
+        i = raw.find('"', end)
+    if caps:
+        print(f"  (salvaged {len(caps)} caption(s) from truncated JSON)")
+    return caps
+
+
 def run_enqueue(events, today, now):
     print("=== LIVE enqueue pass ===")
     failures = 0
@@ -565,7 +603,7 @@ def run_enqueue(events, today, now):
         st = e.get("caption_status") or ""
         try:
             if st in ("", "regenerate"):
-                caps = draft_captions(e)
+                caps = fit_captions_for_monday(draft_captions(e))
                 monday_set_long_text(e["id"], COL_CAPTIONS, json.dumps(caps, ensure_ascii=False))
                 monday_set_text(e["id"], COL_CAPTION_STATUS, "needs_review")
                 notify_captions_review(e, caps)
@@ -573,7 +611,7 @@ def run_enqueue(events, today, now):
             elif st == "needs_review":
                 print(f"• awaiting Telegram approval: {e['name']}")
             elif st == "approved":
-                caps = json.loads(e.get("captions_json") or "[]")
+                caps = parse_captions(e.get("captions_json"))
                 if not caps:
                     raise RuntimeError("approved but no captions stored on Monday")
                 n = enqueue_event(e, caps, now)
