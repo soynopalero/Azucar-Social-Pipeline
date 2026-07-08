@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-08T18:23:20",
+ "generated_at": "2026-07-08T18:43:46",
  "events": [
   {
    "item_id": "12424060899",
@@ -52,6 +52,19 @@
    "eventbrite_url": "https://www.eventbrite.com/e/1992804354469?aff=oddtdtcreator",
    "flyer": "media/fb-kit/12481126699_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12481126699"
+  },
+  {
+   "item_id": "12481755388",
+   "name": "Karaoke",
+   "date_display": "Jul 15, 2026",
+   "start_time": "7:00 PM",
+   "end_date_display": "Jul 15, 2026",
+   "end_time": "11:00 PM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "The Lounge is yours tonight. Alejandro's spinning the karaoke setup, and the stage is open—no auditions, no judgment, just you and the song that's been living in your head. Sing in Spanish, English, Tagalog, whatever. Belt out a reggaeton anthem, a '90s power ballad, a bolero, a K-pop banger. First-timer or seasoned performer, the mic doesn't discriminate. This is the kind of night where strangers become your hype squad, where three drinks in you find your voice, where the whole room joins the chorus. Come solo or with your crew. Come to shine, come to support, come to witness—Azúcar's Lounge becomes a stage for every body's moment.\n\n🗓️ Miércoles 15 de julio — Show 7:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover Free\n\n🎟️ Tickets: https://www.eventbrite.com/e/karaoke-tickets-1993554295563",
+   "eventbrite_url": "https://www.eventbrite.com/e/karaoke-tickets-1993554295563",
+   "flyer": "media/fb-kit/12481755388_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12481755388"
   }
  ]
 }
