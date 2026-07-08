@@ -186,7 +186,25 @@ def resolve_eb_cover(item: dict) -> Path | None:
 
 # ─── Eventbrite steps ────────────────────────────────────────────────────────
 
-def eb_upload_image(path: Path) -> str:
+def eb_upload_image(path: Path, attempts: int = 3) -> str:
+    """Upload with retry — Eventbrite's media store throws transient S3_ERRORs
+    whose own message says 'Please try again' (seen live 2026-07-08)."""
+    import time
+
+    for attempt in range(1, attempts + 1):
+        try:
+            return _eb_upload_image_once(path)
+        except RuntimeError as e:
+            transient = "S3_ERROR" in str(e) or "HTTP 5" in str(e)
+            if attempt == attempts or not transient:
+                raise
+            wait = attempt * 5
+            print(f"  upload attempt {attempt} hit a transient error, retrying in {wait}s...")
+            time.sleep(wait)
+    raise RuntimeError("unreachable")
+
+
+def _eb_upload_image_once(path: Path) -> str:
     from PIL import Image
 
     r = requests.get(f"{EB_BASE}/media/upload/?type=image-event-logo", headers=EB_AUTH)
