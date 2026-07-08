@@ -45,7 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add posts_queue.json docs/posts_queue.json docs/cadence_preview.md
+          git add posts_queue.json docs/posts_queue.json docs/cadence_preview.md docs/media/
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else

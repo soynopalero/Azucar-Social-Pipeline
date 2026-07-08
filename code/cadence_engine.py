@@ -526,7 +526,10 @@ def enqueue_event(e, captions, now):
         return 0
 
     # Host every flyer once; posts rotate through them for feed variety.
-    image_urls = [qu.upload_image_to_catbox(p) for p in download_flyer_files(e)]
+    # Hosted on our own GitHub Pages (committed by the workflow) — catbox.moe
+    # blocks uploads from GitHub's datacenter IPs (412 "Invalid uploader").
+    image_urls = [host_image_on_pages(p, e["id"], i)
+                  for i, p in enumerate(download_flyer_files(e))]
     queue = qu.load_queue()
     # Replace any pending entries for this event (re-approval refreshes cleanly;
     # already-posted entries are never touched).
@@ -554,6 +557,23 @@ def enqueue_event(e, captions, now):
             })
     qu.save_queue(queue)
     return len(slots) * len(PLATFORMS)
+
+
+PAGES_BASE = "https://soynopalero.github.io/Azucar-Social-Pipeline"
+CADENCE_MEDIA = REPO_ROOT / "docs" / "media" / "cadence"
+
+
+def host_image_on_pages(local_path, event_id, idx):
+    """Copy a flyer into docs/media/cadence/ — the workflow commits it and
+    GitHub Pages serves it. Meta fetches post images at posting time, by which
+    the Pages deploy (~1 min after commit) is long live."""
+    import shutil
+
+    CADENCE_MEDIA.mkdir(parents=True, exist_ok=True)
+    ext = Path(local_path).suffix or ".jpg"
+    dest = CADENCE_MEDIA / f"{event_id}_{idx}{ext}"
+    shutil.copyfile(local_path, dest)
+    return f"{PAGES_BASE}/media/cadence/{dest.name}"
 
 
 def fit_captions_for_monday(caps, budget=1900):
