@@ -461,7 +461,9 @@ def draft_captions(e, n=4):
     content = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b}} for b in images]
     content.append({"type": "text", "text": user})
 
-    body = {"model": "claude-sonnet-5", "max_tokens": 3500,
+    # Up to 10 long paired captions ≈ well past the old 3500-token budget —
+    # a short cap truncates the JSON mid-array and the parse dies.
+    body = {"model": "claude-sonnet-5", "max_tokens": 12000,
             "system": caption_system(e.get("language"), weekday_en, weekday_es),
             "messages": [{"role": "user", "content": content}]}
     req = urllib.request.Request(
@@ -475,7 +477,21 @@ def draft_captions(e, n=4):
     if not text:
         raise RuntimeError(f"no text block in model response: {json.dumps(data)[:300]}")
     start, end = text.find("["), text.rfind("]")
-    raw = json.loads(text[start:end + 1])
+    try:
+        raw = json.loads(text[start:end + 1])
+    except json.JSONDecodeError:
+        # Truncated output: salvage every complete {"flyer":…,"caption":…} object.
+        raw, dec, i = [], json.JSONDecoder(), text.find("{", start)
+        while i != -1:
+            try:
+                obj, obj_end = dec.raw_decode(text, i)
+            except json.JSONDecodeError:
+                break
+            if isinstance(obj, dict):
+                raw.append(obj)
+            i = text.find("{", obj_end)
+        if raw:
+            print(f"  (salvaged {len(raw)} caption object(s) from truncated model output)")
     # Normalize to paired dicts: {"flyer": 1-based index or None, "caption": str}.
     caps = []
     for item in raw:
