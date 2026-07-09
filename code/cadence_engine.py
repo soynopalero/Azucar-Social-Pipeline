@@ -65,6 +65,7 @@ COL_CAPTION_STATUS = "text_mm4wk4kr"        # ""/needs_review/approved/queued/re
 COL_CREATED_BY     = "text_mm4wnp8g"        # Telegram chat id of the event's creator
 COL_LANGUAGE       = "dropdown_mm4z9x97"    # Caption Language: English/Spanish/Bilingual (empty = English)
 COL_CAMPAIGN_NOTES = "long_text_mm52r831"   # performer stories/context from the bot's /update flow
+COL_CAPTION_FEEDBACK = "long_text_mm53rtrx" # one-shot revision notes from the Redraft prompt (cleared after use)
 
 HIDDEN_PHASES = {"Cancelled", "Completed"}
 PLATFORMS = ["instagram", "facebook"]
@@ -181,6 +182,7 @@ def parse_item(item):
         "flyer_asset_id": flyer_asset_id,
         "captions_json": txt(COL_CAPTIONS),
         "campaign_notes": txt(COL_CAMPAIGN_NOTES),
+        "caption_feedback": (txt(COL_CAPTION_FEEDBACK) or "").strip() or None,
         "caption_status": (txt(COL_CAPTION_STATUS) or "").strip().lower(),
         "created_by": (txt(COL_CREATED_BY) or "").strip() or None,
         "flyer_assets": flyer_assets,
@@ -450,6 +452,14 @@ def draft_captions(e, n=4):
     if e.get("campaign_notes"):
         user += ("\n\nCampaign notes from the venue (REAL facts about the performers/night — "
                  f"feature them in the matching captions):\n{e['campaign_notes'][:1500]}")
+    if e.get("caption_feedback"):
+        prev = load_captions_file(e["id"]) or []
+        if prev:
+            user += "\n\nPREVIOUS captions (the venue mostly liked these — revise, don't start over):\n"
+            user += "\n\n".join(f"[{i+1}] (flyer {c.get('flyer')}) {c['caption'][:600]}"
+                                for i, c in enumerate(prev[:10]))
+        user += ("\n\nREVISION REQUEST from the venue — apply this to the set: "
+                 f"{e['caption_feedback'][:800]}")
     if history:
         user += "\n\nPast captions for this show (match their voice and their FACTS — hosts and names in them are real):\n"
         user += "\n\n".join(f"[{i+1}] {h[:900]}" for i, h in enumerate(history))
@@ -721,6 +731,9 @@ def run_enqueue(events, today, now):
                 monday_set_long_text(e["id"], COL_CAPTIONS,
                                      json.dumps(fit_captions_for_monday(texts), ensure_ascii=False))
                 monday_set_text(e["id"], COL_CAPTION_STATUS, "needs_review")
+                if e.get("caption_feedback"):
+                    # One-shot notes: applied to this draft, cleared for the next.
+                    monday_set_long_text(e["id"], COL_CAPTION_FEEDBACK, "")
                 notify_captions_review(e, texts)
                 print(f"• drafted {len(caps)} captions, sent for review: {e['name']}")
             elif st == "needs_review":
