@@ -468,29 +468,50 @@ def draft_captions(e, n=4):
     if images:
         user += "\n\nThe flyer image(s) are attached in order — read them: lineup names, times, and themes on the artwork are real and usable."
 
-    content = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b}} for b in images]
-    content.append({"type": "text", "text": user})
+    images_content = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b}} for b in images]
 
-    # Up to 10 long paired captions ≈ well past the old 3500-token budget —
-    # a short cap truncates the JSON mid-array and the parse dies.
-    body = {"model": "claude-sonnet-5", "max_tokens": 12000,
-            "system": caption_system(e.get("language"), weekday_en, weekday_es),
-            "messages": [{"role": "user", "content": content}]}
-    req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages", data=json.dumps(body).encode(),
-        headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
-    )
-    with urllib.request.urlopen(req, timeout=180) as r:
-        data = json.loads(r.read())
-    # The model may emit a thinking block before the text block — join text blocks only.
-    text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text").strip()
-    if not text:
-        raise RuntimeError(f"no text block in model response: {json.dumps(data)[:300]}")
+    caps, text = [], ""
+    for attempt in (1, 2):
+        prompt = user if attempt == 1 else (user +
+            '\n\nIMPORTANT: Your previous reply was not machine-readable. Respond with '
+            'NOTHING except the JSON array of {"flyer": <image number>, "caption": "..."} objects.')
+        # Up to 10 long paired captions ≈ well past the old 3500-token budget —
+        # a short cap truncates the JSON mid-array and the parse dies.
+        body = {"model": "claude-sonnet-5", "max_tokens": 12000,
+                "system": caption_system(e.get("language"), weekday_en, weekday_es),
+                "messages": [{"role": "user", "content": images_content + [{"type": "text", "text": prompt}]}]}
+        req = urllib.request.Request(
+            "https://api.anthropic.com/v1/messages", data=json.dumps(body).encode(),
+            headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=180) as r:
+            data = json.loads(r.read())
+        # The model may emit a thinking block before the text block — join text blocks only.
+        text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text").strip()
+        if not text:
+            raise RuntimeError(f"no text block in model response: {json.dumps(data)[:300]}")
+        caps = parse_caption_array(text, images, e["date"])
+        if caps:
+            break
+        # Log what the model actually said so the run log diagnoses itself.
+        print(f"  model output had no caption array (attempt {attempt}); it began: {text[:300]!r}")
+    if not caps:
+        raise RuntimeError(f"model returned no captions after retry; output began: {text[:200]!r}")
+    return caps[:n]
+
+
+def parse_caption_array(text, images, date_iso):
+    """Pull the caption array out of the model's reply. Returns [] when there's
+    no array at all (e.g. the model replied in prose) — caller retries."""
     start, end = text.find("["), text.rfind("]")
+    if start == -1:
+        return []
     try:
-        raw = json.loads(text[start:end + 1])
+        raw = json.loads(text[start:end + 1]) if end > start else []
     except json.JSONDecodeError:
-        # Truncated output: salvage every complete {"flyer":…,"caption":…} object.
+        raw = []
+    if not raw:
+        # Truncated/malformed: salvage every complete {...} object after the bracket.
         raw, dec, i = [], json.JSONDecoder(), text.find("{", start)
         while i != -1:
             try:
@@ -501,7 +522,7 @@ def draft_captions(e, n=4):
                 raw.append(obj)
             i = text.find("{", obj_end)
         if raw:
-            print(f"  (salvaged {len(raw)} caption object(s) from truncated model output)")
+            print(f"  (salvaged {len(raw)} caption object(s) from malformed model output)")
     # Normalize to paired dicts: {"flyer": 1-based index or None, "caption": str}.
     caps = []
     for item in raw:
@@ -510,12 +531,10 @@ def draft_captions(e, n=4):
             fl = int(fl) if isinstance(fl, (int, float, str)) and str(fl).isdigit() else None
             if fl is not None and images:
                 fl = max(1, min(fl, len(images)))
-            caps.append({"flyer": fl, "caption": fix_weekdays(str(item["caption"]).strip(), e["date"])})
+            caps.append({"flyer": fl, "caption": fix_weekdays(str(item["caption"]).strip(), date_iso)})
         elif isinstance(item, str) and item.strip():
-            caps.append({"flyer": None, "caption": fix_weekdays(item.strip(), e["date"])})
-    if not caps:
-        raise RuntimeError("model returned no captions")
-    return caps[:n]
+            caps.append({"flyer": None, "caption": fix_weekdays(item.strip(), date_iso)})
+    return caps
 
 
 def tg_call(method, payload):
