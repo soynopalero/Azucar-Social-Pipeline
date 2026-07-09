@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-08 16:57 PDT - **nothing posted, queue untouched**
+Generated 2026-07-08 17:10 PDT - **nothing posted, queue untouched**
 
-Eligible events: **5** - Skipped: **36**
+Eligible events: **5** - Skipped: **35**
 
 ## Build you own carabiner - 2026-07-12  (Aggressive)
 9 posts x 2 platforms = **18** queue entries
@@ -119,7 +119,6 @@ Eligible events: **5** - Skipped: **36**
 - **Aubs Take Over — July** - no cadence set, no flyer, no price, no description
 - **Aubs Take Over — June** - date in the past, no cadence set, no flyer, no price, no description
 - **Azúcar House Party — DJ Lalique Debut** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
-- **Azúcar testing** - phase = Cancelled, cadence = Off
 - **Cabana Bass** - no cadence set, no flyer, no price, no description
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Drag Wheel of Pride — Anthem Edition (All Ages)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
