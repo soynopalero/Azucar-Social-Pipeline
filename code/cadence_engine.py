@@ -436,6 +436,8 @@ def draft_captions(e, n=4):
             "- For the hero/full-cast flyer: 2-3 campaign captions (hype announcement, vibe/sensory, info-forward).\n"
             "- For each individual performer flyer: ONE spotlight caption about THAT performer "
             "(their name is on the artwork; use the campaign notes for their story — debut, birthday, hosting, etc.).\n"
+            "- COVERAGE IS MANDATORY: every distinct performer image MUST appear as some caption's flyer. "
+            "Never pair more than 3 captions with the hero image.\n"
             "- Order the array: hero captions first, then spotlights.\n"
             "Every caption must stand alone and still end with the full info block.\n\n"
         )
