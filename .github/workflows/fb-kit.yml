@@ -40,7 +40,14 @@ jobs:
             echo "Kit unchanged — nothing to commit."
           else
             git commit -m "FB kit refresh [skip ci]"
-            git push
+            # Concurrent workflows (eventbrite-auto + engine both push at
+            # publish time) race on main — retry instead of dying.
+            ok=""
+            for i in 1 2 3 4; do
+              if git pull --rebase origin main && git push; then ok=1; break; fi
+              echo "push raced, retry $i"; sleep $((i * 4))
+            done
+            [ -n "$ok" ] || exit 1
           fi
 
       - name: Telegram alert on failure
