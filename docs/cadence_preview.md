@@ -1,15 +1,26 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-08 17:10 PDT - **nothing posted, queue untouched**
+Generated 2026-07-08 23:31 PDT - **nothing posted, queue untouched**
 
-Eligible events: **5** - Skipped: **35**
+Eligible events: **7** - Skipped: **35**
 
-## Build you own carabiner - 2026-07-12  (Aggressive)
-9 posts x 2 platforms = **18** queue entries
+## Noche Vaquera: Sudor y cuero - 2026-07-11  (Aggressive)
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Jul 8, 7:00 PM | evening |
+| Thu Jul 9, 11:00 AM | morning |
+| Thu Jul 9, 7:00 PM | evening |
+| Fri Jul 10, 11:00 AM | morning |
+| Fri Jul 10, 7:00 PM | evening |
+| Sat Jul 11, 11:00 AM | morning |
+| Sat Jul 11, 7:00 PM | evening |
+
+## Build you own carabiner - 2026-07-12  (Aggressive)
+8 posts x 2 platforms = **16** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Thu Jul 9, 11:00 AM | morning |
 | Thu Jul 9, 7:00 PM | evening |
 | Fri Jul 10, 11:00 AM | morning |
@@ -20,11 +31,10 @@ Eligible events: **5** - Skipped: **35**
 | Sun Jul 12, 7:00 PM | evening |
 
 ## Karaoke - 2026-07-15  (Standard)
-8 posts x 2 platforms = **16** queue entries
+7 posts x 2 platforms = **14** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Jul 8, 7:00 PM | evening |
 | Thu Jul 9, 11:00 AM | morning |
 | Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
@@ -33,12 +43,35 @@ Eligible events: **5** - Skipped: **35**
 | Tue Jul 14, 7:00 PM | evening |
 | Wed Jul 15, 11:00 AM | morning |
 
-## Noche Latina - 2026-07-25  (Standard)
-15 posts x 2 platforms = **30** queue entries
+## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
+18 posts x 2 platforms = **36** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Jul 8, 7:00 PM | evening |
+| Thu Jul 9, 11:00 AM | morning |
+| Fri Jul 10, 7:00 PM | evening |
+| Sat Jul 11, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+| Mon Jul 13, 11:00 AM | morning |
+| Mon Jul 13, 7:00 PM | evening |
+| Tue Jul 14, 11:00 AM | morning |
+| Tue Jul 14, 7:00 PM | evening |
+| Wed Jul 15, 11:00 AM | morning |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Thu Jul 16, 7:00 PM | evening |
+| Fri Jul 17, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Sat Jul 18, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+
+## Noche Latina - 2026-07-25  (Standard)
+14 posts x 2 platforms = **28** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Fri Jul 10, 11:00 AM | morning |
 | Sat Jul 11, 7:00 PM | evening |
 | Sun Jul 12, 11:00 AM | morning |
@@ -55,11 +88,10 @@ Eligible events: **5** - Skipped: **35**
 | Sat Jul 25, 7:00 PM | evening |
 
 ## Night of Kings - 2026-07-26  (Aggressive)
-22 posts x 2 platforms = **44** queue entries
+21 posts x 2 platforms = **42** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Jul 8, 7:00 PM | evening |
 | Fri Jul 10, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 | Mon Jul 13, 11:00 AM | morning |
@@ -152,4 +184,4 @@ Eligible events: **5** - Skipped: **35**
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show — Saturday June 20, 9pm-2am** - no date, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 156**
+**Total queue entries that would be created: 196**
