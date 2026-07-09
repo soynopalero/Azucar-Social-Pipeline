@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-09 10:53 PDT - **nothing posted, queue untouched**
+Generated 2026-07-09 11:22 PDT - **nothing posted, queue untouched**
 
 Eligible events: **9** - Skipped: **35**
 
 ## Noche Vaquera: Sudor y cuero - 2026-07-11  (Aggressive)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Jul 9, 11:00 AM | morning |
 | Thu Jul 9, 7:00 PM | evening |
 | Fri Jul 10, 11:00 AM | morning |
 | Fri Jul 10, 7:00 PM | evening |
@@ -17,11 +16,10 @@ Eligible events: **9** - Skipped: **35**
 | Sat Jul 11, 7:00 PM | evening |
 
 ## Build you own carabiner - 2026-07-12  (Aggressive)
-8 posts x 2 platforms = **16** queue entries
+7 posts x 2 platforms = **14** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Jul 9, 11:00 AM | morning |
 | Thu Jul 9, 7:00 PM | evening |
 | Fri Jul 10, 11:00 AM | morning |
 | Fri Jul 10, 7:00 PM | evening |
@@ -222,4 +220,4 @@ Eligible events: **9** - Skipped: **35**
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show — Saturday June 20, 9pm-2am** - no date, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 248**
+**Total queue entries that would be created: 244**
