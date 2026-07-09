@@ -1,22 +1,10 @@
 {
- "generated_at": "2026-07-08T23:34:50",
+ "generated_at": "2026-07-09T02:23:21",
  "events": [
-  {
-   "item_id": "12424060899",
-   "name": "Noche Latina",
-   "date_display": "Jul 25, 2026",
-   "start_time": "10:00 PM",
-   "end_date_display": "Jul 26, 2026",
-   "end_time": "2:00 AM",
-   "location": "327 W Lewis St, Pasco, WA 99301",
-   "description": "Cynthia Marche is back, and she's bringing the heat. This queen has been keeping Latinx nightlife alive for years, and her show is the kind of spectacle that leaves you breathless—equal parts glamour, humor, and unabashed sensuality. She'll warm you up with a performance that'll make your abuela clutch her pearls (in the best way), then our DJ takes over and keeps the energy climbing all night.\n\nNoche Latina is our monthly love letter to Latinx culture, and it lives in the Ranchero Room—packed, pulsing, unapologetic. The music is pure Latino heat: reggaeton, salsa, bachata, cumbia, whatever makes your hips move. The vibe is provocative without pretense. The crowd is here to feel alive, to laugh, to move, to belong.\n\nCome early, stay late, bring your crew. Cynthia's got jokes and pipes for days. The DJ's got the soundtrack to your night. We've got the drinks and the space where you can be exactly as spicy as you want to be.\n\n🗓️ Sábado 25 de julio — Show 10:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $15\n\n🎟️ Tickets: https://www.eventbrite.com/e/noche-latina-con-cynthia-marche-tickets-1992967257717",
-   "eventbrite_url": "https://www.eventbrite.com/e/noche-latina-con-cynthia-marche-tickets-1992967257717",
-   "flyer": "media/fb-kit/12424060899_cover.jpg",
-   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12424060899"
-  },
   {
    "item_id": "12480621228",
    "name": "Build you own carabiner",
+   "date_iso": "2026-07-12",
    "date_display": "Jul 12, 2026",
    "start_time": "7:00 PM",
    "end_date_display": "Jul 12, 2026",
@@ -28,21 +16,9 @@
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12480621228"
   },
   {
-   "item_id": "12481126699",
-   "name": "Sappholicious Burlesque show",
-   "date_display": "Aug 22, 2026",
-   "start_time": "9:00 PM",
-   "end_date_display": "Aug 23, 2026",
-   "end_time": "1:00 AM",
-   "location": "327 W Lewis St, Pasco, WA 99301",
-   "description": "Sappholicious Burlesque is coming to shake up Azúcar's main floor with a full female cast that celebrates desire, humor, and community all at once. La Bon is hosting the night—expect high energy, seamless transitions, and a room that feels like it's in on the secret.\n\nThis is burlesque done right: a mix of performers, perspectives, and pure confidence. Whether you're here for the artistry, the sensuality, the laughs, or just to feel that particular kind of alive you only get when you're surrounded by people who get it—you belong in this room.\n\nSaturday, August 22 at 9 PM. Main floor. Come hungry, come thirsty, come ready. Azúcar's got the cocktails, the food, the stage. La Bon's got the vibe.\n\n🗓️ Sábado 22 de agosto — Show 9:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $15-$35\n\n🎟️ Tickets: https://www.eventbrite.com/e/1992804354469?aff=oddtdtcreator",
-   "eventbrite_url": "https://www.eventbrite.com/e/1992804354469?aff=oddtdtcreator",
-   "flyer": "media/fb-kit/12481126699_cover.jpg",
-   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12481126699"
-  },
-  {
    "item_id": "12481755388",
    "name": "Karaoke",
+   "date_iso": "2026-07-15",
    "date_display": "Jul 15, 2026",
    "start_time": "7:00 PM",
    "end_date_display": "Jul 15, 2026",
@@ -54,8 +30,23 @@
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12481755388"
   },
   {
+   "item_id": "12424060899",
+   "name": "Noche Latina",
+   "date_iso": "2026-07-25",
+   "date_display": "Jul 25, 2026",
+   "start_time": "10:00 PM",
+   "end_date_display": "Jul 26, 2026",
+   "end_time": "2:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Cynthia Marche is back, and she's bringing the heat. This queen has been keeping Latinx nightlife alive for years, and her show is the kind of spectacle that leaves you breathless—equal parts glamour, humor, and unabashed sensuality. She'll warm you up with a performance that'll make your abuela clutch her pearls (in the best way), then our DJ takes over and keeps the energy climbing all night.\n\nNoche Latina is our monthly love letter to Latinx culture, and it lives in the Ranchero Room—packed, pulsing, unapologetic. The music is pure Latino heat: reggaeton, salsa, bachata, cumbia, whatever makes your hips move. The vibe is provocative without pretense. The crowd is here to feel alive, to laugh, to move, to belong.\n\nCome early, stay late, bring your crew. Cynthia's got jokes and pipes for days. The DJ's got the soundtrack to your night. We've got the drinks and the space where you can be exactly as spicy as you want to be.\n\n🗓️ Sábado 25 de julio — Show 10:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $15\n\n🎟️ Tickets: https://www.eventbrite.com/e/noche-latina-con-cynthia-marche-tickets-1992967257717",
+   "eventbrite_url": "https://www.eventbrite.com/e/noche-latina-con-cynthia-marche-tickets-1992967257717",
+   "flyer": "media/fb-kit/12424060899_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12424060899"
+  },
+  {
    "item_id": "12482489057",
    "name": "Night of Kings",
+   "date_iso": "2026-07-26",
    "date_display": "Jul 26, 2026",
    "start_time": "8:00 PM",
    "end_date_display": "Jul 27, 2026",
@@ -65,6 +56,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/1992954447401?aff=oddtdtcreator",
    "flyer": "media/fb-kit/12482489057_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12482489057"
+  },
+  {
+   "item_id": "12481126699",
+   "name": "Sappholicious Burlesque show",
+   "date_iso": "2026-08-22",
+   "date_display": "Aug 22, 2026",
+   "start_time": "9:00 PM",
+   "end_date_display": "Aug 23, 2026",
+   "end_time": "1:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Sappholicious Burlesque is coming to shake up Azúcar's main floor with a full female cast that celebrates desire, humor, and community all at once. La Bon is hosting the night—expect high energy, seamless transitions, and a room that feels like it's in on the secret.\n\nThis is burlesque done right: a mix of performers, perspectives, and pure confidence. Whether you're here for the artistry, the sensuality, the laughs, or just to feel that particular kind of alive you only get when you're surrounded by people who get it—you belong in this room.\n\nSaturday, August 22 at 9 PM. Main floor. Come hungry, come thirsty, come ready. Azúcar's got the cocktails, the food, the stage. La Bon's got the vibe.\n\n🗓️ Sábado 22 de agosto — Show 9:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $15-$35\n\n🎟️ Tickets: https://www.eventbrite.com/e/1992804354469?aff=oddtdtcreator",
+   "eventbrite_url": "https://www.eventbrite.com/e/1992804354469?aff=oddtdtcreator",
+   "flyer": "media/fb-kit/12481126699_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12481126699"
   }
  ]
 }
