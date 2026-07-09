@@ -64,6 +64,43 @@ def monday_upload(item_id: str, filename: str, content: bytes) -> None:
         raise RuntimeError(f"upload failed: {json.dumps(body)[:300]}")
 
 
+def pick_hero(photos: list) -> int:
+    """Vision: which image is the main/full-cast flyer? People can't control
+    album order on their phones, so the machine decides what goes first
+    (= the website hero image). Returns an index; 0 on any failure."""
+    key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    if not key or len(photos) < 2:
+        return 0
+    import base64
+    import re
+    content = [{"type": "image",
+                "source": {"type": "base64", "media_type": "image/jpeg",
+                           "data": base64.b64encode(c).decode()}}
+               for _, c in photos[:10]]
+    content.append({"type": "text", "text":
+        f"These are {len(photos[:10])} flyers for one nightlife event. Exactly one is the MAIN/hero "
+        "flyer — the full-cast or title artwork representing the whole event; the others are "
+        "individual performer spotlights or variants. "
+        'Reply with ONLY JSON: {"hero": <1-based image number>}'})
+    try:
+        r = requests.post("https://api.anthropic.com/v1/messages", timeout=120,
+                          headers={"x-api-key": key, "anthropic-version": "2023-06-01",
+                                   "content-type": "application/json"},
+                          json={"model": "claude-sonnet-5", "max_tokens": 500,
+                                "messages": [{"role": "user", "content": content}]})
+        data = r.json()
+        text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
+        m = re.search(r'"hero"\s*:\s*(\d+)', text)
+        if m:
+            idx = int(m.group(1)) - 1
+            if 0 <= idx < len(photos):
+                return idx
+        print(f"hero pick: no usable answer ({text[:120]!r}); keeping sent order")
+    except Exception as ex:
+        print(f"hero pick failed ({ex}); keeping sent order")
+    return 0
+
+
 def notify(text: str) -> None:
     if not (TG_TOKEN and NOTIFY_CHAT_ID):
         return
@@ -81,6 +118,13 @@ def main() -> int:
     print(f"Downloading {len(FILE_IDS)} photos from Telegram...")
     photos = [tg_download(fid) for fid in FILE_IDS]
 
+    hero = pick_hero(photos)
+    if hero:
+        photos.insert(0, photos.pop(hero))
+        print(f"Hero flyer detected at position {hero + 1} of the batch — moved to front.")
+    else:
+        print("Hero flyer: keeping first-sent as the hero.")
+
     print("Clearing the flyer column...")
     monday_gql(
         """mutation($b: ID!, $i: ID!, $c: String!, $v: JSON!) {
@@ -97,8 +141,9 @@ def main() -> int:
              change_simple_column_value(board_id: $b, item_id: $i, column_id: $c, value: $v) { id } }""",
         {"b": BOARD_ID, "i": ITEM_ID, "c": COL_CAPTION_STATUS, "v": "regenerate"})
 
-    notify(f"🖼 {len(photos)} new flyers are on the event — fresh captions are being "
-           "drafted from them now and will arrive here for approval shortly.")
+    notify(f"🖼 {len(photos)} new flyers are on the event — I picked the full-cast/main art "
+           "as the website hero image. Fresh captions are being drafted from them now and "
+           "will arrive here for approval shortly.")
     print("Done.")
     return 0
 

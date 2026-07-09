@@ -44,6 +44,7 @@ jobs:
       - name: Sync flyers from Telegram to Monday
         env:
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # hero-flyer vision pick
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           ITEM_ID: ${{ inputs.item_id }}
           TG_FILE_IDS: ${{ inputs.file_ids }}
