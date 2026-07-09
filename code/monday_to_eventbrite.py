@@ -277,7 +277,7 @@ def notify_telegram(created: list[tuple[str, str, str]]) -> None:
         return
     blocks = [
         f"🎟️ {name}\nEventbrite: {eb_url}\nMonday: {monday_url}"
-        for name, eb_url, monday_url in created
+        for name, eb_url, monday_url, _start, _end in created
     ]
     msg = ("✅ Eventbrite created for "
            f"{len(created)} event{'s' if len(created) > 1 else ''}:\n\n"
@@ -291,6 +291,28 @@ def notify_telegram(created: list[tuple[str, str, str]]) -> None:
                                 "disable_web_page_preview": True}, timeout=15)
         except requests.RequestException as e:
             print(f"Telegram notify to {cid} failed: {e}")
+
+
+def notify_gcal(created: list) -> None:
+    """Drop each newly-created event onto the shared Azucar Events Google
+    Calendar via the Apps Script webhook (code/gcal_webhook.gs). Silent no-op
+    until the GCAL_WEBHOOK_URL secret is configured."""
+    url = os.environ.get("GCAL_WEBHOOK_URL", "").strip()
+    if not url or not created:
+        return
+    for name, eb_url, monday_url, start_utc, end_utc in created:
+        try:
+            r = requests.post(url, timeout=30, json={
+                "token": "azucar-gcal-2026",
+                "name": name,
+                "start_utc": start_utc,
+                "end_utc": end_utc,
+                "location": "Azúcar at Out & About — 327 W Lewis St, Pasco, WA 99301",
+                "description": f"🎟️ {eb_url}\n📋 {monday_url}",
+            })
+            print(f"  Google Calendar: {name} -> {r.status_code} {r.text[:60]}")
+        except requests.RequestException as e:
+            print(f"  Google Calendar notify failed for {name}: {e}")
 
 
 def refresh_fb_kit_now() -> None:
@@ -377,7 +399,7 @@ def process_item(item: dict, dry_run: bool) -> tuple[str, str, str] | None:
     monday_write_eventbrite_url(item["id"], event["url"], f"Eventbrite — {name}")
     print("  Monday updated: Eventbrite URL written back")
     monday_url = f"https://nopaleros-org.monday.com/boards/{BOARD_ID}/pulses/{item['id']}"
-    return (name, event["url"], monday_url)
+    return (name, event["url"], monday_url, start_utc, end_utc)
 
 
 def main() -> int:
@@ -424,6 +446,7 @@ def main() -> int:
             failed.append(item["name"])
     if created:
         refresh_fb_kit_now()
+        notify_gcal(created)
         notify_telegram(created)
     if failed:
         print(f"\n{len(failed)} item(s) failed: {failed}")

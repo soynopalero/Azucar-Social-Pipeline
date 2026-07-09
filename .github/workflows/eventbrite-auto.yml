@@ -44,6 +44,8 @@ jobs:
           # TELEGRAM_BOT_TOKEN secret hasn't been added to this repo yet.
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_NOTIFY_CHAT_IDS: "5056319378,8734741621"
+          # Azucar Events Google Calendar (Apps Script webhook) — silent no-op until set
+          GCAL_WEBHOOK_URL: ${{ secrets.GCAL_WEBHOOK_URL }}
         run: python code/monday_to_eventbrite.py --all-pending
 
       - name: Telegram alert on failure
