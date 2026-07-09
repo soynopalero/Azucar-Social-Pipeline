@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-09 10:43 PDT - **nothing posted, queue untouched**
+Generated 2026-07-09 10:47 PDT - **nothing posted, queue untouched**
 
-Eligible events: **8** - Skipped: **35**
+Eligible events: **9** - Skipped: **35**
 
 ## Noche Vaquera: Sudor y cuero - 2026-07-11  (Aggressive)
 6 posts x 2 platforms = **12** queue entries
@@ -82,6 +82,26 @@ Eligible events: **8** - Skipped: **35**
 | Sat Jul 18, 7:00 PM | evening |
 | Sun Jul 19, 11:00 AM | morning |
 | Sun Jul 19, 7:00 PM | evening |
+
+## Alice in Bass Land - 2026-07-24  (Standard)
+14 posts x 2 platforms = **28** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Jul 9, 7:00 PM | evening |
+| Fri Jul 10, 11:00 AM | morning |
+| Sat Jul 11, 7:00 PM | evening |
+| Mon Jul 13, 11:00 AM | morning |
+| Tue Jul 14, 7:00 PM | evening |
+| Wed Jul 15, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+| Mon Jul 20, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
 
 ## Noche Latina - 2026-07-25  (Standard)
 15 posts x 2 platforms = **30** queue entries
@@ -202,4 +222,4 @@ Eligible events: **8** - Skipped: **35**
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show — Saturday June 20, 9pm-2am** - no date, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 220**
+**Total queue entries that would be created: 248**
