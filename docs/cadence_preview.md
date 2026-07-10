@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-09 11:55 PDT - **nothing posted, queue untouched**
+Generated 2026-07-09 17:10 PDT - **nothing posted, queue untouched**
 
-Eligible events: **9** - Skipped: **35**
+Eligible events: **10** - Skipped: **29**
 
 ## Noche Vaquera: Sudor y cuero - 2026-07-11  (Aggressive)
 5 posts x 2 platforms = **10** queue entries
@@ -16,6 +16,19 @@ Eligible events: **9** - Skipped: **35**
 | Sat Jul 11, 7:00 PM | evening |
 
 ## Build you own carabiner - 2026-07-12  (Aggressive)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Jul 9, 7:00 PM | evening |
+| Fri Jul 10, 11:00 AM | morning |
+| Fri Jul 10, 7:00 PM | evening |
+| Sat Jul 11, 11:00 AM | morning |
+| Sat Jul 11, 7:00 PM | evening |
+| Sun Jul 12, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+
+## Love Island Finale Watch Party - 2026-07-12  (Aggressive)
 7 posts x 2 platforms = **14** queue entries
 
 | When (Pacific) | Slot |
@@ -184,10 +197,8 @@ Eligible events: **9** - Skipped: **35**
 
 ### Skipped (not eligible yet)
 
-- **Aubs Take Over — July** - no cadence set, no flyer, no price, no description
 - **Aubs Take Over — June** - date in the past, no cadence set, no flyer, no price, no description
 - **Azúcar House Party — DJ Lalique Debut** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
-- **Cabana Bass** - no cadence set, no flyer, no price, no description
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Drag Wheel of Pride — Anthem Edition (All Ages)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Frivola — June** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -200,11 +211,8 @@ Eligible events: **9** - Skipped: **35**
 - **Lesbian Pride** - date in the past, no cadence set, no flyer, no price, no description
 - **Lesmeets - Wiener for Fathersday** - date in the past, no cadence set, no flyer, no price, no description
 - **Magic Hunks (touring)** - no cadence set, no flyer, no price, no description
-- **Magic Hunks — August 16 or 30 (pending confirmation), 9pm** - no date, no cadence set, no flyer, no price, no description
-- **Magic Hunks — August 16, 2026** - no cadence set, no flyer, no price, no description
 - **Next Gen Brunch** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Noche Vaquera — August** - no cadence set, no flyer, no price, no description
-- **Noche Vaquera — July** - no cadence set, no flyer, no price, no description
 - **Noche latina** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **PFLAG Summer Pride BBQ** - date in the past, no cadence set, no flyer, no price, no description
 - **Pride Karaoke** - date in the past, no cadence set, no flyer, no price, no description
@@ -218,6 +226,5 @@ Eligible events: **9** - Skipped: **35**
 - **Tricities Pride Beer Garden (off-site)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
-- **Vida Amore Show — Saturday June 20, 9pm-2am** - no date, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 244**
+**Total queue entries that would be created: 258**
