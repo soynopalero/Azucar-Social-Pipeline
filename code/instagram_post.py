@@ -15,6 +15,7 @@ How it works:
 
 import os
 import sys
+import time
 import argparse
 import requests
 from dotenv import load_dotenv
@@ -85,7 +86,30 @@ def post_photo_to_instagram(image_path: str, caption: str):
     container_id = container_result["id"]
     print(f"✅ Media container created: {container_id}")
 
-    # Step 3: Publish the container (this makes it go live on Instagram)
+    # Step 3: Wait for Instagram to finish processing the image.
+    # Publishing before status_code is FINISHED fails with error 9007
+    # ("The media is not ready for publishing").
+    print("⏳ Waiting for Instagram to process the image...")
+    deadline = time.monotonic() + 180
+    while True:
+        status = requests.get(
+            f"{BASE_URL}/{container_id}",
+            params={"fields": "status_code", "access_token": PAGE_ACCESS_TOKEN},
+        ).json()
+        code = status.get("status_code")
+        if code == "FINISHED":
+            print("✅ Media processed and ready.")
+            break
+        if code == "ERROR" or "error" in status:
+            print("❌ Instagram failed to process the media:")
+            print(status)
+            sys.exit(1)
+        if time.monotonic() >= deadline:
+            print(f"❌ Media still not ready after 180s (last status: {status})")
+            sys.exit(1)
+        time.sleep(5)
+
+    # Step 4: Publish the container (this makes it go live on Instagram)
     print("🚀 Publishing to Instagram...")
     publish_response = requests.post(
         f"{BASE_URL}/{IG_USER_ID}/media_publish",

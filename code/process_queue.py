@@ -13,6 +13,7 @@ Credentials are read from environment variables (set as GitHub repo secrets):
 
 import os
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -34,6 +35,29 @@ API_VERSION = "v19.0"
 BASE_URL = f"https://graph.facebook.com/{API_VERSION}"
 
 
+def wait_for_container_ready(container_id: str, timeout_s: int = 180, poll_s: int = 5) -> dict:
+    """Poll a media container until Meta finishes processing the image.
+
+    IG ingests the image asynchronously; publishing before status_code is
+    FINISHED fails with error 9007 / subcode 2207027 ("media is not ready").
+    """
+    deadline = time.monotonic() + timeout_s
+    while True:
+        status = requests.get(
+            f"{BASE_URL}/{container_id}",
+            params={"fields": "status_code", "access_token": PAGE_ACCESS_TOKEN},
+            timeout=60,
+        ).json()
+        code = status.get("status_code")
+        if code == "FINISHED":
+            return {"ok": True}
+        if code == "ERROR" or "error" in status:
+            return {"ok": False, "error": f"container processing failed: {status}"}
+        if time.monotonic() >= deadline:
+            return {"ok": False, "error": f"container not ready after {timeout_s}s (last status: {status})"}
+        time.sleep(poll_s)
+
+
 def post_to_instagram(image_url: str, caption: str) -> dict:
     """Post via Meta Graph API. Returns {'ok': True, 'id': ...} or {'ok': False, 'error': ...}."""
     container = requests.post(
@@ -43,13 +67,26 @@ def post_to_instagram(image_url: str, caption: str) -> dict:
     ).json()
     if "id" not in container:
         return {"ok": False, "error": f"container creation failed: {container}"}
-    publish = requests.post(
-        f"{BASE_URL}/{IG_USER_ID}/media_publish",
-        data={"creation_id": container["id"], "access_token": PAGE_ACCESS_TOKEN},
-        timeout=60,
-    ).json()
-    if "id" in publish:
-        return {"ok": True, "id": publish["id"], "container_id": container["id"]}
+
+    ready = wait_for_container_ready(container["id"])
+    if not ready["ok"]:
+        return ready
+
+    # Belt-and-suspenders: retry publish a few times in case Meta still
+    # reports the media as not ready right after FINISHED.
+    publish = {}
+    for attempt in range(3):
+        if attempt:
+            time.sleep(10)
+        publish = requests.post(
+            f"{BASE_URL}/{IG_USER_ID}/media_publish",
+            data={"creation_id": container["id"], "access_token": PAGE_ACCESS_TOKEN},
+            timeout=60,
+        ).json()
+        if "id" in publish:
+            return {"ok": True, "id": publish["id"], "container_id": container["id"]}
+        if publish.get("error", {}).get("code") != 9007:
+            break
     return {"ok": False, "error": f"publish failed: {publish}"}
 
 
