@@ -1,46 +1,42 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-10 17:03 PDT - **nothing posted, queue untouched**
+Generated 2026-07-10 21:49 PDT - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **29**
+Eligible events: **12** - Skipped: **29**
 
 ## Noche Vaquera: Sudor y cuero - 2026-07-11  (Aggressive)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sat Jul 11, 7:00 PM | evening |
 
 ## Build you own carabiner - 2026-07-12  (Aggressive)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sat Jul 11, 7:00 PM | evening |
 | Sun Jul 12, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 
 ## Love Island Finale Watch Party - 2026-07-12  (Aggressive)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sat Jul 11, 7:00 PM | evening |
 | Sun Jul 12, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 
 ## Karaoke - 2026-07-15  (Standard)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 | Mon Jul 13, 11:00 AM | morning |
@@ -48,11 +44,10 @@ Eligible events: **11** - Skipped: **29**
 | Wed Jul 15, 11:00 AM | morning |
 
 ## Rupaul All Stars Finale Viewing Party - 2026-07-16  (Standard)
-7 posts x 2 platforms = **14** queue entries
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 | Mon Jul 13, 11:00 AM | morning |
@@ -61,11 +56,10 @@ Eligible events: **11** - Skipped: **29**
 | Thu Jul 16, 7:00 PM | evening |
 
 ## Vida Amore Divas Show: Fiesta Semaforo - 2026-07-18  (Standard)
-9 posts x 2 platforms = **18** queue entries
+8 posts x 2 platforms = **16** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 | Mon Jul 13, 11:00 AM | morning |
@@ -76,11 +70,10 @@ Eligible events: **11** - Skipped: **29**
 | Sat Jul 18, 7:00 PM | evening |
 
 ## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
-17 posts x 2 platforms = **34** queue entries
+16 posts x 2 platforms = **32** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 | Mon Jul 13, 11:00 AM | morning |
@@ -99,11 +92,10 @@ Eligible events: **11** - Skipped: **29**
 | Sun Jul 19, 7:00 PM | evening |
 
 ## Alice in Bass Land - 2026-07-24  (Standard)
-13 posts x 2 platforms = **26** queue entries
+12 posts x 2 platforms = **24** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Mon Jul 13, 7:00 PM | evening |
 | Tue Jul 14, 11:00 AM | morning |
@@ -118,11 +110,10 @@ Eligible events: **11** - Skipped: **29**
 | Fri Jul 24, 7:00 PM | evening |
 
 ## Noche Latina - 2026-07-25  (Standard)
-14 posts x 2 platforms = **28** queue entries
+13 posts x 2 platforms = **26** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 | Tue Jul 14, 11:00 AM | morning |
@@ -138,11 +129,10 @@ Eligible events: **11** - Skipped: **29**
 | Sat Jul 25, 11:00 AM | morning |
 
 ## Night of Kings - 2026-07-26  (Aggressive)
-22 posts x 2 platforms = **44** queue entries
+21 posts x 2 platforms = **42** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sun Jul 12, 7:00 PM | evening |
 | Mon Jul 13, 11:00 AM | morning |
@@ -164,6 +154,28 @@ Eligible events: **11** - Skipped: **29**
 | Sat Jul 25, 7:00 PM | evening |
 | Sun Jul 26, 11:00 AM | morning |
 | Sun Jul 26, 7:00 PM | evening |
+
+## Seven Deadly sins - 2026-08-01  (Standard)
+16 posts x 2 platforms = **32** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sat Jul 11, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+| Wed Jul 15, 11:00 AM | morning |
+| Sat Jul 18, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Sat Jul 25, 11:00 AM | morning |
+| Sun Jul 26, 7:00 PM | evening |
+| Mon Jul 27, 11:00 AM | morning |
+| Tue Jul 28, 7:00 PM | evening |
+| Wed Jul 29, 11:00 AM | morning |
+| Thu Jul 30, 7:00 PM | evening |
+| Fri Jul 31, 11:00 AM | morning |
+| Sat Aug 1, 7:00 PM | evening |
 
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
 24 posts x 2 platforms = **48** queue entries
@@ -229,4 +241,4 @@ Eligible events: **11** - Skipped: **29**
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 250**
+**Total queue entries that would be created: 262**
