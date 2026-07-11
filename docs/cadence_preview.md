@@ -1,25 +1,23 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-10 10:43 PDT - **nothing posted, queue untouched**
+Generated 2026-07-10 17:03 PDT - **nothing posted, queue untouched**
 
-Eligible events: **10** - Skipped: **29**
+Eligible events: **11** - Skipped: **29**
 
 ## Noche Vaquera: Sudor y cuero - 2026-07-11  (Aggressive)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 11:00 AM | morning |
 | Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sat Jul 11, 7:00 PM | evening |
 
 ## Build you own carabiner - 2026-07-12  (Aggressive)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 11:00 AM | morning |
 | Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sat Jul 11, 7:00 PM | evening |
@@ -27,11 +25,10 @@ Eligible events: **10** - Skipped: **29**
 | Sun Jul 12, 7:00 PM | evening |
 
 ## Love Island Finale Watch Party - 2026-07-12  (Aggressive)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 10, 11:00 AM | morning |
 | Fri Jul 10, 7:00 PM | evening |
 | Sat Jul 11, 11:00 AM | morning |
 | Sat Jul 11, 7:00 PM | evening |
@@ -49,6 +46,19 @@ Eligible events: **10** - Skipped: **29**
 | Mon Jul 13, 11:00 AM | morning |
 | Tue Jul 14, 7:00 PM | evening |
 | Wed Jul 15, 11:00 AM | morning |
+
+## Rupaul All Stars Finale Viewing Party - 2026-07-16  (Standard)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Jul 10, 7:00 PM | evening |
+| Sat Jul 11, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+| Mon Jul 13, 11:00 AM | morning |
+| Tue Jul 14, 7:00 PM | evening |
+| Wed Jul 15, 11:00 AM | morning |
+| Thu Jul 16, 7:00 PM | evening |
 
 ## Vida Amore Divas Show: Fiesta Semaforo - 2026-07-18  (Standard)
 9 posts x 2 platforms = **18** queue entries
@@ -219,4 +229,4 @@ Eligible events: **10** - Skipped: **29**
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 242**
+**Total queue entries that would be created: 250**
