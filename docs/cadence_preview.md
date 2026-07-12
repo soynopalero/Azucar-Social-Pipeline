@@ -1,14 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-11 22:13 PDT - **nothing posted, queue untouched**
+Generated 2026-07-12 09:52 PDT - **nothing posted, queue untouched**
 
-Eligible events: **15** - Skipped: **29**
-
-## Noche Vaquera: Sudor y cuero - 2026-07-11  (Aggressive)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
+Eligible events: **14** - Skipped: **30**
 
 ## Build you own carabiner - 2026-07-12  (Aggressive)
 2 posts x 2 platforms = **4** queue entries
@@ -31,41 +25,41 @@ Eligible events: **15** - Skipped: **29**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 12, 11:00 AM | morning |
-| Mon Jul 13, 7:00 PM | evening |
-| Tue Jul 14, 11:00 AM | morning |
-| Wed Jul 15, 7:00 PM | evening |
+| Sun Jul 12, 7:00 PM | evening |
+| Mon Jul 13, 11:00 AM | morning |
+| Tue Jul 14, 7:00 PM | evening |
+| Wed Jul 15, 11:00 AM | morning |
 
 ## Rupaul All Stars Finale Viewing Party - 2026-07-16  (Standard)
 5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 12, 11:00 AM | morning |
-| Mon Jul 13, 7:00 PM | evening |
-| Tue Jul 14, 11:00 AM | morning |
-| Wed Jul 15, 7:00 PM | evening |
-| Thu Jul 16, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+| Mon Jul 13, 11:00 AM | morning |
+| Tue Jul 14, 7:00 PM | evening |
+| Wed Jul 15, 11:00 AM | morning |
+| Thu Jul 16, 7:00 PM | evening |
 
 ## Vida Amore Divas Show: Fiesta Semaforo - 2026-07-18  (Standard)
 7 posts x 2 platforms = **14** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 12, 11:00 AM | morning |
-| Mon Jul 13, 7:00 PM | evening |
-| Tue Jul 14, 11:00 AM | morning |
-| Wed Jul 15, 7:00 PM | evening |
-| Thu Jul 16, 11:00 AM | morning |
-| Fri Jul 17, 7:00 PM | evening |
-| Sat Jul 18, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+| Mon Jul 13, 11:00 AM | morning |
+| Tue Jul 14, 7:00 PM | evening |
+| Wed Jul 15, 11:00 AM | morning |
+| Thu Jul 16, 7:00 PM | evening |
+| Fri Jul 17, 11:00 AM | morning |
+| Sat Jul 18, 7:00 PM | evening |
 
 ## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
 15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 12, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
 | Mon Jul 13, 11:00 AM | morning |
 | Mon Jul 13, 7:00 PM | evening |
 | Tue Jul 14, 11:00 AM | morning |
@@ -82,13 +76,14 @@ Eligible events: **15** - Skipped: **29**
 | Sun Jul 19, 7:00 PM | evening |
 
 ## Alice in Bass Land - 2026-07-24  (Standard)
-11 posts x 2 platforms = **22** queue entries
+12 posts x 2 platforms = **24** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
+| Sun Jul 12, 7:00 PM | evening |
 | Mon Jul 13, 11:00 AM | morning |
 | Tue Jul 14, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
+| Thu Jul 16, 11:00 AM | morning |
 | Fri Jul 17, 7:00 PM | evening |
 | Sat Jul 18, 11:00 AM | morning |
 | Sun Jul 19, 7:00 PM | evening |
@@ -103,30 +98,30 @@ Eligible events: **15** - Skipped: **29**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 12, 11:00 AM | morning |
-| Tue Jul 14, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
-| Sat Jul 18, 11:00 AM | morning |
-| Sun Jul 19, 7:00 PM | evening |
-| Mon Jul 20, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
-| Wed Jul 22, 11:00 AM | morning |
-| Thu Jul 23, 7:00 PM | evening |
-| Fri Jul 24, 11:00 AM | morning |
-| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 12, 7:00 PM | evening |
+| Tue Jul 14, 11:00 AM | morning |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Sat Jul 18, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Mon Jul 20, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
+| Thu Jul 23, 11:00 AM | morning |
+| Fri Jul 24, 7:00 PM | evening |
+| Sat Jul 25, 11:00 AM | morning |
 
 ## Night of Kings - 2026-07-26  (Aggressive)
 20 posts x 2 platforms = **40** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 12, 11:00 AM | morning |
-| Mon Jul 13, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sun Jul 19, 7:00 PM | evening |
+| Sun Jul 12, 7:00 PM | evening |
+| Mon Jul 13, 11:00 AM | morning |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
 | Mon Jul 20, 11:00 AM | morning |
 | Mon Jul 20, 7:00 PM | evening |
 | Tue Jul 21, 11:00 AM | morning |
@@ -143,11 +138,12 @@ Eligible events: **15** - Skipped: **29**
 | Sun Jul 26, 7:00 PM | evening |
 
 ## Heels Dance Class with Frankie - 2026-07-30  (Standard)
-14 posts x 2 platforms = **28** queue entries
+15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Jul 13, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+| Tue Jul 14, 11:00 AM | morning |
 | Thu Jul 16, 7:00 PM | evening |
 | Fri Jul 17, 11:00 AM | morning |
 | Sun Jul 19, 7:00 PM | evening |
@@ -163,11 +159,12 @@ Eligible events: **15** - Skipped: **29**
 | Thu Jul 30, 7:00 PM | evening |
 
 ## Heels Dance Class with Kimora - 2026-07-30  (Standard)
-14 posts x 2 platforms = **28** queue entries
+15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Jul 13, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+| Tue Jul 14, 11:00 AM | morning |
 | Thu Jul 16, 7:00 PM | evening |
 | Fri Jul 17, 11:00 AM | morning |
 | Sun Jul 19, 7:00 PM | evening |
@@ -183,10 +180,11 @@ Eligible events: **15** - Skipped: **29**
 | Thu Jul 30, 7:00 PM | evening |
 
 ## Rosie’s Birthday Bash - 2026-07-31  (Standard)
-14 posts x 2 platforms = **28** queue entries
+15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
+| Sun Jul 12, 7:00 PM | evening |
 | Tue Jul 14, 11:00 AM | morning |
 | Fri Jul 17, 7:00 PM | evening |
 | Sat Jul 18, 11:00 AM | morning |
@@ -207,21 +205,21 @@ Eligible events: **15** - Skipped: **29**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 12, 11:00 AM | morning |
-| Wed Jul 15, 7:00 PM | evening |
-| Sat Jul 18, 11:00 AM | morning |
-| Sun Jul 19, 7:00 PM | evening |
-| Tue Jul 21, 11:00 AM | morning |
-| Wed Jul 22, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Sat Jul 25, 7:00 PM | evening |
-| Sun Jul 26, 11:00 AM | morning |
-| Mon Jul 27, 7:00 PM | evening |
-| Tue Jul 28, 11:00 AM | morning |
-| Wed Jul 29, 7:00 PM | evening |
-| Thu Jul 30, 11:00 AM | morning |
-| Fri Jul 31, 7:00 PM | evening |
-| Sat Aug 1, 11:00 AM | morning |
+| Sun Jul 12, 7:00 PM | evening |
+| Wed Jul 15, 11:00 AM | morning |
+| Sat Jul 18, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Sat Jul 25, 11:00 AM | morning |
+| Sun Jul 26, 7:00 PM | evening |
+| Mon Jul 27, 11:00 AM | morning |
+| Tue Jul 28, 7:00 PM | evening |
+| Wed Jul 29, 11:00 AM | morning |
+| Thu Jul 30, 7:00 PM | evening |
+| Fri Jul 31, 11:00 AM | morning |
+| Sat Aug 1, 7:00 PM | evening |
 
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
 24 posts x 2 platforms = **48** queue entries
@@ -266,13 +264,14 @@ Eligible events: **15** - Skipped: **29**
 - **Kareoke** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Latino Pride 2026** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Leather Social — August** - no cadence set, no flyer, no price, no description
-- **Leather Social — July** - no cadence set, no flyer, no price, no description
+- **Leather Social — July** - date in the past, no cadence set, no flyer, no price, no description
 - **Leather Social — June** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Lesbian Pride** - date in the past, no cadence set, no flyer, no price, no description
 - **Lesmeets - Wiener for Fathersday** - date in the past, no cadence set, no flyer, no price, no description
 - **Magic Hunks (touring)** - no cadence set, no flyer, no price, no description
 - **Next Gen Brunch** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Noche Vaquera — August** - no cadence set, no flyer, no price, no description
+- **Noche Vaquera: Sudor y cuero** - date in the past
 - **Noche latina** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **PFLAG Summer Pride BBQ** - date in the past, no cadence set, no flyer, no price, no description
 - **Pride Karaoke** - date in the past, no cadence set, no flyer, no price, no description
@@ -287,4 +286,4 @@ Eligible events: **15** - Skipped: **29**
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 318**
+**Total queue entries that would be created: 326**
