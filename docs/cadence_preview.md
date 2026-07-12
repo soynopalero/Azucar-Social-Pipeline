@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-11 21:50 PDT - **nothing posted, queue untouched**
+Generated 2026-07-11 22:11 PDT - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **29**
+Eligible events: **15** - Skipped: **29**
 
 ## Noche Vaquera: Sudor y cuero - 2026-07-11  (Aggressive)
 0 posts x 2 platforms = **0** queue entries
@@ -182,6 +182,26 @@ Eligible events: **14** - Skipped: **29**
 | Wed Jul 29, 11:00 AM | morning |
 | Thu Jul 30, 7:00 PM | evening |
 
+## Rosie’s Birthday Bash - 2026-07-31  (Standard)
+14 posts x 2 platforms = **28** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Jul 14, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Mon Jul 20, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+| Fri Jul 31, 7:00 PM | evening |
+
 ## Seven Deadly sins - 2026-08-01  (Standard)
 15 posts x 2 platforms = **30** queue entries
 
@@ -267,4 +287,4 @@ Eligible events: **14** - Skipped: **29**
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 290**
+**Total queue entries that would be created: 318**
