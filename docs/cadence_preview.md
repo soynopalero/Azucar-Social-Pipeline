@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-11 21:44 PDT - **nothing posted, queue untouched**
+Generated 2026-07-11 21:50 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **29**
+Eligible events: **14** - Skipped: **29**
 
 ## Noche Vaquera: Sudor y cuero - 2026-07-11  (Aggressive)
 0 posts x 2 platforms = **0** queue entries
@@ -162,6 +162,26 @@ Eligible events: **13** - Skipped: **29**
 | Wed Jul 29, 11:00 AM | morning |
 | Thu Jul 30, 7:00 PM | evening |
 
+## Heels Dance Class with Kimora - 2026-07-30  (Standard)
+14 posts x 2 platforms = **28** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Jul 13, 11:00 AM | morning |
+| Thu Jul 16, 7:00 PM | evening |
+| Fri Jul 17, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+| Mon Jul 20, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Thu Jul 23, 11:00 AM | morning |
+| Fri Jul 24, 7:00 PM | evening |
+| Sat Jul 25, 11:00 AM | morning |
+| Sun Jul 26, 7:00 PM | evening |
+| Mon Jul 27, 11:00 AM | morning |
+| Tue Jul 28, 7:00 PM | evening |
+| Wed Jul 29, 11:00 AM | morning |
+| Thu Jul 30, 7:00 PM | evening |
+
 ## Seven Deadly sins - 2026-08-01  (Standard)
 15 posts x 2 platforms = **30** queue entries
 
@@ -247,4 +267,4 @@ Eligible events: **13** - Skipped: **29**
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 262**
+**Total queue entries that would be created: 290**
