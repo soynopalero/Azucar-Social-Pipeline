@@ -77,6 +77,21 @@ def display_time(iso):
     return dt.strftime("%a %b %-d · %-I:%M %p") if os.name != "nt" else dt.strftime("%a %b %d · %I:%M %p").replace(" 0", " ")
 
 
+def _post_event_date(posts):
+    """Cadence-engine posts carry the event's real date from the Monday board."""
+    for p in posts:
+        if p.get("event_date"):
+            return p["event_date"]
+    return None
+
+
+def _max_local_date(posts):
+    """Latest post's date in VENUE-LOCAL time. Slicing the raw UTC string shifted
+    evening events to the next day (7 PM PT day-of post = 2 AM UTC)."""
+    latest = max(p["scheduled_for_utc"] for p in posts)
+    return datetime.datetime.fromisoformat(latest).astimezone(PACIFIC).date().isoformat()
+
+
 def build_real_events(posts):
     by_campaign = {}
     standalone = []
@@ -92,7 +107,7 @@ def build_real_events(posts):
         meta = CAMPAIGN_META.get(camp, {})
         logical = merge_logical(plist)
         logical.sort(key=lambda x: x["scheduled_for_utc"])
-        event_date = meta.get("event_date") or max(p["scheduled_for_utc"] for p in plist)[:10]
+        event_date = meta.get("event_date") or _post_event_date(plist) or _max_local_date(plist)
         events.append({
             "id": camp,
             "name": meta.get("name", camp.replace("_", " ").title()),
@@ -109,7 +124,7 @@ def build_real_events(posts):
         events.append({
             "id": "spring_2026_oneoffs",
             "name": "Earlier one-off posts (Spring 2026)",
-            "event_date": max(p["scheduled_for_utc"] for p in standalone)[:10],
+            "event_date": _max_local_date(standalone),
             "tag": "🗂️ One-offs",
             "flyer_grad": "linear-gradient(135deg,#2F9E6B,#7B2FF0)",
             "source": "real",

@@ -654,6 +654,7 @@ def enqueue_event(e, captions, now):
                 "result": None,
                 "campaign": campaign,
                 "monday_event_id": e["id"],
+                "event_date": e["date"],
                 "slot": s,
             })
     qu.save_queue(queue)
