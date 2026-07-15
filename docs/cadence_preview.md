@@ -1,44 +1,39 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-14 10:07 PDT - **nothing posted, queue untouched**
+Generated 2026-07-15 10:10 PDT - **nothing posted, queue untouched**
 
 Eligible events: **12** - Skipped: **32**
 
 ## Karaoke - 2026-07-15  (Standard)
+1 posts x 2 platforms = **2** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Wed Jul 15, 7:00 PM | evening |
+
+## Rupaul All Stars Finale Viewing Party - 2026-07-16  (Standard)
 2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 14, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-
-## Rupaul All Stars Finale Viewing Party - 2026-07-16  (Standard)
-3 posts x 2 platforms = **6** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Tue Jul 14, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
 
 ## Vida Amore Divas Show: Fiesta Semaforo - 2026-07-18  (Standard)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 14, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
 
 ## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
-12 posts x 2 platforms = **24** queue entries
+10 posts x 2 platforms = **20** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 14, 11:00 AM | morning |
-| Tue Jul 14, 7:00 PM | evening |
 | Wed Jul 15, 11:00 AM | morning |
 | Wed Jul 15, 7:00 PM | evening |
 | Thu Jul 16, 11:00 AM | morning |
@@ -51,48 +46,46 @@ Eligible events: **12** - Skipped: **32**
 | Sun Jul 19, 7:00 PM | evening |
 
 ## Alice in Bass Land - 2026-07-24  (Standard)
+10 posts x 2 platforms = **20** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+| Mon Jul 20, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+
+## Noche Latina - 2026-07-25  (Standard)
 11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 14, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Mon Jul 20, 7:00 PM | evening |
-| Tue Jul 21, 11:00 AM | morning |
-| Wed Jul 22, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-
-## Noche Latina - 2026-07-25  (Standard)
-12 posts x 2 platforms = **24** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Tue Jul 14, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Mon Jul 20, 7:00 PM | evening |
-| Tue Jul 21, 11:00 AM | morning |
-| Wed Jul 22, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+| Mon Jul 20, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
 
 ## Night of Kings - 2026-07-26  (Aggressive)
 19 posts x 2 platforms = **38** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 14, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
 | Sat Jul 18, 11:00 AM | morning |
 | Sun Jul 19, 7:00 PM | evening |
 | Mon Jul 20, 11:00 AM | morning |
@@ -111,53 +104,51 @@ Eligible events: **12** - Skipped: **32**
 | Sun Jul 26, 7:00 PM | evening |
 
 ## Heels Dance Class with Frankie - 2026-07-30  (Standard)
-15 posts x 2 platforms = **30** queue entries
+14 posts x 2 platforms = **28** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 14, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sun Jul 19, 7:00 PM | evening |
-| Mon Jul 20, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Mon Jul 20, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
 
 ## Heels Dance Class with Kimora - 2026-07-30  (Standard)
-15 posts x 2 platforms = **30** queue entries
+14 posts x 2 platforms = **28** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 14, 7:00 PM | evening |
-| Wed Jul 15, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sun Jul 19, 7:00 PM | evening |
-| Mon Jul 20, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
+| Wed Jul 15, 7:00 PM | evening |
+| Thu Jul 16, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Mon Jul 20, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
 
 ## Rosie’s Birthday Bash - 2026-07-31  (Standard)
 15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 14, 7:00 PM | evening |
+| Wed Jul 15, 7:00 PM | evening |
 | Thu Jul 16, 11:00 AM | morning |
 | Fri Jul 17, 7:00 PM | evening |
 | Sat Jul 18, 11:00 AM | morning |
@@ -178,8 +169,8 @@ Eligible events: **12** - Skipped: **32**
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 14, 7:00 PM | evening |
-| Thu Jul 16, 11:00 AM | morning |
+| Wed Jul 15, 7:00 PM | evening |
+| Fri Jul 17, 11:00 AM | morning |
 | Sat Jul 18, 7:00 PM | evening |
 | Sun Jul 19, 11:00 AM | morning |
 | Tue Jul 21, 7:00 PM | evening |
@@ -199,8 +190,8 @@ Eligible events: **12** - Skipped: **32**
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 14, 7:00 PM | evening |
-| Thu Jul 16, 11:00 AM | morning |
+| Wed Jul 15, 7:00 PM | evening |
+| Fri Jul 17, 11:00 AM | morning |
 | Sat Jul 18, 7:00 PM | evening |
 | Sun Jul 19, 11:00 AM | morning |
 | Wed Jul 22, 7:00 PM | evening |
@@ -261,4 +252,4 @@ Eligible events: **12** - Skipped: **32**
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 296**
+**Total queue entries that would be created: 278**
