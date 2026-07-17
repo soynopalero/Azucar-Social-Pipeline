@@ -1,33 +1,29 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-16 10:08 PDT - **nothing posted, queue untouched**
+Generated 2026-07-17 10:06 PDT - **nothing posted, queue untouched**
 
 Eligible events: **11** - Skipped: **33**
 
 ## Rupaul All Stars Finale Viewing Party - 2026-07-17  (Standard)
+1 posts x 2 platforms = **2** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Jul 17, 7:00 PM | evening |
+
+## Vida Amore Divas Show: Fiesta Semaforo - 2026-07-18  (Standard)
 2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-
-## Vida Amore Divas Show: Fiesta Semaforo - 2026-07-18  (Standard)
-3 posts x 2 platforms = **6** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
 
 ## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
-8 posts x 2 platforms = **16** queue entries
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Jul 16, 11:00 AM | morning |
-| Thu Jul 16, 7:00 PM | evening |
 | Fri Jul 17, 11:00 AM | morning |
 | Fri Jul 17, 7:00 PM | evening |
 | Sat Jul 18, 11:00 AM | morning |
@@ -36,45 +32,42 @@ Eligible events: **11** - Skipped: **33**
 | Sun Jul 19, 7:00 PM | evening |
 
 ## Alice in Bass Land - 2026-07-24  (Standard)
+8 posts x 2 platforms = **16** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+| Mon Jul 20, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+
+## Noche Latina - 2026-07-25  (Standard)
 9 posts x 2 platforms = **18** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Mon Jul 20, 7:00 PM | evening |
-| Tue Jul 21, 11:00 AM | morning |
-| Wed Jul 22, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-
-## Noche Latina - 2026-07-25  (Standard)
-10 posts x 2 platforms = **20** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Mon Jul 20, 7:00 PM | evening |
-| Tue Jul 21, 11:00 AM | morning |
-| Wed Jul 22, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+| Mon Jul 20, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
 
 ## Night of Kings - 2026-07-26  (Aggressive)
-18 posts x 2 platforms = **36** queue entries
+17 posts x 2 platforms = **34** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
 | Mon Jul 20, 11:00 AM | morning |
 | Mon Jul 20, 7:00 PM | evening |
 | Tue Jul 21, 11:00 AM | morning |
@@ -91,113 +84,108 @@ Eligible events: **11** - Skipped: **33**
 | Sun Jul 26, 7:00 PM | evening |
 
 ## Heels Dance Class with Frankie - 2026-07-30  (Standard)
-13 posts x 2 platforms = **26** queue entries
+12 posts x 2 platforms = **24** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sun Jul 19, 7:00 PM | evening |
-| Mon Jul 20, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
+| Fri Jul 17, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Mon Jul 20, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
 
 ## Heels Dance Class with Kimora - 2026-07-30  (Standard)
+12 posts x 2 platforms = **24** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Jul 17, 7:00 PM | evening |
+| Sun Jul 19, 11:00 AM | morning |
+| Mon Jul 20, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+
+## Rosie’s Birthday Bash - 2026-07-31  (Standard)
 13 posts x 2 platforms = **26** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sun Jul 19, 7:00 PM | evening |
-| Mon Jul 20, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Mon Jul 20, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+| Fri Jul 31, 7:00 PM | evening |
 
-## Rosie’s Birthday Bash - 2026-07-31  (Standard)
+## Seven Deadly sins - 2026-08-01  (Standard)
 14 posts x 2 platforms = **28** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
-| Mon Jul 20, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
-| Wed Jul 22, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
-| Fri Jul 31, 11:00 AM | morning |
-
-## Seven Deadly sins - 2026-08-01  (Standard)
-15 posts x 2 platforms = **30** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
-| Wed Jul 22, 11:00 AM | morning |
-| Thu Jul 23, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
-| Fri Jul 31, 11:00 AM | morning |
-| Sat Aug 1, 7:00 PM | evening |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
+| Thu Jul 23, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+| Fri Jul 31, 7:00 PM | evening |
+| Sat Aug 1, 11:00 AM | morning |
 
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
-24 posts x 2 platforms = **48** queue entries
+23 posts x 2 platforms = **46** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Jul 16, 7:00 PM | evening |
-| Fri Jul 17, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Wed Jul 22, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
-| Sun Jul 26, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Sat Aug 1, 7:00 PM | evening |
-| Sun Aug 2, 11:00 AM | morning |
-| Wed Aug 5, 7:00 PM | evening |
-| Sat Aug 8, 11:00 AM | morning |
-| Sun Aug 9, 7:00 PM | evening |
-| Tue Aug 11, 11:00 AM | morning |
-| Wed Aug 12, 7:00 PM | evening |
-| Thu Aug 13, 11:00 AM | morning |
-| Sat Aug 15, 7:00 PM | evening |
-| Sun Aug 16, 11:00 AM | morning |
-| Mon Aug 17, 7:00 PM | evening |
-| Tue Aug 18, 11:00 AM | morning |
-| Wed Aug 19, 7:00 PM | evening |
-| Thu Aug 20, 11:00 AM | morning |
-| Fri Aug 21, 7:00 PM | evening |
-| Sat Aug 22, 11:00 AM | morning |
+| Fri Jul 17, 7:00 PM | evening |
+| Sat Jul 18, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Sat Aug 1, 11:00 AM | morning |
+| Sun Aug 2, 7:00 PM | evening |
+| Wed Aug 5, 11:00 AM | morning |
+| Sat Aug 8, 7:00 PM | evening |
+| Sun Aug 9, 11:00 AM | morning |
+| Tue Aug 11, 7:00 PM | evening |
+| Wed Aug 12, 11:00 AM | morning |
+| Thu Aug 13, 7:00 PM | evening |
+| Sat Aug 15, 11:00 AM | morning |
+| Sun Aug 16, 7:00 PM | evening |
+| Mon Aug 17, 11:00 AM | morning |
+| Tue Aug 18, 7:00 PM | evening |
+| Wed Aug 19, 11:00 AM | morning |
+| Thu Aug 20, 7:00 PM | evening |
+| Fri Aug 21, 11:00 AM | morning |
+| Sat Aug 22, 7:00 PM | evening |
 
 ---
 
@@ -229,7 +217,7 @@ Eligible events: **11** - Skipped: **33**
 - **Rop Jams & Kinky Kareoke** - date in the past, no cadence set, no flyer, no price, no description
 - **Sip & Strut Dance Class with Frankie** - date in the past, no cadence set, no flyer, no price, no description
 - **Spring into frienship; Diamond Art night** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
-- **Testing for your life** - phase = Cancelled
+- **Testing for your life** - date in the past, phase = Cancelled
 - **Testing out the name** - date in the past, no flyer
 - **Tha Cookout** - no cadence set, no flyer, no price, no description
 - **Tricities After Party — Rohla** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -237,4 +225,4 @@ Eligible events: **11** - Skipped: **33**
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 258**
+**Total queue entries that would be created: 234**
