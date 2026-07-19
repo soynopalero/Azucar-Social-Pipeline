@@ -1,60 +1,48 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-18 09:50 PDT - **nothing posted, queue untouched**
+Generated 2026-07-19 09:51 PDT - **nothing posted, queue untouched**
 
-Eligible events: **10** - Skipped: **34**
-
-## Vida Amore Divas Show: Fiesta Semaforo - 2026-07-18  (Standard)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Jul 18, 7:00 PM | evening |
+Eligible events: **9** - Skipped: **35**
 
 ## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
-4 posts x 2 platforms = **8** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Jul 18, 11:00 AM | morning |
-| Sat Jul 18, 7:00 PM | evening |
 | Sun Jul 19, 11:00 AM | morning |
 | Sun Jul 19, 7:00 PM | evening |
 
 ## Alice in Bass Land - 2026-07-24  (Standard)
+6 posts x 2 platforms = **12** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sun Jul 19, 7:00 PM | evening |
+| Mon Jul 20, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+
+## Noche Latina - 2026-07-25  (Standard)
 7 posts x 2 platforms = **14** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Mon Jul 20, 7:00 PM | evening |
-| Tue Jul 21, 11:00 AM | morning |
-| Wed Jul 22, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-
-## Noche Latina - 2026-07-25  (Standard)
-8 posts x 2 platforms = **16** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Mon Jul 20, 7:00 PM | evening |
-| Tue Jul 21, 11:00 AM | morning |
-| Wed Jul 22, 7:00 PM | evening |
-| Thu Jul 23, 11:00 AM | morning |
-| Fri Jul 24, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+| Mon Jul 20, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
 
 ## Night of Kings - 2026-07-26  (Aggressive)
-16 posts x 2 platforms = **32** queue entries
+15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
 | Mon Jul 20, 11:00 AM | morning |
 | Mon Jul 20, 7:00 PM | evening |
 | Tue Jul 21, 11:00 AM | morning |
@@ -75,9 +63,9 @@ Eligible events: **10** - Skipped: **34**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Mon Jul 20, 7:00 PM | evening |
+| Sun Jul 19, 7:00 PM | evening |
+| Mon Jul 20, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Thu Jul 23, 7:00 PM | evening |
 | Fri Jul 24, 11:00 AM | morning |
@@ -93,9 +81,9 @@ Eligible events: **10** - Skipped: **34**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Mon Jul 20, 7:00 PM | evening |
+| Sun Jul 19, 7:00 PM | evening |
+| Mon Jul 20, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Thu Jul 23, 7:00 PM | evening |
 | Fri Jul 24, 11:00 AM | morning |
@@ -111,10 +99,10 @@ Eligible events: **10** - Skipped: **34**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Jul 18, 7:00 PM | evening |
+| Sun Jul 19, 7:00 PM | evening |
 | Mon Jul 20, 11:00 AM | morning |
 | Tue Jul 21, 7:00 PM | evening |
-| Wed Jul 22, 11:00 AM | morning |
+| Thu Jul 23, 11:00 AM | morning |
 | Fri Jul 24, 7:00 PM | evening |
 | Sat Jul 25, 11:00 AM | morning |
 | Sun Jul 26, 7:00 PM | evening |
@@ -125,51 +113,49 @@ Eligible events: **10** - Skipped: **34**
 | Fri Jul 31, 11:00 AM | morning |
 
 ## Seven Deadly sins - 2026-08-01  (Standard)
-13 posts x 2 platforms = **26** queue entries
+12 posts x 2 platforms = **24** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
-| Wed Jul 22, 11:00 AM | morning |
-| Thu Jul 23, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
-| Fri Jul 31, 11:00 AM | morning |
-| Sat Aug 1, 7:00 PM | evening |
+| Sun Jul 19, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
+| Thu Jul 23, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+| Fri Jul 31, 7:00 PM | evening |
+| Sat Aug 1, 11:00 AM | morning |
 
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
-22 posts x 2 platforms = **44** queue entries
+21 posts x 2 platforms = **42** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Jul 18, 7:00 PM | evening |
-| Sun Jul 19, 11:00 AM | morning |
-| Wed Jul 22, 7:00 PM | evening |
-| Sat Jul 25, 11:00 AM | morning |
-| Sun Jul 26, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Sat Aug 1, 7:00 PM | evening |
-| Sun Aug 2, 11:00 AM | morning |
-| Wed Aug 5, 7:00 PM | evening |
-| Sat Aug 8, 11:00 AM | morning |
-| Sun Aug 9, 7:00 PM | evening |
-| Tue Aug 11, 11:00 AM | morning |
-| Wed Aug 12, 7:00 PM | evening |
-| Thu Aug 13, 11:00 AM | morning |
-| Sat Aug 15, 7:00 PM | evening |
-| Sun Aug 16, 11:00 AM | morning |
-| Mon Aug 17, 7:00 PM | evening |
-| Tue Aug 18, 11:00 AM | morning |
-| Wed Aug 19, 7:00 PM | evening |
-| Thu Aug 20, 11:00 AM | morning |
-| Fri Aug 21, 7:00 PM | evening |
-| Sat Aug 22, 11:00 AM | morning |
+| Sun Jul 19, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Sat Aug 1, 11:00 AM | morning |
+| Sun Aug 2, 7:00 PM | evening |
+| Wed Aug 5, 11:00 AM | morning |
+| Sat Aug 8, 7:00 PM | evening |
+| Sun Aug 9, 11:00 AM | morning |
+| Tue Aug 11, 7:00 PM | evening |
+| Wed Aug 12, 11:00 AM | morning |
+| Thu Aug 13, 7:00 PM | evening |
+| Sat Aug 15, 11:00 AM | morning |
+| Sun Aug 16, 7:00 PM | evening |
+| Mon Aug 17, 11:00 AM | morning |
+| Tue Aug 18, 7:00 PM | evening |
+| Wed Aug 19, 11:00 AM | morning |
+| Thu Aug 20, 7:00 PM | evening |
+| Fri Aug 21, 11:00 AM | morning |
+| Sat Aug 22, 7:00 PM | evening |
 
 ---
 
@@ -207,7 +193,8 @@ Eligible events: **10** - Skipped: **34**
 - **Tha Cookout** - no cadence set, no flyer, no price, no description
 - **Tricities After Party — Rohla** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Tricities Pride Beer Garden (off-site)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
+- **Vida Amore Divas Show: Fiesta Semaforo** - date in the past
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 214**
+**Total queue entries that would be created: 198**
