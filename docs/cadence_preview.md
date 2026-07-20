@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-19 21:22 PDT - **nothing posted, queue untouched**
+Generated 2026-07-19 21:32 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **35**
+Eligible events: **13** - Skipped: **35**
 
 ## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
 0 posts x 2 platforms = **0** queue entries
@@ -188,6 +188,32 @@ Eligible events: **12** - Skipped: **35**
 | Sun Aug 16, 11:00 AM | morning |
 | Sun Aug 16, 7:00 PM | evening |
 
+## Amature Drag Pageant - 2026-08-19  (Standard)
+20 posts x 2 platforms = **40** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Jul 21, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
+| Thu Jul 23, 11:00 AM | morning |
+| Sun Jul 26, 7:00 PM | evening |
+| Wed Jul 29, 11:00 AM | morning |
+| Thu Jul 30, 7:00 PM | evening |
+| Sun Aug 2, 11:00 AM | morning |
+| Wed Aug 5, 7:00 PM | evening |
+| Thu Aug 6, 11:00 AM | morning |
+| Sat Aug 8, 7:00 PM | evening |
+| Sun Aug 9, 11:00 AM | morning |
+| Mon Aug 10, 7:00 PM | evening |
+| Wed Aug 12, 11:00 AM | morning |
+| Thu Aug 13, 7:00 PM | evening |
+| Fri Aug 14, 11:00 AM | morning |
+| Sat Aug 15, 7:00 PM | evening |
+| Sun Aug 16, 11:00 AM | morning |
+| Mon Aug 17, 7:00 PM | evening |
+| Tue Aug 18, 11:00 AM | morning |
+| Wed Aug 19, 7:00 PM | evening |
+
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
 20 posts x 2 platforms = **40** queue entries
 
@@ -254,4 +280,4 @@ Eligible events: **12** - Skipped: **35**
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 276**
+**Total queue entries that would be created: 316**
