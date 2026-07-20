@@ -1,6 +1,20 @@
 {
- "generated_at": "2026-07-20T01:02:47",
+ "generated_at": "2026-07-20T04:02:08",
  "events": [
+  {
+   "item_id": "12573955784",
+   "name": "Wednesday Kareoke",
+   "date_iso": "2026-07-22",
+   "date_display": "Jul 22, 2026",
+   "start_time": "7:00 PM",
+   "end_date_display": "Jul 22, 2026",
+   "end_time": "11:00 PM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Wednesday nights hit different at Azúcar. The Lounge lights go warm, the mic is live, and Alejandro's on host duty ready to hype up whoever grabs the spotlight next — first-timer or full-on diva, doesn't matter. Sing whatever you want. Butcher a ballad, nail your anthem, whatever — this crowd claps for all of it.\n\nFree entry means zero excuses. Come solo, come with your people, order something cold from the bar and let the night build itself. There's no judgment here, just a room full of strangers turning into your biggest fans for three minutes at a time.\n\nGet there early to snag your song, stay late for the surprise showstoppers. Every Wednesday, same energy: comfortable, loud, a little chaotic, completely yours.\n\n🗓️ Miércoles 22 de julio — Show 7:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover Free\n\n🎟️ Tickets: https://www.eventbrite.com/e/wednesday-kareoke-tickets-1994524602778",
+   "eventbrite_url": "https://www.eventbrite.com/e/wednesday-kareoke-tickets-1994524602778",
+   "flyer": "media/fb-kit/12573955784_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12573955784"
+  },
   {
    "item_id": "12492465685",
    "name": "Alice in Bass Land",
