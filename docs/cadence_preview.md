@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-19 21:06 PDT - **nothing posted, queue untouched**
+Generated 2026-07-19 21:15 PDT - **nothing posted, queue untouched**
 
-Eligible events: **10** - Skipped: **35**
+Eligible events: **11** - Skipped: **35**
 
 ## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
 0 posts x 2 platforms = **0** queue entries
@@ -133,6 +133,30 @@ Eligible events: **10** - Skipped: **35**
 | Fri Jul 31, 7:00 PM | evening |
 | Sat Aug 1, 11:00 AM | morning |
 
+## Paint and Sip with ArtwithAubrey - 2026-08-16  (Standard)
+18 posts x 2 platforms = **36** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Jul 20, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Mon Jul 27, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+| Sun Aug 2, 7:00 PM | evening |
+| Mon Aug 3, 11:00 AM | morning |
+| Wed Aug 5, 7:00 PM | evening |
+| Thu Aug 6, 11:00 AM | morning |
+| Fri Aug 7, 7:00 PM | evening |
+| Sun Aug 9, 11:00 AM | morning |
+| Mon Aug 10, 7:00 PM | evening |
+| Tue Aug 11, 11:00 AM | morning |
+| Wed Aug 12, 7:00 PM | evening |
+| Thu Aug 13, 11:00 AM | morning |
+| Fri Aug 14, 7:00 PM | evening |
+| Sat Aug 15, 11:00 AM | morning |
+| Sun Aug 16, 7:00 PM | evening |
+
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
 20 posts x 2 platforms = **40** queue entries
 
@@ -199,4 +223,4 @@ Eligible events: **10** - Skipped: **35**
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 190**
+**Total queue entries that would be created: 226**
