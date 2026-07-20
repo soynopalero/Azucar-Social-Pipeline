@@ -1,23 +1,20 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-19 09:51 PDT - **nothing posted, queue untouched**
+Generated 2026-07-19 20:58 PDT - **nothing posted, queue untouched**
 
 Eligible events: **9** - Skipped: **35**
 
 ## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
-2 posts x 2 platforms = **4** queue entries
+0 posts x 2 platforms = **0** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 19, 11:00 AM | morning |
-| Sun Jul 19, 7:00 PM | evening |
 
 ## Alice in Bass Land - 2026-07-24  (Standard)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 19, 7:00 PM | evening |
 | Mon Jul 20, 11:00 AM | morning |
 | Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
@@ -25,11 +22,10 @@ Eligible events: **9** - Skipped: **35**
 | Fri Jul 24, 11:00 AM | morning |
 
 ## Noche Latina - 2026-07-25  (Standard)
-7 posts x 2 platforms = **14** queue entries
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 19, 7:00 PM | evening |
 | Mon Jul 20, 11:00 AM | morning |
 | Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
@@ -38,11 +34,10 @@ Eligible events: **9** - Skipped: **35**
 | Sat Jul 25, 7:00 PM | evening |
 
 ## Night of Kings - 2026-07-26  (Aggressive)
-15 posts x 2 platforms = **30** queue entries
+14 posts x 2 platforms = **28** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 19, 7:00 PM | evening |
 | Mon Jul 20, 11:00 AM | morning |
 | Mon Jul 20, 7:00 PM | evening |
 | Tue Jul 21, 11:00 AM | morning |
@@ -59,11 +54,10 @@ Eligible events: **9** - Skipped: **35**
 | Sun Jul 26, 7:00 PM | evening |
 
 ## Heels Dance Class with Frankie - 2026-07-30  (Standard)
-12 posts x 2 platforms = **24** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 19, 7:00 PM | evening |
 | Mon Jul 20, 11:00 AM | morning |
 | Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
@@ -77,11 +71,10 @@ Eligible events: **9** - Skipped: **35**
 | Thu Jul 30, 11:00 AM | morning |
 
 ## Heels Dance Class with Kimora - 2026-07-30  (Standard)
-12 posts x 2 platforms = **24** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 19, 7:00 PM | evening |
 | Mon Jul 20, 11:00 AM | morning |
 | Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
@@ -95,11 +88,10 @@ Eligible events: **9** - Skipped: **35**
 | Thu Jul 30, 11:00 AM | morning |
 
 ## Rosie’s Birthday Bash - 2026-07-31  (Standard)
-12 posts x 2 platforms = **24** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 19, 7:00 PM | evening |
 | Mon Jul 20, 11:00 AM | morning |
 | Tue Jul 21, 7:00 PM | evening |
 | Thu Jul 23, 11:00 AM | morning |
@@ -113,11 +105,10 @@ Eligible events: **9** - Skipped: **35**
 | Fri Jul 31, 11:00 AM | morning |
 
 ## Seven Deadly sins - 2026-08-01  (Standard)
-12 posts x 2 platforms = **24** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 19, 7:00 PM | evening |
 | Tue Jul 21, 11:00 AM | morning |
 | Wed Jul 22, 7:00 PM | evening |
 | Thu Jul 23, 11:00 AM | morning |
@@ -131,11 +122,10 @@ Eligible events: **9** - Skipped: **35**
 | Sat Aug 1, 11:00 AM | morning |
 
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
-21 posts x 2 platforms = **42** queue entries
+20 posts x 2 platforms = **40** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 19, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Sat Jul 25, 7:00 PM | evening |
 | Sun Jul 26, 11:00 AM | morning |
@@ -197,4 +187,4 @@ Eligible events: **9** - Skipped: **35**
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 
-**Total queue entries that would be created: 198**
+**Total queue entries that would be created: 178**
