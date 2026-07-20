@@ -1,14 +1,26 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-19 21:01 PDT - **nothing posted, queue untouched**
+Generated 2026-07-19 21:05 PDT - **nothing posted, queue untouched**
 
-Eligible events: **9** - Skipped: **36**
+Eligible events: **10** - Skipped: **35**
 
 ## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
 0 posts x 2 platforms = **0** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
+
+## Wednesday Kareoke - 2026-07-22  (Aggressive)
+6 posts x 2 platforms = **12** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Jul 20, 11:00 AM | morning |
+| Mon Jul 20, 7:00 PM | evening |
+| Tue Jul 21, 11:00 AM | morning |
+| Tue Jul 21, 7:00 PM | evening |
+| Wed Jul 22, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
 
 ## Alice in Bass Land - 2026-07-24  (Standard)
 5 posts x 2 platforms = **10** queue entries
@@ -186,6 +198,5 @@ Eligible events: **9** - Skipped: **36**
 - **Vida Amore Divas Show: Fiesta Semaforo** - date in the past
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
-- **Wednesday Kareoke** - no flyer
 
-**Total queue entries that would be created: 178**
+**Total queue entries that would be created: 190**
