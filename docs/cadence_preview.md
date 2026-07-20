@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-19 20:58 PDT - **nothing posted, queue untouched**
+Generated 2026-07-19 21:01 PDT - **nothing posted, queue untouched**
 
-Eligible events: **9** - Skipped: **35**
+Eligible events: **9** - Skipped: **36**
 
 ## White Gurls Banger Drag Show - 2026-07-19  (Aggressive)
 0 posts x 2 platforms = **0** queue entries
@@ -186,5 +186,6 @@ Eligible events: **9** - Skipped: **35**
 - **Vida Amore Divas Show: Fiesta Semaforo** - date in the past
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
+- **Wednesday Kareoke** - no flyer
 
 **Total queue entries that would be created: 178**
