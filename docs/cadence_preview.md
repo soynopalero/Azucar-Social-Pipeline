@@ -1,47 +1,41 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-21 10:10 PDT - **nothing posted, queue untouched**
+Generated 2026-07-21 19:47 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **36**
+Eligible events: **13** - Skipped: **36**
 
 ## Wednesday Kareoke - 2026-07-22  (Aggressive)
-4 posts x 2 platforms = **8** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Wed Jul 22, 7:00 PM | evening |
 
 ## Alice in Bass Land - 2026-07-24  (Standard)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Thu Jul 23, 7:00 PM | evening |
 | Fri Jul 24, 11:00 AM | morning |
 
 ## Noche Latina - 2026-07-25  (Standard)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Thu Jul 23, 7:00 PM | evening |
 | Fri Jul 24, 11:00 AM | morning |
 | Sat Jul 25, 7:00 PM | evening |
 
 ## Night of Kings - 2026-07-26  (Aggressive)
-12 posts x 2 platforms = **24** queue entries
+10 posts x 2 platforms = **20** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 11:00 AM | morning |
-| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Wed Jul 22, 7:00 PM | evening |
 | Thu Jul 23, 11:00 AM | morning |
@@ -54,11 +48,10 @@ Eligible events: **12** - Skipped: **36**
 | Sun Jul 26, 7:00 PM | evening |
 
 ## Heels Dance Class with Frankie - 2026-07-30  (Standard)
-10 posts x 2 platforms = **20** queue entries
+9 posts x 2 platforms = **18** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Thu Jul 23, 7:00 PM | evening |
 | Fri Jul 24, 11:00 AM | morning |
@@ -70,11 +63,10 @@ Eligible events: **12** - Skipped: **36**
 | Thu Jul 30, 11:00 AM | morning |
 
 ## Heels Dance Class with Kimora - 2026-07-30  (Standard)
-10 posts x 2 platforms = **20** queue entries
+9 posts x 2 platforms = **18** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Thu Jul 23, 7:00 PM | evening |
 | Fri Jul 24, 11:00 AM | morning |
@@ -86,11 +78,10 @@ Eligible events: **12** - Skipped: **36**
 | Thu Jul 30, 11:00 AM | morning |
 
 ## Rosie’s Birthday Bash - 2026-07-31  (Standard)
-11 posts x 2 platforms = **22** queue entries
+10 posts x 2 platforms = **20** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Thu Jul 23, 7:00 PM | evening |
 | Fri Jul 24, 11:00 AM | morning |
@@ -103,11 +94,10 @@ Eligible events: **12** - Skipped: **36**
 | Fri Jul 31, 7:00 PM | evening |
 
 ## Seven Deadly sins - 2026-08-01  (Standard)
-12 posts x 2 platforms = **24** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Thu Jul 23, 7:00 PM | evening |
 | Fri Jul 24, 11:00 AM | morning |
@@ -120,12 +110,31 @@ Eligible events: **12** - Skipped: **36**
 | Fri Jul 31, 7:00 PM | evening |
 | Sat Aug 1, 11:00 AM | morning |
 
-## Paint and Sip with ArtwithAubrey - 2026-08-16  (Standard)
-18 posts x 2 platforms = **36** queue entries
+## Drag Brunch de Reinas - 2026-08-08  (Standard)
+14 posts x 2 platforms = **28** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 7:00 PM | evening |
+| Thu Jul 23, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+| Sun Jul 26, 11:00 AM | morning |
+| Tue Jul 28, 7:00 PM | evening |
+| Wed Jul 29, 11:00 AM | morning |
+| Thu Jul 30, 7:00 PM | evening |
+| Sat Aug 1, 11:00 AM | morning |
+| Sun Aug 2, 7:00 PM | evening |
+| Mon Aug 3, 11:00 AM | morning |
+| Tue Aug 4, 7:00 PM | evening |
+| Wed Aug 5, 11:00 AM | morning |
+| Thu Aug 6, 7:00 PM | evening |
+| Fri Aug 7, 11:00 AM | morning |
+| Sat Aug 8, 7:00 PM | evening |
+
+## Paint and Sip with ArtwithAubrey - 2026-08-16  (Standard)
+17 posts x 2 platforms = **34** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Thu Jul 23, 11:00 AM | morning |
 | Sun Jul 26, 7:00 PM | evening |
 | Mon Jul 27, 11:00 AM | morning |
@@ -145,11 +154,10 @@ Eligible events: **12** - Skipped: **36**
 | Sun Aug 16, 11:00 AM | morning |
 
 ## Magic hunks - 2026-08-16  (Aggressive)
-25 posts x 2 platforms = **50** queue entries
+24 posts x 2 platforms = **48** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 7:00 PM | evening |
 | Thu Jul 23, 11:00 AM | morning |
 | Sun Jul 26, 7:00 PM | evening |
 | Mon Jul 27, 11:00 AM | morning |
@@ -176,11 +184,10 @@ Eligible events: **12** - Skipped: **36**
 | Sun Aug 16, 7:00 PM | evening |
 
 ## Amature Drag Pageant - 2026-08-19  (Standard)
-20 posts x 2 platforms = **40** queue entries
+19 posts x 2 platforms = **38** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 7:00 PM | evening |
 | Wed Jul 22, 11:00 AM | morning |
 | Thu Jul 23, 7:00 PM | evening |
 | Sun Jul 26, 11:00 AM | morning |
@@ -202,11 +209,10 @@ Eligible events: **12** - Skipped: **36**
 | Wed Aug 19, 11:00 AM | morning |
 
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
-21 posts x 2 platforms = **42** queue entries
+20 posts x 2 platforms = **40** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Jul 21, 7:00 PM | evening |
 | Thu Jul 23, 11:00 AM | morning |
 | Sat Jul 25, 7:00 PM | evening |
 | Sun Jul 26, 11:00 AM | morning |
