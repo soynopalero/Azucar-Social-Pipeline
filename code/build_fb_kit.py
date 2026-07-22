@@ -16,6 +16,8 @@ import datetime as dt
 import json
 import os
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -50,6 +52,33 @@ VENUE_LINE = "📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA"
 
 MONDAY_URL = "https://api.monday.com/v2"
 
+# Network resilience: Monday's API and its asset CDN occasionally stall. A single
+# transient timeout used to abort the whole run (delaying every caption/post), so
+# transient failures are retried with exponential backoff before giving up.
+MAX_ATTEMPTS = 4
+BASE_BACKOFF = 2.0  # seconds; waits ~2s, 4s, 8s between attempts
+RETRY_HTTP_CODES = {429, 500, 502, 503, 504}
+
+
+def urlopen_retry(target, *, timeout: int, what: str) -> bytes:
+    """urlopen() that retries transient network errors, returning the response body."""
+    last_err: Exception | None = None
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            with urllib.request.urlopen(target, timeout=timeout) as r:
+                return r.read()
+        except urllib.error.HTTPError as e:
+            if e.code not in RETRY_HTTP_CODES:
+                raise  # 4xx (other than 429) won't fix themselves — fail fast
+            last_err = e
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            last_err = e
+        if attempt < MAX_ATTEMPTS:
+            wait = BASE_BACKOFF * (2 ** (attempt - 1))
+            print(f"  … {what} failed ({last_err}); retry {attempt}/{MAX_ATTEMPTS - 1} in {wait:.0f}s")
+            time.sleep(wait)
+    raise last_err  # type: ignore[misc]
+
 
 def monday_query(query: str, variables: dict | None = None) -> dict:
     if not MONDAY_API_KEY:
@@ -60,8 +89,7 @@ def monday_query(query: str, variables: dict | None = None) -> dict:
         headers={"Content-Type": "application/json",
                  "Authorization": MONDAY_API_KEY, "API-Version": "2024-10"},
     )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        body = json.loads(r.read().decode())
+    body = json.loads(urlopen_retry(req, timeout=45, what="Monday API").decode())
     if body.get("errors"):
         sys.exit(f"Monday API error: {json.dumps(body['errors'])}")
     return body["data"]
@@ -148,8 +176,7 @@ def download_file_col(item: dict, col_id: str, suffix: str) -> Path | None:
         ext = ".jpg"
     KIT_MEDIA.mkdir(parents=True, exist_ok=True)
     out = KIT_MEDIA / f"{item['id']}{suffix}{ext}"
-    with urllib.request.urlopen(url, timeout=30) as r:
-        out.write_bytes(r.read())
+    out.write_bytes(urlopen_retry(url, timeout=60, what=f"asset download for {item['id']}"))
     return out
 
 
@@ -240,7 +267,12 @@ def main() -> int:
             print(f"  skip {item['name']!r}: no description on Monday")
             continue
 
-        cover = resolve_cover(item)
+        try:
+            cover = resolve_cover(item)
+        except Exception as e:
+            # One flaky asset shouldn't sink the whole kit — skip this event only.
+            print(f"  skip {item['name']!r}: cover fetch failed after retries ({e})")
+            continue
         if not cover:
             print(f"  skip {item['name']!r}: no flyer on Monday")
             continue
