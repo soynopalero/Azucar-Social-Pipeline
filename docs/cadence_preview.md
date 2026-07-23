@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-22 10:10 PDT - **nothing posted, queue untouched**
+Generated 2026-07-22 18:07 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **36**
+Eligible events: **14** - Skipped: **36**
 
 ## Wednesday Kareoke - 2026-07-22  (Aggressive)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Jul 22, 11:00 AM | morning |
 | Wed Jul 22, 7:00 PM | evening |
 
 ## Alice in Bass Land - 2026-07-24  (Standard)
@@ -31,12 +30,24 @@ Eligible events: **13** - Skipped: **36**
 | Fri Jul 24, 7:00 PM | evening |
 | Sat Jul 25, 11:00 AM | morning |
 
-## Night of Kings - 2026-07-26  (Aggressive)
-10 posts x 2 platforms = **20** queue entries
+## Noche Latina: EL SHOW DE PONCHO Y DEBORAH - 2026-07-25  (Aggressive)
+7 posts x 2 platforms = **14** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Jul 22, 11:00 AM | morning |
+| Wed Jul 22, 7:00 PM | evening |
+| Thu Jul 23, 11:00 AM | morning |
+| Thu Jul 23, 7:00 PM | evening |
+| Fri Jul 24, 11:00 AM | morning |
+| Fri Jul 24, 7:00 PM | evening |
+| Sat Jul 25, 11:00 AM | morning |
+| Sat Jul 25, 7:00 PM | evening |
+
+## Night of Kings - 2026-07-26  (Aggressive)
+9 posts x 2 platforms = **18** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Wed Jul 22, 7:00 PM | evening |
 | Thu Jul 23, 11:00 AM | morning |
 | Thu Jul 23, 7:00 PM | evening |
@@ -279,4 +290,4 @@ Eligible events: **13** - Skipped: **36**
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 312**
+**Total queue entries that would be created: 322**
