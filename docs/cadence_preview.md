@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-24 10:23 PDT - **nothing posted, queue untouched**
+Generated 2026-07-24 15:23 PDT - **nothing posted, queue untouched**
 
 Eligible events: **13** - Skipped: **38**
 
@@ -20,21 +20,19 @@ Eligible events: **13** - Skipped: **38**
 | Sat Jul 25, 11:00 AM | morning |
 
 ## Noche Latina: EL SHOW DE PONCHO Y DEBORAH - 2026-07-25  (Aggressive)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 24, 11:00 AM | morning |
 | Fri Jul 24, 7:00 PM | evening |
 | Sat Jul 25, 11:00 AM | morning |
 | Sat Jul 25, 7:00 PM | evening |
 
 ## Night of Kings - 2026-07-26  (Aggressive)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Jul 24, 11:00 AM | morning |
 | Fri Jul 24, 7:00 PM | evening |
 | Sat Jul 25, 11:00 AM | morning |
 | Sat Jul 25, 7:00 PM | evening |
@@ -264,4 +262,4 @@ Eligible events: **13** - Skipped: **38**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 278**
+**Total queue entries that would be created: 274**
