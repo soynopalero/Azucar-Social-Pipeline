@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-24 15:23 PDT - **nothing posted, queue untouched**
+Generated 2026-07-24 18:23 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **38**
+Eligible events: **14** - Skipped: **38**
 
 ## Alice in Bass Land - 2026-07-24  (Standard)
 1 posts x 2 platforms = **2** queue entries
@@ -219,6 +219,32 @@ Eligible events: **13** - Skipped: **38**
 | Fri Aug 21, 7:00 PM | evening |
 | Sat Aug 22, 11:00 AM | morning |
 
+## Les-Be-Emo - 2026-08-22  (Standard)
+20 posts x 2 platforms = **40** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Jul 24, 7:00 PM | evening |
+| Sat Jul 25, 11:00 AM | morning |
+| Sun Jul 26, 7:00 PM | evening |
+| Wed Jul 29, 11:00 AM | morning |
+| Sat Aug 1, 7:00 PM | evening |
+| Sun Aug 2, 11:00 AM | morning |
+| Wed Aug 5, 7:00 PM | evening |
+| Sat Aug 8, 11:00 AM | morning |
+| Sun Aug 9, 7:00 PM | evening |
+| Tue Aug 11, 11:00 AM | morning |
+| Wed Aug 12, 7:00 PM | evening |
+| Thu Aug 13, 11:00 AM | morning |
+| Sat Aug 15, 7:00 PM | evening |
+| Sun Aug 16, 11:00 AM | morning |
+| Mon Aug 17, 7:00 PM | evening |
+| Tue Aug 18, 11:00 AM | morning |
+| Wed Aug 19, 7:00 PM | evening |
+| Thu Aug 20, 11:00 AM | morning |
+| Fri Aug 21, 7:00 PM | evening |
+| Sat Aug 22, 11:00 AM | morning |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -262,4 +288,4 @@ Eligible events: **13** - Skipped: **38**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 274**
+**Total queue entries that would be created: 314**
