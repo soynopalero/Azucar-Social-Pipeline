@@ -1,20 +1,6 @@
 {
- "generated_at": "2026-07-23T01:07:37",
+ "generated_at": "2026-07-25T01:23:44",
  "events": [
-  {
-   "item_id": "12492465685",
-   "name": "Alice in Bass Land",
-   "date_iso": "2026-07-24",
-   "date_display": "Jul 24, 2026",
-   "start_time": "10:00 PM",
-   "end_date_display": "Jul 25, 2026",
-   "end_time": "2:00 AM",
-   "location": "327 W Lewis St, Pasco, WA 99301",
-   "description": "Forget the tea party — this rabbit hole drops straight into bass. Cabana Bass Productions takes over Main Floor on July 24th at 10PM and bends the room into something curiouser and curiouser: a warped, glitched-out wonderland where techno beats and heavy bass replace the Mad Hatter's riddles. Azúcar becomes the looking glass, and once you step through, there's no walking back out the same.\n\nExpect a set that shifts like Wonderland itself — one minute hypnotic and creeping, the next full teeth-bared drop, Cabana Bass Productions steering the whole night like a Cheshire grin you can't quite trust. Lighting twists the room into something unreal, the crowd moves like they fell down their own rabbit hole, and every corner of Azúcar leans into the madness — sensorial, strange, electric.\n\nThis isn't a themed night. It's Alice in Wonderland if Wonderland ran on 140 BPM and never blinked. Come lose your logic, keep your rhythm — Main Floor turns into the maddest tea party this side of any looking glass.\n\n🗓️ Viernes 24 de julio — Show 10:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $20-$25\n\n🎟️ Tickets: https://www.eventbrite.com/e/alice-in-bass-land-tickets-1993622273888",
-   "eventbrite_url": "https://www.eventbrite.com/e/alice-in-bass-land-tickets-1993622273888",
-   "flyer": "media/fb-kit/12492465685_cover.jpg",
-   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12492465685"
-  },
   {
    "item_id": "12424060899",
    "name": "Noche Latina",
@@ -182,6 +168,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/1992804354469?aff=oddtdtcreator",
    "flyer": "media/fb-kit/12481126699_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12481126699"
+  },
+  {
+   "item_id": "12626587750",
+   "name": "Les-Be-Emo",
+   "date_iso": "2026-08-22",
+   "date_display": "Aug 22, 2026",
+   "start_time": "5:00 PM",
+   "end_date_display": "Aug 22, 2026",
+   "end_time": "9:00 PM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Flannel up — Azúcar's Patio is going full distortion for Les-Be-Emo, a mini music festival built for anyone who still cries to Alice in Chains and screams to Metallica. Three bands, one heavy night: Summerache rolls in from Spokane with their moody, fuzzed-out sound, Porch Cat brings the Tri-Cities favorite energy fans already know and love, and Moonstruck rounds it out with riffs that hit somewhere between nostalgia and noise.\n\nDJ Dea holds down the transitions and keeps the crowd loose between sets — because even grunge nights need a groove. Expect combat boots next to cocktail glasses, sunset turning to string lights, and a patio crowd that's equal parts mosh-curious and margarita-in-hand.\n\nThis one's for the ones who still know every word to '90s alt-rock anthems and the ones who just want to feel something loud. Come let your inner grunge kid out — Azúcar's got the stage, the sound, and the drinks ready.\n\n🗓️ Sábado 22 de agosto — Show 5:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 18+ · Cover $10\n\n🎟️ Tickets: https://www.eventbrite.com/e/les-be-emo-tickets-1995172837666",
+   "eventbrite_url": "https://www.eventbrite.com/e/les-be-emo-tickets-1995172837666",
+   "flyer": "media/fb-kit/12626587750_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12626587750"
   }
  ]
 }
