@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-26 09:52 PDT - **nothing posted, queue untouched**
+Generated 2026-07-26 12:42 PDT - **nothing posted, queue untouched**
 
 Eligible events: **11** - Skipped: **41**
 
 ## Night of Kings - 2026-07-26  (Aggressive)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 26, 11:00 AM | morning |
 | Sun Jul 26, 7:00 PM | evening |
 
 ## Heels Dance Class with Frankie - 2026-07-30  (Standard)
@@ -246,4 +245,4 @@ Eligible events: **11** - Skipped: **41**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 260**
+**Total queue entries that would be created: 258**
