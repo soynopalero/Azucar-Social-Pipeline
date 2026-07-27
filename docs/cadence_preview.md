@@ -1,72 +1,61 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-26 13:23 PDT - **nothing posted, queue untouched**
+Generated 2026-07-27 10:37 PDT - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **41**
-
-## Night of Kings - 2026-07-26  (Aggressive)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Jul 26, 7:00 PM | evening |
+Eligible events: **10** - Skipped: **42**
 
 ## Heels Dance Class with Frankie - 2026-07-30  (Standard)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
 
 ## Heels Dance Class with Kimora - 2026-07-30  (Standard)
+4 posts x 2 platforms = **8** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+
+## Rosie’s Birthday Bash - 2026-07-31  (Standard)
 5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+| Fri Jul 31, 7:00 PM | evening |
 
-## Rosie’s Birthday Bash - 2026-07-31  (Standard)
+## Seven Deadly sins - 2026-08-01  (Standard)
 6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
-| Fri Jul 31, 11:00 AM | morning |
-
-## Seven Deadly sins - 2026-08-01  (Standard)
-7 posts x 2 platforms = **14** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Tue Jul 28, 7:00 PM | evening |
-| Wed Jul 29, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
-| Fri Jul 31, 11:00 AM | morning |
-| Sat Aug 1, 7:00 PM | evening |
+| Mon Jul 27, 7:00 PM | evening |
+| Tue Jul 28, 11:00 AM | morning |
+| Wed Jul 29, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+| Fri Jul 31, 7:00 PM | evening |
+| Sat Aug 1, 11:00 AM | morning |
 
 ## Drag Brunch de Reinas - 2026-08-08  (Standard)
 12 posts x 2 platforms = **24** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 26, 7:00 PM | evening |
+| Mon Jul 27, 7:00 PM | evening |
 | Tue Jul 28, 11:00 AM | morning |
 | Wed Jul 29, 7:00 PM | evening |
-| Thu Jul 30, 11:00 AM | morning |
+| Fri Jul 31, 11:00 AM | morning |
 | Sat Aug 1, 7:00 PM | evening |
 | Sun Aug 2, 11:00 AM | morning |
 | Mon Aug 3, 7:00 PM | evening |
@@ -77,41 +66,39 @@ Eligible events: **11** - Skipped: **41**
 | Sat Aug 8, 11:00 AM | morning |
 
 ## Paint and Sip with ArtwithAubrey - 2026-08-16  (Standard)
-16 posts x 2 platforms = **32** queue entries
+15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
-| Sun Aug 2, 11:00 AM | morning |
-| Mon Aug 3, 7:00 PM | evening |
-| Wed Aug 5, 11:00 AM | morning |
-| Thu Aug 6, 7:00 PM | evening |
-| Fri Aug 7, 11:00 AM | morning |
-| Sun Aug 9, 7:00 PM | evening |
-| Mon Aug 10, 11:00 AM | morning |
-| Tue Aug 11, 7:00 PM | evening |
-| Wed Aug 12, 11:00 AM | morning |
-| Thu Aug 13, 7:00 PM | evening |
-| Fri Aug 14, 11:00 AM | morning |
-| Sat Aug 15, 7:00 PM | evening |
-| Sun Aug 16, 11:00 AM | morning |
+| Mon Jul 27, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+| Sun Aug 2, 7:00 PM | evening |
+| Mon Aug 3, 11:00 AM | morning |
+| Wed Aug 5, 7:00 PM | evening |
+| Thu Aug 6, 11:00 AM | morning |
+| Fri Aug 7, 7:00 PM | evening |
+| Sun Aug 9, 11:00 AM | morning |
+| Mon Aug 10, 7:00 PM | evening |
+| Tue Aug 11, 11:00 AM | morning |
+| Wed Aug 12, 7:00 PM | evening |
+| Thu Aug 13, 11:00 AM | morning |
+| Fri Aug 14, 7:00 PM | evening |
+| Sat Aug 15, 11:00 AM | morning |
+| Sun Aug 16, 7:00 PM | evening |
 
 ## Magic hunks - 2026-08-16  (Aggressive)
-23 posts x 2 platforms = **46** queue entries
+22 posts x 2 platforms = **44** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 26, 7:00 PM | evening |
-| Mon Jul 27, 11:00 AM | morning |
-| Thu Jul 30, 7:00 PM | evening |
-| Sun Aug 2, 11:00 AM | morning |
-| Mon Aug 3, 7:00 PM | evening |
-| Wed Aug 5, 11:00 AM | morning |
-| Thu Aug 6, 7:00 PM | evening |
-| Fri Aug 7, 11:00 AM | morning |
-| Sun Aug 9, 7:00 PM | evening |
+| Mon Jul 27, 7:00 PM | evening |
+| Thu Jul 30, 11:00 AM | morning |
+| Sun Aug 2, 7:00 PM | evening |
+| Mon Aug 3, 11:00 AM | morning |
+| Wed Aug 5, 7:00 PM | evening |
+| Thu Aug 6, 11:00 AM | morning |
+| Fri Aug 7, 7:00 PM | evening |
+| Sun Aug 9, 11:00 AM | morning |
 | Mon Aug 10, 11:00 AM | morning |
 | Mon Aug 10, 7:00 PM | evening |
 | Tue Aug 11, 11:00 AM | morning |
@@ -132,7 +119,7 @@ Eligible events: **11** - Skipped: **41**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 26, 7:00 PM | evening |
+| Mon Jul 27, 7:00 PM | evening |
 | Tue Jul 28, 11:00 AM | morning |
 | Wed Jul 29, 7:00 PM | evening |
 | Thu Jul 30, 11:00 AM | morning |
@@ -156,7 +143,7 @@ Eligible events: **11** - Skipped: **41**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 26, 7:00 PM | evening |
+| Mon Jul 27, 7:00 PM | evening |
 | Wed Jul 29, 11:00 AM | morning |
 | Sat Aug 1, 7:00 PM | evening |
 | Sun Aug 2, 11:00 AM | morning |
@@ -180,7 +167,7 @@ Eligible events: **11** - Skipped: **41**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Jul 26, 7:00 PM | evening |
+| Mon Jul 27, 7:00 PM | evening |
 | Wed Jul 29, 11:00 AM | morning |
 | Sat Aug 1, 7:00 PM | evening |
 | Sun Aug 2, 11:00 AM | morning |
@@ -223,6 +210,7 @@ Eligible events: **11** - Skipped: **41**
 - **Love Island Finale Watch Party** - date in the past
 - **Magic Hunks (touring)** - no cadence set, no flyer, no price, no description
 - **Next Gen Brunch** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
+- **Night of Kings** - date in the past
 - **Noche Latina** - date in the past
 - **Noche Latina: EL SHOW DE PONCHO Y DEBORAH** - date in the past
 - **Noche Vaquera — August** - no cadence set, no flyer, no price, no description
@@ -245,4 +233,4 @@ Eligible events: **11** - Skipped: **41**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 258**
+**Total queue entries that would be created: 244**
