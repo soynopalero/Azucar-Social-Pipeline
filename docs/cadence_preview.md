@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-07-27 17:33 PDT - **nothing posted, queue untouched**
+Generated 2026-07-27 17:45 PDT - **nothing posted, queue untouched**
 
-Eligible events: **10** - Skipped: **42**
+Eligible events: **11** - Skipped: **42**
 
 ## Heels Dance Class with Frankie - 2026-07-30  (Standard)
 4 posts x 2 platforms = **8** queue entries
@@ -138,6 +138,30 @@ Eligible events: **10** - Skipped: **42**
 | Tue Aug 18, 7:00 PM | evening |
 | Wed Aug 19, 11:00 AM | morning |
 
+## 🌿 JOTERÍA: La Plant House Edition 🌿 - 2026-08-20  (Standard)
+18 posts x 2 platforms = **36** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Jul 27, 7:00 PM | evening |
+| Wed Jul 29, 11:00 AM | morning |
+| Thu Jul 30, 7:00 PM | evening |
+| Fri Jul 31, 11:00 AM | morning |
+| Mon Aug 3, 7:00 PM | evening |
+| Thu Aug 6, 11:00 AM | morning |
+| Fri Aug 7, 7:00 PM | evening |
+| Sun Aug 9, 11:00 AM | morning |
+| Mon Aug 10, 7:00 PM | evening |
+| Tue Aug 11, 11:00 AM | morning |
+| Thu Aug 13, 7:00 PM | evening |
+| Fri Aug 14, 11:00 AM | morning |
+| Sat Aug 15, 7:00 PM | evening |
+| Sun Aug 16, 11:00 AM | morning |
+| Mon Aug 17, 7:00 PM | evening |
+| Tue Aug 18, 11:00 AM | morning |
+| Wed Aug 19, 7:00 PM | evening |
+| Thu Aug 20, 11:00 AM | morning |
+
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
 18 posts x 2 platforms = **36** queue entries
 
@@ -233,4 +257,4 @@ Eligible events: **10** - Skipped: **42**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 244**
+**Total queue entries that would be created: 280**
