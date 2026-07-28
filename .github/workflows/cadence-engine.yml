@@ -54,7 +54,10 @@ jobs:
             # publish time) race on main — retry instead of dying.
             ok=""
             for i in 1 2 3 4; do
-              if git pull --rebase origin main && git push; then ok=1; break; fi
+              # -X theirs: on conflict keep this run's freshly generated files —
+              # everything committed here is generated output, newest wins.
+              if git pull --rebase -X theirs origin main && git push; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
               echo "push raced, retry $i"; sleep $((i * 4))
             done
             [ -n "$ok" ] || exit 1
