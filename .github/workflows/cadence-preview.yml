@@ -35,5 +35,13 @@ jobs:
             echo "Preview unchanged — nothing to commit."
           else
             git commit -m "Update cadence preview [skip ci]"
-            git push
+            # The engine workflows also rewrite this generated file — retry with
+            # rebase on a raced push, keeping the freshest generated version.
+            ok=""
+            for i in 1 2 3 4; do
+              if git pull --rebase -X theirs origin main && git push; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push raced, retry $i"; sleep $((i * 4))
+            done
+            [ -n "$ok" ] || exit 1
           fi
