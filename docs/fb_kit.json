@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-03T03:36:11",
+ "generated_at": "2026-08-03T05:22:45",
  "events": [
   {
    "item_id": "12644860555",
@@ -168,6 +168,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/naughty-drag-bingo-tickets-1995608296134",
    "flyer": "media/fb-kit/12645215966_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12645215966"
+  },
+  {
+   "item_id": "12697440993",
+   "name": "Drag me to brunch",
+   "date_iso": "2026-08-30",
+   "date_display": "Aug 30, 2026",
+   "start_time": "12:00 PM",
+   "end_date_display": "Aug 30, 2026",
+   "end_time": "4:00 PM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Sunday brunch just got a whole lot more fabulous. Drag Me to Brunch takes over the Main Floor on August 30th at noon with Thee Ember Rexia Romanoff leading a lineup of local drag talent through a show that's pure glitter, big energy, and made for every generation at the table.\n\nFork in one hand, jaw on the floor — that's the plan. While the performers serve looks and lip-syncs, the kitchen's serving a plate built for the occasion: fluffy pancakes, crispy bacon, sausage, golden hashbrowns, and eggs however you like 'em. Bring the abuela, bring the kids, bring your best clap-along energy.\n\nThis isn't a late-night affair — it's daylight drag done right. Colorful, joyful, and wholesome without losing an ounce of sparkle. Azúcar's Main Floor turns into a stage full of feathers, sequins, and heart, and everyone from six to sixty is invited to the party.\n\nGrab a table, order seconds, and let Thee Ember Rexia Romanoff and the crew turn your Sunday into a full-blown celebration. Drag Me to Brunch is family fun with flair — come hungry, leave dazzled.\n\n🗓️ Domingo 30 de agosto — Show 12:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 All Ages · Cover $5-$15\n\n🎟️ Tickets: https://www.eventbrite.com/e/drag-me-to-brunch-tickets-1996428492363",
+   "eventbrite_url": "https://www.eventbrite.com/e/drag-me-to-brunch-tickets-1996428492363",
+   "flyer": "media/fb-kit/12697440993_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12697440993"
   }
  ]
 }
