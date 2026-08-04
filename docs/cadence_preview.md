@@ -1,21 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-04 12:45 PDT - **nothing posted, queue untouched**
+Generated 2026-08-04 13:23 PDT - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **47**
-
-## Lollipop Raves: Techno vs House Part 2 - 2026-08-07  (Aggressive)
-7 posts x 2 platforms = **14** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Tue Aug 4, 7:00 PM | evening |
-| Wed Aug 5, 11:00 AM | morning |
-| Wed Aug 5, 7:00 PM | evening |
-| Thu Aug 6, 11:00 AM | morning |
-| Thu Aug 6, 7:00 PM | evening |
-| Fri Aug 7, 11:00 AM | morning |
-| Fri Aug 7, 7:00 PM | evening |
+Eligible events: **15** - Skipped: **48**
 
 ## Lollipop Raves: Techno vs House Part 2 - 2026-08-07  (Aggressive)
 7 posts x 2 platforms = **14** queue entries
@@ -29,17 +16,6 @@ Eligible events: **14** - Skipped: **47**
 | Thu Aug 6, 7:00 PM | evening |
 | Fri Aug 7, 11:00 AM | morning |
 | Fri Aug 7, 7:00 PM | evening |
-
-## Drag Brunch de Reinas - 2026-08-08  (Standard)
-5 posts x 2 platforms = **10** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Tue Aug 4, 7:00 PM | evening |
-| Wed Aug 5, 11:00 AM | morning |
-| Thu Aug 6, 7:00 PM | evening |
-| Fri Aug 7, 11:00 AM | morning |
-| Sat Aug 8, 7:00 PM | evening |
 
 ## Noche Vaquera: Cynthia Marche, DJ Nopalitos, Poncho y Deborah - 2026-08-08  (Aggressive)
 9 posts x 2 platforms = **18** queue entries
@@ -57,6 +33,17 @@ Eligible events: **14** - Skipped: **47**
 | Sat Aug 8, 7:00 PM | evening |
 
 ## Faetalitys birthday show - 2026-08-08  (Standard)
+5 posts x 2 platforms = **10** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Aug 4, 7:00 PM | evening |
+| Wed Aug 5, 11:00 AM | morning |
+| Thu Aug 6, 7:00 PM | evening |
+| Fri Aug 7, 11:00 AM | morning |
+| Sat Aug 8, 7:00 PM | evening |
+
+## Royal flush comedy drag show - 2026-08-08  (Standard)
 5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
@@ -265,6 +252,57 @@ Eligible events: **14** - Skipped: **47**
 | Sun Aug 30, 11:00 AM | morning |
 | Sun Aug 30, 7:00 PM | evening |
 
+## Drag me to brunch - 2026-08-30  (Standard)
+18 posts x 2 platforms = **36** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Aug 4, 7:00 PM | evening |
+| Thu Aug 6, 11:00 AM | morning |
+| Sun Aug 9, 7:00 PM | evening |
+| Mon Aug 10, 11:00 AM | morning |
+| Thu Aug 13, 7:00 PM | evening |
+| Sun Aug 16, 11:00 AM | morning |
+| Mon Aug 17, 7:00 PM | evening |
+| Wed Aug 19, 11:00 AM | morning |
+| Thu Aug 20, 7:00 PM | evening |
+| Fri Aug 21, 11:00 AM | morning |
+| Sun Aug 23, 7:00 PM | evening |
+| Mon Aug 24, 11:00 AM | morning |
+| Tue Aug 25, 7:00 PM | evening |
+| Wed Aug 26, 11:00 AM | morning |
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Sat Aug 29, 7:00 PM | evening |
+| Sun Aug 30, 11:00 AM | morning |
+
+## Drag Brunch de Reinas - 2026-09-04  (Standard)
+21 posts x 2 platforms = **42** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Aug 4, 7:00 PM | evening |
+| Thu Aug 6, 11:00 AM | morning |
+| Fri Aug 7, 7:00 PM | evening |
+| Sat Aug 8, 11:00 AM | morning |
+| Tue Aug 11, 7:00 PM | evening |
+| Fri Aug 14, 11:00 AM | morning |
+| Sat Aug 15, 7:00 PM | evening |
+| Tue Aug 18, 11:00 AM | morning |
+| Fri Aug 21, 7:00 PM | evening |
+| Sat Aug 22, 11:00 AM | morning |
+| Mon Aug 24, 7:00 PM | evening |
+| Tue Aug 25, 11:00 AM | morning |
+| Wed Aug 26, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Sat Aug 29, 7:00 PM | evening |
+| Sun Aug 30, 11:00 AM | morning |
+| Mon Aug 31, 7:00 PM | evening |
+| Tue Sep 1, 11:00 AM | morning |
+| Wed Sep 2, 7:00 PM | evening |
+| Thu Sep 3, 11:00 AM | morning |
+| Fri Sep 4, 7:00 PM | evening |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -288,7 +326,8 @@ Eligible events: **14** - Skipped: **47**
 - **Lesbian Pride** - date in the past, no cadence set, no flyer, no price, no description
 - **Lesmeets - Wiener for Fathersday** - date in the past, no cadence set, no flyer, no price, no description
 - **Lollipop Rave (Aug 7) — sign BoldSign amendment** - no cadence set, no flyer, no price, no description
-- **Lollipop Raves: Techno vs House Part 2** - no flyer
+- **Lollipop Raves: Techno vs House Part 2** - phase = Cancelled, no flyer
+- **Lollipop Raves: Techno vs House Part 2** - phase = Cancelled
 - **Love Island Finale Watch Party** - date in the past
 - **Magic Hunks (touring)** - no cadence set, no flyer, no price, no description
 - **Next Gen Brunch** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -317,4 +356,4 @@ Eligible events: **14** - Skipped: **47**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 354**
+**Total queue entries that would be created: 418**
