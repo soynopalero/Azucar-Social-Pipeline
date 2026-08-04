@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-04 13:20 PDT - **nothing posted, queue untouched**
+Generated 2026-08-04 13:21 PDT - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **48**
+Eligible events: **15** - Skipped: **48**
 
 ## Lollipop Raves: Techno vs House Part 2 - 2026-08-07  (Aggressive)
 7 posts x 2 platforms = **14** queue entries
@@ -252,6 +252,30 @@ Eligible events: **14** - Skipped: **48**
 | Sun Aug 30, 11:00 AM | morning |
 | Sun Aug 30, 7:00 PM | evening |
 
+## Drag me to brunch - 2026-08-30  (Standard)
+18 posts x 2 platforms = **36** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Aug 4, 7:00 PM | evening |
+| Thu Aug 6, 11:00 AM | morning |
+| Sun Aug 9, 7:00 PM | evening |
+| Mon Aug 10, 11:00 AM | morning |
+| Thu Aug 13, 7:00 PM | evening |
+| Sun Aug 16, 11:00 AM | morning |
+| Mon Aug 17, 7:00 PM | evening |
+| Wed Aug 19, 11:00 AM | morning |
+| Thu Aug 20, 7:00 PM | evening |
+| Fri Aug 21, 11:00 AM | morning |
+| Sun Aug 23, 7:00 PM | evening |
+| Mon Aug 24, 11:00 AM | morning |
+| Tue Aug 25, 7:00 PM | evening |
+| Wed Aug 26, 11:00 AM | morning |
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Sat Aug 29, 7:00 PM | evening |
+| Sun Aug 30, 11:00 AM | morning |
+
 ## Drag Brunch de Reinas - 2026-09-04  (Standard)
 21 posts x 2 platforms = **42** queue entries
 
@@ -332,4 +356,4 @@ Eligible events: **14** - Skipped: **48**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 382**
+**Total queue entries that would be created: 418**
