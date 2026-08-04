@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-04 10:38 PDT - **nothing posted, queue untouched**
+Generated 2026-08-04 12:44 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **47**
+Eligible events: **14** - Skipped: **47**
 
 ## Lollipop Raves: Techno vs House Part 2 - 2026-08-07  (Aggressive)
-8 posts x 2 platforms = **16** queue entries
+7 posts x 2 platforms = **14** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Aug 4, 11:00 AM | morning |
 | Tue Aug 4, 7:00 PM | evening |
 | Wed Aug 5, 11:00 AM | morning |
 | Wed Aug 5, 7:00 PM | evening |
@@ -19,11 +18,10 @@ Eligible events: **13** - Skipped: **47**
 | Fri Aug 7, 7:00 PM | evening |
 
 ## Lollipop Raves: Techno vs House Part 2 - 2026-08-07  (Aggressive)
-8 posts x 2 platforms = **16** queue entries
+7 posts x 2 platforms = **14** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Aug 4, 11:00 AM | morning |
 | Tue Aug 4, 7:00 PM | evening |
 | Wed Aug 5, 11:00 AM | morning |
 | Wed Aug 5, 7:00 PM | evening |
@@ -44,11 +42,10 @@ Eligible events: **13** - Skipped: **47**
 | Sat Aug 8, 7:00 PM | evening |
 
 ## Noche Vaquera: Cynthia Marche, DJ Nopalitos, Poncho y Deborah - 2026-08-08  (Aggressive)
-10 posts x 2 platforms = **20** queue entries
+9 posts x 2 platforms = **18** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Aug 4, 11:00 AM | morning |
 | Tue Aug 4, 7:00 PM | evening |
 | Wed Aug 5, 11:00 AM | morning |
 | Wed Aug 5, 7:00 PM | evening |
@@ -59,12 +56,22 @@ Eligible events: **13** - Skipped: **47**
 | Sat Aug 8, 11:00 AM | morning |
 | Sat Aug 8, 7:00 PM | evening |
 
-## Build your own carabiner night - 2026-08-09  (Aggressive)
-12 posts x 2 platforms = **24** queue entries
+## Faetalitys birthday show - 2026-08-08  (Standard)
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Aug 4, 11:00 AM | morning |
+| Tue Aug 4, 7:00 PM | evening |
+| Wed Aug 5, 11:00 AM | morning |
+| Thu Aug 6, 7:00 PM | evening |
+| Fri Aug 7, 11:00 AM | morning |
+| Sat Aug 8, 7:00 PM | evening |
+
+## Build your own carabiner night - 2026-08-09  (Aggressive)
+11 posts x 2 platforms = **22** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Tue Aug 4, 7:00 PM | evening |
 | Wed Aug 5, 11:00 AM | morning |
 | Wed Aug 5, 7:00 PM | evening |
@@ -310,4 +317,4 @@ Eligible events: **13** - Skipped: **47**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 352**
+**Total queue entries that would be created: 354**
