@@ -60,6 +60,13 @@ body{
 }
 .samplebar b{color:#6b4606}
 
+.livebar{
+  display:flex;align-items:center;gap:10px;background:#FDECEE;border:1px solid #F2BFC7;
+  color:#8F1D2C;border-radius:12px;padding:10px 15px;font-size:13px;font-weight:600;margin-bottom:20px;
+}
+.livebar b{color:#6e131f}
+.livebar-why{display:block;margin-top:4px;font-weight:500;opacity:.75;font-size:12px}
+
 .btn{display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:none;border-radius:11px;
   padding:10px 16px;font-size:14px;font-weight:700;font-family:inherit;transition:transform .12s, box-shadow .12s}
 .btn:active{transform:translateY(1px)}

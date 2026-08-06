@@ -36,7 +36,10 @@ export async function onRequestPost(context) {
     } catch (e) {
       if (e.status === 409 && attempt === 0) continue; // stale sha -> refetch once
       console.log("save error:", e.message);
-      return json({ error: "Couldn't save to GitHub. " + e.message }, 502);
+      const hint = e.status === 401
+        ? " The GitHub token has expired or been revoked — generate a new fine-grained token and update GITHUB_TOKEN in the Cloudflare Pages project settings."
+        : "";
+      return json({ error: "Couldn't save to GitHub. " + e.message + hint }, 502);
     }
   }
 }

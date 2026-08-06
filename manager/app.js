@@ -12,6 +12,7 @@ const DAY = 24 * 60 * 60 * 1000;
 
 let DATA = { events: [] };
 let LIVE = false;
+let FALLBACK = false;                         // live API exists but is failing → read-only snapshot
 let currentView = 'upcoming';
 let currentEvent = null;
 let editingPost = null;                       // logical post being edited, or null for "new"
@@ -56,7 +57,11 @@ async function api(path, opts) {
   const res = await fetch(path, opts);
   let data = {};
   try { data = await res.json(); } catch { /* non-JSON error page */ }
-  if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
+  if (!res.ok) {
+    const err = new Error(data.error || `Request failed (${res.status})`);
+    err.status = res.status;
+    throw err;
+  }
   return data;
 }
 
@@ -84,7 +89,7 @@ function renderList() {
     ? 'Events that have already happened move here automatically. Read-only.'
     : 'Events with a future date. They archive themselves the day after they happen.';
   $('#btn-new').style.display = isHist ? 'none' : '';
-  $('#samplebar').style.display = (!LIVE && !isHist && upcoming.some(e => e.source === 'sample')) ? '' : 'none';
+  $('#samplebar').style.display = (!LIVE && !FALLBACK && !isHist && upcoming.some(e => e.source === 'sample')) ? '' : 'none';
 
   const wrap = $('#eventlist');
   if (!list.length) {
@@ -195,7 +200,15 @@ function pillOne(status) {
 }
 function findPost(id) { return currentEvent.posts.find(p => p.ids.includes(id)); }
 
+/* When the live API is broken we're showing an old snapshot — pretending to
+   save would silently lose Pedro & Jamie's edits, so block writes loudly. */
+function blockIfFallback() {
+  if (FALLBACK) toast('⚠️ Live connection is down — changes can’t be saved right now.');
+  return FALLBACK;
+}
+
 async function deleteOne(id, el) {
+  if (blockIfFallback()) return;
   const post = findPost(id);
   el.style.transition = '.25s'; el.style.opacity = '.4';
   try {
@@ -214,6 +227,7 @@ async function deleteOne(id, el) {
 }
 
 async function deleteAll() {
+  if (blockIfFallback()) return;
   const n = currentEvent.posts.filter(p => p.status !== 'posted').length;
   if (!confirm(`Delete all ${n} pending posts for "${currentEvent.name}"?${LIVE ? '' : '\n\n(Prototype — nothing is really removed yet.)'}`)) return;
   try {
@@ -309,6 +323,7 @@ function setSaving(b) {
 }
 
 async function saveEdit() {
+  if (FALLBACK) return showErr('Live connection is down — changes can’t be saved right now. Try again later.');
   const whenEl = $('#e-when');
   const chosen = new Date(whenEl.value);
   const plats = $$('.tog.on').map(t => t.dataset.plat);
@@ -408,6 +423,7 @@ $('#e-cancel').addEventListener('click', closeEdit);
 $('#e-save').addEventListener('click', saveEdit);
 $('#e-delete').addEventListener('click', async () => {
   if (!editingPost) return;
+  if (FALLBACK) return showErr('Live connection is down — changes can’t be saved right now. Try again later.');
   const post = editingPost;
   try {
     if (LIVE) {
@@ -431,17 +447,31 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#overla
 
 /* ---------- boot ---------- */
 (async function boot() {
+  let liveError = null;
   try {
     const live = await api('/api/events?ts=' + Date.now());
     if (live.mode === 'live') { LIVE = true; DATA = live; }
-  } catch { /* no API here — fall back to the static prototype data */ }
+  } catch (e) { liveError = e; /* no API here, or the API is failing */ }
   if (!LIVE) {
+    // A 404 means there's no API at all (local prototype) → quiet demo mode.
+    // Anything else means the deployed API is BROKEN — say so, loudly, instead
+    // of letting an old snapshot pass for live data.
+    FALLBACK = !!liveError && liveError.status !== 404;
     try {
       DATA = await (await fetch('events.json?ts=' + Date.now(), { cache: 'no-store' })).json();
     } catch {
       $('#eventlist').innerHTML = `<div class="empty"><div class="big">⚠️</div><h3>Couldn't load events</h3>
         <p>The events feed isn't reachable. Refresh the page, or check that the API is deployed.</p></div>`;
       return;
+    }
+    if (FALLBACK) {
+      DATA.events = DATA.events.filter(e => e.source !== 'sample');
+      const snapDate = DATA.generated_at
+        ? new Date(DATA.generated_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) : '';
+      $('#livebar').innerHTML = `⚠️ <span><b>Live connection is down</b> — showing an old saved copy${snapDate ? ` from ${snapDate}` : ''}.
+        New posts and edits won't show, and <b>saving is off</b> until it's fixed.
+        <span class="livebar-why">${esc(liveError.message)}</span></span>`;
+      $('#livebar').style.display = '';
     }
   }
   loadIdentity();
