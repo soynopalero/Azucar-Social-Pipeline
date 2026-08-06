@@ -117,24 +117,45 @@ function ghHeaders(env) {
   return h;
 }
 
+// An expired/revoked GITHUB_TOKEN makes GitHub answer 401 even for files
+// anyone can read. The repo is public, so retry the read without
+// credentials instead of going dark — only writes truly need the token.
+async function ghFetch(env, url, extraHeaders = {}) {
+  let res = await fetch(url, { headers: { ...ghHeaders(env), ...extraHeaders }, cf: { cacheTtl: 0 } });
+  if ((res.status === 401 || res.status === 403) && env.GITHUB_TOKEN) {
+    res = await fetch(url, { headers: { ...ghHeaders({}), ...extraHeaders }, cf: { cacheTtl: 0 } });
+  }
+  return res;
+}
+
 export async function ghGetFile(env, path) {
   const repo = env.GITHUB_REPO || "soynopalero/Azucar-Social-Pipeline";
   const url = `${GH_API}/repos/${repo}/contents/${path}?ref=main`;
-  let res = await fetch(url, { headers: ghHeaders(env), cf: { cacheTtl: 0 } });
-  // An expired/revoked GITHUB_TOKEN makes GitHub answer 401 even for files
-  // anyone can read. The repo is public, so retry the read without
-  // credentials instead of going dark — only writes truly need the token.
-  if ((res.status === 401 || res.status === 403) && env.GITHUB_TOKEN) {
-    res = await fetch(url, { headers: ghHeaders({}), cf: { cacheTtl: 0 } });
-  }
+  const res = await ghFetch(env, url);
   if (!res.ok) {
     const err = new Error(`GitHub read ${path} failed: ${res.status}`);
     err.status = res.status;
     throw err;
   }
   const data = await res.json();
-  const text = new TextDecoder().decode(
-    Uint8Array.from(atob(data.content.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
+  let text;
+  if (data.content) {
+    text = new TextDecoder().decode(
+      Uint8Array.from(atob(data.content.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
+  } else if (data.size > 0) {
+    // Files over 1 MB come back with empty inline content — the queue crossed
+    // that line in Aug 2026 and froze the whole manager. Re-fetch the raw
+    // bytes, which the same endpoint serves for files up to 100 MB.
+    const raw = await ghFetch(env, url, { Accept: "application/vnd.github.raw+json" });
+    if (!raw.ok) {
+      const err = new Error(`GitHub raw read ${path} failed: ${raw.status}`);
+      err.status = raw.status;
+      throw err;
+    }
+    text = await raw.text();
+  } else {
+    text = "";
+  }
   return { text, sha: data.sha };
 }
 
