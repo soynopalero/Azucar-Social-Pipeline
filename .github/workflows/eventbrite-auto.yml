@@ -40,6 +40,7 @@ jobs:
         env:
           PYTHONUNBUFFERED: "1"
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
+          EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
           # Telegram "done" message (Pedro + Jayme). Silently skipped if the
           # TELEGRAM_BOT_TOKEN secret hasn't been added to this repo yet.
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
