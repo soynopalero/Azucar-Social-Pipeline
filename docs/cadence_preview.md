@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-07 15:27 PDT - **nothing posted, queue untouched**
+Generated 2026-08-07 15:46 PDT - **nothing posted, queue untouched**
 
-Eligible events: **16** - Skipped: **49**
+Eligible events: **17** - Skipped: **49**
 
 ## Lollipop Raves: Techno vs House Part 2 - 2026-08-07  (Aggressive)
 1 posts x 2 platforms = **2** queue entries
@@ -188,6 +188,33 @@ Eligible events: **16** - Skipped: **49**
 | Fri Aug 21, 7:00 PM | evening |
 | Sat Aug 22, 11:00 AM | morning |
 
+## Les-Be-Emo Drag Show - 2026-08-22  (Aggressive)
+21 posts x 2 platforms = **42** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Aug 7, 7:00 PM | evening |
+| Sat Aug 8, 11:00 AM | morning |
+| Sun Aug 9, 7:00 PM | evening |
+| Tue Aug 11, 11:00 AM | morning |
+| Wed Aug 12, 7:00 PM | evening |
+| Thu Aug 13, 11:00 AM | morning |
+| Sat Aug 15, 7:00 PM | evening |
+| Sun Aug 16, 11:00 AM | morning |
+| Sun Aug 16, 7:00 PM | evening |
+| Mon Aug 17, 11:00 AM | morning |
+| Mon Aug 17, 7:00 PM | evening |
+| Tue Aug 18, 11:00 AM | morning |
+| Tue Aug 18, 7:00 PM | evening |
+| Wed Aug 19, 11:00 AM | morning |
+| Wed Aug 19, 7:00 PM | evening |
+| Thu Aug 20, 11:00 AM | morning |
+| Thu Aug 20, 7:00 PM | evening |
+| Fri Aug 21, 11:00 AM | morning |
+| Fri Aug 21, 7:00 PM | evening |
+| Sat Aug 22, 11:00 AM | morning |
+| Sat Aug 22, 7:00 PM | evening |
+
 ## Royal flush comedy drag show - 2026-08-23  (Standard)
 15 posts x 2 platforms = **30** queue entries
 
@@ -341,4 +368,4 @@ Eligible events: **16** - Skipped: **49**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 374**
+**Total queue entries that would be created: 416**
