@@ -95,9 +95,11 @@ def check_webhook_version(url: str) -> None:
         body = webhook_get(url)
     except OSError as e:
         sys.exit(f"GCAL_WEBHOOK_URL probe failed ({e}) — aborting, nothing sent.")
-    if "azucar-gcal v2" not in body:
+    if "azucar-gcal v3" not in body:
         sys.exit(
-            "The deployed Apps Script webhook is still v1 (no sync support).\n"
+            "The deployed Apps Script webhook is outdated (v1 can't sync;\n"
+            "v2's title+date fallback could delete the wrong entry when a\n"
+            "cancelled duplicate shares the real event's name and date).\n"
             "Update it first: open script.google.com, paste the current\n"
             "code/gcal_webhook.gs over the old code, then Deploy → Manage\n"
             "deployments → ✏️ Edit → Version: New version → Deploy.\n"
