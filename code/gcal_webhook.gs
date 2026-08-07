@@ -1,4 +1,6 @@
-// Azúcar → Google Calendar webhook (v2: create + sync cleanup).
+// Azúcar → Google Calendar webhook (v3: create + sync cleanup).
+// v3 fixes the sync fallback: pulse-tagged entries are never title-matched,
+// so a cancelled duplicate item can't delete the real event's entry.
 // Paste this into script.google.com (the existing project), then redeploy:
 // Deploy → Manage deployments → ✏️ Edit → Version: "New version" → Deploy.
 // The web app URL stays the same, so no repo secret changes are needed.
@@ -14,16 +16,16 @@
 //   title+date fallback catches hand-made entries. dry_run:true reports what
 //   would change without touching the calendar.
 //
-// GET — version probe ("azucar-gcal v2"). gcal_sync.py checks this first and
-// refuses to run against the old deployment (which would mistake sync
-// payloads for create requests).
+// GET — version probe ("azucar-gcal v3"). gcal_sync.py checks this first and
+// refuses to run against an old deployment (v1 would mistake sync payloads
+// for create requests; v2's fallback had the duplicate-deletion bug).
 
 const CALENDAR_ID = 'c_9d7b35fff634fd116745c13d46a7b125a1c9f7aa6676652f4cc90ac4375a5e84@group.calendar.google.com';
 const SHARED_TOKEN = 'azucar-gcal-2026'; // must match the pipeline's token
 const TZ = 'America/Los_Angeles';
 
 function doGet() {
-  return ContentService.createTextOutput('azucar-gcal v2');
+  return ContentService.createTextOutput('azucar-gcal v3');
 }
 
 function doPost(e) {
@@ -69,9 +71,14 @@ function syncEvent(p) {
   if (!matches.length && removing && p.name && p.event_date) {
     // Fallback for hand-made entries the pipeline never tagged: exact same
     // title on the exact event day only — never a looser match, so a sibling
-    // recurring show on another date can't be swept up.
+    // recurring show on another date can't be swept up. Entries carrying ANY
+    // pulse tag are off-limits here: they belong to a specific Monday item
+    // and are only ever matched by their own id above. (First dry-run caught
+    // this: a cancelled duplicate item, same name + same day as the real one,
+    // would otherwise have deleted the REAL event's entry.)
     matches = events.filter(function (ev) {
       return ev.getTitle() === p.name &&
+        (ev.getDescription() || '').indexOf('/pulses/') === -1 &&
         Utilities.formatDate(ev.getStartTime(), TZ, 'yyyy-MM-dd') === p.event_date;
     });
     matchedBy = 'title+date';
