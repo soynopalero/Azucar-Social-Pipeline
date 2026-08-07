@@ -1,23 +1,21 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-07 09:45 PDT - **nothing posted, queue untouched**
+Generated 2026-08-07 15:25 PDT - **nothing posted, queue untouched**
 
-Eligible events: **15** - Skipped: **49**
+Eligible events: **16** - Skipped: **49**
 
 ## Lollipop Raves: Techno vs House Part 2 - 2026-08-07  (Aggressive)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Aug 7, 11:00 AM | morning |
 | Fri Aug 7, 7:00 PM | evening |
 
 ## Noche Vaquera: Cynthia Marche, DJ Nopalitos, Poncho y Deborah - 2026-08-08  (Aggressive)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Aug 7, 11:00 AM | morning |
 | Fri Aug 7, 7:00 PM | evening |
 | Sat Aug 8, 11:00 AM | morning |
 | Sat Aug 8, 7:00 PM | evening |
@@ -31,16 +29,34 @@ Eligible events: **15** - Skipped: **49**
 | Sat Aug 8, 11:00 AM | morning |
 
 ## Build your own carabiner night - 2026-08-09  (Aggressive)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Aug 7, 11:00 AM | morning |
 | Fri Aug 7, 7:00 PM | evening |
 | Sat Aug 8, 11:00 AM | morning |
 | Sat Aug 8, 7:00 PM | evening |
 | Sun Aug 9, 11:00 AM | morning |
 | Sun Aug 9, 7:00 PM | evening |
+
+## Drag queen Kareoke - 2026-08-13  (Aggressive)
+13 posts x 2 platforms = **26** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Aug 7, 7:00 PM | evening |
+| Sat Aug 8, 11:00 AM | morning |
+| Sat Aug 8, 7:00 PM | evening |
+| Sun Aug 9, 11:00 AM | morning |
+| Sun Aug 9, 7:00 PM | evening |
+| Mon Aug 10, 11:00 AM | morning |
+| Mon Aug 10, 7:00 PM | evening |
+| Tue Aug 11, 11:00 AM | morning |
+| Tue Aug 11, 7:00 PM | evening |
+| Wed Aug 12, 11:00 AM | morning |
+| Wed Aug 12, 7:00 PM | evening |
+| Thu Aug 13, 11:00 AM | morning |
+| Thu Aug 13, 7:00 PM | evening |
 
 ## VIDA AMORE DIVAS SHOW: LA MAS DRAGA - 2026-08-15  (Standard)
 9 posts x 2 platforms = **18** queue entries
@@ -325,4 +341,4 @@ Eligible events: **15** - Skipped: **49**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 354**
+**Total queue entries that would be created: 374**
