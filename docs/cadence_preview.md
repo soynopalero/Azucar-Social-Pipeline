@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-07 15:46 PDT - **nothing posted, queue untouched**
+Generated 2026-08-07 16:58 PDT - **nothing posted, queue untouched**
 
-Eligible events: **17** - Skipped: **49**
+Eligible events: **18** - Skipped: **49**
 
 ## Lollipop Raves: Techno vs House Part 2 - 2026-08-07  (Aggressive)
 1 posts x 2 platforms = **2** queue entries
@@ -314,6 +314,32 @@ Eligible events: **17** - Skipped: **49**
 | Thu Sep 3, 11:00 AM | morning |
 | Fri Sep 4, 7:00 PM | evening |
 
+## Beyoncés birthday party drag show - 2026-09-05  (Standard)
+20 posts x 2 platforms = **40** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Aug 7, 7:00 PM | evening |
+| Sat Aug 8, 11:00 AM | morning |
+| Sun Aug 9, 7:00 PM | evening |
+| Wed Aug 12, 11:00 AM | morning |
+| Sat Aug 15, 7:00 PM | evening |
+| Sun Aug 16, 11:00 AM | morning |
+| Wed Aug 19, 7:00 PM | evening |
+| Sat Aug 22, 11:00 AM | morning |
+| Sun Aug 23, 7:00 PM | evening |
+| Tue Aug 25, 11:00 AM | morning |
+| Wed Aug 26, 7:00 PM | evening |
+| Thu Aug 27, 11:00 AM | morning |
+| Sat Aug 29, 7:00 PM | evening |
+| Sun Aug 30, 11:00 AM | morning |
+| Mon Aug 31, 7:00 PM | evening |
+| Tue Sep 1, 11:00 AM | morning |
+| Wed Sep 2, 7:00 PM | evening |
+| Thu Sep 3, 11:00 AM | morning |
+| Fri Sep 4, 7:00 PM | evening |
+| Sat Sep 5, 11:00 AM | morning |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -368,4 +394,4 @@ Eligible events: **17** - Skipped: **49**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 416**
+**Total queue entries that would be created: 456**
