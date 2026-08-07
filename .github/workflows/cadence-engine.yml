@@ -42,18 +42,16 @@ jobs:
 
       # Cleanup pass for the shared Azucar Events Google Calendar: deletes the
       # entry when a Monday item goes Cancelled/Postponed, re-dates it when the
-      # event's date/time moves. DRY-RUN for now (per project convention) — it
-      # only prints what it would change. After reviewing a run log or two,
-      # flip it live by adding --live below and removing continue-on-error.
-      # Requires the v2 code/gcal_webhook.gs deployment; against v1 the script
-      # refuses to send anything.
-      - name: GCal cleanup (dry-run)
-        continue-on-error: true   # a hiccup here must not block the caption run
+      # event's date/time moves. LIVE since 2026-08-06 after two clean dry-runs
+      # (the first one caught the duplicate-name deletion bug fixed in webhook
+      # v3). Requires the v3 code/gcal_webhook.gs deployment; against anything
+      # older the script refuses to send.
+      - name: GCal cleanup
         env:
           PYTHONUNBUFFERED: "1"
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
           GCAL_WEBHOOK_URL: ${{ secrets.GCAL_WEBHOOK_URL }}
-        run: python code/gcal_sync.py
+        run: python code/gcal_sync.py --live
 
       - name: Commit queue + preview
         if: always()   # commit whatever the engine produced, even when it exits red
