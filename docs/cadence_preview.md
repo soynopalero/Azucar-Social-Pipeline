@@ -1,23 +1,21 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-09 09:26 PDT - **nothing posted, queue untouched**
+Generated 2026-08-09 14:20 PDT - **nothing posted, queue untouched**
 
 Eligible events: **15** - Skipped: **52**
 
 ## Build your own carabiner night - 2026-08-09  (Aggressive)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 9, 11:00 AM | morning |
 | Sun Aug 9, 7:00 PM | evening |
 
 ## Drag queen Kareoke - 2026-08-13  (Aggressive)
-10 posts x 2 platforms = **20** queue entries
+9 posts x 2 platforms = **18** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 9, 11:00 AM | morning |
 | Sun Aug 9, 7:00 PM | evening |
 | Mon Aug 10, 11:00 AM | morning |
 | Mon Aug 10, 7:00 PM | evening |
@@ -346,4 +344,4 @@ Eligible events: **15** - Skipped: **52**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 390**
+**Total queue entries that would be created: 386**
