@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-10 09:47 PDT - **nothing posted, queue untouched**
+Generated 2026-08-10 16:58 PDT - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **53**
+Eligible events: **15** - Skipped: **53**
 
 ## Drag queen Kareoke - 2026-08-13  (Aggressive)
-8 posts x 2 platforms = **16** queue entries
+7 posts x 2 platforms = **14** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Aug 10, 11:00 AM | morning |
 | Mon Aug 10, 7:00 PM | evening |
 | Tue Aug 11, 11:00 AM | morning |
 | Tue Aug 11, 7:00 PM | evening |
@@ -44,11 +43,10 @@ Eligible events: **14** - Skipped: **53**
 | Sun Aug 16, 7:00 PM | evening |
 
 ## Magic hunks - 2026-08-16  (Aggressive)
-14 posts x 2 platforms = **28** queue entries
+13 posts x 2 platforms = **26** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Aug 10, 11:00 AM | morning |
 | Mon Aug 10, 7:00 PM | evening |
 | Tue Aug 11, 11:00 AM | morning |
 | Tue Aug 11, 7:00 PM | evening |
@@ -272,6 +270,36 @@ Eligible events: **14** - Skipped: **53**
 | Fri Sep 4, 7:00 PM | evening |
 | Sat Sep 5, 11:00 AM | morning |
 
+## Furanium Fever - 2026-09-26  (Standard)
+24 posts x 2 platforms = **48** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sun Aug 16, 7:00 PM | evening |
+| Wed Aug 19, 11:00 AM | morning |
+| Sat Aug 22, 7:00 PM | evening |
+| Sun Aug 23, 11:00 AM | morning |
+| Wed Aug 26, 7:00 PM | evening |
+| Sat Aug 29, 11:00 AM | morning |
+| Sun Aug 30, 7:00 PM | evening |
+| Wed Sep 2, 11:00 AM | morning |
+| Sat Sep 5, 7:00 PM | evening |
+| Sun Sep 6, 11:00 AM | morning |
+| Wed Sep 9, 7:00 PM | evening |
+| Sat Sep 12, 11:00 AM | morning |
+| Sun Sep 13, 7:00 PM | evening |
+| Tue Sep 15, 11:00 AM | morning |
+| Wed Sep 16, 7:00 PM | evening |
+| Thu Sep 17, 11:00 AM | morning |
+| Sat Sep 19, 7:00 PM | evening |
+| Sun Sep 20, 11:00 AM | morning |
+| Mon Sep 21, 7:00 PM | evening |
+| Tue Sep 22, 11:00 AM | morning |
+| Wed Sep 23, 7:00 PM | evening |
+| Thu Sep 24, 11:00 AM | morning |
+| Fri Sep 25, 7:00 PM | evening |
+| Sat Sep 26, 11:00 AM | morning |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -330,4 +358,4 @@ Eligible events: **14** - Skipped: **53**
 - **Wednesday Kareoke** - date in the past
 - **White Gurls Banger Drag Show** - date in the past
 
-**Total queue entries that would be created: 368**
+**Total queue entries that would be created: 412**
