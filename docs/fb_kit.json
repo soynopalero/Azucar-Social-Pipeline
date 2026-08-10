@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-10T01:13:34",
+ "generated_at": "2026-08-10T23:59:38",
  "events": [
   {
    "item_id": "12750728139",
@@ -196,6 +196,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/beyonces-birthday-party-drag-show-tickets-1997207303809",
    "flyer": "media/fb-kit/12751063116_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12751063116"
+  },
+  {
+   "item_id": "12768269924",
+   "name": "Furanium Fever",
+   "date_iso": "2026-09-26",
+   "date_display": "Sep 26, 2026",
+   "start_time": "6:00 PM",
+   "end_date_display": "Sep 26, 2026",
+   "end_time": "10:00 PM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Fur, glitter, and bass — Furanium Fever is landing on Azúcar's Main Floor and it's bringing the whole pack. Tri-Cities Furs takes over the night with vendor tables to browse, drag queens ready to serve looks, and an EDM DJ keeping the floor moving from six till two.\n\nThis one's for the furry community, the furry-curious, and anyone who wants a night that doesn't look like every other Saturday. Come meet new people, vibe with the vendors, catch a drag set that turns the room electric, then lose yourself in the dance floor while the beats build all night long.\n\nWear your best look, bring your people, and leave the ordinary at the door. Azúcar's Main Floor is turning into a den of lights, sound, and community — 21+, doors at 6 PM, and it doesn't stop till 2 AM.\n\n🗓️ Sábado 26 de septiembre — Show 6:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $15\n\n🎟️ Tickets: https://www.eventbrite.com/e/furanium-fever-tickets-1997509115536",
+   "eventbrite_url": "https://www.eventbrite.com/e/furanium-fever-tickets-1997509115536",
+   "flyer": "media/fb-kit/12768269924_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12768269924"
   }
  ]
 }
