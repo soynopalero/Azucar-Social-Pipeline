@@ -12,7 +12,7 @@ Usage (from repo root):
   python code/monday_to_eventbrite.py --all-pending            # every ready item
   python code/monday_to_eventbrite.py --all-pending --dry-run  # preview first
 
-Needs MONDAY_API_KEY in the environment or in code/.env.
+Needs MONDAY_API_KEY and EVENTBRITE_TOKEN in the environment or in code/.env.
 
 Hard-won API facts baked in (see memory/project_eventbrite_integration.md):
 - description.html in the CREATE post only; never send summary too
@@ -37,6 +37,21 @@ import urllib.request
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+
+def load_dotenv() -> None:
+    env_file = Path(__file__).resolve().parent / ".env"
+    if not env_file.exists():
+        return
+    for line in env_file.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, _, v = line.partition("=")
+            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+# Must run before importing build_fb_kit, which reads MONDAY_API_KEY at import.
+load_dotenv()
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_fb_kit import (  # noqa: E402
     BOARD_ID, COL_AGE, COL_COVER, COL_DATE, COL_EVENTBRITE, COL_FLYER,
@@ -50,7 +65,7 @@ import requests
 REPO_ROOT = Path(__file__).resolve().parent.parent
 WORK_DIR = REPO_ROOT / ".eb_covers"
 
-EB_TOKEN = "RZFOGQGUYBI24B5J43XC"
+EB_TOKEN = os.environ.get("EVENTBRITE_TOKEN", "").strip()
 EB_ORG = "2861869150261"
 EB_VENUE = "298365330"
 EB_BASE = "https://www.eventbriteapi.com/v3"
@@ -64,17 +79,6 @@ EVENT_HOURS = 4  # default duration
 SPANISH_DAYS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
 SPANISH_MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
                   "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-
-
-def load_dotenv() -> None:
-    env_file = Path(__file__).resolve().parent / ".env"
-    if not env_file.exists():
-        return
-    for line in env_file.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if line and not line.startswith("#") and "=" in line:
-            k, _, v = line.partition("=")
-            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
 
 
 def fail(label: str, resp: requests.Response) -> None:
@@ -412,7 +416,9 @@ def main() -> int:
                     help="show what would happen without creating anything")
     args = ap.parse_args()
 
-    load_dotenv()
+    if not EB_TOKEN and not args.dry_run:
+        sys.exit("EVENTBRITE_TOKEN env var is empty — refusing to run. "
+                 "Set it in code/.env locally or as a GitHub Actions secret.")
     items = fetch_items()
 
     if args.item_id:
