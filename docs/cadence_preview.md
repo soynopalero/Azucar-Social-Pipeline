@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-21 09:31 PDT - **nothing posted, queue untouched**
+Generated 2026-08-21 09:36 PDT - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **59**
+Eligible events: **12** - Skipped: **59**
 
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
 2 posts x 2 platforms = **4** queue entries
@@ -72,6 +72,28 @@ Eligible events: **11** - Skipped: **59**
 | Wed Aug 26, 11:00 AM | morning |
 | Thu Aug 27, 7:00 PM | evening |
 | Fri Aug 28, 11:00 AM | morning |
+
+## Speed Friending - 2026-08-29  (Aggressive)
+16 posts x 2 platforms = **32** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Aug 21, 7:00 PM | evening |
+| Sat Aug 22, 11:00 AM | morning |
+| Sun Aug 23, 11:00 AM | morning |
+| Sun Aug 23, 7:00 PM | evening |
+| Mon Aug 24, 11:00 AM | morning |
+| Mon Aug 24, 7:00 PM | evening |
+| Tue Aug 25, 11:00 AM | morning |
+| Tue Aug 25, 7:00 PM | evening |
+| Wed Aug 26, 11:00 AM | morning |
+| Wed Aug 26, 7:00 PM | evening |
+| Thu Aug 27, 11:00 AM | morning |
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Fri Aug 28, 7:00 PM | evening |
+| Sat Aug 29, 11:00 AM | morning |
+| Sat Aug 29, 7:00 PM | evening |
 
 ## Drag me to brunch - 2026-08-30  (Aggressive)
 17 posts x 2 platforms = **34** queue entries
@@ -249,4 +271,4 @@ Eligible events: **11** - Skipped: **59**
 - **White Gurls Banger Drag Show** - date in the past
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 230**
+**Total queue entries that would be created: 262**
