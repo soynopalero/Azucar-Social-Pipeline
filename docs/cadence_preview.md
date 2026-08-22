@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-22 00:49 PDT - **nothing posted, queue untouched**
+Generated 2026-08-22 00:52 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **59**
+Eligible events: **14** - Skipped: **59**
 
 ## Sappholicious Burlesque show - 2026-08-22  (Standard)
 1 posts x 2 platforms = **2** queue entries
@@ -165,6 +165,33 @@ Eligible events: **13** - Skipped: **59**
 | Sat Sep 5, 7:00 PM | evening |
 | Sun Sep 6, 11:00 AM | morning |
 
+## Industry Night Drag Show - 2026-09-06  (Aggressive)
+21 posts x 2 platforms = **42** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sat Aug 22, 7:00 PM | evening |
+| Sun Aug 23, 11:00 AM | morning |
+| Mon Aug 24, 7:00 PM | evening |
+| Wed Aug 26, 11:00 AM | morning |
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Sun Aug 30, 7:00 PM | evening |
+| Mon Aug 31, 11:00 AM | morning |
+| Mon Aug 31, 7:00 PM | evening |
+| Tue Sep 1, 11:00 AM | morning |
+| Tue Sep 1, 7:00 PM | evening |
+| Wed Sep 2, 11:00 AM | morning |
+| Wed Sep 2, 7:00 PM | evening |
+| Thu Sep 3, 11:00 AM | morning |
+| Thu Sep 3, 7:00 PM | evening |
+| Fri Sep 4, 11:00 AM | morning |
+| Fri Sep 4, 7:00 PM | evening |
+| Sat Sep 5, 11:00 AM | morning |
+| Sat Sep 5, 7:00 PM | evening |
+| Sun Sep 6, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
+
 ## Night of Kings; An All King Drag Show - 2026-09-13  (Aggressive)
 24 posts x 2 platforms = **48** queue entries
 
@@ -287,4 +314,4 @@ Eligible events: **13** - Skipped: **59**
 - **White Gurls Banger Drag Show** - date in the past
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 282**
+**Total queue entries that would be created: 324**
