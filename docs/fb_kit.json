@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-22T07:49:20",
+ "generated_at": "2026-08-22T07:53:20",
  "events": [
   {
    "item_id": "12481126699",
@@ -154,6 +154,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/build-your-own-carabiner-tickets-1997633135483",
    "flyer": "media/fb-kit/12777841333_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12777841333"
+  },
+  {
+   "item_id": "12870475138",
+   "name": "Industry Night Drag Show",
+   "date_iso": "2026-09-06",
+   "date_display": "Sep 6, 2026",
+   "start_time": "9:00 PM",
+   "end_date_display": "Sep 7, 2026",
+   "end_time": "1:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Sunday's for the ones who never get a Sunday off. Industry Night Drag Show is built for the bartenders, servers, baristas, and door staff clocking out late and still hungry for a show — so we push doors to 9 PM and let the night stretch out slow before it snaps into overdrive at 10.\n\nHosting the Main Floor is Thee Ember Rexia Romanoff, serving up a night stacked with flips, splits, and enough glitter to follow you home. Expect fierce lip syncs, gravity-defying tricks, and the kind of chaotic glam only a room full of off-duty industry folks can properly appreciate.\n\nFlash your work badge or just say the word — industry drink specials are on all night, because you've earned it. And with tickets at five dollars flat, there's no excuse not to trade your apron for a front-row seat.\n\nCome as you are, straight off shift or dressed to slay — Azúcar's Main Floor is holding space for the people who keep this city running all weekend long.\n\n🗓️ Domingo 6 de septiembre — Show 9:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $5\n\n🎟️ Tickets: https://www.eventbrite.com/e/industry-night-drag-show-tickets-1998630369236",
+   "eventbrite_url": "https://www.eventbrite.com/e/industry-night-drag-show-tickets-1998630369236",
+   "flyer": "media/fb-kit/12870475138_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12870475138"
   },
   {
    "item_id": "12870459319",
