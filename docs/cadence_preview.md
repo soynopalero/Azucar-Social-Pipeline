@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-23 09:17 PDT - **nothing posted, queue untouched**
+Generated 2026-08-23 15:02 PDT - **nothing posted, queue untouched**
 
 Eligible events: **11** - Skipped: **62**
 
@@ -12,11 +12,10 @@ Eligible events: **11** - Skipped: **62**
 | Sun Aug 23, 7:00 PM | evening |
 
 ## Y2K Drag Show - 2026-08-27  (Aggressive)
-10 posts x 2 platforms = **20** queue entries
+9 posts x 2 platforms = **18** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 11:00 AM | morning |
 | Sun Aug 23, 7:00 PM | evening |
 | Mon Aug 24, 11:00 AM | morning |
 | Mon Aug 24, 7:00 PM | evening |
@@ -40,11 +39,10 @@ Eligible events: **11** - Skipped: **62**
 | Fri Aug 28, 11:00 AM | morning |
 
 ## Speed Friending - 2026-08-29  (Aggressive)
-14 posts x 2 platforms = **28** queue entries
+13 posts x 2 platforms = **26** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 11:00 AM | morning |
 | Sun Aug 23, 7:00 PM | evening |
 | Mon Aug 24, 11:00 AM | morning |
 | Mon Aug 24, 7:00 PM | evening |
@@ -284,4 +282,4 @@ Eligible events: **11** - Skipped: **62**
 - **White Gurls Banger Drag Show** - date in the past
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 294**
+**Total queue entries that would be created: 290**
