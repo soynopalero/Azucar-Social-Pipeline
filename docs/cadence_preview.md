@@ -1,22 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-23 15:04 PDT - **nothing posted, queue untouched**
+Generated 2026-08-24 09:28 PDT - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **62**
-
-## Royal flush comedy drag show - 2026-08-23  (Standard)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Aug 23, 7:00 PM | evening |
+Eligible events: **10** - Skipped: **63**
 
 ## Y2K Drag Show - 2026-08-27  (Aggressive)
-9 posts x 2 platforms = **18** queue entries
+8 posts x 2 platforms = **16** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 7:00 PM | evening |
 | Mon Aug 24, 11:00 AM | morning |
 | Mon Aug 24, 7:00 PM | evening |
 | Tue Aug 25, 11:00 AM | morning |
@@ -27,23 +19,21 @@ Eligible events: **11** - Skipped: **62**
 | Thu Aug 27, 7:00 PM | evening |
 
 ## Naughty Drag Bingo - 2026-08-28  (Standard)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 7:00 PM | evening |
-| Mon Aug 24, 11:00 AM | morning |
-| Tue Aug 25, 7:00 PM | evening |
-| Wed Aug 26, 11:00 AM | morning |
-| Thu Aug 27, 7:00 PM | evening |
-| Fri Aug 28, 11:00 AM | morning |
+| Mon Aug 24, 7:00 PM | evening |
+| Tue Aug 25, 11:00 AM | morning |
+| Wed Aug 26, 7:00 PM | evening |
+| Thu Aug 27, 11:00 AM | morning |
+| Fri Aug 28, 7:00 PM | evening |
 
 ## Speed Friending - 2026-08-29  (Aggressive)
-13 posts x 2 platforms = **26** queue entries
+12 posts x 2 platforms = **24** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 7:00 PM | evening |
 | Mon Aug 24, 11:00 AM | morning |
 | Mon Aug 24, 7:00 PM | evening |
 | Tue Aug 25, 11:00 AM | morning |
@@ -58,11 +48,10 @@ Eligible events: **11** - Skipped: **62**
 | Sat Aug 29, 7:00 PM | evening |
 
 ## Drag me to brunch - 2026-08-30  (Aggressive)
-15 posts x 2 platforms = **30** queue entries
+14 posts x 2 platforms = **28** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 7:00 PM | evening |
 | Mon Aug 24, 11:00 AM | morning |
 | Mon Aug 24, 7:00 PM | evening |
 | Tue Aug 25, 11:00 AM | morning |
@@ -83,9 +72,9 @@ Eligible events: **11** - Skipped: **62**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 7:00 PM | evening |
-| Mon Aug 24, 11:00 AM | morning |
-| Tue Aug 25, 7:00 PM | evening |
+| Mon Aug 24, 7:00 PM | evening |
+| Tue Aug 25, 11:00 AM | morning |
+| Wed Aug 26, 7:00 PM | evening |
 | Thu Aug 27, 11:00 AM | morning |
 | Fri Aug 28, 7:00 PM | evening |
 | Sat Aug 29, 11:00 AM | morning |
@@ -101,10 +90,10 @@ Eligible events: **11** - Skipped: **62**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 7:00 PM | evening |
+| Mon Aug 24, 7:00 PM | evening |
 | Tue Aug 25, 11:00 AM | morning |
 | Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
+| Fri Aug 28, 11:00 AM | morning |
 | Sat Aug 29, 7:00 PM | evening |
 | Sun Aug 30, 11:00 AM | morning |
 | Mon Aug 31, 7:00 PM | evening |
@@ -115,35 +104,33 @@ Eligible events: **11** - Skipped: **62**
 | Sat Sep 5, 11:00 AM | morning |
 
 ## Build your own Carabiner - 2026-09-06  (Standard)
-13 posts x 2 platforms = **26** queue entries
+12 posts x 2 platforms = **24** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 7:00 PM | evening |
-| Mon Aug 24, 11:00 AM | morning |
-| Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
-| Fri Aug 28, 7:00 PM | evening |
-| Sun Aug 30, 11:00 AM | morning |
-| Mon Aug 31, 7:00 PM | evening |
-| Tue Sep 1, 11:00 AM | morning |
-| Wed Sep 2, 7:00 PM | evening |
-| Thu Sep 3, 11:00 AM | morning |
-| Fri Sep 4, 7:00 PM | evening |
-| Sat Sep 5, 11:00 AM | morning |
-| Sun Sep 6, 7:00 PM | evening |
+| Mon Aug 24, 7:00 PM | evening |
+| Wed Aug 26, 11:00 AM | morning |
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Sun Aug 30, 7:00 PM | evening |
+| Mon Aug 31, 11:00 AM | morning |
+| Tue Sep 1, 7:00 PM | evening |
+| Wed Sep 2, 11:00 AM | morning |
+| Thu Sep 3, 7:00 PM | evening |
+| Fri Sep 4, 11:00 AM | morning |
+| Sat Sep 5, 7:00 PM | evening |
+| Sun Sep 6, 11:00 AM | morning |
 
 ## Industry Night Drag Show - 2026-09-06  (Aggressive)
-20 posts x 2 platforms = **40** queue entries
+19 posts x 2 platforms = **38** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 7:00 PM | evening |
-| Mon Aug 24, 11:00 AM | morning |
-| Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
-| Fri Aug 28, 7:00 PM | evening |
-| Sun Aug 30, 11:00 AM | morning |
+| Mon Aug 24, 7:00 PM | evening |
+| Wed Aug 26, 11:00 AM | morning |
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Sun Aug 30, 7:00 PM | evening |
 | Mon Aug 31, 11:00 AM | morning |
 | Mon Aug 31, 7:00 PM | evening |
 | Tue Sep 1, 11:00 AM | morning |
@@ -160,19 +147,18 @@ Eligible events: **11** - Skipped: **62**
 | Sun Sep 6, 7:00 PM | evening |
 
 ## Night of Kings; An All King Drag Show - 2026-09-13  (Aggressive)
-23 posts x 2 platforms = **46** queue entries
+22 posts x 2 platforms = **44** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 7:00 PM | evening |
-| Mon Aug 24, 11:00 AM | morning |
-| Thu Aug 27, 7:00 PM | evening |
-| Sun Aug 30, 11:00 AM | morning |
-| Mon Aug 31, 7:00 PM | evening |
-| Wed Sep 2, 11:00 AM | morning |
-| Thu Sep 3, 7:00 PM | evening |
-| Fri Sep 4, 11:00 AM | morning |
-| Sun Sep 6, 7:00 PM | evening |
+| Mon Aug 24, 7:00 PM | evening |
+| Thu Aug 27, 11:00 AM | morning |
+| Sun Aug 30, 7:00 PM | evening |
+| Mon Aug 31, 11:00 AM | morning |
+| Wed Sep 2, 7:00 PM | evening |
+| Thu Sep 3, 11:00 AM | morning |
+| Fri Sep 4, 7:00 PM | evening |
+| Sun Sep 6, 11:00 AM | morning |
 | Mon Sep 7, 11:00 AM | morning |
 | Mon Sep 7, 7:00 PM | evening |
 | Tue Sep 8, 11:00 AM | morning |
@@ -193,7 +179,7 @@ Eligible events: **11** - Skipped: **62**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Aug 23, 7:00 PM | evening |
+| Mon Aug 24, 7:00 PM | evening |
 | Wed Aug 26, 11:00 AM | morning |
 | Sat Aug 29, 7:00 PM | evening |
 | Sun Aug 30, 11:00 AM | morning |
@@ -264,6 +250,7 @@ Eligible events: **11** - Skipped: **62**
 - **Pride Karaoke** - date in the past, no cadence set, no flyer, no price, no description
 - **Rop Jams & Kinky Kareoke** - date in the past, no cadence set, no flyer, no price, no description
 - **Rosie’s Birthday Bash** - date in the past
+- **Royal flush comedy drag show** - date in the past
 - **Rupaul All Stars Finale Viewing Party** - date in the past
 - **Sappholicious Burlesque show** - date in the past
 - **Seven Deadly sins** - date in the past
@@ -282,4 +269,4 @@ Eligible events: **11** - Skipped: **62**
 - **White Gurls Banger Drag Show** - date in the past
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 290**
+**Total queue entries that would be created: 274**
