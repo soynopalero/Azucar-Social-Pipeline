@@ -1,36 +1,29 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-26 09:43 PDT - **nothing posted, queue untouched**
+Generated 2026-08-27 17:42 PDT - **nothing posted, queue untouched**
 
 Eligible events: **10** - Skipped: **63**
 
 ## Y2K Drag Show - 2026-08-27  (Aggressive)
-4 posts x 2 platforms = **8** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Aug 26, 11:00 AM | morning |
-| Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
 | Thu Aug 27, 7:00 PM | evening |
 
 ## Naughty Drag Bingo - 2026-08-28  (Standard)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
-| Fri Aug 28, 7:00 PM | evening |
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
 
 ## Speed Friending - 2026-08-29  (Aggressive)
-8 posts x 2 platforms = **16** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Aug 26, 11:00 AM | morning |
-| Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
 | Thu Aug 27, 7:00 PM | evening |
 | Fri Aug 28, 11:00 AM | morning |
 | Fri Aug 28, 7:00 PM | evening |
@@ -38,13 +31,10 @@ Eligible events: **10** - Skipped: **63**
 | Sat Aug 29, 7:00 PM | evening |
 
 ## Drag me to brunch - 2026-08-30  (Aggressive)
-10 posts x 2 platforms = **20** queue entries
+7 posts x 2 platforms = **14** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Aug 26, 11:00 AM | morning |
-| Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
 | Thu Aug 27, 7:00 PM | evening |
 | Fri Aug 28, 11:00 AM | morning |
 | Fri Aug 28, 7:00 PM | evening |
@@ -54,66 +44,62 @@ Eligible events: **10** - Skipped: **63**
 | Sun Aug 30, 7:00 PM | evening |
 
 ## Drag Brunch de Reinas - 2026-09-04  (Standard)
+9 posts x 2 platforms = **18** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Sat Aug 29, 7:00 PM | evening |
+| Sun Aug 30, 11:00 AM | morning |
+| Mon Aug 31, 7:00 PM | evening |
+| Tue Sep 1, 11:00 AM | morning |
+| Wed Sep 2, 7:00 PM | evening |
+| Thu Sep 3, 11:00 AM | morning |
+| Fri Sep 4, 7:00 PM | evening |
+
+## Beyoncés birthday party drag show - 2026-09-05  (Standard)
 10 posts x 2 platforms = **20** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
-| Fri Aug 28, 7:00 PM | evening |
-| Sat Aug 29, 11:00 AM | morning |
-| Sun Aug 30, 7:00 PM | evening |
-| Mon Aug 31, 11:00 AM | morning |
-| Tue Sep 1, 7:00 PM | evening |
-| Wed Sep 2, 11:00 AM | morning |
-| Thu Sep 3, 7:00 PM | evening |
-| Fri Sep 4, 11:00 AM | morning |
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Sat Aug 29, 7:00 PM | evening |
+| Sun Aug 30, 11:00 AM | morning |
+| Mon Aug 31, 7:00 PM | evening |
+| Tue Sep 1, 11:00 AM | morning |
+| Wed Sep 2, 7:00 PM | evening |
+| Thu Sep 3, 11:00 AM | morning |
+| Fri Sep 4, 7:00 PM | evening |
+| Sat Sep 5, 11:00 AM | morning |
 
-## Beyoncés birthday party drag show - 2026-09-05  (Standard)
+## Build your own Carabiner - 2026-09-06  (Standard)
 11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
-| Fri Aug 28, 7:00 PM | evening |
-| Sat Aug 29, 11:00 AM | morning |
-| Sun Aug 30, 7:00 PM | evening |
-| Mon Aug 31, 11:00 AM | morning |
-| Tue Sep 1, 7:00 PM | evening |
-| Wed Sep 2, 11:00 AM | morning |
-| Thu Sep 3, 7:00 PM | evening |
-| Fri Sep 4, 11:00 AM | morning |
-| Sat Sep 5, 7:00 PM | evening |
-
-## Build your own Carabiner - 2026-09-06  (Standard)
-12 posts x 2 platforms = **24** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
-| Fri Aug 28, 7:00 PM | evening |
-| Sat Aug 29, 11:00 AM | morning |
-| Sun Aug 30, 7:00 PM | evening |
-| Mon Aug 31, 11:00 AM | morning |
-| Tue Sep 1, 7:00 PM | evening |
-| Wed Sep 2, 11:00 AM | morning |
-| Thu Sep 3, 7:00 PM | evening |
-| Fri Sep 4, 11:00 AM | morning |
-| Sat Sep 5, 7:00 PM | evening |
-| Sun Sep 6, 11:00 AM | morning |
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Sat Aug 29, 7:00 PM | evening |
+| Sun Aug 30, 11:00 AM | morning |
+| Mon Aug 31, 7:00 PM | evening |
+| Tue Sep 1, 11:00 AM | morning |
+| Wed Sep 2, 7:00 PM | evening |
+| Thu Sep 3, 11:00 AM | morning |
+| Fri Sep 4, 7:00 PM | evening |
+| Sat Sep 5, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
 
 ## Industry Night Drag Show - 2026-09-06  (Aggressive)
-19 posts x 2 platforms = **38** queue entries
+18 posts x 2 platforms = **36** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Aug 26, 7:00 PM | evening |
-| Thu Aug 27, 11:00 AM | morning |
-| Fri Aug 28, 7:00 PM | evening |
-| Sat Aug 29, 11:00 AM | morning |
-| Sun Aug 30, 7:00 PM | evening |
+| Thu Aug 27, 7:00 PM | evening |
+| Fri Aug 28, 11:00 AM | morning |
+| Sat Aug 29, 7:00 PM | evening |
+| Sun Aug 30, 11:00 AM | morning |
 | Mon Aug 31, 11:00 AM | morning |
 | Mon Aug 31, 7:00 PM | evening |
 | Tue Sep 1, 11:00 AM | morning |
@@ -134,8 +120,8 @@ Eligible events: **10** - Skipped: **63**
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Aug 26, 7:00 PM | evening |
-| Fri Aug 28, 11:00 AM | morning |
+| Thu Aug 27, 7:00 PM | evening |
+| Sat Aug 29, 11:00 AM | morning |
 | Sun Aug 30, 7:00 PM | evening |
 | Mon Aug 31, 11:00 AM | morning |
 | Wed Sep 2, 7:00 PM | evening |
@@ -162,7 +148,7 @@ Eligible events: **10** - Skipped: **63**
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Aug 26, 7:00 PM | evening |
+| Thu Aug 27, 7:00 PM | evening |
 | Fri Aug 28, 11:00 AM | morning |
 | Sat Aug 29, 7:00 PM | evening |
 | Sun Aug 30, 11:00 AM | morning |
@@ -252,4 +238,4 @@ Eligible events: **10** - Skipped: **63**
 - **White Gurls Banger Drag Show** - date in the past
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 240**
+**Total queue entries that would be created: 212**
