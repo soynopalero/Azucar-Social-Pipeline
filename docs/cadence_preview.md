@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-31 17:22 PDT - **nothing posted, queue untouched**
+Generated 2026-08-31 17:40 PDT - **nothing posted, queue untouched**
 
 Eligible events: **6** - Skipped: **68**
 
