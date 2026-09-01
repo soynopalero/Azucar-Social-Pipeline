@@ -6,10 +6,15 @@ Source video lives on `gokic-00101` at
 ## Why the work is split
 
 A Claude Code web session runs in a cloud container that cannot see that
-folder, and its network policy only allows package registries, GitHub, and
-the Anthropic API — Google Drive is refused at the proxy, and speech-model
-weights (Hugging Face, openaipublic) are unreachable. Moving ~18 minutes of
+folder. Its network policy allows package registries, GitHub, and the
+Anthropic API; Google Drive is refused at the proxy. Moving ~18 minutes of
 phone video into that container is neither possible nor useful.
+
+Hugging Face and openaipublic are blocked too, so faster-whisper and
+openai-whisper can't fetch weights there — but the same Whisper models
+exported to ONNX are published as GitHub release assets, which is reachable.
+`fetch_models.sh` uses that route, so transcription can run in the container
+*if* someone puts the audio there.
 
 So the video never moves. `extract-aquarium-media.ps1` runs on the Windows
 machine and reduces the footage to three small artifacts:
@@ -44,7 +49,10 @@ off a phone in one batch can all share a timestamp.
 |---|---|---|
 | `HANDOFF.md` | read first | decisions, verified commands, open questions |
 | `extract-aquarium-media.ps1` | Windows | inventory, audio, contact sheets |
+| `fetch_models.sh` | anywhere | pulls Whisper + VAD models that are reachable here |
+| `transcribe.py` | anywhere | timestamped transcript, offline |
 | `flag_deictic.py` | anywhere | finds transcript moments the words can't carry |
+| `sop/index.html` | — | interim procedure for the first clean |
 
 ## Status
 

@@ -85,6 +85,25 @@ Look at these. They are how "the blue one" becomes a named part.
 
 ## Transcription
 
+Two routes. On the Windows machine, faster-whisper below is easier and can
+use a GPU. In a cloud container, its weights are unreachable — use
+`fetch_models.sh` + `transcribe.py`, which pull Whisper-as-ONNX from GitHub
+release assets and run fully offline:
+
+```sh
+./fetch_models.sh medium.en          # small.en is 636 MB, medium.en 1.9 GB
+pip install sherpa-onnx numpy
+python transcribe.py audio.opus --models models --size medium.en --out transcript/
+```
+
+It segments with a voice activity detector first, so every line carries a
+real start and end — Whisper on its own returns one block of text and caps
+at 30 seconds per call. Output is Whisper-shaped JSON plus SRT, and feeds
+`flag_deictic.py` directly. Measured at 3.8x realtime on container CPU with
+small.en, so 18 minutes decodes in about five.
+
+### The easier route, where the network allows it
+
 Expect poor audio — phone mic, running filter and pumps, hard surfaces.
 Budget for correction passes.
 
