@@ -13,25 +13,43 @@ The work continues in a **local** session on `gokic-00101`. Read this first.
 | Output | Single `index.html`, clips inline, mobile-first |
 | Hosting | **New dedicated repo**, public, no auth (see Hosting below) |
 | Source video | `C:\Users\Pedro.AzureAD\Videos\Aquarium Cleaning` |
+| Contractor on a public page | Agreed — gate is open |
+| Contractor reachable | Not for ~2 weeks |
 
 Not this repo. An aquarium SOP is unrelated to the social pipeline, and the
 clips would weigh on it permanently.
 
-## Do the ambiguity list before the pretty page
+## The deadline is the clean, not the contractor
 
-The brief has the "ask the fish guy" list falling out of step 3, as a
-byproduct of writing the SOP. Invert that. The page can be built any week.
-He cannot. Transcribe, run `flag_deictic.py`, and get the list to Pedro on
-day one — everything else is recoverable, that window is not.
+Two facts landed after the first draft of this file, and they invert its
+priorities:
+
+- The contractor **has agreed** to being on a public page. That gate is open.
+- He is reachable, but **not for about two weeks**.
+- **The tank is being cleaned tomorrow.**
+
+So the ambiguity list is no longer the urgent artifact — he cannot answer it
+for a fortnight either way. The urgent artifact is something a person can
+follow at the tank tomorrow.
+
+`sop/index.html` is that stopgap, written from general freshwater practice
+rather than from his knowledge: the fish-killing rules, a water change, a
+filter section branching by filter type, and a field-notes checklist whose
+real job is gathering what tomorrow's clean can tell us. Every gap is marked
+in the page rather than guessed at.
 
 ## Order of work
 
 1. `extract-aquarium-media.ps1` — inventory, audio, contact sheets.
 2. Transcribe (below).
-3. `flag_deictic.py` — the questions for him, plus a frame-grab script.
-4. **Send Pedro the list.** Stop here until it goes out.
-5. Look at the contact sheets and name the equipment before writing steps.
-6. Write the SOP, cut clips, build the page, deploy.
+3. Look at the contact sheets and name the equipment before writing steps.
+4. `flag_deictic.py` — the questions for him, plus a frame-grab script.
+5. Rewrite `sop/index.html` from his actual procedure, cut clips, deploy.
+6. Hold the flagged list for the two-week conversation, and add whatever
+   tomorrow's field notes turn up to it.
+
+Where his procedure and the stopgap disagree, **his wins** — it is this tank
+and this filter. Keep the general safety rules, which hold regardless.
 
 ## Verified commands
 
@@ -143,11 +161,9 @@ reason to keep clips to one step each rather than long reused takes.
 
 ## Still open — needs Pedro
 
-- **How long is the fish guy reachable, and will he do one follow-up call?**
-  Drives everything above. If he's gone this week, skip polish and race to
-  the gap list.
-- He has not agreed to being on a public, no-login page. He is on camera and
-  audible throughout. Settle before deploy.
-- Supply sources and a callback number, captured in the same conversation.
+- Supply sources and a callback number, for the two-week conversation.
+- Whoever cleans the tank tomorrow should fill in the field notes in
+  `sop/index.html` §11 and photograph the equipment — that is the only
+  information-gathering opportunity before he is reachable.
 - Which property the tank is at.
 - Whether a printable PDF for a binder is wanted alongside the page.
