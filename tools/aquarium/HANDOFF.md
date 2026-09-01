@@ -99,8 +99,14 @@ python transcribe.py audio.opus --models models --size medium.en --out transcrip
 It segments with a voice activity detector first, so every line carries a
 real start and end — Whisper on its own returns one block of text and caps
 at 30 seconds per call. Output is Whisper-shaped JSON plus SRT, and feeds
-`flag_deictic.py` directly. Measured at 3.8x realtime on container CPU with
-small.en, so 18 minutes decodes in about five.
+`flag_deictic.py` directly.
+
+Measured on container CPU: **small.en 3.8x realtime** (18 min of audio in
+about five), **medium.en 1.0x** (about eighteen), 636 MB versus 1.9 GB
+downloaded and 3.8 GB unpacked. Both produced identical errors on synthetic
+test speech, so that test cannot say which is better on real audio — it only
+shows the errors were the synthesiser's. Run small.en on the first real file,
+and only reach for medium.en if equipment names are coming out wrong.
 
 ### The easier route, where the network allows it
 
