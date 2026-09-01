@@ -38,8 +38,21 @@ Check the ordering it prints at the end. It sorts by last-modified time,
 which is usually the recording order but is not guaranteed — files copied
 off a phone in one batch can all share a timestamp.
 
+## Files
+
+| File | Runs where | Purpose |
+|---|---|---|
+| `HANDOFF.md` | read first | decisions, verified commands, open questions |
+| `extract-aquarium-media.ps1` | Windows | inventory, audio, contact sheets |
+| `flag_deictic.py` | anywhere | finds transcript moments the words can't carry |
+
 ## Status
 
-The `ffmpeg`/`ffprobe` invocations were verified against test footage,
-including display-matrix rotation detection. The PowerShell itself has not
-been run — there is no `pwsh` in the container to lint it.
+`flag_deictic.py` was run against sample transcripts in both JSON and SRT
+form. The `ffmpeg`/`ffprobe` invocations were verified against generated test
+footage, including display-matrix rotation detection on a rotated file. The
+PowerShell itself has not been executed — there is no `pwsh` in the web
+container to lint it.
+
+The finished SOP goes in a **new dedicated repo**, not this one. This
+directory holds only the prep tooling.
