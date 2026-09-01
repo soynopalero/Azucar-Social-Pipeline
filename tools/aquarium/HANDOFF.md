@@ -11,7 +11,7 @@ The work continues in a **local** session on `gokic-00101`. Read this first.
 | Recording language | English |
 | SOP language | English only |
 | Output | Single `index.html`, clips inline, mobile-first |
-| Hosting | **New dedicated repo**, GitHub Pages, public, no auth |
+| Hosting | **New dedicated repo**, public, no auth (see Hosting below) |
 | Source video | `C:\Users\Pedro.AzureAD\Videos\Aquarium Cleaning` |
 
 Not this repo. An aquarium SOP is unrelated to the social pipeline, and the
@@ -121,8 +121,25 @@ ffmpeg -ss START -i INPUT.mp4 -t DURATION \
   -c:a aac -b:a 96k -movflags +faststart clips/step-03.mp4
 ```
 
-GitHub Pages caps a single file at 100 MB and gets unhappy past ~1 GB in a
-repo. Short 720p clips land far under that, but keep an eye on the total.
+## Hosting — Cloudflare is already in the stack
+
+The brief weighed Vercel against GitHub Pages. Neither is the obvious pick:
+this repo already deploys to **Cloudflare Pages** (project
+`azucar-post-manager`, see `manager/README.md`), so the account, the
+workflow and the muscle memory are all there. A new repo wires up the same
+way in a couple of minutes.
+
+**The trap:** the existing Pages project sits behind **Cloudflare Access**,
+an email allow-list. The SOP must be public with no login — someone reads it
+standing at the tank, possibly not a Pedro-account holder at all. Create the
+new project *without* an Access application in front of it, and open the
+deployed URL in a private window to confirm it doesn't bounce to a login.
+
+Per-file limits, worth confirming against current docs before cutting a
+long clip: Cloudflare Pages caps a single file around 25 MiB; GitHub Pages
+caps at 100 MB and gets unhappy past ~1 GB in a repo. Short 720p clips land
+under either, but the Cloudflare ceiling is the tighter one — one more
+reason to keep clips to one step each rather than long reused takes.
 
 ## Still open — needs Pedro
 
