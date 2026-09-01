@@ -1,8 +1,19 @@
 # Social cadence - dry-run preview
 
-Generated 2026-08-31 14:15 PDT - **nothing posted, queue untouched**
+Generated 2026-08-31 17:22 PDT - **nothing posted, queue untouched**
 
-Eligible events: **5** - Skipped: **68**
+Eligible events: **6** - Skipped: **68**
+
+## Drag queen kareoke - 2026-09-02  (Aggressive)
+5 posts x 2 platforms = **10** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Aug 31, 7:00 PM | evening |
+| Tue Sep 1, 11:00 AM | morning |
+| Tue Sep 1, 7:00 PM | evening |
+| Wed Sep 2, 11:00 AM | morning |
+| Wed Sep 2, 7:00 PM | evening |
 
 ## Drag Brunch de Reinas - 2026-09-04  (Standard)
 5 posts x 2 platforms = **10** queue entries
@@ -162,4 +173,4 @@ Eligible events: **5** - Skipped: **68**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 110**
+**Total queue entries that would be created: 120**
