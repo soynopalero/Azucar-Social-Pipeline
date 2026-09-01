@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-01 13:45 PDT - **nothing posted, queue untouched**
+Generated 2026-09-01 13:47 PDT - **nothing posted, queue untouched**
 
-Eligible events: **7** - Skipped: **68**
+Eligible events: **8** - Skipped: **68**
 
 ## Drag queen kareoke - 2026-09-02  (Aggressive)
 3 posts x 2 platforms = **6** queue entries
@@ -72,6 +72,30 @@ Eligible events: **7** - Skipped: **68**
 | Sun Sep 13, 7:00 PM | evening |
 
 ## Heels dance class with Frankie - 2026-09-24  (Standard)
+18 posts x 2 platforms = **36** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Sep 1, 7:00 PM | evening |
+| Wed Sep 2, 11:00 AM | morning |
+| Thu Sep 3, 7:00 PM | evening |
+| Fri Sep 4, 11:00 AM | morning |
+| Mon Sep 7, 7:00 PM | evening |
+| Thu Sep 10, 11:00 AM | morning |
+| Fri Sep 11, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Mon Sep 14, 7:00 PM | evening |
+| Tue Sep 15, 11:00 AM | morning |
+| Thu Sep 17, 7:00 PM | evening |
+| Fri Sep 18, 11:00 AM | morning |
+| Sat Sep 19, 7:00 PM | evening |
+| Sun Sep 20, 11:00 AM | morning |
+| Mon Sep 21, 7:00 PM | evening |
+| Tue Sep 22, 11:00 AM | morning |
+| Wed Sep 23, 7:00 PM | evening |
+| Thu Sep 24, 11:00 AM | morning |
+
+## Heels dance class with Kimora - 2026-09-24  (Standard)
 18 posts x 2 platforms = **36** queue entries
 
 | When (Pacific) | Slot |
@@ -192,4 +216,4 @@ Eligible events: **7** - Skipped: **68**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 146**
+**Total queue entries that would be created: 182**
