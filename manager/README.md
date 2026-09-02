@@ -62,7 +62,23 @@ edits stay in memory, sample upcoming events are labeled as such.
    - `GITHUB_TOKEN` = the token from step 1 (encrypt)
    - `GITHUB_REPO` = `soynopalero/Azucar-Social-Pipeline`
 
-3. **Cloudflare Access** (the login gate):
+3. **R2 bucket** (where photos live):
+   dash.cloudflare.com → R2 → Create bucket → name it `azucar-flyers`.
+   - Settings → Public access: either enable the **r2.dev** subdomain, or
+     (better) attach a **custom domain** such as `img.yourdomain`.
+     Meta fetches the image unauthenticated at posting time, so this URL
+     must NOT be behind Cloudflare Access.
+   - Back in the Pages project → Settings → Bindings → add an **R2 bucket**
+     binding named `PHOTOS` pointing at `azucar-flyers`.
+   - Settings → Environment variables: `R2_PUBLIC_BASE` = the public base URL
+     from above, e.g. `https://img.yourdomain` (no trailing path).
+
+   Until both `PHOTOS` and `R2_PUBLIC_BASE` exist the uploader falls back to
+   catbox.moe, which is what it used to do. Expect that fallback to fail:
+   catbox refuses uploads from datacenter IPs (`412 Invalid uploader`), which
+   is why `cadence_engine.py` hosts its flyers on GitHub Pages instead.
+
+4. **Cloudflare Access** (the login gate):
    dash.cloudflare.com → Zero Trust → Access → Applications → Add an
    application → Self-hosted. Application domain = the Pages URL (and the
    custom domain if added). Policy: *Allow* → Include → Emails →

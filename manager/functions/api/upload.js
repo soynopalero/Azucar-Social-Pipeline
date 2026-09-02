@@ -1,8 +1,41 @@
-/* POST /api/upload — host a photo where Meta's API can fetch it.
-   Proxies the file to catbox.moe, the same host schedule_post.py uses
-   (queue_utils.upload_image_to_catbox), and returns { url }. */
+/* POST /api/upload — host a photo where Meta's API can fetch it, returns { url }.
+
+   Writes to the R2 bucket bound as PHOTOS and serves it from R2_PUBLIC_BASE.
+   That base has to be a hostname Access does not sit in front of (the bucket's
+   r2.dev URL, or a custom domain on the bucket) — Meta fetches the image
+   unauthenticated at posting time, so anything behind the email gate is
+   useless to it.
+
+   Falls back to catbox.moe when the bucket isn't configured, which is what
+   this used to do exclusively. Worth knowing that catbox refuses uploads from
+   datacenter IPs — cadence_engine.py hit exactly that from GitHub Actions
+   (412 "Invalid uploader") and moved to GitHub Pages over it. Cloudflare's
+   egress is datacenter IP space too, so the fallback may simply not work from
+   here; it stays only so the endpoint keeps working before the bucket exists. */
 
 import { json } from "../_lib/queue.js";
+
+const ALLOWED = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
+
+function objectKey(file) {
+  const now = new Date();
+  const ext = ({ "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "image/gif": "gif" })[file.type]
+    || (file.name?.match(/\.([a-z0-9]{2,4})$/i)?.[1] ?? "jpg").toLowerCase();
+  const rand = crypto.randomUUID().slice(0, 8);
+  return `flyers/${now.getUTCFullYear()}/${String(now.getUTCMonth() + 1).padStart(2, "0")}/${rand}.${ext}`;
+}
+
+async function uploadToR2(env, file) {
+  const key = objectKey(file);
+  await env.PHOTOS.put(key, file.stream(), {
+    httpMetadata: {
+      contentType: file.type || "image/jpeg",
+      // Flyers never change once written -- the key is unique per upload.
+      cacheControl: "public, max-age=31536000, immutable",
+    },
+  });
+  return `${env.R2_PUBLIC_BASE.replace(/\/$/, "")}/${key}`;
+}
 
 const MAX_BYTES = 15 * 1024 * 1024; // catbox comfortably handles this; flyers are ~1-3 MB
 const ATTEMPTS = 3;                 // catbox drops requests when busy; a retry usually lands
@@ -30,7 +63,7 @@ async function uploadToCatbox(file) {
 }
 
 export async function onRequestPost(context) {
-  const { request } = context;
+  const { request, env } = context;
   let form;
   try {
     form = await request.formData();
@@ -40,6 +73,20 @@ export async function onRequestPost(context) {
   const file = form.get("file");
   if (!file || typeof file === "string") return json({ error: "No photo attached." }, 400);
   if (file.size > MAX_BYTES) return json({ error: "That photo is over 15 MB — export a smaller version and try again." }, 400);
+  if (file.type && !ALLOWED.has(file.type)) {
+    return json({ error: `That file is ${file.type}. Meta only fetches JPEG, PNG, WebP or GIF.` }, 400);
+  }
+
+  if (env.PHOTOS && env.R2_PUBLIC_BASE) {
+    try {
+      return json({ url: await uploadToR2(env, file) });
+    } catch (err) {
+      // A bucket failure is ours to fix, not something a retry against catbox
+      // should paper over -- say so plainly instead of falling through.
+      console.log("r2 put failed:", err?.message || err);
+      return json({ error: `Couldn't save the photo to storage — ${err?.message || err}.` }, 502);
+    }
+  }
 
   let last = "no response";
   for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
@@ -59,7 +106,8 @@ export async function onRequestPost(context) {
   // Say what actually went wrong. The old generic message sent everyone to the
   // Cloudflare logs to find out whether catbox was down or rejecting us.
   return json({
-    error: `The photo host (catbox.moe) refused the upload after ${ATTEMPTS} tries — ${last}. ` +
-           `Wait a few minutes and retry, or post this one manually.`,
+    error: `No photo storage is configured, and the catbox.moe fallback refused the upload ` +
+           `after ${ATTEMPTS} tries — ${last}. Set up the R2 bucket (see manager/README.md), ` +
+           `or post this one manually.`,
   }, 502);
 }
