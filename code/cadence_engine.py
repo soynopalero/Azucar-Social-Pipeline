@@ -492,6 +492,8 @@ def draft_captions(e, n=4):
         text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text").strip()
         if not text:
             raise RuntimeError(f"no text block in model response: {json.dumps(data)[:300]}")
+        if data.get("stop_reason") == "max_tokens":
+            print("  (model hit max_tokens — the last caption is truncated and gets dropped)")
         caps = parse_caption_array(text, images, e["date"])
         if caps:
             break
@@ -508,18 +510,24 @@ def parse_caption_array(text, images, date_iso):
     start, end = text.find("["), text.rfind("]")
     if start == -1:
         return []
+    # strict=False: captions carry the info block on its own lines, and the model
+    # often emits those line breaks raw instead of as \n. Strict JSON rejects a
+    # control character inside a string, which used to kill the whole array —
+    # and the salvage below with it, since it failed on the very first object.
     try:
-        raw = json.loads(text[start:end + 1]) if end > start else []
+        raw = json.loads(text[start:end + 1], strict=False) if end > start else []
     except json.JSONDecodeError:
         raw = []
     if not raw:
         # Truncated/malformed: salvage every complete {...} object after the bracket.
-        raw, dec, i = [], json.JSONDecoder(), text.find("{", start)
+        # Skip past a broken one rather than giving up on the rest of the array.
+        raw, dec, i = [], json.JSONDecoder(strict=False), text.find("{", start)
         while i != -1:
             try:
                 obj, obj_end = dec.raw_decode(text, i)
             except json.JSONDecodeError:
-                break
+                i = text.find("{", i + 1)
+                continue
             if isinstance(obj, dict):
                 raw.append(obj)
             i = text.find("{", obj_end)
@@ -828,7 +836,36 @@ def build_preview(events, today, now):
 
 
 # ---------- Offline self-test ----------
+def parser_selftest():
+    """Guard the caption parser against the shapes the model actually emits."""
+    cases = [
+        ("clean array",
+         '[{"flyer": 1, "caption": "One"}, {"flyer": 2, "caption": "Two"}]', 2),
+        # The 2026-08-31 failure: real line breaks inside the caption string.
+        ("raw newlines in caption",
+         '[\n  {"flyer": 1, "caption": "Hype line.\n\n📍 327 W Lewis St\n🎟️ $10"},\n'
+         '  {"flyer": 2, "caption": "Spotlight.\n\nDoors 8pm"}\n]', 2),
+        ("code fence around it",
+         '```json\n[{"flyer": 1, "caption": "One"}]\n```', 1),
+        # Truncated at max_tokens: keep the complete objects, drop the partial one.
+        ("truncated mid-array",
+         '[{"flyer": 1, "caption": "One"}, {"flyer": 2, "caption": "Two"}, {"flyer": 3, "capt', 2),
+        ("prose, no array", "Sure! Here are some captions for the show.", 0),
+    ]
+    failures = 0
+    for name, text, want in cases:
+        got = len(parse_caption_array(text, ["img1", "img2"], "2026-09-05"))
+        ok = got == want
+        failures += 0 if ok else 1
+        print(f"  [{'ok ' if ok else 'FAIL'}] {name}: {got} caption(s), expected {want}")
+    return failures
+
+
 def selftest():
+    print("Caption-parser self-test\n")
+    failures = parser_selftest()
+    print()
+
     today = dt.date(2026, 7, 1)
     event = dt.date(2026, 8, 8)  # ~5.4 weeks out (a Saturday)
     print(f"Self-test - event {event}, today {today} ({(event - today).days} days out)\n")
@@ -838,6 +875,9 @@ def selftest():
         for d, s in sched:
             print(f"  {d.strftime('%a %Y-%m-%d')}  {s}")
         print()
+
+    if failures:
+        sys.exit(f"{failures} caption-parser self-test case(s) failed.")
 
 
 def main():
