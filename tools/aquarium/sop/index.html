@@ -267,489 +267,479 @@ a { color: var(--accent); }
   border-left: 4px solid var(--accent);
 }
 .cycle p:last-child { margin-bottom: 0; }
+
+
+/* named-part cards -- the payoff of the contact sheets */
+.parts { display: flex; flex-direction: column; gap: .8rem; }
+.part {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 6px;
+  padding: .95rem 1.05rem; box-shadow: var(--shadow);
+}
+.part h3 { font-size: 1.05rem; margin: 0 0 .2rem; letter-spacing: -.01em; }
+.part .look {
+  font-family: var(--mono); font-size: .73rem; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--accent); display: block; margin-bottom: .5rem;
+}
+.part p { margin: 0; font-size: .95rem; }
+.part p + p { margin-top: .5rem; }
+
+/* his own words */
+blockquote {
+  margin: .8rem 0 0; padding: .6rem 0 .6rem .9rem;
+  border-left: 3px solid var(--accent);
+  font-size: .93rem; color: var(--ink-soft); font-style: italic;
+}
+blockquote p { margin: 0; }
+blockquote cite {
+  display: block; margin-top: .35rem; font-style: normal;
+  font-family: var(--mono); font-size: .7rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+
+/* valve position table */
+.valve { width: 100%; border-collapse: collapse; margin-top: .7rem; font-size: .95rem; }
+.valve th, .valve td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--rule); }
+.valve th {
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--ink-faint); font-weight: 500;
+}
+.valve td:first-child { font-weight: 600; white-space: nowrap; }
+.tablewrap { overflow-x: auto; }
 </style>
 
 <div class="wrap">
   <header class="mast">
-    <p class="eyebrow">Interim procedure &middot; v0.2</p>
+    <p class="eyebrow">Azúcar &middot; 300 gallon &middot; from the handover video</p>
     <h1>Tank Day One</h1>
-    <p class="standfirst">The contractor's handover video hasn't been transcribed yet, and he isn't
-      reachable for about two weeks. This page fills that gap with standard freshwater aquarium
-      practice so tomorrow's clean is safe and useful. Where something depends on <em>this</em> tank
-      specifically, it says so rather than guessing.</p>
+    <p class="standfirst">Everything here is what the contractor actually said and did on 31 August,
+      transcribed from his handover video. Where he pointed at something instead of naming it, the part
+      is named in <a href="#parts">Know your parts</a>. Anything still unknown is marked, not guessed at.</p>
   </header>
 </div>
 
 <nav>
   <div class="navscroll">
-    <a href="#verdict">Do this</a>
+    <a href="#quick">Quick version</a>
     <a href="#never">Never</a>
-    <a href="#alive">Why</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#supplies">Supplies</a>
-    <a href="#water">Water change</a>
-    <a href="#glass">Glass</a>
-    <a href="#filter">Filter</a>
-    <a href="#test">Testing</a>
-    <a href="#feed">Feeding</a>
+    <a href="#parts">Parts</a>
+    <a href="#schedule">How often</a>
+    <a href="#setup">Set up</a>
+    <a href="#drain">Drain &amp; vacuum</a>
+    <a href="#refill">Refill</a>
+    <a href="#finish">Finish</a>
+    <a href="#filter">FX4 service</a>
     <a href="#wrong">If it looks wrong</a>
-    <a href="#notes">Write down</a>
-    <a href="#gaps">Unknowns</a>
+    <a href="#ask">Ask him</a>
   </div>
 </nav>
 
 <div class="wrap">
 
-  <div class="verdict" id="verdict">
-    <h2>What to do tomorrow</h2>
+  <div class="verdict" id="quick">
+    <h2>The whole job, in order</h2>
     <ul>
-      <li><span class="yes">Do</span> a partial water change, about a quarter of the tank.</li>
-      <li><span class="yes">Do</span> vacuum the visible debris off the substrate while you drain.</li>
-      <li><span class="yes">Do</span> clean the inside glass and refill to the old water line.</li>
-      <li><span class="yes">Do</span> photograph the filter and every label before you touch it.</li>
-      <li><span class="yes">Do</span> service the filter <em>only</em> if you can identify the type in
-        <a href="#filter">section 07</a> and follow it start to finish.</li>
-      <li><span class="no">Don't</span> change any setting — heater dial, timer, valve position, pump speed.</li>
-      <li><span class="no">Don't</span> replace all the filter media at once, or add anything to the water
-        but dechlorinator.</li>
+      <li>Turn <strong>everything off</strong> at the red button under the bar. It stays off until the tank is full again.</li>
+      <li>Hook the changer to the bar sink. Green valve <strong>down</strong> = draining.</li>
+      <li>Vacuum the gravel with the <strong>long</strong> tube. Scrub the acrylic. Take out about a palm's length of water.</li>
+      <li>Turn the water off. Match the temperature by hand — cold first, then hot. <strong>79&deg;F.</strong></li>
+      <li>Green valve <strong>up and screwed tight</strong> = filling. Add <strong>half a teaspoon of Safe</strong>.</li>
+      <li>Fill until the intakes and the power head are well under. Then turn the system back on.</li>
+      <li>Check the two output heads are moving water. Wipe down. Done.</li>
     </ul>
     <div class="call unknown">
-      <span class="tag">If you only do one thing</span>
-      <p>Do the water change. It delivers most of the benefit, it is hard to get wrong, and a tank that
-        gets a quarter of its water changed and nothing else is in good shape. The filter can wait two
-        weeks for the person who knows it.</p>
-    </div>
-    <div class="call stop">
-      <span class="tag">Except if the water isn't moving</span>
-      <p>No flow from the outlet, no ripple on the surface — the filter has stopped and that <em>is</em>
-        urgent. Go to <a href="#wrong">If something looks wrong</a>.</p>
+      <span class="tag">Roughly 45 minutes</span>
+      <p>Longer the first few times. There is no rush in any of it — he is explicit that you can vacuum
+        as long as you like, and that taking breaks to refill partway is normal on a heavy clean.</p>
     </div>
   </div>
 
   <section id="never">
     <h2><span class="num">01</span> Never do these</h2>
-    <p class="section-note">Each one kills fish, and each is true of every freshwater tank — so these
-      hold even without his instructions.</p>
+    <p class="section-note">Each of these is either his own warning or a direct consequence of one.</p>
     <ul class="never">
       <li>
-        <span class="rule">Never rinse filter media under the tap.</span>
-        <span class="because">Chlorine kills the bacteria living in that media, and those bacteria are
-          what keep the fish alive. Media gets rinsed in a bucket of water taken out of the tank, never
-          anything else.</span>
+        <span class="rule">Never leave the system running while the water is down.</span>
+        <span class="because">The filters take in air, and the heater ends up in open air. His words:
+          "it can cause issues with heating elements that's supposed to be in water. Not in water can
+          cause corrosion. It can melt plastic."</span>
       </li>
       <li>
-        <span class="rule">Never use soap, detergent, glass cleaner, or anything that has touched them.</span>
-        <span class="because">Residue is lethal and doesn't rinse off. Buckets, scrapers and towels used
-          on this tank get used on nothing else, ever.</span>
+        <span class="rule">Never touch the red button or the surge protector with wet hands.</span>
+        <span class="because">You are reaching into sockets behind a bar. He suggests keeping a towel
+          with you and drying your hands before you touch anything electrical.</span>
       </li>
       <li>
-        <span class="rule">Never put untreated tap water into the tank.</span>
-        <span class="because">Same chlorine, straight into the fish. Every drop gets dechlorinator first,
-          including top-offs for evaporation.</span>
+        <span class="rule">Never use the short vacuum tube for a real clean.</span>
+        <span class="because">Pebbles get pulled all the way through. They jam the green valve — which
+          then needs a screwdriver to open and clear — or end up in the sink's P-trap. With the long
+          tube the rocks travel halfway up and drop back.</span>
       </li>
       <li>
-        <span class="rule">Never drain below the heater while it's plugged in.</span>
-        <span class="because">A heater running in air overheats and then cracks when cool water returns.
-          Unplug it before any water leaves the tank.</span>
+        <span class="rule">Never scrub low without pushing the sand away first.</span>
+        <span class="because">The front is acrylic. One grain of sand caught under the pad leaves a
+          permanent scratch. Use the vacuum to sweep the sand back before you clean down there.</span>
       </li>
       <li>
-        <span class="rule">Never replace all the filter media at the same time.</span>
-        <span class="because">The colony lives on that media. Replacing everything at once restarts the
-          tank from zero and causes an ammonia spike days later. One component per service, at most.</span>
+        <span class="rule">Never power-wash or scrub the filter pads hard.</span>
+        <span class="because">Squeeze them out in water repeatedly instead — that is what gets the
+          trapped material out of the foam.</span>
       </li>
       <li>
-        <span class="rule">Never force anything that doesn't come apart easily.</span>
-        <span class="because">It's held by a clip or a lock you can't see. Photograph it and stop.</span>
-      </li>
-      <li>
-        <span class="rule">Never use hand sanitizer, soap, or lotion before putting hands in the tank.</span>
-        <span class="because">Rinse bare hands in plain water.</span>
+        <span class="rule">Never drain so far the fish have nowhere to go.</span>
+        <span class="because">Stop, refill part way, add a little Safe, then carry on vacuuming.</span>
       </li>
     </ul>
   </section>
 
-  <section id="alive">
-    <h2><span class="num">02</span> Why any of this matters</h2>
-    <p class="section-note">Two minutes of background. It's what lets you make a sensible call when this
-      page doesn't cover what you're looking at.</p>
-    <div class="cycle">
-      <p>Fish produce ammonia, which is poisonous to them. In an established tank, a colony of bacteria
-        living on the filter media converts that ammonia into nitrite, and a second colony converts the
-        nitrite into nitrate, which is comparatively harmless. That chain is the entire reason the tank
-        works, and it takes weeks to build.</p>
-      <p>Nearly every rule here protects that colony. It lives on surfaces — filter sponges, ceramic
-        media, gravel, decorations — not in the water. That's why you can change water freely, but must
-        never rinse media under the tap, replace all of it at once, or scrub the whole tank down.</p>
-      <p>Nitrate is the one thing the bacteria don't remove, so it accumulates. <strong>Removing nitrate
-        is what a water change is for.</strong> That's the job, and it's why the water change is the part
-        that actually can't be skipped.</p>
+  <section id="parts">
+    <h2><span class="num">02</span> Know your parts</h2>
+    <p class="section-note">He points at these rather than naming them. This is what he is pointing at.</p>
+    <div class="parts">
+      <div class="part">
+        <span class="look">Big canister under the bar</span>
+        <h3>Fluval FX4 — the main filter</h3>
+        <p>Draws water through the large intake tube in the tank and returns it through the two output
+          heads. If anything else fails, this is the one that has to keep running.</p>
+      </div>
+      <div class="part">
+        <span class="look">Green plunger on the hose</span>
+        <h3>The fill / drain valve</h3>
+        <p>The single most important control. It decides whether water leaves the tank or enters it.</p>
+        <div class="tablewrap">
+          <table class="valve">
+            <tr><th>Position</th><th>What happens</th></tr>
+            <tr><td>Plunger down</td><td>Drains. Sink water pulls tank water out and down the drain.</td></tr>
+            <tr><td>Up, screwed tight</td><td>Fills. Blocks the lower exit so sink water runs into the tank.</td></tr>
+          </table>
+        </div>
+        <blockquote>
+          <p>"So to clean you twist it counterclockwise once and then you just pull down — it requires
+            like no force."</p>
+        </blockquote>
+      </div>
+      <div class="part">
+        <span class="look">Valve wrapped in caution tape</span>
+        <h3>The sink control valve</h3>
+        <p>Turns the flow to the changer on and off. Handle <strong>down / in line</strong> means water
+          passes. Handle <strong>sideways / across</strong> means off.</p>
+        <p>He put the tape on it himself so it could be found in a hurry.</p>
+      </div>
+      <div class="part">
+        <span class="look">Squat cone-shaped unit in the tank</span>
+        <h3>Power head</h3>
+        <p>Circulates water — it is not a filter and connects to nothing. Point it whichever way you
+          like. The whole thing, and especially the bottom half of the cone, must stay submerged.</p>
+      </div>
+      <div class="part">
+        <span class="look">Long dark tube, back corner</span>
+        <h3>Heater</h3>
+        <p>Visibly corroded but working. This is the part that gets destroyed by running dry, so it
+          drives the whole "system off while draining" rule.</p>
+      </div>
+      <div class="part">
+        <span class="look">Thin probe near the heater</span>
+        <h3>Temperature probe</h3>
+        <p>Reports tank temperature to the controller so the heater knows what to do. The thermostat.</p>
+      </div>
+      <div class="part">
+        <span class="look">Second, smaller intake tube</span>
+        <h3>The internal filter</h3>
+        <p>A smaller filter inside the tank with its own intake, separate from the FX4.</p>
+      </div>
+      <div class="part">
+        <span class="look">White jar, behind the bar</span>
+        <h3>Seachem Safe</h3>
+        <p>Powdered dechlorinator. Removes chlorine and helps with the ammonia that a clean stirs up.
+          The powder is far more concentrated than the liquid, which is why he buys it for a tank this
+          size.</p>
+      </div>
     </div>
+    <div class="clipslot">CLIP SLOT &mdash; his walkthrough of the valve, clip 02 &middot; 00:00&ndash;01:06</div>
   </section>
 
   <section id="schedule">
     <h2><span class="num">03</span> How often</h2>
-    <p class="section-note">Standard maintenance rhythm. Confirm against his schedule when he's
-      reachable — he may have run this tank differently.</p>
+    <p class="section-note">His answer: "about another two weeks to a month. Play by ear. This fish tank
+      isn't too horribly overcrowded."</p>
     <div class="sched">
       <div>
-        <span class="when">Every day</span>
+        <span class="when">Every two weeks — light</span>
         <ul>
-          <li>Feed a small pinch — see <a href="#feed">section 09</a>.</li>
-          <li>Look at the fish for a few seconds. Are they behaving normally?</li>
-          <li>Check the water is moving.</li>
+          <li>Gravel vacuum. Take out roughly a quarter of what a monthly service would.</li>
+          <li>Don't fuss about the exact level. Getting through the gravel is the point.</li>
         </ul>
       </div>
       <div>
-        <span class="when">Every week</span>
+        <span class="when">Monthly — full</span>
         <ul>
-          <li>Change 20&ndash;25% of the water.</li>
-          <li>Vacuum a section of the substrate — a different section each week.</li>
-          <li>Scrape the inside glass, wipe the outside with plain water.</li>
-          <li>Check the temperature against what it normally reads.</li>
+          <li>Change about 20% — three to three and a half inches down from the surface, "half a palm's
+            length, from where your middle finger and your wrist connect."</li>
+          <li>Vacuum thoroughly, scrub the panels, scrub the intake strainers.</li>
         </ul>
       </div>
       <div>
-        <span class="when">Every month</span>
+        <span class="when">Roughly yearly — deep</span>
         <ul>
-          <li>Rinse the mechanical filter media in old tank water.</li>
-          <li>Clean the impeller — this is usually why flow drops off.</li>
-          <li>Test the water if a kit is on site.</li>
-        </ul>
-      </div>
-      <div>
-        <span class="when">As needed</span>
-        <ul>
-          <li>Top off evaporation with dechlorinated water. Evaporation removes water but leaves minerals
-            behind, so top-offs are not a substitute for water changes.</li>
-          <li>Replace filter floss or carbon when matted and grey — one component at a time.</li>
+          <li>Pull the intake strainers off and properly clean them.</li>
+          <li>Pick a day with few customers, or come in early.</li>
         </ul>
       </div>
     </div>
+    <blockquote>
+      <p>"The amount of water you take out is less relevant, to be totally honest with you, than getting
+        in there and doing the gravel siphon, because the dirt and the debris… is going to be trapped in
+        this layer."</p>
+      <cite>Clip 10</cite>
+    </blockquote>
   </section>
 
-  <section id="supplies">
-    <h2><span class="num">04</span> Before you start</h2>
-    <p class="section-note">Find these first. If something's missing, sort that out rather than
-      improvising a substitute.</p>
-    <div>
-      <div class="checkline"><span class="box"></span><span><strong>Bucket</strong> — aquarium only, never
-        washed with soap</span></div>
-      <div class="checkline"><span class="box"></span><span><strong>Siphon / gravel vacuum</strong> — wide
-        tube with a hose</span></div>
-      <div class="checkline"><span class="box"></span><span><strong>Dechlorinator</strong> — labelled water
-        conditioner, or Prime. Read the dose off the bottle</span></div>
-      <div class="checkline"><span class="box"></span><span><strong>Algae scraper or magnet</strong></span></div>
-      <div class="checkline"><span class="box"></span><span><strong>Thermometer</strong> — probably already
-        on the tank</span></div>
-      <div class="checkline"><span class="box"></span><span><strong>Test kit</strong>, if there is one</span></div>
-      <div class="checkline"><span class="box"></span><span><strong>Towels</strong> — more than you think</span></div>
-    </div>
-    <div class="call unknown">
-      <span class="tag">Not yet known</span>
-      <p>Where he keeps these. Look under the tank stand first, then nearby storage. Record where you
-        found them in <a href="#notes">Write this down</a>.</p>
-    </div>
-  </section>
-
-  <section id="water">
-    <h2><span class="num">05</span> The water change</h2>
-    <p class="section-note">The main job, and the safe one. Aim for roughly a quarter of the tank.</p>
+  <section id="setup">
+    <h2><span class="num">04</span> Setting up</h2>
     <ol class="steps">
       <li>
         <span class="n">1</span>
-        <p class="do">Mark the current water line and read the thermometer. Write the temperature down.</p>
-        <p class="why">You're refilling to this exact line at this same temperature. Nothing about the
-          setup changes today.</p>
+        <p class="do">Turn the whole system off at the red button under the bar.</p>
+        <p class="why">Before any water moves. Filters, heater and power head all stay off until the
+          tank is full again.</p>
       </li>
       <li>
         <span class="n">2</span>
-        <p class="do">Unplug the heater. Unplug the filter and any pump.</p>
-        <p class="why">Both are damaged by running dry. Do this before any water leaves the tank.</p>
-        <div class="call stop">
-          <span class="tag">Leave them unplugged</span>
-          <p>Everything stays off until the tank is full again. Plugging the heater in early is the most
-            common way one gets cracked.</p>
-        </div>
+        <p class="do">Screw the faucet adapter onto the bar sink. If the tap has external thread, the
+          extra adapter piece goes on first.</p>
       </li>
       <li>
         <span class="n">3</span>
-        <p class="do">Start the siphon into the bucket, and push the wide tube into the gravel a few
-          inches at a time. Let the debris lift out, then move along.</p>
-        <p class="why">Waste sitting in the substrate is most of what fouls the water. Cover about a
-          third of the floor — the rest waits for next week.</p>
-        <div class="clipslot">CLIP SLOT &mdash; step 3 &middot; replace with &lt;video controls preload="metadata" playsinline poster="frames/step-03.jpg"&gt;</div>
+        <p class="do">Push the hose onto the green valve. It is a friction fit — push it home firmly.</p>
       </li>
       <li>
         <span class="n">4</span>
-        <p class="do">Stop draining at about a quarter of the tank.</p>
-        <p class="why">Bigger changes swing the chemistry. Leave the fish in — netting them out is far
-          more stressful than the water change itself.</p>
-      </li>
-      <li>
-        <span class="n">5</span>
-        <p class="do">Fill a clean bucket with tap water, add dechlorinator at the dose on the label, and
-          bring it to the temperature you wrote down.</p>
-        <p class="why">Match within a degree or two. Test it against the inside of your wrist — it should
-          feel neither warm nor cold.</p>
-      </li>
-      <li>
-        <span class="n">6</span>
-        <p class="do">Pour slowly, onto a rock, a decoration, or your flat hand held over the substrate.</p>
-        <p class="why">Poured straight down it craters the gravel and clouds the tank for a day.</p>
-      </li>
-      <li>
-        <span class="n">7</span>
-        <p class="do">Refill to your mark. Plug the filter back in, then the heater.</p>
-        <p class="why">Filter first, so you can confirm flow returns before walking away.</p>
-      </li>
-      <li>
-        <span class="n">8</span>
-        <p class="do">Watch for two minutes. Water should be moving and the fish should settle.</p>
-        <p class="why">If flow doesn't return, the filter has probably lost its prime — see
-          <a href="#wrong">section 10</a>.</p>
+        <p class="do">Set the caution-taped valve to <strong>across</strong> (off) while you connect
+          things, and get a towel.</p>
       </li>
     </ol>
+    <div class="clipslot">CLIP SLOT &mdash; connecting at the sink, clip 05</div>
   </section>
 
-  <section id="glass">
-    <h2><span class="num">06</span> Glass and decorations</h2>
+  <section id="drain">
+    <h2><span class="num">05</span> Draining and vacuuming</h2>
     <ol class="steps">
       <li>
         <span class="n">1</span>
-        <p class="do">Scrape the inside glass <em>before</em> draining, so the algae you loosen leaves with
-          the old water.</p>
+        <p class="do">Set the green valve to drain: twist counterclockwise once, pull the plunger down.</p>
+        <p class="why">No force needed. If it fights you, it isn't twisted round yet.</p>
       </li>
       <li>
         <span class="n">2</span>
-        <p class="do">Leave the decorations and any live plants where they are.</p>
-        <p class="why">They carry bacteria too, and rearranging them stresses territorial fish. Today is
-          maintenance, not redecorating.</p>
+        <p class="do">Turn the caution-taped valve down, then turn the sink on.</p>
       </li>
       <li>
         <span class="n">3</span>
-        <p class="do">Wipe the outside glass with plain water on a paper towel.</p>
-        <div class="call stop">
-          <span class="tag">Not glass cleaner</span>
-          <p>Ammonia-based sprays near an open tank are dangerous. Plain water, outside only.</p>
-        </div>
+        <p class="do">Fit the <strong>long</strong> vacuum tube and work it down into the gravel, section
+          by section.</p>
+        <p class="why">You can go over the same patch as long as you like. The only limit is how much
+          water you're removing.</p>
+        <div class="clipslot">CLIP SLOT &mdash; gravel vacuuming, clip 10 &middot; 00:00&ndash;01:20</div>
+      </li>
+      <li>
+        <span class="n">4</span>
+        <p class="do">Before scrubbing anywhere low, use the vacuum to push the sand back from the front
+          panel.</p>
+        <p class="why">A grain of sand under the pad scratches the acrylic permanently.</p>
+      </li>
+      <li>
+        <span class="n">5</span>
+        <p class="do">Scrub the inside panels with the pad. One swipe, two swipe, repeat along to the end.</p>
+      </li>
+      <li>
+        <span class="n">6</span>
+        <p class="do">Scrub the intake strainers, then hover the vacuum tube over them to pick up
+          whatever you knocked loose.</p>
+      </li>
+      <li>
+        <span class="n">7</span>
+        <p class="do">Stop draining about three to three and a half inches below the surface — or a
+          quarter of that on a two-week service.</p>
+        <p class="why">If the level gets low enough to crowd the fish, stop early, refill part way, add
+          a little Safe, and carry on.</p>
       </li>
     </ol>
-    <div class="call unknown">
-      <span class="tag">Check before scraping</span>
-      <p>A blade or rough pad permanently scratches acrylic. Tap the side gently: glass rings, acrylic
-        sounds dull, and acrylic edges look thick and slightly rounded. If you aren't certain, use a soft
-        pad and note what you saw.</p>
-    </div>
+  </section>
+
+  <section id="refill">
+    <h2><span class="num">06</span> Refilling and treating</h2>
+    <ol class="steps">
+      <li>
+        <span class="n">1</span>
+        <p class="do">Turn the water off at the sink. Leave the system off.</p>
+      </li>
+      <li>
+        <span class="n">2</span>
+        <p class="do">Put your hand in the tank and get a feel for the temperature.</p>
+        <p class="why">You are matching what the fish are already sitting in, not hitting a number cold.</p>
+      </li>
+      <li>
+        <span class="n">3</span>
+        <p class="do">At the tap, turn the <strong>cold on first, all the way</strong>, then bring the hot
+          in slowly until it feels about the same. Target 79&deg;F.</p>
+        <blockquote>
+          <p>"It's not like a science — if you're degrees off your fish aren't gonna die. I want it to be
+            close."</p>
+        </blockquote>
+      </li>
+      <li>
+        <span class="n">4</span>
+        <p class="do">Turn the green piece to fill — up and screwed tight, clockwise.</p>
+      </li>
+      <li>
+        <span class="n">5</span>
+        <p class="do">Leave the hose down in the tank while it fills.</p>
+        <p class="why">Stops it splashing and making a mess across the bar.</p>
+      </li>
+      <li>
+        <span class="n">6</span>
+        <p class="do">Add <strong>half a teaspoon of Safe</strong>. Anywhere in the tank is fine.</p>
+        <p class="why">The label says a quarter teaspoon per 300 gallons; he doses a full half for this
+          tank because the margin is harmless. It circulates through the whole system, so it does not
+          matter where it goes in — only that it goes in while you are filling.</p>
+      </li>
+      <li>
+        <span class="n">7</span>
+        <p class="do">Fill until the black intake and the power head's cone are <strong>well</strong>
+          under water.</p>
+        <p class="why">This is the gate for turning the system back on. Not level with the surface —
+          properly submerged.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="finish">
+    <h2><span class="num">07</span> Finishing up</h2>
+    <ol class="steps">
+      <li>
+        <span class="n">1</span>
+        <p class="do">At the level you want, turn the green piece to close. Filling stops.</p>
+      </li>
+      <li>
+        <span class="n">2</span>
+        <p class="do">Walk to the sink and open the valve to drain.</p>
+        <p class="why">Pressure sometimes pops the green piece open by itself — that is normal, not a
+          fault. Either way the hose needs draining.</p>
+      </li>
+      <li>
+        <span class="n">3</span>
+        <p class="do">Pull the hose out, disengage the stop, and let the water run out of it.</p>
+        <p class="why">A hose left wet deteriorates and starts to smell of mildew. It doesn't have to be
+          bone dry — just not holding water.</p>
+      </li>
+      <li>
+        <span class="n">4</span>
+        <p class="do">Turn the sinks off, disconnect the adapter, put the kit away.</p>
+      </li>
+      <li>
+        <span class="n">5</span>
+        <p class="do"><strong>Dry your hands</strong>, then turn the system back on at the red button.</p>
+      </li>
+      <li>
+        <span class="n">6</span>
+        <p class="do">Watch the two output heads until you can see them pushing water.</p>
+        <p class="why">That is the confirmation that the FX4 has primed and you are actually finished.</p>
+      </li>
+      <li>
+        <span class="n">7</span>
+        <p class="do">Wipe down the counter and the outside of the tank.</p>
+      </li>
+    </ol>
   </section>
 
   <section id="filter">
-    <h2><span class="num">07</span> The filter</h2>
-    <p class="section-note">Find yours below. If none of them match what you're looking at, do the water
-      change and leave the filter for him.</p>
-
+    <h2><span class="num">08</span> Servicing the FX4</h2>
+    <p class="section-note">Not part of every clean. Separate job, done with the system off.</p>
+    <ol class="steps">
+      <li>
+        <span class="n">1</span>
+        <p class="do">There are <strong>two baskets</strong>. Each holds a round black pad and two
+          half-circle sponge pads — three per basket, <strong>six pads in total</strong>.</p>
+      </li>
+      <li>
+        <span class="n">2</span>
+        <p class="do">Fill each pad with water, squeeze it out, and repeat.</p>
+        <blockquote>
+          <p>"I let it fill up with water, I squeeze it out, I let it fill up and I squeeze it out, and I
+            repeat that a few times — usually by like your tenth time it's gonna run pretty clear."</p>
+        </blockquote>
+        <p class="why">Close to clear is the target. A slight tinge is fine.</p>
+      </li>
+      <li>
+        <span class="n">3</span>
+        <p class="do">Intake strainers come off by friction — twist and pull with enough force. Run them
+          under hot water for a proper clean.</p>
+        <p class="why">Only worth doing about once a year. A baking-soda soak and an old toothbrush is
+          his suggestion for that annual pass.</p>
+      </li>
+    </ol>
     <div class="call stop">
-      <span class="tag">Before you open anything</span>
-      <p>Unplug it. Photograph it from four sides with every hose, valve and cable in frame, and
-        photograph any label or model number. If it comes apart into pieces, photograph the order they
-        came out in. You are the only person who will see the inside of this thing for two weeks.</p>
-    </div>
-
-    <div class="ftype">
-      <span class="spot">Hangs on the back rim, water spills back in</span>
-      <h3>Hang-on-back</h3>
-      <ol>
-        <li>Unplug it.</li>
-        <li>Lift the cartridge or sponge straight out and put it in a bucket of water you just drained
-          from the tank.</li>
-        <li>Squeeze and swish it in that bucket until the water clouds and the media runs clearer. It
-          does not need to look new — grubby media is working media.</li>
-        <li>If it's a paper-and-carbon cartridge that's falling apart, replace it — but only if there's a
-          sponge or bio-wheel staying behind. If the cartridge is the only media, rinse it and keep it.</li>
-        <li>Pull the impeller out of its well (a small magnet with fins), rinse the hair and grit off it,
-          and put it back the same way round.</li>
-        <li>Refill the box with tank water before plugging in. Most need that to restart.</li>
-      </ol>
-    </div>
-
-    <div class="ftype">
-      <span class="spot">Sealed cylinder in the cabinet, two hoses running up</span>
-      <h3>Canister</h3>
-      <ol>
-        <li>Unplug it. Close both valves, or use the quick-release to disconnect the hoses.</li>
-        <li>Carry the whole canister to a bucket or a sink — it is heavier and fuller than it looks.</li>
-        <li>Release the clamps and lift the lid. Lift the media baskets out, keeping their order.</li>
-        <li>Rinse the coarse sponges and any floss in old tank water. Replace the floss if grey and
-          matted.</li>
-        <li>Leave the ceramic rings and bio-balls alone. Only if visibly clogged, swish them gently in
-          tank water — never scrub them, never replace them.</li>
-        <li>Clean the impeller and its shaft. This is almost always why flow has dropped.</li>
-        <li>Find the large O-ring on the lid. Wipe it clean, check it isn't twisted or pinched, and seat
-          it fully in its groove. A smear of silicone grease if there's some to hand.</li>
-        <li>Reassemble, reconnect, open the valves, prime it (a primer button, or fill the canister with
-          water first), and plug in.</li>
-        <li>Stay and watch it for five minutes, hand under the joints.</li>
-      </ol>
-      <div class="call stop">
-        <span class="tag">The O-ring is the flood</span>
-        <p>A canister lid closed on a twisted O-ring will empty the tank onto the floor overnight. If it
-          doesn't seat cleanly, don't close it — take the photos and leave the filter out of service
-          rather than risk it.</p>
-      </div>
-    </div>
-
-    <div class="ftype">
-      <span class="spot">Sponge on a tube inside the tank, bubbles rising</span>
-      <h3>Sponge or internal</h3>
-      <ol>
-        <li>Unplug the pump, or leave the air pump running — it can't run dry.</li>
-        <li>Lift the sponge out and into a bucket of old tank water.</li>
-        <li>Squeeze it out several times until the water runs clearer. That's the whole job.</li>
-        <li>Put it straight back. Don't let it dry out.</li>
-      </ol>
-    </div>
-
-    <div class="ftype">
-      <span class="spot">Open tank below the display, water overflowing down into it</span>
-      <h3>Sump</h3>
-      <ol>
-        <li>Leave it. Rinse or replace the filter sock or floss pad if there's an obvious dirty one, in
-          old tank water.</li>
-        <li>Everything else waits for him — sumps have shut-off sequences that flood a room when done in
-          the wrong order.</li>
-      </ol>
-    </div>
-
-    <div class="clipslot">CLIP SLOT &mdash; his filter walkthrough replaces this section once transcribed</div>
-  </section>
-
-  <section id="test">
-    <h2><span class="num">08</span> Testing the water</h2>
-    <p class="section-note">Only if a kit is on site. Skip it otherwise — don't buy anything today.</p>
-    <ul class="plain">
-      <li><strong>Ammonia</strong> — should be zero. Anything above zero needs acting on.</li>
-      <li><strong>Nitrite</strong> — should be zero. Same.</li>
-      <li><strong>Nitrate</strong> — will show something, and that's normal. Water changes bring it down.</li>
-      <li><strong>pH</strong> — record it, don't adjust it. Chasing pH with additives does more harm than a
-        steady slightly-off number.</li>
-    </ul>
-    <div class="call stop">
-      <span class="tag">If ammonia or nitrite reads above zero</span>
-      <p>Change another quarter of the water in a day or two, and feed lightly until it reads zero. It
-        usually means the bacteria colony was disturbed. Note the number and the date.</p>
-    </div>
-  </section>
-
-  <section id="feed">
-    <h2><span class="num">09</span> Feeding</h2>
-    <p class="section-note">Underfeeding is nearly harmless. Overfeeding fouls the water and is the most
-      common way a healthy tank goes bad.</p>
-    <ul class="plain">
-      <li>A small pinch once a day.</li>
-      <li>It should be gone in two minutes. Food still on the gravel afterwards means too much went in.</li>
-      <li>Skip feeding on water-change day if they've already eaten.</li>
-      <li>A healthy tank is fine unfed over a long weekend. Don't leave a big feed to compensate.</li>
-    </ul>
-    <div class="call unknown">
-      <span class="tag">Not yet known</span>
-      <p>What he feeds them, how much, how often, and whether any of these fish need something specific —
-        bottom feeders often need food that sinks. Use the container already on site at the amount above
-        until he confirms.</p>
+      <span class="tag">Unresolved — rinse in tank water until he confirms</span>
+      <p>He says he runs the pads "under water" without ever specifying tap or tank water. For plain
+        mechanical foam that is usually fine, but if any of those six pads is carrying the bacterial
+        colony, rinsing it under the tap kills it and the tank spikes days later. Rinsing in a bucket of
+        water you just drained is safe either way, so do that until he answers.</p>
     </div>
   </section>
 
   <section id="wrong">
-    <h2><span class="num">10</span> If something looks wrong</h2>
+    <h2><span class="num">09</span> If something looks wrong</h2>
     <ol class="steps">
       <li>
         <span class="n">1</span>
-        <p class="do"><strong>No water movement.</strong> Check it's plugged in and switched on, then that
-          the valves match your photo, then whether the impeller is jammed.</p>
-        <p class="why">Filters often lose their prime after a water change and need restarting. If you
-          can't restore flow, this is the one thing worth calling for help about today — a tank with no
-          filtration is on a clock, though it has days rather than hours.</p>
+        <p class="do"><strong>No water from the output heads after you switch back on.</strong> Check the
+          water is well above the intakes, then that the system really is powered.</p>
+        <p class="why">Most likely it took in air because the level was too low when it started.</p>
       </li>
       <li>
         <span class="n">2</span>
-        <p class="do"><strong>Fish at the surface gulping.</strong> Confirm flow, don't feed, and change
-          another quarter of the water.</p>
-        <p class="why">Usually low oxygen or a water quality problem. Both improve with fresh water and
-          surface movement.</p>
+        <p class="do"><strong>The green valve won't drain or fill.</strong> Suspect a pebble jammed in it.</p>
+        <p class="why">He warns about exactly this — it opens with a screwdriver so it can be cleared.
+          Use the long tube next time.</p>
       </li>
       <li>
         <span class="n">3</span>
-        <p class="do"><strong>Cloudy water after the change.</strong> Leave it alone.</p>
-        <p class="why">Usually disturbed substrate, and it clears within a day. A milky haze a few days
-          later is a bacterial bloom, which also passes. Adding chemicals to fix either makes it worse.</p>
+        <p class="do"><strong>Water is cloudy after a clean.</strong> Expected. Leave it.</p>
+        <p class="why">You have just stirred the gravel. The Safe covers the ammonia that comes with it.</p>
       </li>
       <li>
         <span class="n">4</span>
-        <p class="do"><strong>A fish is dead.</strong> Take it out promptly, note the date and anything
-          unusual about it.</p>
-        <p class="why">A body left in decays and spikes ammonia.</p>
+        <p class="do"><strong>The sink drains slowly afterwards.</strong> Gravel may have reached the
+          P-trap.</p>
       </li>
       <li>
         <span class="n">5</span>
-        <p class="do"><strong>Water on the floor.</strong> Unplug everything electrical first, then find
-          the leak.</p>
-      </li>
-      <li>
-        <span class="n">6</span>
-        <p class="do"><strong>White spots, torn fins, or fish scraping on decorations.</strong> Photograph
-          it and note it. Don't medicate.</p>
-        <p class="why">Treating the wrong disease is worse than waiting. Clean water is the right first
-          response to almost every fish illness.</p>
+        <p class="do"><strong>Water on the floor.</strong> Dry your hands, kill the power at the surge
+          protector, then find it.</p>
       </li>
     </ol>
   </section>
 
-  <section id="notes">
-    <h2><span class="num">11</span> Write this down</h2>
-    <p class="section-note">Tomorrow is the only chance to gather this before he's reachable. Fill it in
-      standing at the tank.</p>
-    <div>
-      <div class="checkline"><span class="box"></span><span>Date and time: <span class="blank">&nbsp;</span></span></div>
-      <div class="checkline"><span class="box"></span><span>Temperature on the thermometer: <span class="blank">&nbsp;</span></span></div>
-      <div class="checkline"><span class="box"></span><span>Roughly how much water came out: <span class="blank">&nbsp;</span></span></div>
-      <div class="checkline"><span class="box"></span><span>Filter type and brand / model from the label: <span class="blank">&nbsp;</span></span></div>
-      <div class="checkline"><span class="box"></span><span>Flow — strong, weak, or stopped: <span class="blank">&nbsp;</span></span></div>
-      <div class="checkline"><span class="box"></span><span>Glass or acrylic: <span class="blank">&nbsp;</span></span></div>
-      <div class="checkline"><span class="box"></span><span>How many fish, and what they look like: <span class="blank">&nbsp;</span></span></div>
-      <div class="checkline"><span class="box"></span><span>Where the supplies are kept: <span class="blank">&nbsp;</span></span></div>
-      <div class="checkline"><span class="box"></span><span>Dechlorinator brand and its dose: <span class="blank">&nbsp;</span></span></div>
-      <div class="checkline"><span class="box"></span><span>Test results, if you ran any: <span class="blank">&nbsp;</span></span></div>
-      <div class="checkline"><span class="box"></span><span>Anything odd, or that you weren't sure about: <span class="blank">&nbsp;</span></span></div>
-    </div>
-    <div class="call unknown">
-      <span class="tag">Photograph everything</span>
-      <p>The filter from four sides, every label, the hoses and where they run, the full tank, the fish,
-        and the underside of the stand. Photos cost nothing now and answer questions nobody has thought
-        to ask yet.</p>
-    </div>
-  </section>
-
-  <section id="gaps">
-    <h2><span class="num">12</span> Ask him these</h2>
-    <p class="section-note">The questions this page is guessing at. His video may already answer some —
-      these are what's left once it's transcribed.</p>
+  <section id="ask">
+    <h2><span class="num">10</span> Ask him</h2>
+    <p class="section-note">Genuine gaps in the handover, worth a phone call while he is still willing to
+      take one.</p>
     <ul class="plain">
-      <li>How often he cleaned it, and how much water he changed each time.</li>
-      <li>Which media get rinsed, which get replaced, and on what schedule.</li>
-      <li>Anything about this filter that isn't obvious — a valve that sticks, an order things go back in.</li>
-      <li>What the fish are, what they eat, how much, and whether any need something specific.</li>
-      <li>What the heater is set to, and whether that's ever been changed.</li>
-      <li>Where he buys supplies, and what he keeps on hand.</li>
-      <li>What he watches for that tells him something is going wrong.</li>
-      <li>Anything unusual about this tank, or history worth knowing.</li>
+      <li><strong>The filter pads — tank water or tap?</strong> The one answer that could cost the tank.
+        Also: which of the six are biological and which are purely mechanical?</li>
+      <li><strong>Feeding.</strong> Never covered anywhere in the video. What, how much, how often — and
+        whether the pleco needs anything the others don't.</li>
+      <li><strong>Water testing.</strong> Never mentioned. Does he test at all, and with what?</li>
+      <li><strong>Where he buys Safe and replacement FX4 pads</strong>, and how often pads get replaced
+        rather than rinsed.</li>
+      <li><strong>The heater.</strong> He notes it is visibly corroded but working. How long has it been
+        like that, and when would he replace it?</li>
+      <li><strong>What the fish are</strong>, so illness can be looked up. The tank appears to hold blood
+        parrot cichlids, convict cichlids and at least one pleco.</li>
     </ul>
-    <div class="call stop">
-      <span class="tag">This page is a stopgap</span>
-      <p>It is general practice, written so tomorrow's clean is safe — not his knowledge of this tank.
-        Replace it with the real procedure once the video is transcribed and his clips are cut in.</p>
-    </div>
   </section>
 
   <footer>
-    <p>Interim version, written before the handover video was processed. The contractor is reachable
-      again in about two weeks; his answers to section 12 turn this into the real thing.</p>
+    <p>Built from the handover video recorded 31 August 2026 — ten clips, 19.8 minutes, transcribed in
+      full. Quotations are his own words. Section 10 lists what the video does not cover.</p>
   </footer>
 </div>
