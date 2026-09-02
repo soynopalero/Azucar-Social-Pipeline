@@ -1,7 +1,7 @@
 # Admin Meeting — Action Checklist
 **Meeting:** Sept 1, 2026 · Pedro + Jamie (+ Alejandro) · [Notes & transcript](https://docs.google.com/document/d/1IVWsuS6pJ69CL3sDv6NBR1mgDetMgpOrqrJ93_ugiTo/edit)
 
-Owners in **bold** where the transcript is clear. Anything marked ⚠️ needs a decision or a fact confirmed before it can be worked.
+Nothing here is pre-assigned — put a name next to an item when someone takes it (or assign it in the [interactive checklist](https://claude.ai/code/artifact/da4daef1-1205-492f-8f99-dc28c53248c4)). Anything marked ⚠️ needs a decision or a fact confirmed before it can be worked.
 
 ---
 
@@ -98,7 +98,7 @@ Owners in **bold** where the transcript is clear. Anything marked ⚠️ needs a
 
 | Date | Event | Open items |
 |---|---|---|
-| Fri Sep 11 or Sat Sep 12 | **Live music** | **Jamie** to find a band **under $1,000 — by tonight** so the flyer goes out tomorrow |
+| Fri Sep 11 or Sat Sep 12 | **Live music** | Find a band **under $1,000 — by tonight** so the flyer goes out tomorrow |
 | Sat Sep 12 | **Leather Social** | See growth list below |
 | Sep 10 / 12 / 17 | **Furry meetup** | Pre-meetup so folks are ready for the Sep 26 furry event |
 | Sun Sep 13 | **Night of Kings** (Cherry Pop, Fish Taco returns) | Confirmed |
