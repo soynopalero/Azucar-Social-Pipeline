@@ -4,8 +4,8 @@ Pasco business-license snapshot — docs/pasco_licenses.csv + docs/pasco_license
 Pasco is a Business Licensing Service partner city, so the WA Department of
 Revenue (not the city) issues the general Pasco business license as a "city
 endorsement". That means nearly every licensed business in town shows up in
-DOR's public "Business Lookup" dataset on data.wa.gov — all currently active
-accounts plus five years of closed ones. This pulls the Pasco slice of it.
+DOR's public "BLS License list (merged)" dataset on data.wa.gov — all currently
+active accounts plus five years of closed ones. This pulls the Pasco slice of it.
 
 The month-over-month diff is the part worth reading: rows that appear are new
 businesses opening in Pasco, rows that flip to a closed status are businesses
@@ -38,8 +38,13 @@ DOCS = REPO_ROOT / "docs"
 SNAPSHOT_CSV = DOCS / "pasco_licenses.csv"
 CHANGES_JSON = DOCS / "pasco_licenses_changes.json"
 
-# DOR "Business Lookup" on the state open-data portal.
-DATASET_ID = "4wur-kfnr"
+# "BLS License list (merged)" on the state open-data portal — the Business
+# Licensing Service roll itself. Not to be confused with the portal's "Business
+# Lookup" entry (4wur-kfnr), which looks like the obvious choice and is not a
+# dataset at all: it reports assetType 'href' with zero columns and both row
+# endpoints refuse it, because it is only a catalog link out to DOR's own lookup
+# web application. This ID is the tabular one that actually serves rows.
+DATASET_ID = "hw7n-fcif"
 METADATA_URL = f"https://data.wa.gov/api/views/{DATASET_ID}.json"
 RESOURCE_URL = f"https://data.wa.gov/resource/{DATASET_ID}.json"
 
@@ -218,7 +223,11 @@ def resolve_schema() -> dict[str, str]:
             "Add the real name to FIELD_CANDIDATES (or set PASCO_CITY_FIELD)."
         )
     resolved = {role: col for role, col in fields.items() if col}
+    print(f"Dataset columns ({len(columns)}): " + ", ".join(sorted(columns)))
     print("Resolved columns: " + ", ".join(f"{r}={c}" for r, c in sorted(resolved.items())))
+    unresolved = [r for r in FIELD_CANDIDATES if r not in resolved]
+    if unresolved:
+        print(f"Unresolved (optional) roles: {', '.join(unresolved)}", file=sys.stderr)
     return resolved
 
 
