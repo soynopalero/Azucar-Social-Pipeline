@@ -45,6 +45,7 @@ RESOURCE_URL = f"https://data.wa.gov/resource/{DATASET_ID}.json"
 
 CITY = "PASCO"
 PAGE_SIZE = 5000
+SAMPLE_ROWS = 25  # rows read to recover column names if metadata is unreadable
 MAX_ROWS = 200_000  # runaway guard; Pasco is nowhere near this
 
 APP_TOKEN = os.environ.get("SOCRATA_APP_TOKEN", "").strip()
@@ -80,25 +81,74 @@ FIELD_CANDIDATES: dict[str, list[str]] = {
 REQUIRED_FIELDS = ("city", "ubi", "name")
 
 
-def fetch_json(url: str, params: dict | None = None) -> object:
-    """GET JSON with backoff on the throttling/5xx codes Socrata actually returns."""
+class SocrataError(RuntimeError):
+    """An HTTP error from data.wa.gov, carrying the status code and response body.
+
+    Socrata explains itself in the body ("Invalid app token", "Unknown sort key"),
+    and urllib throws that body away unless you read it — which is how a 403 here
+    first showed up as a bare "Forbidden" with nothing to act on.
+    """
+
+    def __init__(self, code: int, message: str):
+        super().__init__(message)
+        self.code = code
+
+
+# Cleared for the rest of the run if data.wa.gov rejects the token — see fetch_json.
+_use_token = bool(APP_TOKEN)
+
+
+def _error_body(exc: urllib.error.HTTPError) -> str:
+    try:
+        return exc.read().decode("utf-8", "replace").strip()[:400]
+    except OSError:
+        return ""
+
+
+def _request(url: str, params: dict | None, use_token: bool) -> object:
     if params:
         url = f"{url}?{urllib.parse.urlencode(params)}"
     headers = {"Accept": "application/json", "User-Agent": "azucar-social-pipeline/1.0"}
-    if APP_TOKEN:
+    if use_token and APP_TOKEN:
         headers["X-App-Token"] = APP_TOKEN
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req, timeout=120) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def fetch_json(url: str, params: dict | None = None) -> object:
+    """GET JSON with backoff on the throttling/5xx codes Socrata actually returns."""
+    global _use_token
 
     last: Exception | None = None
     for attempt in range(MAX_ATTEMPTS):
         if attempt:
             time.sleep(BASE_BACKOFF * (2 ** (attempt - 1)))
         try:
-            req = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(req, timeout=120) as resp:
-                return json.loads(resp.read().decode("utf-8"))
+            return _request(url, params, _use_token)
         except urllib.error.HTTPError as exc:
+            body = _error_body(exc)
+            # A 403 while we are sending a token nearly always means the token is
+            # the problem (wrong value in the secret, revoked upstream), not the
+            # data. Prove it by retrying once without: if that works, the licenses
+            # are reachable and only the credential is bad, so finish the run
+            # token-less and say so loudly rather than failing on a credential
+            # this public dataset does not actually require.
+            if exc.code == 403 and _use_token:
+                try:
+                    result = _request(url, params, use_token=False)
+                except urllib.error.HTTPError:
+                    pass  # Forbidden with or without it — the token is not the cause.
+                else:
+                    print("WARNING: SOCRATA_APP_TOKEN was rejected (403). Continuing "
+                          "without it — slower, and liable to throttling on big pulls. "
+                          "Re-check the secret against the app token on data.wa.gov. "
+                          f"Server said: {body or '(no detail)'}", file=sys.stderr)
+                    _use_token = False
+                    return result
             if exc.code not in RETRY_HTTP_CODES:
-                raise
+                raise SocrataError(
+                    exc.code, f"HTTP {exc.code} from {url}: {body or exc.reason}") from exc
             last = exc
             print(f"  HTTP {exc.code} from data.wa.gov, retrying…", file=sys.stderr)
         except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
@@ -108,10 +158,29 @@ def fetch_json(url: str, params: dict | None = None) -> object:
 
 
 def dataset_columns() -> list[str]:
-    meta = fetch_json(METADATA_URL)
-    cols = [c["fieldName"] for c in meta.get("columns", []) if c.get("fieldName")]
+    """The dataset's column names, preferring its metadata endpoint.
+
+    /api/views/ is the authoritative list, but it is a separate endpoint with its
+    own permissions and it has 403'd while the rows themselves stayed readable —
+    so fall back to sampling rows and unioning their keys. That is the fallback
+    rather than the default because a sample cannot see a column that happens to
+    be null in every row it draws.
+    """
+    try:
+        meta = fetch_json(METADATA_URL)
+        cols = [c["fieldName"] for c in meta.get("columns", []) if c.get("fieldName")]
+        if cols:
+            return cols
+        print("Dataset metadata listed no columns — sampling rows instead.", file=sys.stderr)
+    except RuntimeError as exc:  # SocrataError included
+        print(f"Could not read dataset metadata ({exc}) — sampling rows instead.",
+              file=sys.stderr)
+
+    sample = fetch_json(RESOURCE_URL, {"$limit": SAMPLE_ROWS})
+    cols = sorted({key for row in sample for key in row})
     if not cols:
-        raise RuntimeError(f"No columns in {DATASET_ID} metadata — dataset moved?")
+        raise RuntimeError(f"Dataset {DATASET_ID} returned no metadata and no rows — "
+                           "check that it still exists at that ID.")
     return cols
 
 
@@ -165,7 +234,7 @@ def fetch_pasco_rows(city_field: str) -> list[dict]:
             params["$order"] = order
         try:
             page = fetch_json(RESOURCE_URL, params)
-        except urllib.error.HTTPError as exc:
+        except SocrataError as exc:
             # Some Socrata dataset types reject `:id` as a sort key. Drop it once
             # and carry on — rows may repeat across pages, which dedupe handles.
             if exc.code == 400 and order and not rows:
