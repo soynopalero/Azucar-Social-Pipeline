@@ -100,7 +100,7 @@ refused with a clear message.
 | `functions/_middleware.js` | verifies the Cloudflare Access JWT on every /api call |
 | `functions/api/events.js` | live read of the queue, grouped into events |
 | `functions/api/save.js` | edits → GitHub commit (2h rule enforced here too) |
-| `functions/api/upload.js` | photo → catbox.moe URL |
+| `functions/api/upload.js` | photo → R2 bucket, returns its public URL |
 | `functions/lib/queue.js` | shared grouping + GitHub helpers |
 | `events_meta.json` | names/dates/colors per campaign |
 | `build_events.py` + `events.json` | local demo data (JS twin lives in queue.js) |
