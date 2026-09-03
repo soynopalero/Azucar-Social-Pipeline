@@ -1,23 +1,48 @@
 """
 Pasco business-license snapshot — docs/pasco_licenses.csv + docs/pasco_licenses_changes.json.
 
+STATUS: NO WORKING SOURCE YET. The scheduled run is disabled and this script
+will not produce a snapshot until DATASET_ID below points at real license
+records. The fetching, diffing and schema-resolution machinery is finished and
+tested; only the source is missing. Do not re-enable the schedule until a run
+succeeds by hand.
+
 Pasco is a Business Licensing Service partner city, so the WA Department of
-Revenue (not the city) issues the general Pasco business license as a "city
-endorsement". That means nearly every licensed business in town shows up in
-DOR's public "BLS License list (merged)" dataset on data.wa.gov — all currently
-active accounts plus five years of closed ones. This pulls the Pasco slice of it.
+Revenue — not the city — issues the general Pasco business license as a "city
+endorsement". Every licensed business in town is therefore on a DOR roll. The
+open question is whether that roll is published as data anywhere.
 
-The month-over-month diff is the part worth reading: rows that appear are new
-businesses opening in Pasco, rows that flip to a closed status are businesses
-shutting down. Both are useful signals for who our new neighbours downtown are.
+Ruled out so far, each confirmed against the live portal:
 
-NOT covered here (DOR does not hold them — they stay with the city and need a
-public records request to businesslicense@pasco-wa.gov): solicitor licenses,
-residential rental licenses, and taxi / for-hire driver licenses.
+  4wur-kfnr  "Business Lookup"  — NOT a dataset. Reports assetType, displayType
+      and viewType all 'href' with zero columns; the SODA query refuses it with
+      "no row or column access to non-tabular tables" and the bulk export with
+      "Non-tabular datasets do not support rows requests." It is a catalog link
+      pointing at DOR's own lookup web application. Its name and description are
+      the closest match on the portal for what we want, which is exactly why it
+      is worth naming here — it is a trap, not a candidate.
 
-Env: SOCRATA_APP_TOKEN  (optional but recommended — unauthenticated requests get
-                         throttled hard once you page past a few thousand rows)
-     PASCO_CITY_FIELD   (optional override if DOR renames the city column)
+  hw7n-fcif  "BLS License list (merged)"  — a real tabular dataset, but of the
+      wrong thing entirely. Its columns are agency, program, what_is_the_license_
+      name_category, what_are_the_fees_associated_with_this_license, what_rcws_
+      and_wacs_govern_this_license and so on: it is a reference catalogue of
+      license TYPES the state issues, not a list of businesses holding them.
+      There is no business name, no UBI and no address anywhere in it.
+
+Taken together these point one way: DOR appears to publish Business Lookup
+deliberately as a searchable application rather than as bulk data, so the full
+roll may not be on data.wa.gov at all. If that holds, the realistic routes are a
+public records request to DOR or to the City of Pasco, and the narrower
+datasets that do exist as data (LCB liquor and cannabis licensees, L&I
+contractors, DOL transportation licenses) for the slices they cover.
+
+NOT covered by DOR in any case — these stay with the city and need a public
+records request to businesslicense@pasco-wa.gov: solicitor licenses, residential
+rental licenses, and taxi / for-hire driver licenses.
+
+Env: SOCRATA_APP_TOKEN  (optional; raises the rate limit, and the dataset is
+                         public so a rejected token only prints a warning)
+     PASCO_CITY_FIELD   (optional override if the city column is named oddly)
 Run:  python code/pasco_licenses.py      then commit docs/ and push.
 """
 from __future__ import annotations
@@ -38,12 +63,12 @@ DOCS = REPO_ROOT / "docs"
 SNAPSHOT_CSV = DOCS / "pasco_licenses.csv"
 CHANGES_JSON = DOCS / "pasco_licenses_changes.json"
 
-# "BLS License list (merged)" on the state open-data portal — the Business
-# Licensing Service roll itself. Not to be confused with the portal's "Business
-# Lookup" entry (4wur-kfnr), which looks like the obvious choice and is not a
-# dataset at all: it reports assetType 'href' with zero columns and both row
-# endpoints refuse it, because it is only a catalog link out to DOR's own lookup
-# web application. This ID is the tabular one that actually serves rows.
+# PLACEHOLDER — this ID does not hold license records. See the module docstring
+# for what it and 4wur-kfnr actually are and why both were ruled out. It is left
+# here so the script still resolves and reports honestly rather than pointing at
+# nothing; the run fails at schema resolution, printing the columns it did find.
+# Replace it once a real source is settled, and re-enable the workflow schedule
+# only after a manual run succeeds.
 DATASET_ID = "hw7n-fcif"
 METADATA_URL = f"https://data.wa.gov/api/views/{DATASET_ID}.json"
 RESOURCE_URL = f"https://data.wa.gov/resource/{DATASET_ID}.json"

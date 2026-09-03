@@ -1,8 +1,12 @@
 name: Pasco business licenses
 
+# Schedule intentionally disabled: no working data source yet (see the header of
+# code/pasco_licenses.py for what has been ruled out). Left armed it would fail
+# on the 1st of every month and fire the Telegram alert below for a problem
+# nobody can act on. Restore the cron line once a manual run succeeds:
+#   schedule:
+#     - cron: "0 13 1 * *"   # 1st of the month, 6 AM Pacific
 on:
-  schedule:
-    - cron: "0 13 1 * *"   # 1st of the month, 6 AM Pacific — DOR data moves slowly
   workflow_dispatch: {}     # manual "Run workflow" button
 
 permissions:
