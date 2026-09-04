@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T00:26:45",
+ "generated_at": "2026-09-04T00:26:40",
  "events": [
   {
    "item_id": "12595571182",
@@ -112,6 +112,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/furanium-fever-tickets-1997509115536",
    "flyer": "media/fb-kit/12768269924_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12768269924"
+  },
+  {
+   "item_id": "12973894344",
+   "name": "Industry Night Drag Show",
+   "date_iso": "2026-09-27",
+   "date_display": "Sep 27, 2026",
+   "start_time": "9:00 PM",
+   "end_date_display": "Sep 28, 2026",
+   "end_time": "1:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "You survived the week. Now let somebody else serve you for a change. Industry Night Drag Show takes over the Main Floor this Sunday at 9pm — the one night that belongs to the bartenders, stylists, servers, and glam squad who make everyone else's nights sparkle. Rohla Blunt and Abele Fantasy host, and they know exactly who's in the room: your people, your energy, your kind of unhinged fun.\n\nExpect the full spectacle — lip syncs, looks, and a couple of numbers that'll make you spill your drink laughing. Then things get interactive with our Best Karen Impression Contest, where brave (or delusional) volunteers battle it out for the crowd's love and a shot at tickets to Azúcar's next big nights. Bring your best entitled-customer voice. We've all got one.\n\nService and beauty industry folks flash your ID at the bar for special pricing all night — you've earned it. Everyone else, come through anyway; the door's open and the vibe's contagious. Sunday nights were made for recovery. We just made them better.\n\n🗓️ Domingo 27 de septiembre — Show 9:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $15\n\n🎟️ Tickets: https://www.eventbrite.com/e/industry-night-drag-show-tickets-1999735663200",
+   "eventbrite_url": "https://www.eventbrite.com/e/industry-night-drag-show-tickets-1999735663200",
+   "flyer": "media/fb-kit/12973894344_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12973894344"
   }
  ]
 }
