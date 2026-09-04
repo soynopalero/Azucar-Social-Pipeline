@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-03 12:00 PDT - **nothing posted, queue untouched**
+Generated 2026-09-03 17:25 PDT - **nothing posted, queue untouched**
 
-Eligible events: **8** - Skipped: **69**
+Eligible events: **9** - Skipped: **69**
 
 ## Drag Brunch de Reinas - 2026-09-05  (Standard)
 3 posts x 2 platforms = **6** queue entries
@@ -145,6 +145,30 @@ Eligible events: **8** - Skipped: **69**
 | Fri Sep 25, 7:00 PM | evening |
 | Sat Sep 26, 11:00 AM | morning |
 
+## Industry Night Drag Show - 2026-09-27  (Standard)
+18 posts x 2 platforms = **36** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Sep 3, 7:00 PM | evening |
+| Sat Sep 5, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
+| Mon Sep 7, 11:00 AM | morning |
+| Thu Sep 10, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Mon Sep 14, 7:00 PM | evening |
+| Wed Sep 16, 11:00 AM | morning |
+| Thu Sep 17, 7:00 PM | evening |
+| Fri Sep 18, 11:00 AM | morning |
+| Sun Sep 20, 7:00 PM | evening |
+| Mon Sep 21, 11:00 AM | morning |
+| Tue Sep 22, 7:00 PM | evening |
+| Wed Sep 23, 11:00 AM | morning |
+| Thu Sep 24, 7:00 PM | evening |
+| Fri Sep 25, 11:00 AM | morning |
+| Sat Sep 26, 7:00 PM | evening |
+| Sun Sep 27, 11:00 AM | morning |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -219,4 +243,4 @@ Eligible events: **8** - Skipped: **69**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 186**
+**Total queue entries that would be created: 222**
