@@ -199,6 +199,15 @@ function pillOne(status) {
   return `<span class="pill ${cls}"><span class="d"></span>${label}</span>`;
 }
 function findPost(id) { return currentEvent.posts.find(p => p.ids.includes(id)); }
+/* What /api/save needs to address ONE event: the campaign key plus, for
+   engine-made events, the Monday id (a recurring event's campaign key is shared
+   with its earlier editions). Older API builds sent only `campaign: ev.id`. */
+function eventRef(ev) {
+  const ref = { campaign: ev.campaign || ev.id };
+  if (ev.monday_event_id) ref.monday_event_id = ev.monday_event_id;
+  if (ev.event_date) ref.event_date = ev.event_date;
+  return ref;
+}
 
 /* When the live API is broken we're showing an old snapshot — pretending to
    save would silently lose Pedro & Jamie's edits, so block writes loudly. */
@@ -232,7 +241,7 @@ async function deleteAll() {
   if (!confirm(`Delete all ${n} pending posts for "${currentEvent.name}"?${LIVE ? '' : '\n\n(Prototype — nothing is really removed yet.)'}`)) return;
   try {
     if (LIVE) {
-      await api('/api/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ op: 'delete_campaign', campaign: currentEvent.id }) });
+      await api('/api/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ op: 'delete_campaign', ...eventRef(currentEvent) }) });
       await refreshData();
     } else {
       currentEvent.posts = currentEvent.posts.filter(p => p.status === 'posted');
@@ -344,7 +353,7 @@ async function saveEdit() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           op: 'upsert',
-          campaign: currentEvent.id,
+          ...eventRef(currentEvent),
           ids: editingPost ? editingPost.ids : [],
           platforms: plats,
           scheduled_for_utc: chosen.toISOString(),
