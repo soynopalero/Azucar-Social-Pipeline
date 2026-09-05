@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-04 19:03 PDT - **nothing posted, queue untouched**
+Generated 2026-09-04 19:06 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **69**
+Eligible events: **13** - Skipped: **69**
 
 ## Drag Brunch de Reinas - 2026-09-05  (Standard)
 1 posts x 2 platforms = **2** queue entries
@@ -129,6 +129,26 @@ Eligible events: **12** - Skipped: **69**
 | Thu Sep 17, 11:00 AM | morning |
 | Fri Sep 18, 7:00 PM | evening |
 | Sat Sep 19, 11:00 AM | morning |
+
+## An Open Stage Drag Debut - 2026-09-20  (Standard)
+14 posts x 2 platforms = **28** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sat Sep 5, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
+| Mon Sep 7, 11:00 AM | morning |
+| Wed Sep 9, 7:00 PM | evening |
+| Thu Sep 10, 11:00 AM | morning |
+| Fri Sep 11, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Mon Sep 14, 7:00 PM | evening |
+| Tue Sep 15, 11:00 AM | morning |
+| Wed Sep 16, 7:00 PM | evening |
+| Thu Sep 17, 11:00 AM | morning |
+| Fri Sep 18, 7:00 PM | evening |
+| Sat Sep 19, 11:00 AM | morning |
+| Sun Sep 20, 7:00 PM | evening |
 
 ## Heels dance class with Frankie - 2026-09-24  (Standard)
 14 posts x 2 platforms = **28** queue entries
@@ -289,4 +309,4 @@ Eligible events: **12** - Skipped: **69**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 278**
+**Total queue entries that would be created: 306**
