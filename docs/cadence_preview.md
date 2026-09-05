@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-04 18:18 PDT - **nothing posted, queue untouched**
+Generated 2026-09-04 18:36 PDT - **nothing posted, queue untouched**
 
-Eligible events: **10** - Skipped: **69**
+Eligible events: **11** - Skipped: **69**
 
 ## Drag Brunch de Reinas - 2026-09-05  (Standard)
 2 posts x 2 platforms = **4** queue entries
@@ -51,6 +51,24 @@ Eligible events: **10** - Skipped: **69**
 | Sat Sep 12, 7:00 PM | evening |
 | Sun Sep 13, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
+
+## Drag King Kareoke - 2026-09-16  (Standard)
+12 posts x 2 platforms = **24** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Sep 4, 7:00 PM | evening |
+| Sat Sep 5, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
+| Tue Sep 8, 11:00 AM | morning |
+| Wed Sep 9, 7:00 PM | evening |
+| Thu Sep 10, 11:00 AM | morning |
+| Fri Sep 11, 7:00 PM | evening |
+| Sat Sep 12, 11:00 AM | morning |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Tue Sep 15, 7:00 PM | evening |
+| Wed Sep 16, 11:00 AM | morning |
 
 ## Dolly Parton; A drag Tribute Night - 2026-09-17  (Aggressive)
 19 posts x 2 platforms = **38** queue entries
@@ -260,4 +278,4 @@ Eligible events: **10** - Skipped: **69**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 244**
+**Total queue entries that would be created: 268**
