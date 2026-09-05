@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-04 19:13 PDT - **nothing posted, queue untouched**
+Generated 2026-09-04 20:24 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **69**
-
-## Drag Brunch de Reinas - 2026-09-05  (Standard)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Sep 5, 11:00 AM | morning |
+Eligible events: **12** - Skipped: **70**
 
 ## Beyoncés birthday party drag show - 2026-09-05  (Standard)
 1 posts x 2 platforms = **2** queue entries
@@ -246,6 +239,7 @@ Eligible events: **13** - Skipped: **69**
 - **Build you own carabiner** - date in the past
 - **Build your own carabiner night** - date in the past
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
+- **Drag Brunch de Reinas** - phase = Cancelled
 - **Drag Wheel of Pride — Anthem Edition (All Ages)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Drag me to brunch** - date in the past, phase = Cancelled
 - **Drag me to brunch** - date in the past, phase = Cancelled
@@ -309,4 +303,4 @@ Eligible events: **13** - Skipped: **69**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 306**
+**Total queue entries that would be created: 304**
