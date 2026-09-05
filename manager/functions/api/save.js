@@ -1,13 +1,16 @@
 /* POST /api/save — apply an edit to the pipeline queue and commit it to GitHub.
 
    Ops (one per request):
-   { op:"upsert",  campaign, ids:[..], platforms:["instagram","facebook"],
-     scheduled_for_utc, caption, image_url }
+   { op:"upsert",  campaign, monday_event_id?, event_date?, ids:[..],
+     platforms:["instagram","facebook"], scheduled_for_utc, caption, image_url }
        - ids = the queue entries this logical post already owns (empty = new post)
        - platform toggled ON with no existing entry  -> new entry created
        - platform toggled OFF with an existing entry -> that entry is removed
    { op:"delete", ids:[..] }            — remove those entries (pending/failed only)
-   { op:"delete_campaign", campaign }   — remove ALL pending+failed entries of an event
+   { op:"delete_campaign", campaign, monday_event_id? }
+       — remove ALL pending+failed entries of an event. monday_event_id scopes
+         it to ONE Monday event: recurring events share a campaign key with
+         their earlier editions.
 
    Rules enforced here (server-side, cannot be bypassed by the UI):
    - 2-hour minimum lead time on any created/updated post
@@ -61,8 +64,9 @@ function applyOp(queue, body) {
   if (body.op === "delete_campaign") {
     if (!body.campaign) return { error: "Missing campaign." };
     const before = posts.length;
-    queue.posts = posts.filter(
-      (p) => !(p.campaign === body.campaign && p.status !== "posted"));
+    const mine = (p) => p.campaign === body.campaign &&
+      (!body.monday_event_id || p.monday_event_id === body.monday_event_id);
+    queue.posts = posts.filter((p) => !(mine(p) && p.status !== "posted"));
     const n = before - queue.posts.length;
     if (!n) return { error: "No pending posts found for that event." };
     return { message: `Post Manager: delete all ${n} pending post(s) for ${body.campaign}` };
@@ -100,7 +104,12 @@ function applyOp(queue, body) {
           posted_at: null,
           result: "",
         };
-        if (body.campaign && body.campaign !== "__oneoffs") fresh.campaign = body.campaign;
+        if (body.campaign && body.campaign !== "__oneoffs") {
+          fresh.campaign = body.campaign;
+          // Keep hand-added posts on the same card as the engine's posts.
+          if (body.monday_event_id) fresh.monday_event_id = body.monday_event_id;
+          if (body.event_date) fresh.event_date = body.event_date;
+        }
         posts.push(fresh);
         keep.push(fresh.id);
       }

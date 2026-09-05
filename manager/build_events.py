@@ -78,11 +78,25 @@ def display_time(iso):
 
 
 def _post_event_date(posts):
-    """Cadence-engine posts carry the event's real date from the Monday board."""
-    for p in posts:
-        if p.get("event_date"):
-            return p["event_date"]
-    return None
+    """Cadence-engine posts carry the event's real date from the Monday board.
+    Take the LATEST one: early posts of an event may predate the field."""
+    dates = [p["event_date"] for p in posts if p.get("event_date")]
+    return max(dates) if dates else None
+
+
+def event_key(p):
+    """One card per Monday event. The campaign key comes from the event NAME, so
+    a recurring event (monthly class, repeat show) shares it with every earlier
+    edition; grouping by campaign alone folded the new edition into the old one
+    and the old date sent the whole card to History. Legacy posts without a
+    Monday id keep grouping by campaign."""
+    return f"{p['campaign']}#{p['monday_event_id']}" if p.get("monday_event_id") else p["campaign"]
+
+
+def campaign_name(camp):
+    import re
+    words = re.sub(r"_+", " ", camp.removeprefix("cadence_")).split()
+    return " ".join(w[:1].upper() + w[1:] for w in words)
 
 
 def _max_local_date(posts):
@@ -93,24 +107,27 @@ def _max_local_date(posts):
 
 
 def build_real_events(posts):
-    by_campaign = {}
+    by_event = {}
     standalone = []
     for p in posts:
-        c = p.get("campaign")
-        if c:
-            by_campaign.setdefault(c, []).append(p)
+        if p.get("campaign"):
+            by_event.setdefault(event_key(p), []).append(p)
         else:
             standalone.append(p)
 
     events = []
-    for camp, plist in by_campaign.items():
+    for key, plist in by_event.items():
+        camp = plist[0]["campaign"]
+        monday_id = next((p["monday_event_id"] for p in plist if p.get("monday_event_id")), None)
         meta = CAMPAIGN_META.get(camp, {})
         logical = merge_logical(plist)
         logical.sort(key=lambda x: x["scheduled_for_utc"])
         event_date = meta.get("event_date") or _post_event_date(plist) or _max_local_date(plist)
         events.append({
-            "id": camp,
-            "name": meta.get("name", camp.replace("_", " ").title()),
+            "id": key,
+            "campaign": camp,
+            "monday_event_id": monday_id,
+            "name": meta.get("name", campaign_name(camp)),
             "event_date": event_date,
             "tag": meta.get("tag", "✨ Event"),
             "flyer_grad": meta.get("flyer_grad", "linear-gradient(135deg,#E5195E,#FF7A2F)"),
@@ -123,6 +140,8 @@ def build_real_events(posts):
         logical.sort(key=lambda x: x["scheduled_for_utc"])
         events.append({
             "id": "spring_2026_oneoffs",
+            "campaign": None,
+            "monday_event_id": None,
             "name": "Earlier one-off posts (Spring 2026)",
             "event_date": _max_local_date(standalone),
             "tag": "🗂️ One-offs",

@@ -2,8 +2,12 @@
    JS twin of manager/build_events.py — same grouping rules:
    - IG + FB entries with identical (scheduled_for_utc, caption) merge into one
      "logical post" carrying both platforms.
-   - Posts group into events by their `campaign` field; posts without a
-     campaign fall into a single "one-offs" bucket.
+   - Posts group into events by Monday event id when they carry one (cadence
+     engine posts), else by their `campaign` field; posts without a campaign
+     fall into a single "one-offs" bucket. The campaign key is derived from the
+     event NAME, so a recurring event (a monthly class, a repeat show) shares it
+     with every earlier edition — grouping by campaign alone folded the new
+     edition into the old one, and the old date sent the whole card to History.
    Event names/dates/looks come from events_meta.json (editable). */
 
 export const LEAD_MS = 2 * 60 * 60 * 1000; // 2-hour minimum lead time
@@ -39,23 +43,28 @@ export function mergeLogical(posts) {
 }
 
 export function buildEvents(queuePosts, meta) {
-  const byCampaign = new Map();
+  const byEvent = new Map();
   const standalone = [];
   for (const p of queuePosts) {
     if (p.campaign) {
-      if (!byCampaign.has(p.campaign)) byCampaign.set(p.campaign, []);
-      byCampaign.get(p.campaign).push(p);
+      const key = eventKey(p);
+      if (!byEvent.has(key)) byEvent.set(key, []);
+      byEvent.get(key).push(p);
     } else {
       standalone.push(p);
     }
   }
 
   const events = [];
-  for (const [camp, plist] of byCampaign) {
+  for (const [key, plist] of byEvent) {
+    const camp = plist[0].campaign;
+    const mondayId = plist.find((p) => p.monday_event_id)?.monday_event_id || null;
     const m = (meta && meta[camp]) || {};
     events.push({
-      id: camp,
-      name: m.name || camp.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+      id: key,
+      campaign: camp,
+      monday_event_id: mondayId,
+      name: m.name || campaignName(camp),
       event_date: m.event_date || postEventDate(plist) || maxDate(plist),
       tag: m.tag || "✨ Event",
       flyer_grad: m.flyer_grad || "linear-gradient(135deg,#E5195E,#FF7A2F)",
@@ -67,6 +76,8 @@ export function buildEvents(queuePosts, meta) {
     const m = (meta && meta.__oneoffs) || {};
     events.push({
       id: "__oneoffs",
+      campaign: null,
+      monday_event_id: null,
       name: m.name || "One-off posts",
       event_date: m.event_date || maxDate(standalone),
       tag: m.tag || "🗂️ One-offs",
@@ -78,10 +89,25 @@ export function buildEvents(queuePosts, meta) {
   return events;
 }
 
-/* Cadence-engine posts carry the event's real date from the Monday board. */
+/* One card per Monday event. Legacy posts (pre-engine, no monday_event_id)
+   keep grouping by campaign alone. */
+export function eventKey(p) {
+  return p.monday_event_id ? `${p.campaign}#${p.monday_event_id}` : p.campaign;
+}
+
+function campaignName(camp) {
+  // Word-start only (not \b\w: that flips "Beyoncés" into "BeyoncéS").
+  return camp.replace(/^cadence_/, "").replace(/_+/g, " ").trim()
+    .replace(/(^|\s)(\S)/g, (_, sp, c) => sp + c.toUpperCase());
+}
+
+/* Cadence-engine posts carry the event's real date from the Monday board.
+   Take the LATEST one: early posts of an event may predate the field, and the
+   first post found is not necessarily the current edition. */
 function postEventDate(posts) {
-  for (const p of posts) if (p.event_date) return p.event_date;
-  return null;
+  let best = null;
+  for (const p of posts) if (p.event_date && (!best || p.event_date > best)) best = p.event_date;
+  return best;
 }
 
 /* Fallback: latest post's date in VENUE-LOCAL time. Slicing the raw UTC string
