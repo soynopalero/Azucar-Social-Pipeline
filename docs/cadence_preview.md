@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-04 18:37 PDT - **nothing posted, queue untouched**
+Generated 2026-09-04 18:39 PDT - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **69**
+Eligible events: **12** - Skipped: **69**
 
 ## Drag Brunch de Reinas - 2026-09-05  (Standard)
 2 posts x 2 platforms = **4** queue entries
@@ -30,6 +30,29 @@ Eligible events: **11** - Skipped: **69**
 | Sun Sep 6, 7:00 PM | evening |
 
 ## Night of Kings; An All King Drag Show - 2026-09-13  (Aggressive)
+17 posts x 2 platforms = **34** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Sep 4, 7:00 PM | evening |
+| Sat Sep 5, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
+| Mon Sep 7, 11:00 AM | morning |
+| Mon Sep 7, 7:00 PM | evening |
+| Tue Sep 8, 11:00 AM | morning |
+| Tue Sep 8, 7:00 PM | evening |
+| Wed Sep 9, 11:00 AM | morning |
+| Wed Sep 9, 7:00 PM | evening |
+| Thu Sep 10, 11:00 AM | morning |
+| Thu Sep 10, 7:00 PM | evening |
+| Fri Sep 11, 11:00 AM | morning |
+| Fri Sep 11, 7:00 PM | evening |
+| Sat Sep 12, 11:00 AM | morning |
+| Sat Sep 12, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Sun Sep 13, 7:00 PM | evening |
+
+## Sip and Paint with ArtWithAubrey - 2026-09-13  (Aggressive)
 17 posts x 2 platforms = **34** queue entries
 
 | When (Pacific) | Slot |
@@ -278,4 +301,4 @@ Eligible events: **11** - Skipped: **69**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 268**
+**Total queue entries that would be created: 302**
