@@ -12,8 +12,15 @@ from __future__ import annotations
 import json
 import os
 import sys
+import time
+from pathlib import Path
 
 import requests
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from monday_api import (  # noqa: E402
+    BASE_BACKOFF, MAX_ATTEMPTS, RETRY_HTTP_CODES, MondayError, is_transient_errors,
+)
 
 MONDAY_API = "https://api.monday.com/v2"
 MONDAY_FILE_API = "https://api.monday.com/v2/file"
@@ -30,14 +37,37 @@ NOTIFY_CHAT_ID = os.environ.get("NOTIFY_CHAT_ID", "").strip()
 
 
 def monday_gql(query: str, variables: dict) -> dict:
-    r = requests.post(MONDAY_API, timeout=60,
-                      headers={"Authorization": MONDAY_KEY, "API-Version": "2024-10",
-                               "Content-Type": "application/json"},
-                      json={"query": query, "variables": variables})
-    body = r.json()
-    if body.get("errors"):
-        raise RuntimeError(json.dumps(body["errors"]))
-    return body["data"]
+    """Read/write a Monday column, retrying transient API failures.
+
+    Same policy as monday_api.monday_query, over `requests` rather than urllib.
+    Note the upload path (monday_upload) deliberately does NOT retry: a partly
+    applied add_file_to_column would attach the flyer twice.
+    """
+    last_reason: Exception | None = None
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            r = requests.post(MONDAY_API, timeout=60,
+                              headers={"Authorization": MONDAY_KEY, "API-Version": "2024-10",
+                                       "Content-Type": "application/json"},
+                              json={"query": query, "variables": variables})
+            if r.status_code in RETRY_HTTP_CODES:
+                raise requests.HTTPError(f"HTTP {r.status_code}")
+            body = r.json()
+        except (requests.RequestException, ValueError) as e:
+            last_reason = e
+        else:
+            errors = body.get("errors")
+            if not errors:
+                return body["data"]
+            if not is_transient_errors(errors):
+                raise MondayError(errors)
+            last_reason = MondayError(errors)
+        if attempt < MAX_ATTEMPTS:
+            wait = BASE_BACKOFF * (2 ** (attempt - 1))
+            print(f"  … Monday API failed ({last_reason}); "
+                  f"retry {attempt}/{MAX_ATTEMPTS - 1} in {wait:.0f}s", flush=True)
+            time.sleep(wait)
+    raise last_reason  # type: ignore[misc]
 
 
 def tg_download(file_id: str) -> tuple[str, bytes]:

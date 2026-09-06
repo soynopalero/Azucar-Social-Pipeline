@@ -32,10 +32,13 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      # Offline guard: schedule math + caption-parser cases, no API calls.
+      # Offline guard: Monday retry classifier + schedule math + caption-parser
+      # cases, no API calls.
       # Catches a broken parser before the live pass spends Anthropic tokens.
       - name: Self-test
-        run: python code/cadence_engine.py --selftest
+        run: |
+          python code/monday_api.py --selftest
+          python code/cadence_engine.py --selftest
 
       - name: Run cadence engine (live enqueue + preview)
         env:
