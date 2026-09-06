@@ -1,31 +1,22 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-05 10:50 PDT - **nothing posted, queue untouched**
+Generated 2026-09-06 10:56 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **70**
+Eligible events: **11** - Skipped: **71**
 
-## Beyoncés birthday party drag show - 2026-09-05  (Standard)
+## Build your own Carabiner - 2026-09-06  (Standard)
 1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 5, 7:00 PM | evening |
-
-## Build your own Carabiner - 2026-09-06  (Standard)
-2 posts x 2 platforms = **4** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Sun Sep 6, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
 
 ## Night of Kings; An All King Drag Show - 2026-09-13  (Aggressive)
-16 posts x 2 platforms = **32** queue entries
+15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Sun Sep 6, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
 | Mon Sep 7, 11:00 AM | morning |
 | Mon Sep 7, 7:00 PM | evening |
 | Tue Sep 8, 11:00 AM | morning |
@@ -42,12 +33,11 @@ Eligible events: **12** - Skipped: **70**
 | Sun Sep 13, 7:00 PM | evening |
 
 ## Sip and Paint with ArtWithAubrey - 2026-09-13  (Aggressive)
-16 posts x 2 platforms = **32** queue entries
+15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Sun Sep 6, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
 | Mon Sep 7, 11:00 AM | morning |
 | Mon Sep 7, 7:00 PM | evening |
 | Tue Sep 8, 11:00 AM | morning |
@@ -64,31 +54,30 @@ Eligible events: **12** - Skipped: **70**
 | Sun Sep 13, 7:00 PM | evening |
 
 ## Drag King Kareoke - 2026-09-16  (Standard)
-12 posts x 2 platforms = **24** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Sun Sep 6, 11:00 AM | morning |
-| Mon Sep 7, 7:00 PM | evening |
-| Tue Sep 8, 11:00 AM | morning |
-| Wed Sep 9, 7:00 PM | evening |
-| Thu Sep 10, 11:00 AM | morning |
-| Fri Sep 11, 7:00 PM | evening |
-| Sat Sep 12, 11:00 AM | morning |
-| Sun Sep 13, 7:00 PM | evening |
-| Mon Sep 14, 11:00 AM | morning |
-| Tue Sep 15, 7:00 PM | evening |
-| Wed Sep 16, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
+| Mon Sep 7, 11:00 AM | morning |
+| Tue Sep 8, 7:00 PM | evening |
+| Wed Sep 9, 11:00 AM | morning |
+| Thu Sep 10, 7:00 PM | evening |
+| Fri Sep 11, 11:00 AM | morning |
+| Sat Sep 12, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Mon Sep 14, 7:00 PM | evening |
+| Tue Sep 15, 11:00 AM | morning |
+| Wed Sep 16, 7:00 PM | evening |
 
 ## Dolly Parton; A drag Tribute Night - 2026-09-17  (Aggressive)
 19 posts x 2 platforms = **38** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Sun Sep 6, 11:00 AM | morning |
-| Mon Sep 7, 7:00 PM | evening |
+| Sun Sep 6, 7:00 PM | evening |
+| Mon Sep 7, 11:00 AM | morning |
+| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
@@ -107,51 +96,49 @@ Eligible events: **12** - Skipped: **70**
 | Thu Sep 17, 7:00 PM | evening |
 
 ## Vida Amore Divas Show Fiesta Patrias - 2026-09-19  (Standard)
+12 posts x 2 platforms = **24** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sun Sep 6, 7:00 PM | evening |
+| Tue Sep 8, 11:00 AM | morning |
+| Wed Sep 9, 7:00 PM | evening |
+| Thu Sep 10, 11:00 AM | morning |
+| Sat Sep 12, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Mon Sep 14, 7:00 PM | evening |
+| Tue Sep 15, 11:00 AM | morning |
+| Wed Sep 16, 7:00 PM | evening |
+| Thu Sep 17, 11:00 AM | morning |
+| Fri Sep 18, 7:00 PM | evening |
+| Sat Sep 19, 11:00 AM | morning |
+
+## An Open Stage Drag Debut - 2026-09-20  (Standard)
 13 posts x 2 platforms = **26** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Sun Sep 6, 11:00 AM | morning |
-| Tue Sep 8, 7:00 PM | evening |
-| Wed Sep 9, 11:00 AM | morning |
-| Thu Sep 10, 7:00 PM | evening |
-| Sat Sep 12, 11:00 AM | morning |
-| Sun Sep 13, 7:00 PM | evening |
-| Mon Sep 14, 11:00 AM | morning |
-| Tue Sep 15, 7:00 PM | evening |
-| Wed Sep 16, 11:00 AM | morning |
-| Thu Sep 17, 7:00 PM | evening |
-| Fri Sep 18, 11:00 AM | morning |
-| Sat Sep 19, 7:00 PM | evening |
-
-## An Open Stage Drag Debut - 2026-09-20  (Standard)
-14 posts x 2 platforms = **28** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Sun Sep 6, 11:00 AM | morning |
-| Mon Sep 7, 7:00 PM | evening |
-| Wed Sep 9, 11:00 AM | morning |
-| Thu Sep 10, 7:00 PM | evening |
-| Fri Sep 11, 11:00 AM | morning |
-| Sun Sep 13, 7:00 PM | evening |
-| Mon Sep 14, 11:00 AM | morning |
-| Tue Sep 15, 7:00 PM | evening |
-| Wed Sep 16, 11:00 AM | morning |
-| Thu Sep 17, 7:00 PM | evening |
-| Fri Sep 18, 11:00 AM | morning |
-| Sat Sep 19, 7:00 PM | evening |
-| Sun Sep 20, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
+| Mon Sep 7, 11:00 AM | morning |
+| Wed Sep 9, 7:00 PM | evening |
+| Thu Sep 10, 11:00 AM | morning |
+| Fri Sep 11, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Mon Sep 14, 7:00 PM | evening |
+| Tue Sep 15, 11:00 AM | morning |
+| Wed Sep 16, 7:00 PM | evening |
+| Thu Sep 17, 11:00 AM | morning |
+| Fri Sep 18, 7:00 PM | evening |
+| Sat Sep 19, 11:00 AM | morning |
+| Sun Sep 20, 7:00 PM | evening |
 
 ## Heels dance class with Frankie - 2026-09-24  (Standard)
 15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Mon Sep 7, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
+| Tue Sep 8, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
@@ -171,8 +158,8 @@ Eligible events: **12** - Skipped: **70**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Mon Sep 7, 11:00 AM | morning |
+| Sun Sep 6, 7:00 PM | evening |
+| Tue Sep 8, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
@@ -188,49 +175,47 @@ Eligible events: **12** - Skipped: **70**
 | Thu Sep 24, 7:00 PM | evening |
 
 ## Furanium Fever - 2026-09-26  (Standard)
+15 posts x 2 platforms = **30** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sun Sep 6, 7:00 PM | evening |
+| Wed Sep 9, 11:00 AM | morning |
+| Sat Sep 12, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Tue Sep 15, 7:00 PM | evening |
+| Wed Sep 16, 11:00 AM | morning |
+| Thu Sep 17, 7:00 PM | evening |
+| Sat Sep 19, 11:00 AM | morning |
+| Sun Sep 20, 7:00 PM | evening |
+| Mon Sep 21, 11:00 AM | morning |
+| Tue Sep 22, 7:00 PM | evening |
+| Wed Sep 23, 11:00 AM | morning |
+| Thu Sep 24, 7:00 PM | evening |
+| Fri Sep 25, 11:00 AM | morning |
+| Sat Sep 26, 7:00 PM | evening |
+
+## Industry Night Drag Show - 2026-09-27  (Standard)
 16 posts x 2 platforms = **32** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Sun Sep 6, 11:00 AM | morning |
-| Wed Sep 9, 7:00 PM | evening |
-| Sat Sep 12, 11:00 AM | morning |
-| Sun Sep 13, 7:00 PM | evening |
-| Tue Sep 15, 11:00 AM | morning |
-| Wed Sep 16, 7:00 PM | evening |
-| Thu Sep 17, 11:00 AM | morning |
-| Sat Sep 19, 7:00 PM | evening |
-| Sun Sep 20, 11:00 AM | morning |
-| Mon Sep 21, 7:00 PM | evening |
-| Tue Sep 22, 11:00 AM | morning |
-| Wed Sep 23, 7:00 PM | evening |
-| Thu Sep 24, 11:00 AM | morning |
-| Fri Sep 25, 7:00 PM | evening |
-| Sat Sep 26, 11:00 AM | morning |
-
-## Industry Night Drag Show - 2026-09-27  (Standard)
-17 posts x 2 platforms = **34** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Sep 5, 7:00 PM | evening |
-| Sun Sep 6, 11:00 AM | morning |
-| Mon Sep 7, 7:00 PM | evening |
-| Thu Sep 10, 11:00 AM | morning |
-| Sun Sep 13, 7:00 PM | evening |
-| Mon Sep 14, 11:00 AM | morning |
-| Wed Sep 16, 7:00 PM | evening |
-| Thu Sep 17, 11:00 AM | morning |
-| Fri Sep 18, 7:00 PM | evening |
-| Sun Sep 20, 11:00 AM | morning |
-| Mon Sep 21, 7:00 PM | evening |
-| Tue Sep 22, 11:00 AM | morning |
-| Wed Sep 23, 7:00 PM | evening |
-| Thu Sep 24, 11:00 AM | morning |
-| Fri Sep 25, 7:00 PM | evening |
-| Sat Sep 26, 11:00 AM | morning |
-| Sun Sep 27, 7:00 PM | evening |
+| Sun Sep 6, 7:00 PM | evening |
+| Mon Sep 7, 11:00 AM | morning |
+| Thu Sep 10, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Mon Sep 14, 7:00 PM | evening |
+| Wed Sep 16, 11:00 AM | morning |
+| Thu Sep 17, 7:00 PM | evening |
+| Fri Sep 18, 11:00 AM | morning |
+| Sun Sep 20, 7:00 PM | evening |
+| Mon Sep 21, 11:00 AM | morning |
+| Tue Sep 22, 7:00 PM | evening |
+| Wed Sep 23, 11:00 AM | morning |
+| Thu Sep 24, 7:00 PM | evening |
+| Fri Sep 25, 11:00 AM | morning |
+| Sat Sep 26, 7:00 PM | evening |
+| Sun Sep 27, 11:00 AM | morning |
 
 ---
 
@@ -240,10 +225,11 @@ Eligible events: **12** - Skipped: **70**
 - **Amature Drag Pageant** - date in the past
 - **Aubs Take Over — June** - date in the past, no cadence set, no flyer, no price, no description
 - **Azúcar House Party — DJ Lalique Debut** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
+- **Beyoncés birthday party drag show** - date in the past
 - **Build you own carabiner** - date in the past
 - **Build your own carabiner night** - date in the past
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
-- **Drag Brunch de Reinas** - phase = Cancelled
+- **Drag Brunch de Reinas** - date in the past, phase = Cancelled
 - **Drag Wheel of Pride — Anthem Edition (All Ages)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Drag me to brunch** - date in the past, phase = Cancelled
 - **Drag me to brunch** - date in the past, phase = Cancelled
@@ -295,7 +281,7 @@ Eligible events: **12** - Skipped: **70**
 - **Spring into frienship; Diamond Art night** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Testing for your life** - date in the past, phase = Cancelled
 - **Testing out the name** - date in the past, no flyer
-- **Tha Cookout** - phase = Cancelled, no cadence set, no flyer, no price, no description
+- **Tha Cookout** - date in the past, phase = Cancelled, no cadence set, no flyer, no price, no description
 - **Tricities After Party — Rohla** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Tricities Pride Beer Garden (off-site)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **VIDA AMORE DIVAS SHOW: LA MAS DRAGA** - date in the past
@@ -307,4 +293,4 @@ Eligible events: **12** - Skipped: **70**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 312**
+**Total queue entries that would be created: 294**
