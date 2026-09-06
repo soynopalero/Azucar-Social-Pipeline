@@ -16,10 +16,7 @@ import datetime as dt
 import json
 import os
 import sys
-import time
-import urllib.error
 import urllib.parse
-import urllib.request
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -27,7 +24,6 @@ DOCS = REPO_ROOT / "docs"
 KIT_MEDIA = DOCS / "media" / "fb-kit"
 KIT_JSON = DOCS / "fb_kit.json"
 
-MONDAY_API_KEY = os.environ.get("MONDAY_API_KEY", "").strip()
 BOARD_ID = "18414182966"
 
 COL_DATE = "date_mm3h56jc"
@@ -50,49 +46,11 @@ HIDDEN_PHASES = {"Cancelled", "Completed"}
 VENUE_ADDRESS = "327 W Lewis St, Pasco, WA 99301"
 VENUE_LINE = "📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA"
 
-MONDAY_URL = "https://api.monday.com/v2"
-
-# Network resilience: Monday's API and its asset CDN occasionally stall. A single
-# transient timeout used to abort the whole run (delaying every caption/post), so
-# transient failures are retried with exponential backoff before giving up.
-MAX_ATTEMPTS = 4
-BASE_BACKOFF = 2.0  # seconds; waits ~2s, 4s, 8s between attempts
-RETRY_HTTP_CODES = {429, 500, 502, 503, 504}
-
-
-def urlopen_retry(target, *, timeout: int, what: str) -> bytes:
-    """urlopen() that retries transient network errors, returning the response body."""
-    last_err: Exception | None = None
-    for attempt in range(1, MAX_ATTEMPTS + 1):
-        try:
-            with urllib.request.urlopen(target, timeout=timeout) as r:
-                return r.read()
-        except urllib.error.HTTPError as e:
-            if e.code not in RETRY_HTTP_CODES:
-                raise  # 4xx (other than 429) won't fix themselves — fail fast
-            last_err = e
-        except (urllib.error.URLError, TimeoutError, OSError) as e:
-            last_err = e
-        if attempt < MAX_ATTEMPTS:
-            wait = BASE_BACKOFF * (2 ** (attempt - 1))
-            print(f"  … {what} failed ({last_err}); retry {attempt}/{MAX_ATTEMPTS - 1} in {wait:.0f}s")
-            time.sleep(wait)
-    raise last_err  # type: ignore[misc]
-
-
-def monday_query(query: str, variables: dict | None = None) -> dict:
-    if not MONDAY_API_KEY:
-        sys.exit("MONDAY_API_KEY env var is empty — refusing to run.")
-    payload = json.dumps({"query": query, "variables": variables or {}}).encode()
-    req = urllib.request.Request(
-        MONDAY_URL, data=payload, method="POST",
-        headers={"Content-Type": "application/json",
-                 "Authorization": MONDAY_API_KEY, "API-Version": "2024-10"},
-    )
-    body = json.loads(urlopen_retry(req, timeout=45, what="Monday API").decode())
-    if body.get("errors"):
-        sys.exit(f"Monday API error: {json.dumps(body['errors'])}")
-    return body["data"]
+# Monday API access (incl. retry policy for transient outages) lives in
+# monday_api so every workflow in this repo shares one implementation.
+# monday_to_eventbrite.py re-imports monday_query from this module.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from monday_api import MondayError, monday_query, urlopen_retry  # noqa: E402
 
 
 def fetch_items() -> list[dict]:
@@ -310,4 +268,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except MondayError as e:
+        sys.exit(f"Monday API error: {e}")

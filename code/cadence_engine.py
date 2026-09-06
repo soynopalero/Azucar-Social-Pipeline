@@ -47,7 +47,9 @@ import urllib.request
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-MONDAY_API = "https://api.monday.com/v2"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from monday_api import MondayError, monday_query  # noqa: E402
+
 BOARD_ID = "18414182966"
 LOCAL_TZ = ZoneInfo("America/Los_Angeles")
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -80,24 +82,6 @@ COUNTS = {
     "light":      {"w4plus": 1, "w3": 1, "w2": 2},
 }
 HORIZON_WEEKS = 6  # don't start posting earlier than this many weeks out
-
-
-# ---------- Monday ----------
-def monday_query(query, variables):
-    key = (os.environ.get("MONDAY_API_KEY") or "").strip()
-    if not key:
-        print("MONDAY_API_KEY not set. Export it locally, or add it as a repo secret for the workflow.")
-        sys.exit(1)
-    body = json.dumps({"query": query, "variables": variables}).encode()
-    req = urllib.request.Request(
-        MONDAY_API, data=body,
-        headers={"Content-Type": "application/json", "Authorization": key, "API-Version": "2024-10"},
-    )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        data = json.loads(r.read())
-    if "errors" in data:
-        raise RuntimeError(json.dumps(data["errors"]))
-    return data["data"]
 
 
 def fetch_events():
@@ -913,4 +897,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except MondayError as e:
+        sys.exit(f"Monday API error: {e}")
