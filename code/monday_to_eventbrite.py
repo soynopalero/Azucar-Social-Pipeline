@@ -22,6 +22,9 @@ Hard-won API facts baked in (see memory/project_eventbrite_integration.md):
   SETTINGS_MISSING) -> free RSVP ticket named "...— $X cover at door".
 - Portrait flyers get a generated 1920x1005 blurred-wings cover (same
   make_fb_cover used by the FB kit) so EB's wide cover band never crops art.
+- Emoji in event names: create/update accept them, but an async sanitizer
+  blanks the whole name and publish then 400s with "event.name - MISSING"
+  (seen live 2026-07-27, '🌿 JOTERÍA…'). Names are emoji-stripped up front.
 """
 from __future__ import annotations
 
@@ -132,6 +135,23 @@ def monday_write_eventbrite_url(item_id: str, eb_url: str, label: str) -> None:
 
 # ─── Field builders ──────────────────────────────────────────────────────────
 
+# Emoji + pictograph ranges Eventbrite's name sanitizer silently blanks.
+EMOJI_RX = re.compile(
+    "["
+    "\U0001F000-\U0001FAFF"  # emoji, symbols & pictographs
+    "\u2600-\u27BF"          # misc symbols + dingbats
+    "\u2B00-\u2BFF"          # misc symbols and arrows
+    "\uFE0E\uFE0F\u200D"  # variation selectors + zero-width joiner
+    "]+"
+)
+
+
+def eb_safe_name(name: str) -> str:
+    cleaned = EMOJI_RX.sub("", name)
+    cleaned = re.sub(r"\s{2,}", " ", cleaned).strip(" \t-\u2013\u2014|\u2022\u00b7~")
+    return cleaned or name  # never send an empty name
+
+
 def event_times_utc(date_iso: str, hour: int, minute: int) -> tuple[str, str]:
     start_local = dt.datetime.fromisoformat(date_iso).replace(
         hour=hour, minute=minute, tzinfo=PACIFIC)
@@ -230,7 +250,7 @@ def _eb_upload_image_once(path: Path) -> str:
 def eb_create_event(item: dict, image_id: str, start_utc: str, end_utc: str,
                     desc_html: str) -> dict:
     payload = {"event": {
-        "name": {"html": html.escape(item["name"].strip())},
+        "name": {"html": html.escape(eb_safe_name(item["name"].strip()))},
         # description only — adding summary too triggers SUMMARY_DESCRIPTION_CONFLICT
         "description": {"html": desc_html},
         "start": {"timezone": "America/Los_Angeles", "utc": start_utc},
