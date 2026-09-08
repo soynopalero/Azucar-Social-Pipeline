@@ -169,7 +169,15 @@ function renderPosts(archived) {
         <div class="mid">
           <div class="time">${time}</div>
           <p class="cap">${esc(p.caption)}</p>
-          <div class="plats">${p.platforms.map(x => `<span class="chip ${x}">${x === 'facebook' ? 'FB' : 'IG'}</span>`).join('')}</div>
+          <div class="plats">${p.platforms.map(x => {
+            const label = x === 'facebook' ? 'FB' : 'IG';
+            const href = p.links && p.links[x];
+            // Only posts published after the permalink change carry a link;
+            // older ones keep the plain chip rather than a dead one.
+            return href
+              ? `<a class="chip ${x} chip-link" href="${esc(href)}" target="_blank" rel="noopener">${label} ↗</a>`
+              : `<span class="chip ${x}">${label}</span>`;
+          }).join('')}</div>
           ${p.status === 'failed' && p.result ? `<div class="result-note">⚠️ ${esc(p.result)}</div>` : ''}
         </div>
         <div class="right">
