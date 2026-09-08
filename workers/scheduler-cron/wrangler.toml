@@ -1,0 +1,19 @@
+name = "azucar-scheduler-cron"
+main = "src/index.js"
+compatibility_date = "2026-09-08"
+
+# Every 5 minutes, in UTC. Posts sit in slots at :00, so worst-case latency is
+# ~5 minutes plus GitHub runner startup (~40s) — against a 2h20m median today.
+# Tightening this to */1 buys four minutes and quintuples the Actions runs;
+# it is not worth it unless a slot ever needs to-the-minute accuracy.
+[triggers]
+crons = ["*/5 * * * *"]
+
+[vars]
+GITHUB_REPO = "soynopalero/Azucar-Social-Pipeline"
+WORKFLOW_FILE = "post-scheduler.yml"
+WORKFLOW_REF = "main"
+
+# GH_DISPATCH_TOKEN is a secret, never a var — set it with:
+#   wrangler secret put GH_DISPATCH_TOKEN
+# See README.md for the exact token scope (Actions: write, this repo only).
