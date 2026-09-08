@@ -46,3 +46,9 @@ code/*.jpeg
 code/*.png
 code/*.mp4
 code/*.mov
+
+# Sales reports — revenue figures. THIS REPO IS PUBLIC, so per-show money never
+# gets committed: the report is delivered to Telegram (private) and kept on
+# whoever ran it. See docs/sales-report.md.
+reports/sales/
+reports/toast/
