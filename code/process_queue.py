@@ -58,6 +58,40 @@ def wait_for_container_ready(container_id: str, timeout_s: int = 180, poll_s: in
         time.sleep(poll_s)
 
 
+def facebook_permalink(response: dict) -> str | None:
+    """Build the Page-post URL from a /photos response.
+
+    The endpoint returns two ids: `id` is the photo, and `post_id` is the Page
+    post ("<page>_<post>") — the only one that forms a URL a person can open.
+    We used to keep the photo id and drop post_id, so every posted entry
+    recorded an id nobody could turn back into a link.
+    """
+    post_id = response.get("post_id") or ""
+    if "_" in post_id:
+        page, _, pid = post_id.partition("_")
+        if page and pid:
+            return f"https://www.facebook.com/{page}/posts/{pid}"
+    return None
+
+
+def instagram_permalink(media_id: str) -> str | None:
+    """Ask Graph for the media's public URL.
+
+    Best-effort by design: the post is already live by the time this runs, so a
+    failure here costs a link, never the post.
+    """
+    try:
+        data = requests.get(
+            f"{BASE_URL}/{media_id}",
+            params={"fields": "permalink", "access_token": PAGE_ACCESS_TOKEN},
+            timeout=30,
+        ).json()
+        return data.get("permalink") or None
+    except Exception as e:  # network, JSON, anything — never re-raise
+        print(f"    ⚠️  permalink lookup failed for media {media_id}: {e}")
+        return None
+
+
 def post_to_instagram(image_url: str, caption: str) -> dict:
     """Post via Meta Graph API. Returns {'ok': True, 'id': ...} or {'ok': False, 'error': ...}."""
     container = requests.post(
@@ -84,7 +118,8 @@ def post_to_instagram(image_url: str, caption: str) -> dict:
             timeout=60,
         ).json()
         if "id" in publish:
-            return {"ok": True, "id": publish["id"], "container_id": container["id"]}
+            return {"ok": True, "id": publish["id"], "container_id": container["id"],
+                    "permalink": instagram_permalink(publish["id"])}
         if publish.get("error", {}).get("code") != 9007:
             break
     return {"ok": False, "error": f"publish failed: {publish}"}
@@ -105,7 +140,8 @@ def post_to_facebook(image_url: str, caption: str) -> dict:
         timeout=120,
     ).json()
     if "id" in response:
-        return {"ok": True, "id": response["id"], "post_id": response.get("post_id")}
+        return {"ok": True, "id": response["id"], "post_id": response.get("post_id"),
+                "permalink": facebook_permalink(response)}
     return {"ok": False, "error": f"FB post failed: {response}"}
 
 
@@ -166,7 +202,11 @@ def main():
         if result["ok"]:
             entry["status"] = "posted"
             entry["result"] = f"{result_label}: {result['id']}"
+            if result.get("permalink"):
+                entry["permalink"] = result["permalink"]
             print(f"    ✅ Posted! {result_label}: {result['id']}")
+            if result.get("permalink"):
+                print(f"       {result['permalink']}")
         else:
             entry["status"] = "failed"
             entry["result"] = result["error"]
@@ -178,5 +218,32 @@ def main():
         print(f"\n💾 Queue updated.")
 
 
+def selftest() -> int:
+    """Offline check of the Facebook URL builder. No network, no credentials."""
+    cases = [
+        ({"id": "123", "post_id": "555_999"},
+         "https://www.facebook.com/555/posts/999", "normal photo post"),
+        ({"id": "123"}, None, "no post_id (older API shape) -> no link, not a broken one"),
+        ({"id": "123", "post_id": ""}, None, "empty post_id"),
+        ({"id": "123", "post_id": "no-underscore"}, None, "malformed post_id"),
+        ({"id": "123", "post_id": "_999"}, None, "missing page half"),
+        ({"id": "123", "post_id": "555_"}, None, "missing post half"),
+    ]
+    failures = 0
+    for response, expected, label in cases:
+        got = facebook_permalink(response)
+        if got != expected:
+            failures += 1
+        print(f"  {'ok  ' if got == expected else 'FAIL'} {label}: {got!r}")
+    if failures:
+        print(f"{failures} case(s) failed.")
+        return 1
+    print(f"All {len(cases)} cases passed.")
+    return 0
+
+
 if __name__ == "__main__":
+    # --selftest runs before main() so it never needs posting credentials.
+    if "--selftest" in sys.argv:
+        sys.exit(selftest())
     main()

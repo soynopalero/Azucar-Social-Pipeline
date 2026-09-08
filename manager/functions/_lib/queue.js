@@ -27,12 +27,15 @@ export function mergeLogical(posts) {
         images: [],
         status: p.status,
         result: p.result || "",
+        // Per-platform public URLs, so the UI can link straight to the post.
+        links: {},
       });
     }
     const b = buckets.get(key);
     b.ids.push(p.id);
     if (!b.platforms.includes(p.platform)) b.platforms.push(p.platform);
     if (p.image_url && !b.images.includes(p.image_url)) b.images.push(p.image_url);
+    if (p.permalink) b.links[p.platform] = p.permalink;
     if ((STATUS_RANK[p.status] || 0) > (STATUS_RANK[b.status] || 0)) {
       b.status = p.status;
       b.result = p.result || "";
