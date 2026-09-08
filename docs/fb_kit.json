@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T19:09:26",
+ "generated_at": "2026-09-08T19:13:31",
  "events": [
   {
    "item_id": "12870459319",
@@ -154,6 +154,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/emo-night-drag-show-edition-tickets-2000207221644",
    "flyer": "media/fb-kit/13000186471_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13000186471"
+  },
+  {
+   "item_id": "13000238171",
+   "name": "Mosh Night",
+   "date_iso": "2026-10-11",
+   "date_display": "Oct 11, 2026",
+   "start_time": "5:00 PM",
+   "end_date_display": "Oct 11, 2026",
+   "end_time": "9:00 PM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Azúcar's Main Floor is getting flipped into a pit. October 11, doors at 5pm, and the whole night belongs to the bands — hometown heavy hitters and out-of-towners stacking the bill for one loud, sweaty takeover. This isn't background music. This is amps cranked, throats raw, heads banging.\n\nDJ Dea holds it down between sets, keeping the energy fed so the room never cools off. Expect a crowd that came to scream every word, a floor that turns into a mosh the second the first riff drops, and a bar slinging cold drinks fast because you're gonna need them.\n\nMosh at your own risk — we mean that. Wear something you don't mind sweating through, leave the fragile jewelry at home, and show up ready to lose your voice by last call. Every body's welcome in the pit, Latinx pride and all — just bring the chaos with you.\n\n🗓️ Domingo 11 de octubre — Show 5:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 All Ages · Cover 10$\n\n🎟️ Tickets: https://www.eventbrite.com/e/mosh-night-tickets-2000207414220",
+   "eventbrite_url": "https://www.eventbrite.com/e/mosh-night-tickets-2000207414220",
+   "flyer": "media/fb-kit/13000238171_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13000238171"
   },
   {
    "item_id": "12985618920",
