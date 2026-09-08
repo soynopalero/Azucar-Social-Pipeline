@@ -35,6 +35,65 @@ API_VERSION = "v19.0"
 BASE_URL = f"https://graph.facebook.com/{API_VERSION}"
 
 
+# Meta returns transient failures that look permanent. On 2026-09-08 four
+# posts died on code 190 ("This Page access token belongs to a Page that is
+# not accessible") while four others in the same run used the same token
+# successfully ~30s later. Recorded as failed, they would never have been
+# retried, and the promo for two upcoming events was simply lost.
+#
+# Meta flags many of these itself with is_transient; the explicit codes cover
+# the ones it does not. 190 is included deliberately: it is also the code for a
+# genuinely expired token, and retrying that costs a minute before failing —
+# far cheaper than silently dropping a post that would have gone out.
+TRANSIENT_META_CODES = {1, 2, 4, 17, 32, 190, 324, 341, 368, 613}
+
+POST_ATTEMPTS = 4
+POST_BACKOFF = 10.0  # seconds; waits 10s, 20s, 30s — covers a ~1 min wobble
+
+# How many scheduler runs a post may stay pending on transient errors before
+# it is called failed. At one run per 5 minutes this is ~30 minutes of trying,
+# which spans a Meta blip without leaving a post retrying forever against a
+# token that is actually dead.
+MAX_TRANSIENT_CYCLES = 6
+
+
+def is_transient_meta_error(body: dict) -> bool:
+    """True if a Graph API error body describes a failure worth retrying."""
+    err = (body or {}).get("error")
+    if not isinstance(err, dict):
+        return False
+    if err.get("is_transient") is True:
+        return True
+    return err.get("code") in TRANSIENT_META_CODES
+
+
+def graph_post(url: str, data: dict, *, what: str, timeout: int = 120) -> dict:
+    """POST to the Graph API, retrying transient errors.
+
+    ONLY for calls that create nothing when they fail — the Facebook /photos
+    call and the Instagram container creation. Retrying a call that may have
+    partially succeeded would double-post, which is worse than the bug this
+    fixes, so media_publish keeps its own narrower retry and is not routed here.
+    """
+    body: dict = {}
+    for attempt in range(1, POST_ATTEMPTS + 1):
+        try:
+            body = requests.post(url, data=data, timeout=timeout).json()
+        except (requests.RequestException, ValueError) as e:
+            body = {"error": {"message": f"request failed: {e}", "is_transient": True}}
+        if "error" not in body:
+            return body
+        if not is_transient_meta_error(body):
+            return body  # a real rejection — retrying will not change it
+        if attempt < POST_ATTEMPTS:
+            wait = POST_BACKOFF * attempt
+            msg = (body.get("error") or {}).get("message", "")
+            print(f"    … {what} transient error ({msg[:90]}); "
+                  f"retry {attempt}/{POST_ATTEMPTS - 1} in {wait:.0f}s")
+            time.sleep(wait)
+    return body
+
+
 def wait_for_container_ready(container_id: str, timeout_s: int = 180, poll_s: int = 5) -> dict:
     """Poll a media container until Meta finishes processing the image.
 
@@ -94,13 +153,14 @@ def instagram_permalink(media_id: str) -> str | None:
 
 def post_to_instagram(image_url: str, caption: str) -> dict:
     """Post via Meta Graph API. Returns {'ok': True, 'id': ...} or {'ok': False, 'error': ...}."""
-    container = requests.post(
+    container = graph_post(
         f"{BASE_URL}/{IG_USER_ID}/media",
-        data={"image_url": image_url, "caption": caption, "access_token": PAGE_ACCESS_TOKEN},
-        timeout=60,
-    ).json()
+        {"image_url": image_url, "caption": caption, "access_token": PAGE_ACCESS_TOKEN},
+        what="IG container creation", timeout=60,
+    )
     if "id" not in container:
-        return {"ok": False, "error": f"container creation failed: {container}"}
+        return {"ok": False, "error": f"container creation failed: {container}",
+                "transient": is_transient_meta_error(container)}
 
     ready = wait_for_container_ready(container["id"])
     if not ready["ok"]:
@@ -130,19 +190,20 @@ def post_to_facebook(image_url: str, caption: str) -> dict:
 
     Returns {'ok': True, 'id': ...} or {'ok': False, 'error': ...}.
     """
-    response = requests.post(
+    response = graph_post(
         f"{BASE_URL}/{FB_PAGE_ID}/photos",
-        data={
+        {
             "url": image_url,
             "message": caption,
             "access_token": PAGE_ACCESS_TOKEN,
         },
-        timeout=120,
-    ).json()
+        what="FB photo post",
+    )
     if "id" in response:
         return {"ok": True, "id": response["id"], "post_id": response.get("post_id"),
                 "permalink": facebook_permalink(response)}
-    return {"ok": False, "error": f"FB post failed: {response}"}
+    return {"ok": False, "error": f"FB post failed: {response}",
+            "transient": is_transient_meta_error(response)}
 
 
 def main():
@@ -198,16 +259,35 @@ def main():
             print(f"    ⚠️  Unsupported platform '{platform}' — skipping")
             continue
 
-        entry["posted_at"] = datetime.now(timezone.utc).isoformat()
         if result["ok"]:
+            entry["posted_at"] = datetime.now(timezone.utc).isoformat()
             entry["status"] = "posted"
             entry["result"] = f"{result_label}: {result['id']}"
+            entry.pop("transient_attempts", None)
             if result.get("permalink"):
                 entry["permalink"] = result["permalink"]
             print(f"    ✅ Posted! {result_label}: {result['id']}")
             if result.get("permalink"):
                 print(f"       {result['permalink']}")
+        elif result.get("transient"):
+            # In-process retries are already spent. Leave it pending so the next
+            # scheduler run tries again — that is what turns a Meta outage into a
+            # late post rather than a lost one. Bounded, so a genuinely dead
+            # token stops being retried instead of spinning forever.
+            tries = entry.get("transient_attempts", 0) + 1
+            entry["result"] = result["error"]
+            if tries < MAX_TRANSIENT_CYCLES:
+                entry["transient_attempts"] = tries
+                entry["status"] = "pending"
+                print(f"    ↻ Transient ({tries}/{MAX_TRANSIENT_CYCLES}) — staying pending, "
+                      f"will retry next run: {result['error'][:120]}")
+            else:
+                entry.pop("transient_attempts", None)
+                entry["posted_at"] = datetime.now(timezone.utc).isoformat()
+                entry["status"] = "failed"
+                print(f"    ❌ Failed after {tries} transient attempts: {result['error']}")
         else:
+            entry["posted_at"] = datetime.now(timezone.utc).isoformat()
             entry["status"] = "failed"
             entry["result"] = result["error"]
             print(f"    ❌ Failed: {result['error']}")
@@ -220,6 +300,38 @@ def main():
 
 def selftest() -> int:
     """Offline check of the Facebook URL builder. No network, no credentials."""
+    transient_cases = [
+        # The exact payload that lost four posts on 2026-09-08.
+        ({"error": {"message": "This Page access token belongs to a Page that is "
+                               "not accessible.", "type": "OAuthException", "code": 190}},
+         True, "code 190 page-not-accessible (the 2026-09-08 failure)"),
+        ({"error": {"code": 1, "message": "Please reduce the amount of data"}},
+         True, "code 1 reduce-data"),
+        ({"error": {"code": 324, "is_transient": True, "message": "Missing image"}},
+         True, "code 324 flagged is_transient"),
+        ({"error": {"code": 99999, "is_transient": True}}, True,
+         "unknown code but Meta says transient"),
+        ({"error": {"message": "request failed: timeout", "is_transient": True}},
+         True, "network failure we synthesise"),
+        # Permanent — retrying these just delays a failure we cannot fix.
+        ({"error": {"code": 100, "message": "Invalid parameter"}}, False,
+         "code 100 invalid parameter"),
+        ({"error": {"code": 200, "message": "Permissions error"}}, False,
+         "code 200 permissions"),
+        ({"error": {"code": 190, "is_transient": False}}, True,
+         "code 190 stays retryable even when Meta says not transient"),
+        ({"id": "123"}, False, "success body has no error"),
+        ({}, False, "empty body"),
+        (None, False, "None body"),
+    ]
+    tfail = 0
+    for body, expected, label in transient_cases:
+        got = is_transient_meta_error(body)
+        if got != expected:
+            tfail += 1
+        print(f"  {'ok  ' if got == expected else 'FAIL'} {label}: transient={got}")
+    print()
+
     cases = [
         ({"id": "123", "post_id": "555_999"},
          "https://www.facebook.com/555/posts/999", "normal photo post"),
@@ -235,10 +347,11 @@ def selftest() -> int:
         if got != expected:
             failures += 1
         print(f"  {'ok  ' if got == expected else 'FAIL'} {label}: {got!r}")
+    failures += tfail
     if failures:
         print(f"{failures} case(s) failed.")
         return 1
-    print(f"All {len(cases)} cases passed.")
+    print(f"All {len(cases) + len(transient_cases)} cases passed.")
     return 0
 
 
