@@ -169,10 +169,19 @@ export async function ghGetFile(env, path) {
     text = new TextDecoder().decode(
       Uint8Array.from(atob(data.content.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
   } else if (data.size > 0) {
-    // Files over 1 MB come back with empty inline content — the queue crossed
-    // that line in Aug 2026 and froze the whole manager. Re-fetch the raw
-    // bytes, which the same endpoint serves for files up to 100 MB.
-    const raw = await ghFetch(env, url, { Accept: "application/vnd.github.raw+json" });
+    // Files over 1 MB come back with empty inline content (encoding "none") —
+    // the queue crossed that line in Aug 2026. Fetch the bytes from
+    // download_url, which is raw.githubusercontent.com: a DIFFERENT URL.
+    //
+    // That difference is the whole point. Re-requesting THIS API url with an
+    // `Accept: ...raw` header instead collides with the metadata response we
+    // just made in Cloudflare's subrequest cache — the cache key is the URL,
+    // and Accept is not part of it — so the retry could come back as the
+    // metadata JSON again. That parses as perfectly good JSON with no `posts`
+    // key, which surfaced downstream as the baffling "queuePosts is not
+    // iterable" and froze the manager on a stale snapshot from 2026-09-04.
+    const rawUrl = data.download_url || url;
+    const raw = await ghFetch(env, rawUrl, { Accept: "application/vnd.github.raw" });
     if (!raw.ok) {
       const err = new Error(`GitHub raw read ${path} failed: ${raw.status}`);
       err.status = raw.status;
@@ -208,7 +217,26 @@ export async function ghPutFile(env, path, text, sha, message) {
 
 export async function loadQueue(env) {
   const { text, sha } = await ghGetFile(env, "posts_queue.json");
-  return { queue: JSON.parse(text), sha };
+  let queue;
+  try {
+    queue = JSON.parse(text);
+  } catch (e) {
+    throw new Error(`posts_queue.json is not valid JSON: ${e.message}`);
+  }
+  // Fail loudly and specifically here. Anything JSON-shaped gets past the parse
+  // above — GitHub's own file metadata did, once — and then dies much further
+  // downstream with a TypeError that says nothing about what actually went
+  // wrong. If this ever fires, the read returned the wrong document.
+  if (!queue || !Array.isArray(queue.posts)) {
+    const got = queue && typeof queue === "object"
+      ? `an object with keys [${Object.keys(queue).join(", ")}]`
+      : `${typeof queue}`;
+    throw new Error(
+      `posts_queue.json did not come back as {"posts": [...]} — got ${got}. ` +
+      `The file read returned the wrong document (GitHub metadata rather than ` +
+      `file contents?).`);
+  }
+  return { queue, sha };
 }
 
 export async function saveQueue(env, queue, sha, message) {
