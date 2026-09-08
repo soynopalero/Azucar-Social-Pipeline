@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-08 12:10 PDT - **nothing posted, queue untouched**
+Generated 2026-09-08 12:12 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **72**
+Eligible events: **13** - Skipped: **72**
 
 ## Night of Kings; An All King Drag Show - 2026-09-13  (Aggressive)
 11 posts x 2 platforms = **22** queue entries
@@ -223,6 +223,33 @@ Eligible events: **12** - Skipped: **72**
 | Fri Oct 9, 11:00 AM | morning |
 | Sat Oct 10, 7:00 PM | evening |
 
+## Mosh Night - 2026-10-11  (Standard)
+21 posts x 2 platforms = **42** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Sep 8, 7:00 PM | evening |
+| Thu Sep 10, 11:00 AM | morning |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Thu Sep 17, 7:00 PM | evening |
+| Sun Sep 20, 11:00 AM | morning |
+| Mon Sep 21, 7:00 PM | evening |
+| Thu Sep 24, 11:00 AM | morning |
+| Sun Sep 27, 7:00 PM | evening |
+| Mon Sep 28, 11:00 AM | morning |
+| Wed Sep 30, 7:00 PM | evening |
+| Thu Oct 1, 11:00 AM | morning |
+| Fri Oct 2, 7:00 PM | evening |
+| Sun Oct 4, 11:00 AM | morning |
+| Mon Oct 5, 7:00 PM | evening |
+| Tue Oct 6, 11:00 AM | morning |
+| Wed Oct 7, 7:00 PM | evening |
+| Thu Oct 8, 11:00 AM | morning |
+| Fri Oct 9, 7:00 PM | evening |
+| Sat Oct 10, 11:00 AM | morning |
+| Sun Oct 11, 7:00 PM | evening |
+
 ## The Bikini Bottoms - 2026-10-22  (Standard)
 24 posts x 2 platforms = **48** queue entries
 
@@ -330,4 +357,4 @@ Eligible events: **12** - Skipped: **72**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 354**
+**Total queue entries that would be created: 396**
