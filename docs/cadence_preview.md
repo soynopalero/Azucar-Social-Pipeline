@@ -1,16 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-07 12:31 PDT - **nothing posted, queue untouched**
+Generated 2026-09-08 12:08 PDT - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **72**
+Eligible events: **12** - Skipped: **72**
 
 ## Night of Kings; An All King Drag Show - 2026-09-13  (Aggressive)
-13 posts x 2 platforms = **26** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 7, 7:00 PM | evening |
-| Tue Sep 8, 11:00 AM | morning |
 | Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Wed Sep 9, 7:00 PM | evening |
@@ -24,12 +22,10 @@ Eligible events: **11** - Skipped: **72**
 | Sun Sep 13, 7:00 PM | evening |
 
 ## Sip and Paint with ArtWithAubrey - 2026-09-13  (Aggressive)
-13 posts x 2 platforms = **26** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 7, 7:00 PM | evening |
-| Tue Sep 8, 11:00 AM | morning |
 | Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Wed Sep 9, 7:00 PM | evening |
@@ -43,30 +39,28 @@ Eligible events: **11** - Skipped: **72**
 | Sun Sep 13, 7:00 PM | evening |
 
 ## Drag King Kareoke - 2026-09-16  (Standard)
-10 posts x 2 platforms = **20** queue entries
+9 posts x 2 platforms = **18** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 7, 7:00 PM | evening |
-| Tue Sep 8, 11:00 AM | morning |
-| Wed Sep 9, 7:00 PM | evening |
-| Thu Sep 10, 11:00 AM | morning |
-| Fri Sep 11, 7:00 PM | evening |
-| Sat Sep 12, 11:00 AM | morning |
-| Sun Sep 13, 7:00 PM | evening |
-| Mon Sep 14, 11:00 AM | morning |
-| Tue Sep 15, 7:00 PM | evening |
-| Wed Sep 16, 11:00 AM | morning |
+| Tue Sep 8, 7:00 PM | evening |
+| Wed Sep 9, 11:00 AM | morning |
+| Thu Sep 10, 7:00 PM | evening |
+| Fri Sep 11, 11:00 AM | morning |
+| Sat Sep 12, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Mon Sep 14, 7:00 PM | evening |
+| Tue Sep 15, 11:00 AM | morning |
+| Wed Sep 16, 7:00 PM | evening |
 
 ## Dolly Parton; A drag Tribute Night - 2026-09-17  (Aggressive)
-18 posts x 2 platforms = **36** queue entries
+17 posts x 2 platforms = **34** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 7, 7:00 PM | evening |
-| Tue Sep 8, 11:00 AM | morning |
-| Wed Sep 9, 7:00 PM | evening |
-| Thu Sep 10, 11:00 AM | morning |
+| Tue Sep 8, 7:00 PM | evening |
+| Wed Sep 9, 11:00 AM | morning |
+| Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
 | Fri Sep 11, 7:00 PM | evening |
 | Sat Sep 12, 11:00 AM | morning |
@@ -87,9 +81,9 @@ Eligible events: **11** - Skipped: **72**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 7, 7:00 PM | evening |
-| Tue Sep 8, 11:00 AM | morning |
-| Wed Sep 9, 7:00 PM | evening |
+| Tue Sep 8, 7:00 PM | evening |
+| Wed Sep 9, 11:00 AM | morning |
+| Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
 | Sat Sep 12, 7:00 PM | evening |
 | Sun Sep 13, 11:00 AM | morning |
@@ -105,10 +99,10 @@ Eligible events: **11** - Skipped: **72**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 7, 7:00 PM | evening |
+| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
-| Fri Sep 11, 11:00 AM | morning |
+| Sat Sep 12, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
 | Mon Sep 14, 11:00 AM | morning |
 | Tue Sep 15, 7:00 PM | evening |
@@ -123,7 +117,7 @@ Eligible events: **11** - Skipped: **72**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 7, 7:00 PM | evening |
+| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
@@ -144,7 +138,7 @@ Eligible events: **11** - Skipped: **72**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 7, 7:00 PM | evening |
+| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
@@ -165,8 +159,8 @@ Eligible events: **11** - Skipped: **72**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 7, 7:00 PM | evening |
-| Wed Sep 9, 11:00 AM | morning |
+| Tue Sep 8, 7:00 PM | evening |
+| Thu Sep 10, 11:00 AM | morning |
 | Sat Sep 12, 7:00 PM | evening |
 | Sun Sep 13, 11:00 AM | morning |
 | Tue Sep 15, 7:00 PM | evening |
@@ -186,7 +180,7 @@ Eligible events: **11** - Skipped: **72**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 7, 7:00 PM | evening |
+| Tue Sep 8, 7:00 PM | evening |
 | Thu Sep 10, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
 | Mon Sep 14, 11:00 AM | morning |
@@ -201,6 +195,33 @@ Eligible events: **11** - Skipped: **72**
 | Fri Sep 25, 7:00 PM | evening |
 | Sat Sep 26, 11:00 AM | morning |
 | Sun Sep 27, 7:00 PM | evening |
+
+## Emo-Night Drag Show Edition - 2026-10-10  (Standard)
+21 posts x 2 platforms = **42** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Sep 8, 7:00 PM | evening |
+| Thu Sep 10, 11:00 AM | morning |
+| Sat Sep 12, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Wed Sep 16, 7:00 PM | evening |
+| Sat Sep 19, 11:00 AM | morning |
+| Sun Sep 20, 7:00 PM | evening |
+| Wed Sep 23, 11:00 AM | morning |
+| Sat Sep 26, 7:00 PM | evening |
+| Sun Sep 27, 11:00 AM | morning |
+| Tue Sep 29, 7:00 PM | evening |
+| Wed Sep 30, 11:00 AM | morning |
+| Thu Oct 1, 7:00 PM | evening |
+| Sat Oct 3, 11:00 AM | morning |
+| Sun Oct 4, 7:00 PM | evening |
+| Mon Oct 5, 11:00 AM | morning |
+| Tue Oct 6, 7:00 PM | evening |
+| Wed Oct 7, 11:00 AM | morning |
+| Thu Oct 8, 7:00 PM | evening |
+| Fri Oct 9, 11:00 AM | morning |
+| Sat Oct 10, 7:00 PM | evening |
 
 ## The Bikini Bottoms - 2026-10-22  (Standard)
 24 posts x 2 platforms = **48** queue entries
@@ -309,4 +330,4 @@ Eligible events: **11** - Skipped: **72**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 324**
+**Total queue entries that would be created: 354**
