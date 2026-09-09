@@ -2,13 +2,19 @@ name: Post scheduler
 
 on:
   schedule:
-    # Every 15 minutes (UTC). Note: GitHub may delay cron by up to ~15 min under load.
+    # Every 15 minutes (UTC) as a backstop. GitHub runs this hours late under
+    # load; the punctual trigger is the Cloudflare Worker in workers/scheduler-cron,
+    # which dispatches this workflow every 5 minutes.
     - cron: "*/15 * * * *"
-  workflow_dispatch:  # allow manual triggering from the Actions tab
+  workflow_dispatch:  # Cloudflare Worker + manual "Run workflow" button
 
 permissions:
   contents: write  # needed to commit the updated queue back
 
+# Own group: two scheduler runs must never post at once. The cadence engine no
+# longer shares this group — the queue file is merged by entry id
+# (code/merge_queue.py), so an engine commit landing mid-run is folded in
+# rather than fought over.
 concurrency:
   group: post-scheduler
   cancel-in-progress: false  # never cancel mid-post; let it finish
@@ -29,6 +35,7 @@ jobs:
         run: pip install requests python-dotenv
 
       - name: Run queue processor
+        id: post
         env:
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
@@ -42,11 +49,13 @@ jobs:
       # save on GitHub's over-1 MB contents path. Self-test first: it costs
       # nothing and guards the rules before any entry is moved.
       - name: Archive finished events
+        id: archive
         run: |
           python code/archive_queue.py --selftest
           python code/archive_queue.py
 
       - name: Commit updated queue
+        id: commit
         run: |
           # Stage first, then test the index: the archive file is untracked on
           # its first run, and `git diff` alone would not see it.
@@ -57,10 +66,10 @@ jobs:
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "Update queue from scheduled run [skip ci]"
-            # Workflows outside the post-scheduler lock (cadence-preview, fb-kit,
-            # eventbrite-auto) can push to main mid-run — retry with rebase
-            # instead of dying, or the posted-markers get lost (double-post risk).
+            # The queue is merged by entry id if the cadence engine committed
+            # meanwhile (see .gitattributes + code/merge_queue.py): our
+            # posted-markers and its new entries both survive.
+            git config merge.queue.driver "python code/merge_queue.py %O %A %B"
             ok=""
             for i in 1 2 3 4; do
               if git pull --rebase -X theirs origin main && git push; then ok=1; break; fi
@@ -69,3 +78,15 @@ jobs:
             done
             [ -n "$ok" ] || exit 1
           fi
+
+      # This workflow had no alert at all, yet it is the one that actually
+      # posts. A failed commit here is the one failure worth a page: a post may
+      # have gone out without being recorded, and the next run would repeat it.
+      - name: Alert on failure
+        if: failure()
+        uses: ./.github/actions/ops-alert
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          text: |
+            ${{ steps.commit.outcome == 'failure' && '🚨 Post scheduler: posts may have been PUBLISHED but the queue could not be pushed to main after 4 tries. Check the log for "Posted!" lines and mark those entries posted in the Post Manager before the next run, or they will post again.' || steps.post.outcome == 'failure' && '⚠️ Post scheduler: the queue processor crashed (not a single-post Meta error — those stay in the queue). Nothing was recorded; check the log.' || steps.archive.outcome == 'failure' && '⚠️ Post scheduler: posting worked but the archive step failed; the queue was not committed this run. Re-run the workflow.' || '⚠️ Post scheduler failed before posting (checkout/setup). Nothing was posted.' }}
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

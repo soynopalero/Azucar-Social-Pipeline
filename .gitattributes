@@ -1,0 +1,8 @@
+# posts_queue.json is edited by several workflows at once (scheduler marks posts
+# posted, cadence engine adds/replaces pending entries, archive moves finished
+# ones out). Merge it by entry id instead of by text — see code/merge_queue.py.
+# Workflows register the driver with:
+#   git config merge.queue.driver "python code/merge_queue.py %O %A %B"
+posts_queue.json merge=queue
+docs/posts_queue.json merge=queue
+archive/posts_archive.json merge=queue

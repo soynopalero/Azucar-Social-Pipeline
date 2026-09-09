@@ -24,8 +24,10 @@ on:
 permissions:
   contents: write
 
+# Shares the caption-drafting lock with cadence-engine.yml (both run the
+# engine); the post scheduler has its own group — see cadence-engine.yml.
 concurrency:
-  group: post-scheduler   # shares the queue-commit lock with the other engines
+  group: cadence
   cancel-in-progress: false
 
 jobs:
@@ -42,6 +44,7 @@ jobs:
         run: pip install requests pillow
 
       - name: Sync flyers from Telegram to Monday
+        id: sync
         env:
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # hero-flyer vision pick
@@ -52,6 +55,7 @@ jobs:
         run: python code/flyer_sync.py
 
       - name: Draft fresh captions (cadence engine)
+        id: engine
         env:
           PYTHONUNBUFFERED: "1"
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
@@ -61,21 +65,21 @@ jobs:
         run: python code/cadence_engine.py --enqueue --write
 
       - name: Commit engine output
-        if: always()
+        id: commit
+        if: always() && steps.engine.outcome != 'skipped'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Queue files merge by entry id (see .gitattributes + code/merge_queue.py).
+          git config merge.queue.driver "python code/merge_queue.py %O %A %B"
           git add posts_queue.json docs/posts_queue.json docs/cadence_preview.md docs/media/ docs/captions/
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
             git commit -m "Flyer sync + cadence run [skip ci]"
-            # Concurrent workflows (eventbrite-auto + engine both push at
-            # publish time) race on main — retry instead of dying.
             ok=""
             for i in 1 2 3 4; do
-              # -X theirs: on conflict keep this run's freshly generated files —
-              # everything committed here is generated output, newest wins.
+              # -X theirs covers the generated preview/caption/media files.
               if git pull --rebase -X theirs origin main && git push; then ok=1; break; fi
               git rebase --abort 2>/dev/null || true
               echo "push raced, retry $i"; sleep $((i * 4))
@@ -83,11 +87,11 @@ jobs:
             [ -n "$ok" ] || exit 1
           fi
 
-      - name: Telegram alert on failure
+      - name: Alert on failure
         if: failure()
-        env:
-          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        run: |
-          for chat in 5056319378 8734741621; do
-            curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage"               -d chat_id=$chat               --data-urlencode "text=⚠️ ${{ github.workflow }} hit an error — captions or posts may be delayed. Pedro can check the log here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null || true
-          done
+        uses: ./.github/actions/ops-alert
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          text: |
+            ${{ steps.sync.outcome == 'failure' && format('⚠️ Flyer sync: the new flyers for Monday item {0} did NOT reach Monday. The person who sent them will need to /update again once this is fixed.', inputs.item_id) || steps.engine.outcome == 'failure' && format('⚠️ Flyer sync: flyers for Monday item {0} are on Monday, but redrafting captions failed for at least one event (see ERROR lines). The daily cadence run will retry.', inputs.item_id) || steps.commit.outcome == 'failure' && '⚠️ Flyer sync: everything ran but the output could not be pushed to main. Re-run the cadence engine workflow.' || '⚠️ Flyer sync failed before doing anything (checkout/setup).' }}
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
