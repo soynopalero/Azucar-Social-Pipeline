@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-08 16:37 PDT - **nothing posted, queue untouched**
+Generated 2026-09-08 20:53 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **72**
+Eligible events: **14** - Skipped: **72**
 
 ## Night of Kings; An All King Drag Show - 2026-09-13  (Aggressive)
-11 posts x 2 platforms = **22** queue entries
+10 posts x 2 platforms = **20** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Wed Sep 9, 7:00 PM | evening |
 | Thu Sep 10, 11:00 AM | morning |
@@ -22,11 +21,10 @@ Eligible events: **13** - Skipped: **72**
 | Sun Sep 13, 7:00 PM | evening |
 
 ## Sip and Paint with ArtWithAubrey - 2026-09-13  (Aggressive)
-11 posts x 2 platforms = **22** queue entries
+10 posts x 2 platforms = **20** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Wed Sep 9, 7:00 PM | evening |
 | Thu Sep 10, 11:00 AM | morning |
@@ -39,11 +37,10 @@ Eligible events: **13** - Skipped: **72**
 | Sun Sep 13, 7:00 PM | evening |
 
 ## Drag King Kareoke - 2026-09-16  (Standard)
-9 posts x 2 platforms = **18** queue entries
+8 posts x 2 platforms = **16** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
@@ -54,11 +51,10 @@ Eligible events: **13** - Skipped: **72**
 | Wed Sep 16, 7:00 PM | evening |
 
 ## Dolly Parton; A drag Tribute Night - 2026-09-17  (Aggressive)
-17 posts x 2 platforms = **34** queue entries
+16 posts x 2 platforms = **32** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
@@ -77,11 +73,10 @@ Eligible events: **13** - Skipped: **72**
 | Thu Sep 17, 7:00 PM | evening |
 
 ## Vida Amore Divas Show Fiesta Patrias - 2026-09-19  (Standard)
-12 posts x 2 platforms = **24** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
@@ -95,11 +90,10 @@ Eligible events: **13** - Skipped: **72**
 | Sat Sep 19, 11:00 AM | morning |
 
 ## An Open Stage Drag Debut - 2026-09-20  (Standard)
-12 posts x 2 platforms = **24** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Sat Sep 12, 11:00 AM | morning |
@@ -113,11 +107,10 @@ Eligible events: **13** - Skipped: **72**
 | Sun Sep 20, 11:00 AM | morning |
 
 ## Heels dance class with Frankie - 2026-09-24  (Standard)
-15 posts x 2 platforms = **30** queue entries
+14 posts x 2 platforms = **28** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Wed Sep 9, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
@@ -134,11 +127,30 @@ Eligible events: **13** - Skipped: **72**
 | Thu Sep 24, 7:00 PM | evening |
 
 ## Heels dance class with Kimora - 2026-09-24  (Standard)
-15 posts x 2 platforms = **30** queue entries
+14 posts x 2 platforms = **28** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
+| Wed Sep 9, 11:00 AM | morning |
+| Thu Sep 10, 7:00 PM | evening |
+| Fri Sep 11, 11:00 AM | morning |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Tue Sep 15, 7:00 PM | evening |
+| Thu Sep 17, 11:00 AM | morning |
+| Fri Sep 18, 7:00 PM | evening |
+| Sat Sep 19, 11:00 AM | morning |
+| Sun Sep 20, 7:00 PM | evening |
+| Mon Sep 21, 11:00 AM | morning |
+| Tue Sep 22, 7:00 PM | evening |
+| Wed Sep 23, 11:00 AM | morning |
+| Thu Sep 24, 7:00 PM | evening |
+
+## American Horror Story viewing party and Drag show - 2026-09-24  (Standard)
+14 posts x 2 platforms = **28** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Wed Sep 9, 11:00 AM | morning |
 | Thu Sep 10, 7:00 PM | evening |
 | Fri Sep 11, 11:00 AM | morning |
@@ -155,11 +167,10 @@ Eligible events: **13** - Skipped: **72**
 | Thu Sep 24, 7:00 PM | evening |
 
 ## Furanium Fever - 2026-09-26  (Standard)
-15 posts x 2 platforms = **30** queue entries
+14 posts x 2 platforms = **28** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Thu Sep 10, 11:00 AM | morning |
 | Sat Sep 12, 7:00 PM | evening |
 | Sun Sep 13, 11:00 AM | morning |
@@ -176,11 +187,10 @@ Eligible events: **13** - Skipped: **72**
 | Sat Sep 26, 7:00 PM | evening |
 
 ## Industry Night Drag Show - 2026-09-27  (Standard)
-15 posts x 2 platforms = **30** queue entries
+14 posts x 2 platforms = **28** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Thu Sep 10, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
 | Mon Sep 14, 11:00 AM | morning |
@@ -197,11 +207,10 @@ Eligible events: **13** - Skipped: **72**
 | Sun Sep 27, 7:00 PM | evening |
 
 ## Emo-Night Drag Show Edition - 2026-10-10  (Standard)
-21 posts x 2 platforms = **42** queue entries
+20 posts x 2 platforms = **40** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Thu Sep 10, 11:00 AM | morning |
 | Sat Sep 12, 7:00 PM | evening |
 | Sun Sep 13, 11:00 AM | morning |
@@ -224,11 +233,10 @@ Eligible events: **13** - Skipped: **72**
 | Sat Oct 10, 7:00 PM | evening |
 
 ## Mosh Night - 2026-10-11  (Standard)
-21 posts x 2 platforms = **42** queue entries
+20 posts x 2 platforms = **40** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 8, 7:00 PM | evening |
 | Thu Sep 10, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
 | Mon Sep 14, 11:00 AM | morning |
@@ -357,4 +365,4 @@ Eligible events: **13** - Skipped: **72**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 396**
+**Total queue entries that would be created: 400**
