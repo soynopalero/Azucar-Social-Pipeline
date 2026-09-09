@@ -66,10 +66,12 @@ jobs:
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update queue from scheduled run [skip ci]"
             # The queue is merged by entry id if the cadence engine committed
             # meanwhile (see .gitattributes + code/merge_queue.py): our
             # posted-markers and its new entries both survive.
             git config merge.queue.driver "python code/merge_queue.py %O %A %B"
+            git diff --cached --quiet || { echo "::error::queue changes were not committed — refusing to continue"; exit 1; }
             ok=""
             for i in 1 2 3 4; do
               if git pull --rebase -X theirs origin main && git push; then ok=1; break; fi
