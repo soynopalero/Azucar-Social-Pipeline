@@ -2443,14 +2443,15 @@
       "scheduled_for_utc": "2026-09-09T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/12953838368_1.jpg",
       "caption": "Ella es Alyana Amore, y este 19 de septiembre viene a poner Azúcar de cabeza. 💎🇲🇽 Con ese glamour plateado que solo ella sabe llevar, Alyana se sube al escenario del Main Floor como parte de las Divas de Vida Amore para el show de Fiestas Patrias — Noche Norteña. Cada movimiento, cada brillo, cada nota va directo a celebrar la Independencia de México con la actitud que Pasco ya conoce y ama. DJ ShaReal pone el ritmo, las luces la persiguen, y tú vas a estar ahí gritando su nombre entre trago y trago. 🥂🔥 Alyana no solo baila — ella cuenta una historia con cada paso, y esta noche esa historia viene envuelta en verde, blanco y rojo. Consíguete tu mesa con ella directamente en @alyanaamore antes de que se llenen, porque esta Diva no repite función. Ven a gritar viva México junto a Alyana Amore — Washington's Longest Running Drag Show te espera. 👑✨\n\n📅 Sábado 19 de septiembre | Puertas 8:30PM / Show 9:30PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $20 cover\n🔞 21+\n#AzucarPasco #OutAndAbout #AlyanaAmore #NocheNortena #FiestasPatrias #VidaAmoreDivas #DragShow #PascoWA",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-09-02T02:12:39.562127+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-09-09T02:00:57.056904+00:00",
+      "result": "Instagram media id: 18101799410361998",
       "campaign": "cadence_vida_amore_divas_show_fiesta_patrias",
       "monday_event_id": "12953838368",
       "event_date": "2026-09-19",
-      "slot": "evening"
+      "slot": "evening",
+      "permalink": "https://www.instagram.com/p/DdDI60Ym8cp/"
     },
     {
       "id": "20260909_020000_d97df6",
@@ -2458,14 +2459,15 @@
       "scheduled_for_utc": "2026-09-09T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/12953838368_1.jpg",
       "caption": "Ella es Alyana Amore, y este 19 de septiembre viene a poner Azúcar de cabeza. 💎🇲🇽 Con ese glamour plateado que solo ella sabe llevar, Alyana se sube al escenario del Main Floor como parte de las Divas de Vida Amore para el show de Fiestas Patrias — Noche Norteña. Cada movimiento, cada brillo, cada nota va directo a celebrar la Independencia de México con la actitud que Pasco ya conoce y ama. DJ ShaReal pone el ritmo, las luces la persiguen, y tú vas a estar ahí gritando su nombre entre trago y trago. 🥂🔥 Alyana no solo baila — ella cuenta una historia con cada paso, y esta noche esa historia viene envuelta en verde, blanco y rojo. Consíguete tu mesa con ella directamente en @alyanaamore antes de que se llenen, porque esta Diva no repite función. Ven a gritar viva México junto a Alyana Amore — Washington's Longest Running Drag Show te espera. 👑✨\n\n📅 Sábado 19 de septiembre | Puertas 8:30PM / Show 9:30PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $20 cover\n🔞 21+\n#AzucarPasco #OutAndAbout #AlyanaAmore #NocheNortena #FiestasPatrias #VidaAmoreDivas #DragShow #PascoWA",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-09-02T02:12:39.562127+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-09-09T02:01:01.658913+00:00",
+      "result": "Facebook post id: 1685260230268768",
       "campaign": "cadence_vida_amore_divas_show_fiesta_patrias",
       "monday_event_id": "12953838368",
       "event_date": "2026-09-19",
-      "slot": "evening"
+      "slot": "evening",
+      "permalink": "https://www.facebook.com/201644454280/posts/1685260280268763"
     },
     {
       "id": "20260909_180000_749157",
@@ -3435,14 +3437,15 @@
       "scheduled_for_utc": "2026-09-09T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/12870459319_0.jpg",
       "caption": "Bring the leather jacket, the eyeliner, the confidence you've been saving — Night of Kings is for everybody who's ever wanted to see kings run the whole show. 👑✨ No dress code except showing up ready to scream for talent. Special guest Slayonce, the dancing king of Tri-Cities, leads a lineup that's all king, all night, hosted by Cherry Pop. This is your Latinx family's living room turned stage — come as you are, sit where you land, leave with your voice half gone from cheering. Azúcar's door is open, the floor is warm, and there's a seat with your name on it. 🖤\n\n📅 Sunday, September 13 | Doors 7PM / Show 8PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $5\n🔞 21+\n#AzucarPasco #OutAndAbout #NightOfKings #ComeAsYouAre #LatinxCommunity #Slayonce #PascoWA #DragKings",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-09-04T16:21:03.854602+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-09-09T02:01:11.043552+00:00",
+      "result": "Instagram media id: 17924427189421378",
       "campaign": "cadence_night_of_kings__an_all_king_drag_show",
       "monday_event_id": "12870459319",
       "event_date": "2026-09-13",
-      "slot": "evening"
+      "slot": "evening",
+      "permalink": "https://www.instagram.com/p/DdDI8rZGXZP/"
     },
     {
       "id": "20260909_020000_55b224",
@@ -3450,14 +3453,15 @@
       "scheduled_for_utc": "2026-09-09T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/12870459319_0.jpg",
       "caption": "Bring the leather jacket, the eyeliner, the confidence you've been saving — Night of Kings is for everybody who's ever wanted to see kings run the whole show. 👑✨ No dress code except showing up ready to scream for talent. Special guest Slayonce, the dancing king of Tri-Cities, leads a lineup that's all king, all night, hosted by Cherry Pop. This is your Latinx family's living room turned stage — come as you are, sit where you land, leave with your voice half gone from cheering. Azúcar's door is open, the floor is warm, and there's a seat with your name on it. 🖤\n\n📅 Sunday, September 13 | Doors 7PM / Show 8PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $5\n🔞 21+\n#AzucarPasco #OutAndAbout #NightOfKings #ComeAsYouAre #LatinxCommunity #Slayonce #PascoWA #DragKings",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-09-04T16:21:03.854602+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-09-09T02:01:14.295785+00:00",
+      "result": "Facebook post id: 1685260520268739",
       "campaign": "cadence_night_of_kings__an_all_king_drag_show",
       "monday_event_id": "12870459319",
       "event_date": "2026-09-13",
-      "slot": "evening"
+      "slot": "evening",
+      "permalink": "https://www.facebook.com/201644454280/posts/1685260550268736"
     },
     {
       "id": "20260909_180000_c2d98a",
@@ -5479,14 +5483,15 @@
       "scheduled_for_utc": "2026-09-09T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/12982121112_0.jpg",
       "caption": "Dim lights, midnight-blue canvas, a moon glowing right where Aubrey tells you to put it. 🌕🎨 The room smells like fresh paint and whatever's in your glass, brushes moving slow and steady while fireflies start appearing stroke by stroke. Chatter buzzing low, laughter over a smudged line here and there, and somehow by the end everyone's holding their own little piece of magic. It's the kind of two hours that slows time down — quiet, glowing, unforgettable. ✨🖌️\n\n📅 Sunday, September 13 | 6PM–8PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $33\n#AzucarPasco #OutAndAbout #SipAndPaint #ArtWithAubrey #PascoWA #PaintNight #Vibes #GlowingCanvas",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-09-05T02:03:15.922644+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-09-09T02:01:23.310833+00:00",
+      "result": "Instagram media id: 18114406948814347",
       "campaign": "cadence_sip_and_paint_with_artwithaubrey",
       "monday_event_id": "12982121112",
       "event_date": "2026-09-13",
-      "slot": "evening"
+      "slot": "evening",
+      "permalink": "https://www.instagram.com/p/DdDI-OjDsgF/"
     },
     {
       "id": "20260909_020000_78f028",
@@ -5494,14 +5499,15 @@
       "scheduled_for_utc": "2026-09-09T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/12982121112_0.jpg",
       "caption": "Dim lights, midnight-blue canvas, a moon glowing right where Aubrey tells you to put it. 🌕🎨 The room smells like fresh paint and whatever's in your glass, brushes moving slow and steady while fireflies start appearing stroke by stroke. Chatter buzzing low, laughter over a smudged line here and there, and somehow by the end everyone's holding their own little piece of magic. It's the kind of two hours that slows time down — quiet, glowing, unforgettable. ✨🖌️\n\n📅 Sunday, September 13 | 6PM–8PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $33\n#AzucarPasco #OutAndAbout #SipAndPaint #ArtWithAubrey #PascoWA #PaintNight #Vibes #GlowingCanvas",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-09-05T02:03:15.922644+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-09-09T02:01:26.900889+00:00",
+      "result": "Facebook post id: 1685260716935386",
       "campaign": "cadence_sip_and_paint_with_artwithaubrey",
       "monday_event_id": "12982121112",
       "event_date": "2026-09-13",
-      "slot": "evening"
+      "slot": "evening",
+      "permalink": "https://www.facebook.com/201644454280/posts/1685260733602051"
     },
     {
       "id": "20260909_180000_cc1947",
@@ -7281,14 +7287,15 @@
       "scheduled_for_utc": "2026-09-09T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13000186471_0.jpg",
       "caption": "Dust off the eyeliner and dig out those band tees — Emo Night just got a drag makeover and it's about to hurt so good. 🖤🎸 Sr. Knight Haven Rexia is hosting a full lineup of chaos: Beah Hazard, Moxie Mettles, Cherry Pop, Arakna Rexia Romanoff, and Ivy Rachael Mae are all bringing their angstiest, most theatrical looks to the Main Floor. Think teenage bedroom anthems, dramatic wig flips, and enough black lipstick to start a revival. This is the crossover you didn't know you needed — scene kid nostalgia meets full drag realness, one night only. Doors open early and this floor WILL fill up, so don't be the one stuck outside missing the first number. Grab your ticket now before Saturday sells out from under you. 🕷️🎤\n\n📅 Saturday, October 10 — Doors 7PM, Show 8:30PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $10\n🔞 18+ to enter / 21+ to drink\n#AzucarPasco #OutAndAbout #EmoNightDrag #DragShowPasco #SrKnightHavenRexia #PascoNightlife #TriCities #EmoRevival",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-09-08T19:10:29.457589+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-09-09T02:01:33.721739+00:00",
+      "result": "Instagram media id: 18038128787834341",
       "campaign": "cadence_emo_night_drag_show_edition",
       "monday_event_id": "13000186471",
       "event_date": "2026-10-10",
-      "slot": "evening"
+      "slot": "evening",
+      "permalink": "https://www.instagram.com/p/DdDI_xTjV_S/"
     },
     {
       "id": "20260909_020000_2c2daf",
@@ -7296,14 +7303,15 @@
       "scheduled_for_utc": "2026-09-09T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13000186471_0.jpg",
       "caption": "Dust off the eyeliner and dig out those band tees — Emo Night just got a drag makeover and it's about to hurt so good. 🖤🎸 Sr. Knight Haven Rexia is hosting a full lineup of chaos: Beah Hazard, Moxie Mettles, Cherry Pop, Arakna Rexia Romanoff, and Ivy Rachael Mae are all bringing their angstiest, most theatrical looks to the Main Floor. Think teenage bedroom anthems, dramatic wig flips, and enough black lipstick to start a revival. This is the crossover you didn't know you needed — scene kid nostalgia meets full drag realness, one night only. Doors open early and this floor WILL fill up, so don't be the one stuck outside missing the first number. Grab your ticket now before Saturday sells out from under you. 🕷️🎤\n\n📅 Saturday, October 10 — Doors 7PM, Show 8:30PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $10\n🔞 18+ to enter / 21+ to drink\n#AzucarPasco #OutAndAbout #EmoNightDrag #DragShowPasco #SrKnightHavenRexia #PascoNightlife #TriCities #EmoRevival",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-09-08T19:10:29.457589+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-09-09T02:01:37.883598+00:00",
+      "result": "Facebook post id: 1685260886935369",
       "campaign": "cadence_emo_night_drag_show_edition",
       "monday_event_id": "13000186471",
       "event_date": "2026-10-10",
-      "slot": "evening"
+      "slot": "evening",
+      "permalink": "https://www.facebook.com/201644454280/posts/1685260913602033"
     },
     {
       "id": "20260910_180000_2303cc",
@@ -7911,14 +7919,15 @@
       "scheduled_for_utc": "2026-09-09T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13000238171_0.jpg",
       "caption": "Riot mode: ACTIVATED. 🔥🤘 Revolutionary Riot Productions is turning Azucar's Main Floor into a straight-up war zone this Sunday, and the lineup is stacked. Oregon nu-metal beasts Rotting In Place headline the chaos, Yakima deathcore beatdown slam FTS is bringing the pit, Cosmic Accident brings that raw Yakima punk energy, and Tri Cities' own Babies Are Narcissists close it out local and loud. Four bands, one floor, zero chill. This is a mosh-at-your-own-risk situation — bring your neck, bring your lungs, leave the attitude of \"I'll just watch\" at home because you WILL get pulled in. All ages till 10:30, so bring the little riot starters early if you got 'em. Doors open at 4, first band hits at 5 sharp. Don't sleep on this one. 🖤💀\n\n📅 Sunday, October 11 — Doors 4PM, Show 5PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $10 cover\n🔞 All ages till 10:30PM\n#AzucarPasco #OutAndAbout #MoshNight #RevolutionaryRiotProductions #PascoPunk #TriCitiesMetal #LiveMusicPasco #DeathcoreNight",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-09-08T19:15:29.004517+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-09-09T02:01:46.002759+00:00",
+      "result": "Instagram media id: 18093922367375573",
       "campaign": "cadence_mosh_night",
       "monday_event_id": "13000238171",
       "event_date": "2026-10-11",
-      "slot": "evening"
+      "slot": "evening",
+      "permalink": "https://www.instagram.com/p/DdDJBHPERhO/"
     },
     {
       "id": "20260909_020000_07ab17",
@@ -7926,14 +7935,15 @@
       "scheduled_for_utc": "2026-09-09T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13000238171_0.jpg",
       "caption": "Riot mode: ACTIVATED. 🔥🤘 Revolutionary Riot Productions is turning Azucar's Main Floor into a straight-up war zone this Sunday, and the lineup is stacked. Oregon nu-metal beasts Rotting In Place headline the chaos, Yakima deathcore beatdown slam FTS is bringing the pit, Cosmic Accident brings that raw Yakima punk energy, and Tri Cities' own Babies Are Narcissists close it out local and loud. Four bands, one floor, zero chill. This is a mosh-at-your-own-risk situation — bring your neck, bring your lungs, leave the attitude of \"I'll just watch\" at home because you WILL get pulled in. All ages till 10:30, so bring the little riot starters early if you got 'em. Doors open at 4, first band hits at 5 sharp. Don't sleep on this one. 🖤💀\n\n📅 Sunday, October 11 — Doors 4PM, Show 5PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $10 cover\n🔞 All ages till 10:30PM\n#AzucarPasco #OutAndAbout #MoshNight #RevolutionaryRiotProductions #PascoPunk #TriCitiesMetal #LiveMusicPasco #DeathcoreNight",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-09-08T19:15:29.004517+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-09-09T02:01:49.628795+00:00",
+      "result": "Facebook post id: 1685261166935341",
       "campaign": "cadence_mosh_night",
       "monday_event_id": "13000238171",
       "event_date": "2026-10-11",
-      "slot": "evening"
+      "slot": "evening",
+      "permalink": "https://www.facebook.com/201644454280/posts/1685261183602006"
     },
     {
       "id": "20260910_180000_70e988",
