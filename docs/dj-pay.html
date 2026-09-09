@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Door Split</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+<style>
+  :root {
+    --dark: #16121d; --card: #221c2e; --card-2: #2a2438; --line: #37304a;
+    --text: #f4f0fa; --muted: #a99fc0;
+    --pink: #ff2d87; --pink-soft: #ff2d8733;
+    --gold: #fdab3d; --gold-soft: #fdab3d33;
+    --ok: #2ecc71;
+    --display: "Bebas Neue", "Oswald", Impact, "Arial Narrow", sans-serif;
+    --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: dark; }
+  body {
+    margin: 0; background: var(--dark); color: var(--text);
+    font: 16px/1.5 var(--body);
+    padding: 20px 14px 80px;
+  }
+  main { max-width: 640px; margin: 0 auto; display: grid; gap: 18px; }
+  .eyebrow { color: var(--pink); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
+  h1 { font-family: var(--display); font-size: 3rem; line-height: .95; letter-spacing: .02em; margin: 4px 0 6px; text-wrap: balance; }
+  .sub { color: var(--muted); font-size: .95rem; margin: 0; max-width: 40ch; }
+  h2 { font-family: var(--display); font-size: 1.45rem; letter-spacing: .04em; color: var(--pink); margin: 0 0 10px; font-weight: 400; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+
+  /* Inputs */
+  .inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 480px) { .inputs { grid-template-columns: 1fr; } }
+  .field label { display: block; color: var(--muted); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+  .money { display: flex; align-items: center; gap: 6px; background: var(--dark); border: 1px solid var(--line); border-radius: 10px; padding: 6px 12px; }
+  .money:focus-within { border-color: var(--pink); box-shadow: 0 0 0 3px var(--pink-soft); }
+  .money span { font-family: var(--display); font-size: 1.6rem; color: var(--muted); }
+  .money input {
+    flex: 1; min-width: 0; width: 100%; background: transparent; border: 0; color: var(--text);
+    font-family: var(--display); font-size: 2.2rem; line-height: 1; padding: 4px 0; outline: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .money input::-webkit-outer-spin-button, .money input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .money input[type=number] { -moz-appearance: textfield; appearance: textfield; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .chip {
+    background: var(--card-2); border: 1px solid var(--line); color: var(--text);
+    border-radius: 999px; padding: 4px 12px; font-size: .85rem; cursor: pointer; font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .chip:hover { border-color: var(--muted); }
+  .chip:focus-visible, .chip.active { outline: none; border-color: var(--pink); color: var(--pink); background: var(--pink-soft); }
+
+  /* Result */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+  @media (max-width: 420px) { .tiles { grid-template-columns: 1fr 1fr; } .tiles .tile:first-child { grid-column: 1 / -1; } }
+  .tile { background: var(--dark); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+  .tile .k { color: var(--muted); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+  .tile .v { font-family: var(--display); font-size: 2.4rem; line-height: 1.05; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .tile.dj { border-color: var(--pink); }
+  .tile.dj .v { color: var(--pink); }
+  .tile.you { border-color: var(--gold); }
+  .tile.you .v { color: var(--gold); }
+  .bar { display: flex; height: 22px; border-radius: 6px; overflow: hidden; background: var(--dark); border: 1px solid var(--line); }
+  .bar div { height: 100%; transition: width .25s ease; }
+  .bar .dj { background: var(--pink); }
+  .bar .you { background: var(--gold); }
+  .legend { display: flex; gap: 16px; margin-top: 8px; font-size: .85rem; color: var(--muted); flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+  .status { margin: 12px 0 0; padding: 8px 12px; border-left: 3px solid var(--pink); background: var(--card-2); border-radius: 0 8px 8px 0; font-size: .92rem; }
+  .status.capped { border-left-color: var(--ok); }
+  .status b { color: var(--pink); }
+  .status.capped b { color: var(--ok); }
+
+  /* Tables */
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .92rem; }
+  th, td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th { color: var(--muted); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
+  th:first-child, td:first-child { text-align: left; }
+  tr:last-child td { border-bottom: 0; }
+  td.dj { color: var(--pink); font-weight: 600; }
+  td.you { color: var(--gold); font-weight: 600; }
+  td.dim, tr.dim td { color: var(--muted); }
+  tr.now td { background: var(--pink-soft); }
+  tr.now td:first-child { color: var(--pink); font-weight: 700; }
+  .rule { color: var(--muted); font-size: .8rem; white-space: normal; }
+
+  /* Cap section */
+  .cap-hero { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .cap-hero .big { font-family: var(--display); font-size: 3.6rem; line-height: 1; color: var(--text); font-variant-numeric: tabular-nums; }
+  .cap-hero .expl { color: var(--muted); max-width: 32ch; font-size: .95rem; }
+  .cap-hero .expl b { color: var(--text); }
+
+  /* Deal terms */
+  details summary { cursor: pointer; font-family: var(--display); font-size: 1.45rem; letter-spacing: .04em; color: var(--pink); list-style: none; display: flex; align-items: center; gap: 8px; }
+  details summary::before { content: "▸"; font-size: 1rem; transition: transform .15s; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .terms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+  @media (max-width: 480px) { .terms { grid-template-columns: 1fr; } }
+  .terms .money input { font-size: 1.6rem; }
+  .terms .money span { font-size: 1.2rem; }
+  .terms .hint { color: var(--muted); font-size: .8rem; margin-top: 4px; }
+  .reset { margin-top: 12px; background: transparent; border: 1px solid var(--line); color: var(--muted); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: .85rem; }
+  .reset:hover, .reset:focus-visible { border-color: var(--pink); color: var(--pink); outline: none; }
+  footer { color: var(--muted); font-size: .8rem; text-align: center; }
+  footer a { color: var(--muted); }
+  @media (prefers-reduced-motion: reduce) { .bar div { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Azúcar · door deal</div>
+    <h1>DJ Door Split</h1>
+    <p class="sub">Set the cover and the headcount. The split follows the deal: first $200 at the door is the DJ's, then 50/50 until the DJ hits $500.</p>
+  </header>
+
+  <section class="card inputs" aria-label="Tonight's numbers">
+    <div class="field">
+      <label for="price">Cover charge</label>
+      <div class="money"><span>$</span><input id="price" type="number" inputmode="decimal" min="0" step="1" value="10"></div>
+      <div class="chips" data-for="price">
+        <button class="chip" data-val="5">$5</button>
+        <button class="chip" data-val="10">$10</button>
+        <button class="chip" data-val="15">$15</button>
+        <button class="chip" data-val="20">$20</button>
+        <button class="chip" data-val="25">$25</button>
+      </div>
+    </div>
+    <div class="field">
+      <label for="people">People through the door</label>
+      <div class="money"><span>#</span><input id="people" type="number" inputmode="numeric" min="0" step="1" value="50"></div>
+      <div class="chips" data-for="people">
+        <button class="chip" data-val="5">5</button>
+        <button class="chip" data-val="20">20</button>
+        <button class="chip" data-val="50">50</button>
+        <button class="chip" data-val="100">100</button>
+        <button class="chip" data-val="150">150</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" aria-label="Tonight's split">
+    <h2>Tonight's split</h2>
+    <div class="tiles">
+      <div class="tile"><div class="k">Door total</div><div class="v" id="door">$500</div></div>
+      <div class="tile dj"><div class="k">DJ gets</div><div class="v" id="dj">$350</div></div>
+      <div class="tile you"><div class="k">You keep</div><div class="v" id="you">$150</div></div>
+    </div>
+    <div class="bar" role="img" aria-label="Share of the door"><div class="dj" id="barDj"></div><div class="you" id="barYou"></div></div>
+    <div class="legend"><span><i style="background:var(--pink)"></i>DJ</span><span><i style="background:var(--gold)"></i>You</span></div>
+    <p class="status" id="status"></p>
+  </section>
+
+  <section class="card" aria-label="How the door is divided">
+    <h2>Where each dollar goes</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Tier</th><th>Door in tier</th><th>DJ</th><th>You</th></tr></thead>
+        <tbody id="tiers"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" aria-label="People needed to cap the DJ">
+    <h2>How many people to reach the $500 cap</h2>
+    <div class="cap-hero">
+      <div class="big" id="capPeople">80 people</div>
+      <div class="expl" id="capExpl"></div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Cover</th><th>DJ clears $200</th><th>DJ hits $500</th><th>Door at cap</th></tr></thead>
+        <tbody id="capRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" aria-label="DJ pay at other headcounts">
+    <h2>DJ pay by headcount</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>People</th><th>Door</th><th>DJ</th><th>You</th></tr></thead>
+        <tbody id="grid"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <details class="card">
+    <summary>Deal terms</summary>
+    <div class="terms">
+      <div class="field">
+        <label for="guarantee">DJ's first dollars</label>
+        <div class="money"><span>$</span><input id="guarantee" type="number" min="0" step="1" value="200"></div>
+        <div class="hint">Goes 100% to the DJ before any split.</div>
+      </div>
+      <div class="field">
+        <label for="split">DJ share after that</label>
+        <div class="money"><input id="split" type="number" min="0" max="100" step="1" value="50"><span>%</span></div>
+        <div class="hint">50 means an even 50/50 split.</div>
+      </div>
+      <div class="field">
+        <label for="cap">DJ cap for the night</label>
+        <div class="money"><span>$</span><input id="cap" type="number" min="0" step="1" value="500"></div>
+        <div class="hint">Everything past this is yours.</div>
+      </div>
+    </div>
+    <button class="reset" id="reset">Reset to the standard deal</button>
+  </details>
+
+  <footer>Spreadsheet version: <a href="dj-pay.xlsx">dj-pay.xlsx</a></footer>
+</main>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const inputs = { price: $('price'), people: $('people'), guarantee: $('guarantee'), split: $('split'), cap: $('cap') };
+  const DEFAULTS = { guarantee: 200, split: 50, cap: 500 };
+
+  const num = (el) => { const v = parseFloat(el.value); return isFinite(v) && v >= 0 ? v : 0; };
+  const money = (v) => {
+    const r = Math.round(v * 100) / 100;
+    const opts = Number.isInteger(r) ? { maximumFractionDigits: 0 } : { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+    return '$' + r.toLocaleString('en-US', opts);
+  };
+  const plural = (n, w) => n.toLocaleString('en-US') + ' ' + (n === 1 ? w : w + 's');
+
+  function terms() {
+    const g = num(inputs.guarantee);
+    const s = Math.min(100, num(inputs.split)) / 100;
+    const c = Math.max(g, num(inputs.cap));
+    return { g, s, c };
+  }
+
+  function splitDoor(door, t) {
+    const tier1 = Math.min(door, t.g);
+    const rest = Math.max(0, door - t.g);
+    let dj = tier1 + rest * t.s;
+    dj = Math.min(dj, t.c);
+    return { door, dj, you: door - dj };
+  }
+
+  // Door total at which the DJ reaches the cap; Infinity if the split can never get there.
+  function doorAtCap(t) {
+    if (t.c <= t.g) return t.c;
+    if (t.s <= 0) return Infinity;
+    return t.g + (t.c - t.g) / t.s;
+  }
+  const peopleFor = (door, price) => (price > 0 && isFinite(door)) ? Math.ceil(door / price) : Infinity;
+
+  function render() {
+    const t = terms();
+    const price = num(inputs.price);
+    const people = Math.floor(num(inputs.people));
+    const door = price * people;
+    const r = splitDoor(door, t);
+    const capDoor = doorAtCap(t);
+
+    $('door').textContent = money(r.door);
+    $('dj').textContent = money(r.dj);
+    $('you').textContent = money(r.you);
+    const djPct = door > 0 ? (r.dj / door) * 100 : 0;
+    $('barDj').style.width = djPct + '%';
+    $('barYou').style.width = (door > 0 ? 100 - djPct : 0) + '%';
+
+    // Status line
+    const st = $('status');
+    st.classList.remove('capped');
+    if (door === 0) {
+      st.innerHTML = 'Nobody through the door yet. Nothing to split.';
+    } else if (r.dj >= t.c) {
+      st.classList.add('capped');
+      st.innerHTML = '<b>DJ is capped at ' + money(t.c) + '.</b> Every dollar past ' + money(capDoor) + ' at the door is yours.';
+    } else if (door <= t.g) {
+      const short = t.g - door;
+      st.innerHTML = '<b>Still inside the DJ’s first ' + money(t.g) + '.</b> The DJ takes the whole door; you keep nothing until ' + money(short) + ' more comes in.';
+    } else {
+      const shortDj = t.c - r.dj;
+      const morePeople = isFinite(capDoor) && price > 0 ? Math.max(0, Math.ceil((capDoor - door) / price)) : null;
+      st.innerHTML = '<b>DJ is ' + money(shortDj) + ' short of the ' + money(t.c) + ' cap.</b>' +
+        (morePeople !== null ? ' About ' + plural(morePeople, 'more person') .replace('more persons', 'more people') + ' at ' + money(price) + ' would get there.' : '');
+    }
+
+    // Tier table
+    const tier1 = Math.min(door, t.g);
+    const capSpan = isFinite(capDoor) ? capDoor - t.g : Infinity;
+    const tier2 = Math.max(0, Math.min(door - t.g, capSpan));
+    const tier3 = Math.max(0, door - t.g - (isFinite(capSpan) ? capSpan : Infinity));
+    const tier3v = isFinite(tier3) ? tier3 : 0;
+    const pct = Math.round(t.s * 100);
+    const rows = [
+      { name: 'First ' + money(t.g), rule: '100% to the DJ', amt: tier1, dj: tier1, you: 0 },
+      { name: isFinite(capDoor) ? money(t.g) + ' to ' + money(capDoor) : 'Above ' + money(t.g), rule: 'DJ ' + pct + '% / you ' + (100 - pct) + '%', amt: tier2, dj: tier2 * t.s, you: tier2 * (1 - t.s) },
+    ];
+    if (isFinite(capDoor)) rows.push({ name: 'Above ' + money(capDoor), rule: 'DJ is capped, 100% to you', amt: tier3v, dj: 0, you: tier3v });
+    $('tiers').innerHTML = rows.map(x =>
+      '<tr class="' + (x.amt === 0 ? 'dim' : '') + '"><td>' + x.name + '<div class="rule">' + x.rule + '</div></td>' +
+      '<td>' + money(x.amt) + '</td><td class="dj">' + money(x.dj) + '</td><td class="you">' + money(x.you) + '</td></tr>'
+    ).join('');
+
+    // Cap section
+    const n = peopleFor(capDoor, price);
+    $('capPeople').textContent = isFinite(n) ? plural(n, 'person').replace(/persons$/, 'people') : '—';
+    $('capExpl').innerHTML = isFinite(n)
+      ? 'at <b>' + money(price) + '</b> a head. The DJ reaches <b>' + money(t.c) + '</b> once the door hits <b>' + money(capDoor) + '</b>.'
+      : (price <= 0 ? 'Set a cover charge to see this.' : 'With a ' + pct + '% share the DJ never reaches the cap.');
+
+    const prices = [5, 10, 15, 20, 25];
+    if (price > 0 && !prices.includes(price)) { prices.push(price); prices.sort((a, b) => a - b); }
+    $('capRows').innerHTML = prices.map(p => {
+      const n1 = peopleFor(t.g, p), n2 = peopleFor(capDoor, p);
+      return '<tr class="' + (p === price ? 'now' : '') + '"><td>' + money(p) + '</td>' +
+        '<td>' + (isFinite(n1) ? plural(n1, 'person').replace(/persons$/, 'people') : '—') + '</td>' +
+        '<td class="dj">' + (isFinite(n2) ? plural(n2, 'person').replace(/persons$/, 'people') : 'never') + '</td>' +
+        '<td>' + (isFinite(capDoor) ? money(capDoor) : '—') + '</td></tr>';
+    }).join('');
+
+    // Headcount grid at the current price
+    const counts = [5, 10, 20, 30, 40, 50, 75, 100, 150, 200];
+    if (people > 0 && !counts.includes(people)) { counts.push(people); counts.sort((a, b) => a - b); }
+    $('grid').innerHTML = counts.map(c => {
+      const x = splitDoor(price * c, t);
+      const capped = x.dj >= t.c && t.c > 0;
+      return '<tr class="' + (c === people ? 'now' : '') + '"><td>' + c.toLocaleString('en-US') + '</td><td>' + money(x.door) + '</td>' +
+        '<td class="dj">' + money(x.dj) + (capped ? ' <span class="rule">cap</span>' : '') + '</td><td class="you">' + money(x.you) + '</td></tr>';
+    }).join('');
+
+    // Chip highlight
+    document.querySelectorAll('.chips').forEach(group => {
+      const cur = num(inputs[group.dataset.for]);
+      group.querySelectorAll('.chip').forEach(ch => ch.classList.toggle('active', parseFloat(ch.dataset.val) === cur));
+    });
+  }
+
+  Object.values(inputs).forEach(el => el.addEventListener('input', render));
+  document.querySelectorAll('.chips').forEach(group => {
+    group.addEventListener('click', (e) => {
+      const chip = e.target.closest('.chip'); if (!chip) return;
+      inputs[group.dataset.for].value = chip.dataset.val;
+      render();
+    });
+  });
+  $('reset').addEventListener('click', () => {
+    inputs.guarantee.value = DEFAULTS.guarantee; inputs.split.value = DEFAULTS.split; inputs.cap.value = DEFAULTS.cap;
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
