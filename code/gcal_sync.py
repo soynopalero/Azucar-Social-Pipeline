@@ -33,6 +33,8 @@ import datetime as dt
 import json
 import os
 import sys
+import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -70,9 +72,37 @@ def event_times_utc(date_iso: str, hour: int, minute: int) -> tuple[str, str]:
             end_local.astimezone(dt.timezone.utc).strftime(fmt))
 
 
+# Apps Script web apps intermittently answer a perfectly good deployment URL
+# with a bare HTTP 404 for a minute or two. Seen live 2026-09-02 and three
+# times on 2026-09-08 (the probe 404'd at 19:11 and 19:15 UTC, having passed
+# at 19:09) — each one failed the whole cadence workflow and paged both owners
+# over a calendar clean-up. Retry those, and the usual 5xx/network blips.
+RETRY_CODES = {404, 429, 500, 502, 503, 504}
+ATTEMPTS = 3
+BACKOFF = (5, 15)  # seconds between attempts
+
+
+def _open_with_retry(req, timeout: int, what: str) -> str:
+    last: Exception | None = None
+    for attempt in range(1, ATTEMPTS + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code not in RETRY_CODES:
+                raise
+            last = e
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            last = e
+        if attempt < ATTEMPTS:
+            wait = BACKOFF[min(attempt, len(BACKOFF)) - 1]
+            print(f"  … {what} failed ({last}); retry {attempt}/{ATTEMPTS - 1} in {wait}s", flush=True)
+            time.sleep(wait)
+    raise last  # type: ignore[misc]
+
+
 def webhook_get(url: str) -> str:
-    with urllib.request.urlopen(url, timeout=60) as r:
-        return r.read().decode("utf-8", "replace")
+    return _open_with_retry(url, 60, "webhook probe")
 
 
 def webhook_post(url: str, payload: dict) -> str:
@@ -82,8 +112,7 @@ def webhook_post(url: str, payload: dict) -> str:
     )
     # Apps Script answers POSTs with a 302 to googleusercontent; urllib
     # follows it as a GET, which serves the script's actual output.
-    with urllib.request.urlopen(req, timeout=90) as r:
-        return r.read().decode("utf-8", "replace")
+    return _open_with_retry(req, 90, f"webhook sync for {payload.get('name') or payload.get('item_id')}")
 
 
 def check_webhook_version(url: str) -> None:
@@ -94,7 +123,11 @@ def check_webhook_version(url: str) -> None:
     try:
         body = webhook_get(url)
     except OSError as e:
-        sys.exit(f"GCAL_WEBHOOK_URL probe failed ({e}) — aborting, nothing sent.")
+        # Calendar clean-up is a convenience, not part of the posting chain.
+        # The workflow runs this step with continue-on-error, so this exit
+        # only marks the step, never the run.
+        sys.exit(f"GCAL_WEBHOOK_URL probe failed after {ATTEMPTS} attempts ({e}) — "
+                 "calendar clean-up skipped this run; nothing sent, posts unaffected.")
     if "azucar-gcal v3" not in body:
         sys.exit(
             "The deployed Apps Script webhook is outdated (v1 can't sync;\n"

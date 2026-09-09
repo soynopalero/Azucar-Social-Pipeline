@@ -4,9 +4,16 @@ name: Eventbrite auto-create
 # (workflow_dispatch via GITHUB_TRIGGER_TOKEN — same mechanism as the cadence
 # engine). Creates Eventbrite pages for every ready item that doesn't have one,
 # writes the URL back to Monday, and refreshes the FB Event Kit.
+#
+# Also runs on a schedule as a backstop: the script is idempotent (it skips
+# items that already have an Eventbrite URL and RESUMES a draft left behind by
+# a run that died mid-way), so a periodic pass turns any one-off Eventbrite
+# outage into a delay of at most ~2 hours instead of a manual chore.
 
 on:
   workflow_dispatch: {}
+  schedule:
+    - cron: "17 */2 * * *"   # every 2 hours (UTC); GitHub may run it late
 
 permissions:
   contents: write
@@ -28,15 +35,23 @@ jobs:
       - name: Install dependencies
         run: pip install pillow requests
 
+      - name: Self-test (offline, fake Eventbrite)
+        id: selftest
+        env:
+          MONDAY_API_KEY: selftest
+        run: python code/monday_to_eventbrite.py --selftest
+
       - name: Git identity (the script pushes the FB kit refresh itself)
         run: |
           git config user.name "eventbrite-bot"
           git config user.email "actions@github.com"
 
       - name: Wait for Monday file uploads to settle
+        if: github.event_name == 'workflow_dispatch'
         run: sleep 20
 
       - name: Create Eventbrite events for all pending items
+        id: create
         env:
           PYTHONUNBUFFERED: "1"
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
@@ -45,15 +60,21 @@ jobs:
           # TELEGRAM_BOT_TOKEN secret hasn't been added to this repo yet.
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_NOTIFY_CHAT_IDS: "5056319378,8734741621"
+          # Failure details go to the maintainer only (Pedro); the script
+          # sends a message that names the event and says whether anything
+          # needs doing. Same id as the default in .github/actions/ops-alert.
+          OPS_ALERT_CHAT_ID: "5056319378"
           # Azucar Events Google Calendar (Apps Script webhook) — silent no-op until set
           GCAL_WEBHOOK_URL: ${{ secrets.GCAL_WEBHOOK_URL }}
         run: python code/monday_to_eventbrite.py --all-pending
 
-      - name: Telegram alert on failure
-        if: failure()
-        env:
-          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        run: |
-          for chat in 5056319378 8734741621; do
-            curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage"               -d chat_id=$chat               --data-urlencode "text=⚠️ ${{ github.workflow }} hit an error — captions or posts may be delayed. Pedro can check the log here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null || true
-          done
+      # The script alerts itself when an event fails (specific message, above).
+      # This catches everything else: a broken checkout, a failed self-test.
+      - name: Alert on failure
+        if: failure() && steps.create.outcome != 'failure'
+        uses: ./.github/actions/ops-alert
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          text: |
+            ${{ steps.selftest.outcome == 'failure' && '⚠️ Eventbrite auto-create: offline self-test failed — a code change broke the Eventbrite client. No events were touched.' || '⚠️ Eventbrite auto-create failed before reaching Eventbrite (checkout/setup). No events were touched; the next run retries.' }}
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

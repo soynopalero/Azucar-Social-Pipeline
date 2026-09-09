@@ -8,10 +8,15 @@ on:
     - cron: "0 16 * * *"   # daily, ~9am Pacific
   workflow_dispatch:
 
-# Share the post-scheduler's group so the two workflows never commit
-# posts_queue.json at the same time.
+# Only the caption-drafting workflows share this group (flyer-sync runs the
+# engine too): two engine passes at once would draft the same captions twice.
+# The post scheduler is NOT in this group any more — posts_queue.json is merged
+# by entry id (code/merge_queue.py), so the two can commit concurrently, and a
+# queued cadence run can no longer be cancelled by the scheduler's 5-minute
+# dispatches (GitHub keeps one running + one pending run per group and drops
+# the rest; that silently skipped the daily pass four times in Aug–Sep 2026).
 concurrency:
-  group: post-scheduler
+  group: cadence
   cancel-in-progress: false
 
 permissions:
@@ -33,14 +38,17 @@ jobs:
         run: pip install requests
 
       # Offline guard: Monday retry classifier + schedule math + caption-parser
-      # cases, no API calls.
+      # cases + queue merge driver, no API calls.
       # Catches a broken parser before the live pass spends Anthropic tokens.
       - name: Self-test
+        id: selftest
         run: |
           python code/monday_api.py --selftest
           python code/cadence_engine.py --selftest
+          python code/merge_queue.py --selftest
 
       - name: Run cadence engine (live enqueue + preview)
+        id: engine
         env:
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -50,33 +58,50 @@ jobs:
 
       # Cleanup pass for the shared Azucar Events Google Calendar: deletes the
       # entry when a Monday item goes Cancelled/Postponed, re-dates it when the
-      # event's date/time moves. LIVE since 2026-08-06 after two clean dry-runs
-      # (the first one caught the duplicate-name deletion bug fixed in webhook
-      # v3). Requires the v3 code/gcal_webhook.gs deployment; against anything
-      # older the script refuses to send.
+      # event's date/time moves. LIVE since 2026-08-06. Requires the v3
+      # code/gcal_webhook.gs deployment; against anything older the script
+      # refuses to send.
+      #
+      # continue-on-error: the calendar is a convenience, not part of the
+      # posting chain. Google's Apps Script endpoint 404s intermittently, and
+      # each one used to fail this whole workflow and page both owners (four
+      # of the six cadence alerts in the first week of Sep 2026 were this).
+      # The script retries; if it still fails the run stays green and the
+      # skip shows up in the job summary instead.
       - name: GCal cleanup
+        id: gcal
+        continue-on-error: true
         env:
           PYTHONUNBUFFERED: "1"
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
           GCAL_WEBHOOK_URL: ${{ secrets.GCAL_WEBHOOK_URL }}
         run: python code/gcal_sync.py --live
 
+      - name: Note a skipped calendar cleanup
+        if: steps.gcal.outcome == 'failure'
+        run: |
+          echo "### ⚠️ Google Calendar cleanup skipped" >> "$GITHUB_STEP_SUMMARY"
+          echo "The Apps Script webhook was unreachable or returned errors after retries. Captions and posts are unaffected; the next daily run tries again. If this repeats for several days, redeploy code/gcal_webhook.gs and check the GCAL_WEBHOOK_URL secret." >> "$GITHUB_STEP_SUMMARY"
+
       - name: Commit queue + preview
-        if: always()   # commit whatever the engine produced, even when it exits red
+        id: commit
+        if: always() && steps.engine.outcome != 'skipped'   # commit whatever the engine produced, even when it exits red
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # posts_queue.json is merged by entry id when another workflow
+          # committed it meanwhile (see .gitattributes + code/merge_queue.py).
+          git config merge.queue.driver "python code/merge_queue.py %O %A %B"
           git add posts_queue.json docs/posts_queue.json docs/cadence_preview.md docs/media/ docs/captions/
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
             git commit -m "Cadence engine run [skip ci]"
-            # Concurrent workflows (eventbrite-auto + engine both push at
-            # publish time) race on main — retry instead of dying.
+            # Other workflows push to main all day — retry instead of dying.
             ok=""
             for i in 1 2 3 4; do
-              # -X theirs: on conflict keep this run's freshly generated files —
-              # everything committed here is generated output, newest wins.
+              # -X theirs applies to the generated preview/caption/media files
+              # (newest wins); the queue files go through the id-merge driver.
               if git pull --rebase -X theirs origin main && git push; then ok=1; break; fi
               git rebase --abort 2>/dev/null || true
               echo "push raced, retry $i"; sleep $((i * 4))
@@ -84,11 +109,13 @@ jobs:
             [ -n "$ok" ] || exit 1
           fi
 
-      - name: Telegram alert on failure
+      # One specific message, to the person who can act on it. What each
+      # message means and what to do is written up in docs/ops-alerts.md.
+      - name: Alert on failure
         if: failure()
-        env:
-          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        run: |
-          for chat in 5056319378 8734741621; do
-            curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage"               -d chat_id=$chat               --data-urlencode "text=⚠️ ${{ github.workflow }} hit an error — captions or posts may be delayed. Pedro can check the log here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null || true
-          done
+        uses: ./.github/actions/ops-alert
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          text: |
+            ${{ steps.engine.outcome == 'failure' && '⚠️ Cadence engine: caption drafting/queueing failed for at least one event (see the ERROR lines in the log). Other events in the run were still processed. Posts already queued are unaffected.' || steps.commit.outcome == 'failure' && '⚠️ Cadence engine: the run worked but its output could not be pushed to main after 4 tries. Newly queued posts may be missing — re-run the workflow.' || steps.selftest.outcome == 'failure' && '⚠️ Cadence engine: offline self-test failed — a code change broke the parser or the queue merge. Nothing ran live.' || '⚠️ Cadence engine failed before the engine step (checkout/setup). Nothing ran live.' }}
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

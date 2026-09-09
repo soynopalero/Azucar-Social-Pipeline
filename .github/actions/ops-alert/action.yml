@@ -1,0 +1,36 @@
+name: Ops alert (Telegram)
+description: >
+  Send a pipeline alert to the person who can act on it. One place to change
+  who gets paged and how the message reads. Deliberately NOT the same list as
+  the "it's done" notifications — Jayme gets those; only Pedro gets failure
+  logs, because a GitHub Actions link is only actionable for whoever maintains
+  the pipeline.
+
+inputs:
+  token:
+    description: Telegram bot token
+    required: true
+  text:
+    description: Message text (plain text; keep it specific — what broke, what it affects, what to do)
+    required: true
+  chat_ids:
+    description: Space-separated Telegram chat ids to notify
+    required: false
+    default: "5056319378"   # Pedro
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        TOKEN: ${{ inputs.token }}
+        TEXT: ${{ inputs.text }}
+        CHATS: ${{ inputs.chat_ids }}
+      run: |
+        if [ -z "$TOKEN" ]; then echo "TELEGRAM_BOT_TOKEN not set — alert skipped"; exit 0; fi
+        for chat in $CHATS; do
+          curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+            -d chat_id="$chat" \
+            -d disable_web_page_preview=true \
+            --data-urlencode "text=$TEXT" >/dev/null || true
+        done
