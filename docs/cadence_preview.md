@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-10 11:52 PDT - **nothing posted, queue untouched**
+Generated 2026-09-10 14:43 PDT - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **72**
+Eligible events: **15** - Skipped: **72**
 
 ## Night of Kings; An All King Drag Show - 2026-09-13  (Aggressive)
 7 posts x 2 platforms = **14** queue entries
@@ -63,6 +63,28 @@ Eligible events: **14** - Skipped: **72**
 | Wed Sep 16, 7:00 PM | evening |
 | Thu Sep 17, 11:00 AM | morning |
 | Thu Sep 17, 7:00 PM | evening |
+
+## End of Summer Blackout Party - 2026-09-18  (Aggressive)
+16 posts x 2 platforms = **32** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Sep 10, 7:00 PM | evening |
+| Fri Sep 11, 11:00 AM | morning |
+| Sat Sep 12, 11:00 AM | morning |
+| Sat Sep 12, 7:00 PM | evening |
+| Sun Sep 13, 11:00 AM | morning |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Mon Sep 14, 7:00 PM | evening |
+| Tue Sep 15, 11:00 AM | morning |
+| Tue Sep 15, 7:00 PM | evening |
+| Wed Sep 16, 11:00 AM | morning |
+| Wed Sep 16, 7:00 PM | evening |
+| Thu Sep 17, 11:00 AM | morning |
+| Thu Sep 17, 7:00 PM | evening |
+| Fri Sep 18, 11:00 AM | morning |
+| Fri Sep 18, 7:00 PM | evening |
 
 ## Vida Amore Divas Show Fiesta Patrias - 2026-09-19  (Standard)
 10 posts x 2 platforms = **20** queue entries
@@ -357,4 +379,4 @@ Eligible events: **14** - Skipped: **72**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 384**
+**Total queue entries that would be created: 416**
