@@ -1,45 +1,38 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-12 11:01 PDT - **nothing posted, queue untouched**
+Generated 2026-09-13 11:27 PDT - **nothing posted, queue untouched**
 
 Eligible events: **15** - Skipped: **72**
 
 ## Night of Kings; An All King Drag Show - 2026-09-13  (Aggressive)
-3 posts x 2 platforms = **6** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
 
 ## Sip and Paint with ArtWithAubrey - 2026-09-13  (Aggressive)
-3 posts x 2 platforms = **6** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
 
 ## Drag King Kareoke - 2026-09-16  (Standard)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
-| Mon Sep 14, 7:00 PM | evening |
-| Tue Sep 15, 11:00 AM | morning |
-| Wed Sep 16, 7:00 PM | evening |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Tue Sep 15, 7:00 PM | evening |
+| Wed Sep 16, 11:00 AM | morning |
 
 ## Dolly Parton; A drag Tribute Night - 2026-09-17  (Aggressive)
-11 posts x 2 platforms = **22** queue entries
+9 posts x 2 platforms = **18** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
 | Mon Sep 14, 11:00 AM | morning |
 | Mon Sep 14, 7:00 PM | evening |
@@ -51,12 +44,10 @@ Eligible events: **15** - Skipped: **72**
 | Thu Sep 17, 7:00 PM | evening |
 
 ## End of Summer Blackout Party - 2026-09-18  (Aggressive)
-13 posts x 2 platforms = **26** queue entries
+11 posts x 2 platforms = **22** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
 | Sun Sep 13, 7:00 PM | evening |
 | Mon Sep 14, 11:00 AM | morning |
 | Mon Sep 14, 7:00 PM | evening |
@@ -70,42 +61,40 @@ Eligible events: **15** - Skipped: **72**
 | Fri Sep 18, 7:00 PM | evening |
 
 ## Vida Amore Divas Show Fiesta Patrias - 2026-09-19  (Standard)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Tue Sep 15, 7:00 PM | evening |
+| Wed Sep 16, 11:00 AM | morning |
+| Thu Sep 17, 7:00 PM | evening |
+| Fri Sep 18, 11:00 AM | morning |
+| Sat Sep 19, 7:00 PM | evening |
+
+## An Open Stage Drag Debut - 2026-09-20  (Standard)
 8 posts x 2 platforms = **16** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
-| Mon Sep 14, 7:00 PM | evening |
-| Tue Sep 15, 11:00 AM | morning |
-| Wed Sep 16, 7:00 PM | evening |
-| Thu Sep 17, 11:00 AM | morning |
-| Fri Sep 18, 7:00 PM | evening |
-| Sat Sep 19, 11:00 AM | morning |
-
-## An Open Stage Drag Debut - 2026-09-20  (Standard)
-9 posts x 2 platforms = **18** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
-| Mon Sep 14, 7:00 PM | evening |
-| Tue Sep 15, 11:00 AM | morning |
-| Wed Sep 16, 7:00 PM | evening |
-| Thu Sep 17, 11:00 AM | morning |
-| Fri Sep 18, 7:00 PM | evening |
-| Sat Sep 19, 11:00 AM | morning |
-| Sun Sep 20, 7:00 PM | evening |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Tue Sep 15, 7:00 PM | evening |
+| Wed Sep 16, 11:00 AM | morning |
+| Thu Sep 17, 7:00 PM | evening |
+| Fri Sep 18, 11:00 AM | morning |
+| Sat Sep 19, 7:00 PM | evening |
+| Sun Sep 20, 11:00 AM | morning |
 
 ## Heels dance class with Frankie - 2026-09-24  (Standard)
 12 posts x 2 platforms = **24** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
-| Mon Sep 14, 7:00 PM | evening |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Tue Sep 15, 7:00 PM | evening |
 | Wed Sep 16, 11:00 AM | morning |
 | Thu Sep 17, 7:00 PM | evening |
 | Fri Sep 18, 11:00 AM | morning |
@@ -121,9 +110,9 @@ Eligible events: **15** - Skipped: **72**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
-| Mon Sep 14, 7:00 PM | evening |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Tue Sep 15, 7:00 PM | evening |
 | Wed Sep 16, 11:00 AM | morning |
 | Thu Sep 17, 7:00 PM | evening |
 | Fri Sep 18, 11:00 AM | morning |
@@ -139,9 +128,9 @@ Eligible events: **15** - Skipped: **72**
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
-| Mon Sep 14, 7:00 PM | evening |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Tue Sep 15, 7:00 PM | evening |
 | Wed Sep 16, 11:00 AM | morning |
 | Thu Sep 17, 7:00 PM | evening |
 | Fri Sep 18, 11:00 AM | morning |
@@ -153,102 +142,98 @@ Eligible events: **15** - Skipped: **72**
 | Thu Sep 24, 11:00 AM | morning |
 
 ## Furanium Fever - 2026-09-26  (Standard)
+12 posts x 2 platforms = **24** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sun Sep 13, 7:00 PM | evening |
+| Tue Sep 15, 11:00 AM | morning |
+| Wed Sep 16, 7:00 PM | evening |
+| Thu Sep 17, 11:00 AM | morning |
+| Sat Sep 19, 7:00 PM | evening |
+| Sun Sep 20, 11:00 AM | morning |
+| Mon Sep 21, 7:00 PM | evening |
+| Tue Sep 22, 11:00 AM | morning |
+| Wed Sep 23, 7:00 PM | evening |
+| Thu Sep 24, 11:00 AM | morning |
+| Fri Sep 25, 7:00 PM | evening |
+| Sat Sep 26, 11:00 AM | morning |
+
+## Industry Night Drag Show - 2026-09-27  (Standard)
 13 posts x 2 platforms = **26** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
-| Tue Sep 15, 7:00 PM | evening |
-| Wed Sep 16, 11:00 AM | morning |
-| Thu Sep 17, 7:00 PM | evening |
-| Sat Sep 19, 11:00 AM | morning |
-| Sun Sep 20, 7:00 PM | evening |
-| Mon Sep 21, 11:00 AM | morning |
-| Tue Sep 22, 7:00 PM | evening |
-| Wed Sep 23, 11:00 AM | morning |
-| Thu Sep 24, 7:00 PM | evening |
-| Fri Sep 25, 11:00 AM | morning |
-| Sat Sep 26, 7:00 PM | evening |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Wed Sep 16, 7:00 PM | evening |
+| Thu Sep 17, 11:00 AM | morning |
+| Fri Sep 18, 7:00 PM | evening |
+| Sun Sep 20, 11:00 AM | morning |
+| Mon Sep 21, 7:00 PM | evening |
+| Tue Sep 22, 11:00 AM | morning |
+| Wed Sep 23, 7:00 PM | evening |
+| Thu Sep 24, 11:00 AM | morning |
+| Fri Sep 25, 7:00 PM | evening |
+| Sat Sep 26, 11:00 AM | morning |
+| Sun Sep 27, 7:00 PM | evening |
 
-## Industry Night Drag Show - 2026-09-27  (Standard)
-14 posts x 2 platforms = **28** queue entries
+## Emo-Night Drag Show Edition - 2026-10-10  (Standard)
+18 posts x 2 platforms = **36** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
-| Mon Sep 14, 7:00 PM | evening |
+| Sun Sep 13, 7:00 PM | evening |
 | Wed Sep 16, 11:00 AM | morning |
-| Thu Sep 17, 7:00 PM | evening |
-| Fri Sep 18, 11:00 AM | morning |
-| Sun Sep 20, 7:00 PM | evening |
-| Mon Sep 21, 11:00 AM | morning |
-| Tue Sep 22, 7:00 PM | evening |
-| Wed Sep 23, 11:00 AM | morning |
-| Thu Sep 24, 7:00 PM | evening |
-| Fri Sep 25, 11:00 AM | morning |
-| Sat Sep 26, 7:00 PM | evening |
-| Sun Sep 27, 11:00 AM | morning |
+| Sat Sep 19, 7:00 PM | evening |
+| Sun Sep 20, 11:00 AM | morning |
+| Wed Sep 23, 7:00 PM | evening |
+| Sat Sep 26, 11:00 AM | morning |
+| Sun Sep 27, 7:00 PM | evening |
+| Tue Sep 29, 11:00 AM | morning |
+| Wed Sep 30, 7:00 PM | evening |
+| Thu Oct 1, 11:00 AM | morning |
+| Sat Oct 3, 7:00 PM | evening |
+| Sun Oct 4, 11:00 AM | morning |
+| Mon Oct 5, 7:00 PM | evening |
+| Tue Oct 6, 11:00 AM | morning |
+| Wed Oct 7, 7:00 PM | evening |
+| Thu Oct 8, 11:00 AM | morning |
+| Fri Oct 9, 7:00 PM | evening |
+| Sat Oct 10, 11:00 AM | morning |
 
-## Emo-Night Drag Show Edition - 2026-10-10  (Standard)
+## Mosh Night - 2026-10-11  (Standard)
 19 posts x 2 platforms = **38** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
-| Wed Sep 16, 7:00 PM | evening |
-| Sat Sep 19, 11:00 AM | morning |
-| Sun Sep 20, 7:00 PM | evening |
-| Wed Sep 23, 11:00 AM | morning |
-| Sat Sep 26, 7:00 PM | evening |
-| Sun Sep 27, 11:00 AM | morning |
-| Tue Sep 29, 7:00 PM | evening |
-| Wed Sep 30, 11:00 AM | morning |
-| Thu Oct 1, 7:00 PM | evening |
-| Sat Oct 3, 11:00 AM | morning |
-| Sun Oct 4, 7:00 PM | evening |
-| Mon Oct 5, 11:00 AM | morning |
-| Tue Oct 6, 7:00 PM | evening |
-| Wed Oct 7, 11:00 AM | morning |
-| Thu Oct 8, 7:00 PM | evening |
-| Fri Oct 9, 11:00 AM | morning |
-| Sat Oct 10, 7:00 PM | evening |
-
-## Mosh Night - 2026-10-11  (Standard)
-20 posts x 2 platforms = **40** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Sun Sep 13, 11:00 AM | morning |
-| Mon Sep 14, 7:00 PM | evening |
-| Thu Sep 17, 11:00 AM | morning |
-| Sun Sep 20, 7:00 PM | evening |
-| Mon Sep 21, 11:00 AM | morning |
-| Thu Sep 24, 7:00 PM | evening |
-| Sun Sep 27, 11:00 AM | morning |
-| Mon Sep 28, 7:00 PM | evening |
-| Wed Sep 30, 11:00 AM | morning |
-| Thu Oct 1, 7:00 PM | evening |
-| Fri Oct 2, 11:00 AM | morning |
-| Sun Oct 4, 7:00 PM | evening |
-| Mon Oct 5, 11:00 AM | morning |
-| Tue Oct 6, 7:00 PM | evening |
-| Wed Oct 7, 11:00 AM | morning |
-| Thu Oct 8, 7:00 PM | evening |
-| Fri Oct 9, 11:00 AM | morning |
-| Sat Oct 10, 7:00 PM | evening |
-| Sun Oct 11, 11:00 AM | morning |
+| Sun Sep 13, 7:00 PM | evening |
+| Mon Sep 14, 11:00 AM | morning |
+| Thu Sep 17, 7:00 PM | evening |
+| Sun Sep 20, 11:00 AM | morning |
+| Mon Sep 21, 7:00 PM | evening |
+| Thu Sep 24, 11:00 AM | morning |
+| Sun Sep 27, 7:00 PM | evening |
+| Mon Sep 28, 11:00 AM | morning |
+| Wed Sep 30, 7:00 PM | evening |
+| Thu Oct 1, 11:00 AM | morning |
+| Fri Oct 2, 7:00 PM | evening |
+| Sun Oct 4, 11:00 AM | morning |
+| Mon Oct 5, 7:00 PM | evening |
+| Tue Oct 6, 11:00 AM | morning |
+| Wed Oct 7, 7:00 PM | evening |
+| Thu Oct 8, 11:00 AM | morning |
+| Fri Oct 9, 7:00 PM | evening |
+| Sat Oct 10, 11:00 AM | morning |
+| Sun Oct 11, 7:00 PM | evening |
 
 ## The Bikini Bottoms - 2026-10-22  (Standard)
 24 posts x 2 platforms = **48** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 12, 7:00 PM | evening |
-| Mon Sep 14, 11:00 AM | morning |
+| Sun Sep 13, 7:00 PM | evening |
+| Tue Sep 15, 11:00 AM | morning |
 | Thu Sep 17, 7:00 PM | evening |
 | Fri Sep 18, 11:00 AM | morning |
 | Mon Sep 21, 7:00 PM | evening |
@@ -349,4 +334,4 @@ Eligible events: **15** - Skipped: **72**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 356**
+**Total queue entries that would be created: 326**
