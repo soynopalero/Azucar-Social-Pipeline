@@ -1,0 +1,78 @@
+name: Runway video
+
+# Manual only — every run spends Runway credits, so nothing fires this on a
+# schedule. See docs/runway.md for the prompt guide and the API key setup.
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: "What should move — camera move, motion, mood (not what the flyer shows)"
+        required: true
+        type: string
+      image_url:
+        description: "Public URL of a flyer to animate (leave blank to generate the first frame too)"
+        required: false
+        type: string
+      shape:
+        description: "vertical = Reels/Stories, square = feed, wide = website"
+        required: true
+        default: vertical
+        type: choice
+        options: [vertical, square, wide]
+      duration:
+        description: "Seconds"
+        required: true
+        default: "5"
+        type: choice
+        options: ["5", "10"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: runway-video
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests python-dotenv
+
+      - name: Generate video
+        env:
+          RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
+          PROMPT: ${{ inputs.prompt }}
+          IMAGE_URL: ${{ inputs.image_url }}
+        run: |
+          # Inputs come through the environment, never interpolated into the
+          # shell — a quote in a prompt must not become a command.
+          args=(--prompt "$PROMPT"
+                --shape "${{ inputs.shape }}"
+                --duration "${{ inputs.duration }}"
+                --out out/runway-video.mp4)
+          if [ -n "$IMAGE_URL" ]; then
+            args+=(--image "$IMAGE_URL")
+          fi
+          python code/runway_video.py "${args[@]}"
+
+      - name: Upload the video
+        uses: actions/upload-artifact@v4
+        with:
+          name: runway-video
+          path: out/runway-video.mp4
+          retention-days: 14
+
+      - name: Where to find it
+        run: |
+          echo "### 🎬 Video ready" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Download it from the **Artifacts** box at the bottom of this run." >> $GITHUB_STEP_SUMMARY
+          echo "Kept for 14 days." >> $GITHUB_STEP_SUMMARY
