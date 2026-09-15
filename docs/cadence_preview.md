@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-15 12:25 PDT - **nothing posted, queue untouched**
+Generated 2026-09-15 14:11 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **74**
+Eligible events: **14** - Skipped: **74**
 
 ## Drag King Kareoke - 2026-09-16  (Standard)
 2 posts x 2 platforms = **4** queue entries
@@ -221,6 +221,22 @@ Eligible events: **13** - Skipped: **74**
 | Wed Oct 21, 7:00 PM | evening |
 | Thu Oct 22, 11:00 AM | morning |
 
+## Rocky horror picture drag show - 2026-10-29  (Light)
+10 posts x 2 platforms = **20** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Sep 21, 7:00 PM | evening |
+| Mon Sep 28, 11:00 AM | morning |
+| Mon Oct 5, 7:00 PM | evening |
+| Mon Oct 12, 11:00 AM | morning |
+| Fri Oct 16, 7:00 PM | evening |
+| Thu Oct 22, 11:00 AM | morning |
+| Fri Oct 23, 7:00 PM | evening |
+| Sun Oct 25, 11:00 AM | morning |
+| Tue Oct 27, 7:00 PM | evening |
+| Thu Oct 29, 11:00 AM | morning |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -300,4 +316,4 @@ Eligible events: **13** - Skipped: **74**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 278**
+**Total queue entries that would be created: 298**
