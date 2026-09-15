@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-14T00:35:16",
+ "generated_at": "2026-09-15T21:12:08",
  "events": [
   {
    "item_id": "12982134086",
@@ -182,6 +182,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/the-bikini-bottoms-tickets-1999940730562",
    "flyer": "media/fb-kit/12985618920_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/12985618920"
+  },
+  {
+   "item_id": "13054632110",
+   "name": "Rocky horror picture drag show",
+   "date_iso": "2026-10-29",
+   "date_display": "Oct 29, 2026",
+   "start_time": "8:00 PM",
+   "end_date_display": "Oct 30, 2026",
+   "end_time": "12:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Get your rice, your cards, your toast ready — Azúcar is turning the Main Floor into Frank-N-Furter's castle for one wild night. Cherry Pop hosts a full shadow cast drag production of The Rocky Horror Picture Show, lip-syncing, strutting, and sweating through every frame while the film plays behind them. This isn't a screening — it's a ritual, and you're in the cast.\n\nProp bags hit every table so you can throw down at exactly the right moment — you'll know when. Sing, shout the callbacks, dance the Time Warp in the aisles. The drag is sharp, the shadow cast is tighter, and the whole room turns into one glittering, corseted fever dream from the first frame to the last.\n\nCome in fishnets, come in a suit, come as Magenta, come as yourself — just come ready to lose your inhibitions with the rest of us. Specialty cocktails, a packed Main Floor, and Cherry Pop keeping the chaos gorgeous all night long. Antici...pation starts at 8pm on October 29. Don't be a virgin about it.\n\n🗓️ Jueves 29 de octubre — Show 8:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 18+ · Cover $15\n\n🎟️ Tickets: https://www.eventbrite.com/e/rocky-horror-picture-drag-show-tickets-2001091594828",
+   "eventbrite_url": "https://www.eventbrite.com/e/rocky-horror-picture-drag-show-tickets-2001091594828",
+   "flyer": "media/fb-kit/13054632110_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13054632110"
   }
  ]
 }
