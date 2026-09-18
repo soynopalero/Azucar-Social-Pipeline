@@ -1,0 +1,107 @@
+name: Pull engagement insights
+
+# Read the real numbers back out of Meta and keep them.
+#
+# WHY DAILY, AND WHY STARTING NOW: per-post metrics stay attached to the post
+# and can be backfilled whenever. The account-level rows cannot —
+# `online_followers` (the hour-by-hour "when is our audience actually awake"
+# metric that should decide our posting times) covers only a ~30-day rolling
+# window, and once a day falls out of it, it is gone for good. Every day this
+# does not run is a row nobody can ever recover. That rolling-window problem
+# is the entire product Metricool sells; running this cron IS the build.
+#
+# PUBLIC REPO NOTE: this commits engagement data to a public repository.
+# Likes and comments are already public on the posts themselves, but reach,
+# follower counts and follower demographics are not — a competitor could read
+# them. If that is not wanted, add `data/insights/` to .gitignore and this
+# workflow keeps working as a Telegram-only report, the same way the sales
+# report handles revenue. Flagged deliberately rather than decided quietly.
+
+on:
+  schedule:
+    - cron: "0 13 * * *"  # 06:00 America/Los_Angeles — after the night's posts have settled
+  workflow_dispatch:
+    inputs:
+      skip_media:
+        description: "Daily account rows only — skip the per-post pull (fast)"
+        required: false
+        type: boolean
+        default: false
+      refresh_days:
+        description: "Re-pull per-post metrics for posts newer than N days"
+        required: false
+        type: string
+        default: "21"
+
+permissions:
+  contents: write  # the point is to keep the history
+
+concurrency:
+  group: insights-pull
+  cancel-in-progress: false  # never cut a pull short; a partial day is a gap
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      # Cheap, offline, and catches a broken join before it writes a report
+      # full of confidently wrong numbers.
+      - name: Check the logic before trusting the numbers
+        run: |
+          python code/pull_insights.py --selftest
+          python code/analyze_insights.py --selftest
+
+      - name: Pull from the Meta Graph API
+        id: pull
+        env:
+          PYTHONUNBUFFERED: "1"
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+        run: |
+          python code/pull_insights.py \
+            ${{ inputs.skip_media && '--skip-media' || '' }} \
+            --refresh-days "${{ inputs.refresh_days || '21' }}"
+
+      # Runs even if the pull came back partial: half the numbers still beat
+      # none, and the report names what is missing rather than printing zeros.
+      - name: Build the report
+        if: always() && steps.pull.outcome != 'skipped'
+        run: python code/analyze_insights.py
+
+      - name: Commit the history
+        if: always() && steps.pull.outcome != 'skipped'
+        run: |
+          git add -A data/insights docs/insights-report.md 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No new insights data — nothing to commit."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Insights pull [skip ci]"
+            ok=""
+            for i in 1 2 3 4; do
+              if git pull --rebase origin "${GITHUB_REF_NAME}" && git push; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push raced, retry $i"; sleep $((i * 4))
+            done
+            [ -n "$ok" ] || exit 1
+          fi
+
+      - name: Alert on failure
+        if: failure()
+        uses: ./.github/actions/ops-alert
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          text: |
+            ⚠️ Insights pull failed — today's engagement snapshot is missing. The per-post numbers can be backfilled, but the daily "followers online by hour" row for today is gone for good once it ages out of Meta's 30-day window. Worth a look today rather than next week.
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
