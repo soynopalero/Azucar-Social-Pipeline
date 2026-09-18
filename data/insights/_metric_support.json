@@ -1,0 +1,35 @@
+{
+  "fb_fans_online": [],
+  "fb_page_day": [],
+  "ig_account_day": [
+    "reach",
+    "follower_count"
+  ],
+  "ig_demo:age": [
+    "follower_demographics"
+  ],
+  "ig_demo:city": [
+    "follower_demographics"
+  ],
+  "ig_demo:country": [
+    "follower_demographics"
+  ],
+  "ig_demo:gender": [
+    "follower_demographics"
+  ],
+  "ig_media:FEED": [],
+  "ig_media:REELS": [
+    "reach",
+    "saved",
+    "likes",
+    "comments",
+    "shares",
+    "total_interactions",
+    "views",
+    "ig_reels_avg_watch_time",
+    "ig_reels_video_view_total_time"
+  ],
+  "ig_online_followers": [
+    "online_followers"
+  ]
+}
