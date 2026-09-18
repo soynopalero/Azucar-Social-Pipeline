@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-18 11:47 PDT - **nothing posted, queue untouched**
+Generated 2026-09-18 12:17 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **76**
+Eligible events: **13** - Skipped: **76**
 
 ## End of Summer Blackout Party - 2026-09-18  (Aggressive)
 1 posts x 2 platforms = **2** queue entries
@@ -172,6 +172,34 @@ Eligible events: **12** - Skipped: **76**
 | Wed Oct 21, 11:00 AM | morning |
 | Thu Oct 22, 7:00 PM | evening |
 
+## Scream Queens Drag Show - 2026-10-23  (Standard)
+22 posts x 2 platforms = **44** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Sep 18, 7:00 PM | evening |
+| Sat Sep 19, 11:00 AM | morning |
+| Tue Sep 22, 7:00 PM | evening |
+| Fri Sep 25, 11:00 AM | morning |
+| Sat Sep 26, 7:00 PM | evening |
+| Tue Sep 29, 11:00 AM | morning |
+| Fri Oct 2, 7:00 PM | evening |
+| Sat Oct 3, 11:00 AM | morning |
+| Tue Oct 6, 7:00 PM | evening |
+| Fri Oct 9, 11:00 AM | morning |
+| Sat Oct 10, 7:00 PM | evening |
+| Mon Oct 12, 11:00 AM | morning |
+| Tue Oct 13, 7:00 PM | evening |
+| Wed Oct 14, 11:00 AM | morning |
+| Fri Oct 16, 7:00 PM | evening |
+| Sat Oct 17, 11:00 AM | morning |
+| Sun Oct 18, 7:00 PM | evening |
+| Mon Oct 19, 11:00 AM | morning |
+| Tue Oct 20, 7:00 PM | evening |
+| Wed Oct 21, 11:00 AM | morning |
+| Thu Oct 22, 7:00 PM | evening |
+| Fri Oct 23, 11:00 AM | morning |
+
 ## Rocky horror picture drag show - 2026-10-29  (Light)
 10 posts x 2 platforms = **20** queue entries
 
@@ -269,4 +297,4 @@ Eligible events: **12** - Skipped: **76**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 224**
+**Total queue entries that would be created: 268**
