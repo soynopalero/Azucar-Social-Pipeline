@@ -17,7 +17,17 @@
   "ig_demo:gender": [
     "follower_demographics"
   ],
-  "ig_media:FEED": [],
+  "ig_media:FEED": [
+    "reach",
+    "saved",
+    "likes",
+    "comments",
+    "shares",
+    "total_interactions",
+    "views",
+    "profile_visits",
+    "follows"
+  ],
   "ig_media:REELS": [
     "reach",
     "saved",
