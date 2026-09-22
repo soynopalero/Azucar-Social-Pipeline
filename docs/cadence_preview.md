@@ -1,71 +1,66 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-21 13:13 PDT - **nothing posted, queue untouched**
+Generated 2026-09-22 12:28 PDT - **nothing posted, queue untouched**
 
 Eligible events: **10** - Skipped: **79**
 
 ## Heels dance class with Frankie - 2026-09-24  (Standard)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 21, 7:00 PM | evening |
-| Tue Sep 22, 11:00 AM | morning |
-| Wed Sep 23, 7:00 PM | evening |
-| Thu Sep 24, 11:00 AM | morning |
+| Tue Sep 22, 7:00 PM | evening |
+| Wed Sep 23, 11:00 AM | morning |
+| Thu Sep 24, 7:00 PM | evening |
 
 ## Heels dance class with Kimora - 2026-09-24  (Standard)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 21, 7:00 PM | evening |
-| Tue Sep 22, 11:00 AM | morning |
-| Wed Sep 23, 7:00 PM | evening |
-| Thu Sep 24, 11:00 AM | morning |
+| Tue Sep 22, 7:00 PM | evening |
+| Wed Sep 23, 11:00 AM | morning |
+| Thu Sep 24, 7:00 PM | evening |
 
 ## American Horror Story viewing party and Drag show - 2026-09-24  (Standard)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 21, 7:00 PM | evening |
-| Tue Sep 22, 11:00 AM | morning |
-| Wed Sep 23, 7:00 PM | evening |
-| Thu Sep 24, 11:00 AM | morning |
+| Tue Sep 22, 7:00 PM | evening |
+| Wed Sep 23, 11:00 AM | morning |
+| Thu Sep 24, 7:00 PM | evening |
 
 ## Furanium Fever - 2026-09-26  (Standard)
+5 posts x 2 platforms = **10** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Sep 22, 7:00 PM | evening |
+| Wed Sep 23, 11:00 AM | morning |
+| Thu Sep 24, 7:00 PM | evening |
+| Fri Sep 25, 11:00 AM | morning |
+| Sat Sep 26, 7:00 PM | evening |
+
+## Industry Night Drag Show - 2026-09-27  (Standard)
 6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 21, 7:00 PM | evening |
-| Tue Sep 22, 11:00 AM | morning |
-| Wed Sep 23, 7:00 PM | evening |
-| Thu Sep 24, 11:00 AM | morning |
-| Fri Sep 25, 7:00 PM | evening |
-| Sat Sep 26, 11:00 AM | morning |
-
-## Industry Night Drag Show - 2026-09-27  (Standard)
-7 posts x 2 platforms = **14** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Mon Sep 21, 7:00 PM | evening |
-| Tue Sep 22, 11:00 AM | morning |
-| Wed Sep 23, 7:00 PM | evening |
-| Thu Sep 24, 11:00 AM | morning |
-| Fri Sep 25, 7:00 PM | evening |
-| Sat Sep 26, 11:00 AM | morning |
-| Sun Sep 27, 7:00 PM | evening |
+| Tue Sep 22, 7:00 PM | evening |
+| Wed Sep 23, 11:00 AM | morning |
+| Thu Sep 24, 7:00 PM | evening |
+| Fri Sep 25, 11:00 AM | morning |
+| Sat Sep 26, 7:00 PM | evening |
+| Sun Sep 27, 11:00 AM | morning |
 
 ## Emo-Night Drag Show Edition - 2026-10-10  (Standard)
 15 posts x 2 platforms = **30** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 21, 7:00 PM | evening |
-| Wed Sep 23, 11:00 AM | morning |
+| Tue Sep 22, 7:00 PM | evening |
+| Thu Sep 24, 11:00 AM | morning |
 | Sat Sep 26, 7:00 PM | evening |
 | Sun Sep 27, 11:00 AM | morning |
 | Tue Sep 29, 7:00 PM | evening |
@@ -85,7 +80,7 @@ Eligible events: **10** - Skipped: **79**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 21, 7:00 PM | evening |
+| Tue Sep 22, 7:00 PM | evening |
 | Thu Sep 24, 11:00 AM | morning |
 | Sun Sep 27, 7:00 PM | evening |
 | Mon Sep 28, 11:00 AM | morning |
@@ -106,7 +101,7 @@ Eligible events: **10** - Skipped: **79**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 21, 7:00 PM | evening |
+| Tue Sep 22, 7:00 PM | evening |
 | Wed Sep 23, 11:00 AM | morning |
 | Thu Sep 24, 7:00 PM | evening |
 | Fri Sep 25, 11:00 AM | morning |
@@ -133,8 +128,8 @@ Eligible events: **10** - Skipped: **79**
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Sep 21, 7:00 PM | evening |
-| Wed Sep 23, 11:00 AM | morning |
+| Tue Sep 22, 7:00 PM | evening |
+| Thu Sep 24, 11:00 AM | morning |
 | Fri Sep 25, 7:00 PM | evening |
 | Sat Sep 26, 11:00 AM | morning |
 | Tue Sep 29, 7:00 PM | evening |
@@ -255,4 +250,4 @@ Eligible events: **10** - Skipped: **79**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 214**
+**Total queue entries that would be created: 204**
