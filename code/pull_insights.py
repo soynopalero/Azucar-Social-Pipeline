@@ -57,6 +57,7 @@ from insights_api import (  # noqa: E402
 IG_MEDIA_PATH = DATA_DIR / "ig_media.json"
 FB_POSTS_PATH = DATA_DIR / "fb_posts.json"
 ACCOUNT_DAILY_PATH = DATA_DIR / "account_daily.json"
+ONLINE_FOLLOWERS_PATH = DATA_DIR / "online_followers.json"
 
 IG_MEDIA_FIELDS = (
     "id,caption,media_type,media_product_type,permalink,timestamp,"
@@ -91,10 +92,13 @@ FB_POST_METRICS = [
     "post_clicks", "post_reactions_by_type_total", "post_video_views",
 ]
 
-IG_ACCOUNT_DAY = [
-    "reach", "follower_count", "profile_views", "website_clicks",
-    "accounts_engaged", "total_interactions", "likes", "comments",
-    "saves", "shares", "views",
+# Only these two still answer as a plain daily time series. Everything else
+# at account level now has to be asked for with metric_type=total_value,
+# and silently comes back "unsupported" if it is not.
+IG_ACCOUNT_DAY = ["reach", "follower_count"]
+IG_ACCOUNT_TOTAL = [
+    "views", "accounts_engaged", "total_interactions", "profile_views",
+    "website_clicks", "likes", "comments", "saves", "shares", "reach",
 ]
 
 FB_PAGE_DAY = [
@@ -251,6 +255,64 @@ def pull_fb_posts(token: str, page_id: str, refresh_days: int) -> int:
     return len(store)
 
 
+def online_days(series, today: str) -> dict:
+    """Normalise Meta's online_followers payload to {YYYY-MM-DD: {hour: n}}.
+
+    Several days flatten to {end_time: {hour: n}}; a single day flattens
+    straight to {hour: n}. Empty days stay as {} so the caller can count them.
+    """
+    if not isinstance(series, dict) or not series:
+        return {}
+    if all(isinstance(v, dict) for v in series.values()):
+        return {str(k)[:10]: v for k, v in series.items()}
+    if all(isinstance(v, (int, float)) for v in series.values()):
+        return {today: series}
+    return {}
+
+
+def pull_online_followers(token: str, ig_user_id: str) -> dict:
+    """Hour-by-hour follower activity, kept in its own file keyed by day.
+
+    Asked for without a date range, Meta returns only today and yesterday —
+    and it has not computed those yet, so both come back as `{}`. That is why
+    every row before this change was empty. Asking for the whole ~30-day
+    window returns the days it *has* computed, so each run also backfills any
+    day a missed run skipped. Only days that arrive filled are written, and
+    a filled day is never overwritten with an empty one.
+    """
+    since = int((datetime.now(timezone.utc) - timedelta(days=29)).timestamp())
+    until = int(datetime.now(timezone.utc).timestamp())
+    try:
+        got = insights(
+            ig_user_id, token, ["online_followers"],
+            support_key="ig_online_followers", period="lifetime",
+            since=since, until=until,
+        )
+    except GraphError as exc:
+        print(f"  ! online_followers: {exc}")
+        return {"_error": str(exc)}
+
+    days = online_days(got.get("online_followers"),
+                       datetime.now(timezone.utc).date().isoformat())
+
+    store = load_store(ONLINE_FOLLOWERS_PATH)
+    added = 0
+    for day, hours in days.items():
+        if hours and not store.get(day):
+            added += 1
+        if hours:
+            store[day] = {str(h): n for h, n in hours.items()}
+    save_store(ONLINE_FOLLOWERS_PATH, store)
+
+    filled = sum(1 for h in days.values() if h)
+    print(f"  Followers online by hour: {filled} of {len(days)} days filled, "
+          f"{added} new ({len(store)} days on file)")
+    if not filled:
+        return {"_error": "online_followers came back with no hourly values",
+                "_days_asked": len(days)}
+    return {"days_filled": filled, "days_added": added, "days_on_file": len(store)}
+
+
 def pull_account_daily(token: str, ig_user_id: str, page_id: str) -> list:
     """The perishable rows. Everything here is why the cron matters.
 
@@ -275,17 +337,23 @@ def pull_account_daily(token: str, ig_user_id: str, page_id: str) -> list:
         row["instagram"] = {"_error": str(exc)}
         print(f"  ! Instagram account metrics: {exc}")
 
+    # Totals for the last 24 hours. Kept apart from the time series above so a
+    # failure here never costs us reach and follower_count.
+    try:
+        row["instagram_totals"] = insights(
+            ig_user_id, token, IG_ACCOUNT_TOTAL,
+            support_key="ig_account_total", period="day", metric_type="total_value",
+            since=int((datetime.now(timezone.utc) - timedelta(days=1)).timestamp()),
+            until=until,
+        )
+    except GraphError as exc:
+        row["instagram_totals"] = {"_error": str(exc)}
+        print(f"  ! Instagram account totals: {exc}")
+
     # The single most useful row we collect, and the one with the shortest
     # shelf life: hour-by-hour, when are our followers actually on Instagram.
     # This is what replaces guessing at 11am and 7pm.
-    try:
-        row["instagram_online_followers"] = insights(
-            ig_user_id, token, ["online_followers"],
-            support_key="ig_online_followers", period="lifetime",
-        )
-    except GraphError as exc:
-        row["instagram_online_followers"] = {"_error": str(exc)}
-        print(f"  ! online_followers: {exc}")
+    row["instagram_online_followers"] = pull_online_followers(token, ig_user_id)
 
     try:
         demo = {}
@@ -365,6 +433,14 @@ def selftest() -> int:
 
     assert _flatten({"data": [{"values": []}]}) == {}
 
+    # online_followers: several days, one day, and the all-empty case that
+    # every snapshot before 2026-09-24 held.
+    multi = {"2026-09-01T07:00:00+0000": {"0": 5, "19": 40},
+             "2026-09-02T07:00:00+0000": {}}
+    assert online_days(multi, "x") == {"2026-09-01": {"0": 5, "19": 40}, "2026-09-02": {}}
+    assert online_days({"0": 5, "19": 40}, "2026-09-03") == {"2026-09-03": {"0": 5, "19": 40}}
+    assert online_days({}, "x") == {} and online_days(None, "x") == {}
+
     print("selftest: all checks passed")
     return 0
 
@@ -408,7 +484,7 @@ def main() -> int:
         dead = pull_account_daily(token, env["IG_USER_ID"], env["FB_PAGE_ID"])
         for section in dead:
             failures.append(f"account snapshot section '{section}' came back empty")
-            if section.startswith("instagram"):
+            if section.startswith("instagram") and section != "instagram_totals":
                 perishable = True
     except Exception as exc:  # noqa: BLE001 - one section must not sink the rest
         failures.append(f"account snapshot: {exc}")
