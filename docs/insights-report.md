@@ -1,11 +1,11 @@
 # Azúcar — real engagement report
 
-_Generated 2026-09-24 10:46 PDT by `code/analyze_insights.py`. Numbers come from the Meta Graph API, joined to `posts_queue.json`._
+_Generated 2026-09-24 13:18 PDT by `code/analyze_insights.py`. Numbers come from the Meta Graph API, joined to `posts_queue.json`._
 
 ## What this is built on
 
-- **147** published posts with metrics, of 301 marked posted in the queue
-- **1739** Instagram posts and **0** Facebook posts on file
+- **151** published posts with metrics, of 309 marked posted in the queue
+- **1743** Instagram posts and **1297** Facebook posts on file
 - **7** daily account snapshots
 
 ## 1. Does posting more cost us reach?
@@ -15,7 +15,7 @@ The reason we paused. Every published post, labelled with how many posts went ou
 | Posts that day (all events) | Posts measured | Median reach | Median eng. rate |
 |---|---:|---:|---:|
 | 1-4 posts | 10 | 353 | 4.8% |
-| 5-9 posts | 16 | 186 (-47%) | 3.6% |
+| 5-9 posts | 20 | 166 (-53%) | 3.8% |
 | 10-19 posts | 74 | 152 (-57%) | 2.9% |
 | 20+ posts | 47 | 145 (-59%) | 2.5% |
 
@@ -33,14 +33,14 @@ _No `online_followers` data yet — it needs the daily pull to have run at least
 
 | Platform | Posts | Median reach | Median eng. rate |
 |---|---:|---:|---:|
-| instagram | 147 | 155 | 3.0% |
+| instagram | 151 | 152 | 3.1% |
 
 
 ### Media type
 
 | Media type | Posts | Median reach | Median eng. rate |
 |---|---:|---:|---:|
-| FEED | 147 | 155 | 3.0% |
+| FEED | 151 | 152 | 3.1% |
 
 
 ### Time slot
@@ -48,7 +48,7 @@ _No `online_followers` data yet — it needs the daily pull to have run at least
 | Time slot | Posts | Median reach | Median eng. rate |
 |---|---:|---:|---:|
 | evening | 73 | 167 | 3.1% |
-| morning | 74 | 144 | 2.9% |
+| morning | 78 | 136 | 3.1% |
 
 
 ### Day of week
@@ -57,28 +57,28 @@ _No `online_followers` data yet — it needs the daily pull to have run at least
 |---|---:|---:|---:|
 | Friday | 20 | 190 | 3.7% |
 | Saturday | 21 | 181 | 3.6% |
-| Tuesday | 16 | 180 | 2.7% |
+| Tuesday | 16 | 181 | 2.7% |
 | Sunday | 28 | 158 | 2.6% |
-| Thursday | 25 | 144 | 2.3% |
+| Thursday | 29 | 136 | 2.6% |
 | Monday | 24 | 130 | 2.9% |
-| Wednesday | 13 | 102 | 3.3% |
+| Wednesday | 13 | 108 | 3.3% |
 
 
 ### Campaign
 
 | Campaign | Posts | Median reach | Median eng. rate |
 |---|---:|---:|---:|
-| cadence_the_bikini_bottoms | 5 | 263 | 7.1% |
-| cadence_furanium_fever | 20 | 212 | 3.8% |
+| cadence_the_bikini_bottoms | 6 | 238 | 7.9% |
+| cadence_furanium_fever | 21 | 205 | 3.9% |
 | cadence_end_of_summer_blackout_party | 12 | 201 | 2.8% |
-| cadence_emo_night_drag_show_edition | 7 | 185 | 8.0% |
-| cadence_mosh_night | 7 | 160 | 4.8% |
+| cadence_emo_night_drag_show_edition | 7 | 189 | 7.4% |
+| cadence_mosh_night | 8 | 159 | 4.8% |
 | cadence_dolly_parton__a_drag_tribute_night | 16 | 158 | 2.7% |
 | cadence_industry_night_drag_show | 13 | 150 | 2.7% |
 | cadence_american_horror_story_viewing_party_and_drag_show | 12 | 146 | 2.6% |
-| cadence_heels_dance_class_with_frankie | 13 | 137 | 3.3% |
+| cadence_heels_dance_class_with_frankie | 13 | 137 | 3.2% |
 | cadence_vida_amore_divas_show_fiesta_patrias | 12 | 126 | 2.1% |
-| cadence_heels_dance_class_with_kimora | 15 | 122 | 2.0% |
+| cadence_heels_dance_class_with_kimora | 16 | 115 | 2.2% |
 | cadence_an_open_stage_drag_debut | 12 | 115 | 2.6% |
 
 
@@ -93,7 +93,7 @@ _No `online_followers` data yet — it needs the daily pull to have run at least
 | 583 | 3.9% | instagram | Sep 05, 11:00 | The stage is EMPTY and that's exactly the point. 🎤✨ Azúcar is throwing |
 | 567 | 3.9% | instagram | Sep 08, 19:00 | Riot mode: ACTIVATED. 🔥🤘 Revolutionary Riot Productions is turning Azu |
 | 495 | 7.9% | instagram | Aug 23, 11:00 | Mark it down: Furanium Fever hits Azúcar's Main Floor on Saturday, Sep |
-| 481 | 4.8% | instagram | Sep 19, 11:00 | Fog rolls across the Main Floor. Glitter catches the black-light like  |
+| 483 | 4.8% | instagram | Sep 19, 11:00 | Fog rolls across the Main Floor. Glitter catches the black-light like  |
 | 475 | 6.9% | instagram | Aug 19, 11:00 | Disco ball spinning, glow paint glowing, bass rattling your ribcage —  |
 | 456 | 8.8% | instagram | Sep 11, 19:00 | Grab your pineapple, we're diving deep tonight 🍍🌊 Azucar's Main Floor  |
 
@@ -101,11 +101,11 @@ _No `online_followers` data yet — it needs the daily pull to have run at least
 
 | Reach | Eng. rate | Platform | When | Opening line |
 |---:|---:|---|---|---|
-| 52 | 0.0% | instagram | Sep 23, 11:00 | Lights down, lashes on, and the smell of tequila already in the air. 💄 |
-| 64 | 0.0% | instagram | Sep 18, 11:00 | Heels clicking on the Main Floor. Mirror wall catching every angle. Ki |
-| 66 | 0.0% | instagram | Sep 10, 11:00 | The stage is EMPTY and that's exactly the point. 🎤✨ Azúcar is throwing |
-| 73 | 0.0% | instagram | Sep 21, 19:00 | Heads up, Pasco — Kimora is stepping onto the Main Floor and she's bri |
-| 73 | 2.7% | instagram | Sep 22, 19:00 | Mark it down — Heels Dance Class is back on the Main Floor and Frankie |
+| 29 | 6.9% | instagram | Sep 24, 11:00 | Mark it down. 📌 Kimora is teaching an intermediate-advanced heels chor |
+| 38 | 10.5% | instagram | Sep 24, 11:00 | Grab your pineapple, we're diving deep tonight 🍍🌊 Azucar's Main Floor  |
+| 39 | 5.1% | instagram | Sep 24, 11:00 | Mark it down: Sunday, October 11 — Mosh Night takes over Azucar's Main |
+| 47 | 6.4% | instagram | Sep 24, 11:00 | Disco ball spinning, glow paint glowing, bass rattling your ribcage —  |
+| 54 | 0.0% | instagram | Sep 23, 11:00 | Lights down, lashes on, and the smell of tequila already in the air. 💄 |
 
 ## Metrics this API version no longer returns
 
@@ -116,6 +116,9 @@ Listed so a missing number is never mistaken for a zero:
 - `impressions`
 - `likes`
 - `plays`
+- `post_engaged_users`
+- `post_impressions`
+- `post_impressions_unique`
 - `profile_visits`
 - `reach`
 - `saved`
