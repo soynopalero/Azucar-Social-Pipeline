@@ -1,0 +1,345 @@
+<title>Azúcar Social Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#faf8fa; --panel:#ffffff; --ink:#1d1620; --ink-2:#584e5e; --muted:#83798a; --line:#e8e1e9; --grid:#efe9f0;
+  --ig:#c2186b; --fb:#2f6fd0; --base:#d3cad6;
+  --good:#1e7f4a; --good-bg:#e5f4ea; --warn:#9a5d05; --warn-bg:#fbf0dc; --crit:#b3261e; --crit-bg:#fbe6e4;
+  --accent-bg:#fbe7f0;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#151117; --panel:#1e1921; --ink:#f4eef5; --ink-2:#c6bcc9; --muted:#9a90a0; --line:#342c38; --grid:#2a232d;
+    --ig:#e0508f; --fb:#4f88e3; --base:#4b424f;
+    --good:#5fd09a; --good-bg:#16301f; --warn:#e8b04a; --warn-bg:#35270f; --crit:#f3827a; --crit-bg:#3a1a18;
+    --accent-bg:#3a1a2a;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#151117; --panel:#1e1921; --ink:#f4eef5; --ink-2:#c6bcc9; --muted:#9a90a0; --line:#342c38; --grid:#2a232d;
+  --ig:#e0508f; --fb:#4f88e3; --base:#4b424f;
+  --good:#5fd09a; --good-bg:#16301f; --warn:#e8b04a; --warn-bg:#35270f; --crit:#f3827a; --crit-bg:#3a1a18;
+  --accent-bg:#3a1a2a;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;font-variant-numeric:tabular-nums}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:28px 64px;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:24px;font-weight:800}
+h3{font-size:16px;font-weight:600}
+p{margin:0;max-width:68ch}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.sub{color:var(--ink-2)}
+.muted{color:var(--muted);font-size:13px}
+header{display:flex;flex-direction:column;gap:10px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;vertical-align:baseline;margin-right:6px}
+.dot.ig{background:var(--ig)} .dot.fb{background:var(--fb)} .dot.base{background:var(--base)}
+section{display:flex;flex-direction:column;gap:16px}
+
+/* short version */
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.finding{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.pill{align-self:flex-start;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
+.pill.warn{color:var(--warn);background:var(--warn-bg)}
+.pill.crit{color:var(--crit);background:var(--crit-bg)}
+.pill.good{color:var(--good);background:var(--good-bg)}
+.finding strong{font-family:var(--display);font-size:19px;font-weight:600;line-height:1.25}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tile{background:var(--panel);padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.tile .v{font-family:var(--display);font-size:32px;font-weight:800;line-height:1.1}
+.tile .l{font-size:13px;color:var(--ink-2)}
+.tile .d{font-size:12.5px;font-weight:600}
+.d.down{color:var(--crit)} .d.flat{color:var(--warn)} .d.up{color:var(--good)}
+
+/* charts */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{fill:var(--muted);font-family:var(--body);font-size:11px}
+.chart .val{fill:var(--ink-2);font-size:11.5px;font-weight:600}
+.chart .gl{stroke:var(--grid);stroke-width:1}
+.chart .ax{stroke:var(--line);stroke-width:1}
+.hit{fill:transparent;cursor:default}
+#tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12.5px;line-height:1.4;padding:7px 10px;border-radius:8px;max-width:240px;z-index:10;box-shadow:0 4px 14px rgb(0 0 0 / .18)}
+.callout{border-left:3px solid var(--ig);background:var(--accent-bg);padding:12px 14px;border-radius:0 8px 8px 0;font-size:14.5px}
+.callout b{font-weight:600}
+
+/* lists */
+.rows{display:flex;flex-direction:column;gap:9px}
+.row{display:grid;grid-template-columns:minmax(90px,150px) 1fr 52px;align-items:center;gap:10px;font-size:13.5px}
+.row .bar{height:12px;border-radius:0 4px 4px 0;background:var(--ig)}
+.row .bar.alt{background:var(--base)}
+.row .n{text-align:right;color:var(--ink-2);font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;white-space:nowrap}
+.tablewrap{overflow-x:auto}
+
+/* decisions */
+.decisions{display:flex;flex-direction:column;gap:12px}
+.decision{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:start}
+.decision .who{grid-row:span 2;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.who.you{background:var(--accent-bg);color:var(--ig)}
+.who.us{background:var(--good-bg);color:var(--good)}
+.decision b{font-family:var(--display);font-size:17px;font-weight:600}
+.decision p{color:var(--ink-2);font-size:14px}
+.split{display:flex;height:22px;border-radius:6px;overflow:hidden;gap:2px}
+.split div{display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:600;color:#fff}
+ul.plain{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;color:var(--ink-2);font-size:14px;max-width:75ch}
+footer{border-top:1px solid var(--line);padding-top:16px}
+@media (max-width:520px){ .decision{grid-template-columns:1fr} .decision .who{grid-row:auto;justify-self:start} }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Director's view · data through Sep 24, 2026</div>
+    <h1>Azúcar Social Pulse</h1>
+    <p class="sub">What our Instagram (<span class="dot ig"></span>@cluboutandabout) and Facebook (<span class="dot fb"></span>Out &amp; About) numbers say, and the few decisions they point to. Every figure comes from Meta's own reporting, pulled by our daily job.</p>
+  </header>
+
+  <section aria-labelledby="short">
+    <h2 id="short">The short version</h2>
+    <div class="findings">
+      <div class="finding">
+        <span class="pill crit">Needs a decision</span>
+        <strong>We post 4× more than in spring, and each post now reaches 60–80% fewer people.</strong>
+        <p class="sub">Instagram went from about 60 posts a month to about 280. Facebook views per post fell from about 450 to about 90. Past about 6 posts a day, extra posts mostly compete with each other.</p>
+      </div>
+      <div class="finding">
+        <span class="pill good">Biggest opportunity</span>
+        <strong>Reels reach 3× more people than photos. We nearly stopped making them.</strong>
+        <p class="sub">A typical Reel reaches 505 people and gets 22 interactions. A typical photo reaches 174 and gets 5. We made 21 Reels in March and 2 in September.</p>
+      </div>
+      <div class="finding">
+        <span class="pill warn">Watch</span>
+        <strong>Follower growth is close to flat.</strong>
+        <p class="sub">Instagram gained 14 followers in the last 8 days, and Facebook had one follow and one unfollow yesterday. More posting has not brought more followers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="kpis">
+    <h2 id="kpis">Where we stand</h2>
+    <div class="tiles">
+      <div class="tile"><span class="l">Instagram followers</span><span class="v">≈3,000</span><span class="d flat">+14 in the last 8 days</span></div>
+      <div class="tile"><span class="l">Facebook followers</span><span class="v">8,936</span><span class="d flat">+1 / −1 yesterday</span></div>
+      <div class="tile"><span class="l">Posts in September, both platforms</span><span class="v">543</span><span class="d down">≈23 a day, up from ≈5 in March</span></div>
+      <div class="tile"><span class="l">Instagram reach per post</span><span class="v">131</span><span class="d down">was 327 in March (−60%)</span></div>
+      <div class="tile"><span class="l">Facebook views per post</span><span class="v">92</span><span class="d down">was 467 in March (−80%)</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="volume">
+    <h2 id="volume">More posts, fewer people per post</h2>
+    <div class="card">
+      <h3>Posts per month</h3>
+      <div class="legend"><span><span class="dot ig"></span>Instagram</span><span><span class="dot fb"></span>Facebook</span></div>
+      <div class="chart" id="c-posts"></div>
+      <p class="muted">Facebook post history is only available from late February 2026. September is Sep 1–24.</p>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Instagram: people reached by a typical post</h3>
+        <div class="chart" id="c-igreach"></div>
+      </div>
+      <div class="card">
+        <h3>Facebook: views of a typical post</h3>
+        <div class="chart" id="c-fbviews"></div>
+      </div>
+    </div>
+    <p class="muted">"Typical" is the median post that month. Posts from the last 3 days are left out because their numbers are still climbing.</p>
+  </section>
+
+  <section aria-labelledby="perday">
+    <h2 id="perday">How many posts a day is enough?</h2>
+    <div class="card">
+      <h3>Instagram: total reach on a typical day, by how many posts went out that day</h3>
+      <div class="chart" id="c-daily"></div>
+      <p class="muted">Jun 1 – Sep 20, 105 days. The number under each bar is reach per post. Totals add up each post's reach, so a person who saw 3 posts counts 3 times. That makes the busy days look better than they really are.</p>
+    </div>
+    <div class="callout"><b>What this says:</b> going from 1–2 posts a day to about 6 roughly triples the day's reach. After that, adding more posts barely moves the total and cuts each post's reach in half. Beyond about 6 a day, the extra posts are mostly work with little to show for it.</div>
+  </section>
+
+  <section aria-labelledby="works">
+    <h2 id="works">What works</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Instagram: reach of a typical post by format (2026)</h3>
+        <div class="chart" id="c-format"></div>
+        <p class="muted">Reels 84 posts · carousels 23 · photos 1,068. Interactions per typical post: Reels 22, carousels 16, photos 5.</p>
+      </div>
+      <div class="card">
+        <h3>Reels made per month</h3>
+        <div class="chart" id="c-reels"></div>
+        <p class="muted">Our best-performing format is now the one we make least.</p>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Events that got people talking</h3>
+        <p class="muted">Share of people reached who liked, commented, shared or saved. Instagram flyers from our posting queue, Aug–Sep.</p>
+        <div class="rows" id="r-events"></div>
+      </div>
+      <div class="card">
+        <h3>Our five best-reaching posts</h3>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Post</th><th class="num">Reach</th></tr></thead>
+          <tbody>
+            <tr><td>Tri-Cities Furs takeover (Furanium Fever) · Aug 16</td><td class="num">1,238</td></tr>
+            <tr><td>End of Summer Blackout Party · Sep 10</td><td class="num">717</td></tr>
+            <tr><td>Emo Night drag show · Sep 8</td><td class="num">710</td></tr>
+            <tr><td>Dolly Parton drag tribute · Sep 4</td><td class="num">615</td></tr>
+            <tr><td>Open Stage drag debut · Sep 5</td><td class="num">583</td></tr>
+          </tbody>
+        </table></div>
+        <p class="muted">Community takeovers and themed drag nights lead. Four of the five went out at 7 pm.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="who">
+    <h2 id="who">Who follows us on Instagram</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Age</h3>
+        <div class="rows" id="r-age"></div>
+        <p class="muted">71% are 25–44.</p>
+      </div>
+      <div class="card">
+        <h3>Where they live</h3>
+        <div class="rows" id="r-city"></div>
+        <p class="muted">57% of followers with a known city live in Kennewick, Pasco or Richland. 98% are in the US.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Gender</h3>
+      <div class="split" role="img" aria-label="Women 51%, men 31%, not specified 18%">
+        <div style="flex:1514;background:var(--ig)">Women 51%</div>
+        <div style="flex:935;background:var(--fb)">Men 31%</div>
+        <div style="flex:545;background:var(--base);color:var(--ink)">Not specified 18%</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="next">
+    <h2 id="next">What to decide</h2>
+    <div class="decisions">
+      <div class="decision"><span class="who you">Your call</span><b>Cap posting at about 6 a day per platform.</b><p>We'd keep nearly all of today's daily reach, stop flyers from competing with each other, and free up the time that currently goes into extra posts. For big weekends, cut the older, smaller events first.</p></div>
+      <div class="decision"><span class="who you">Your call</span><b>Require one Reel for every event.</b><p>A 15–30 second clip from the last edition, a performer or the room. Reels reach 3× as many people and bring in the most interactions per post.</p></div>
+      <div class="decision"><span class="who us">We handle</span><b>Find out when our followers are actually online.</b><p>Meta's "followers online by hour" data is being collected but comes back blank. It's a known problem with how we request it, and it's the number that should set our 11 am / 7 pm posting times. Being fixed next.</p></div>
+      <div class="decision"><span class="who us">We handle</span><b>Check this page again in 30 days.</b><p>After a month on the new plan, the question is simple: did reach per post climb back while total reach held?</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <section aria-labelledby="about">
+      <h3 id="about">About these numbers</h3>
+      <ul class="plain">
+        <li><b>Reach</b> is how many different people saw a post. <b>Views</b> (Facebook) counts every time it was seen. Meta replaced Facebook "impressions" with views in November 2025.</li>
+        <li>Account-level daily history only started on Sep 18, 2026. Follower trends will get more reliable with each week.</li>
+        <li>Instagram history covers 1,743 posts back to 2017. Facebook covers 1,297 posts from Feb 26, 2026.</li>
+        <li>Collected every morning at 6 am by our automated pull. Stored in <code>data/insights/</code> in the Azucar-Social-Pipeline repo.</li>
+      </ul>
+    </section>
+  </footer>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+(function(){
+  const NS="http://www.w3.org/2000/svg";
+  const tip=document.getElementById("tip");
+  const fmt=n=>n.toLocaleString("en-US");
+  function show(e,html){tip.innerHTML=html;tip.hidden=false;move(e)}
+  function move(e){const w=tip.offsetWidth,x=Math.min(e.clientX+14,innerWidth-w-8);tip.style.left=x+"px";tip.style.top=(e.clientY+14)+"px"}
+  function hide(){tip.hidden=true}
+  function el(tag,attrs,parent){const n=document.createElementNS(NS,tag);for(const k in attrs)n.setAttribute(k,attrs[k]);parent&&parent.appendChild(n);return n}
+  function niceMax(v){const p=Math.pow(10,Math.floor(Math.log10(v)));const m=v/p;return (m<=1?1:m<=2?2:m<=2.5?2.5:m<=3?3:m<=4?4:m<=5?5:m<=6?6:m<=8?8:10)*p}
+  function nTicks(max){return [4,5,3,6].find(n=>Number.isInteger(max/n))||4}
+  function roundTop(x,y,w,h,r){r=Math.min(r,w/2,h);return `M${x},${y+h}V${y+r}Q${x},${y} ${x+r},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h}Z`}
+
+  // Vertical bars: series = [{key,color,label}], data rows {label, [key]:value, note?}
+  function bars(id,rows,series,opt={}){
+    const host=document.getElementById(id);const W=opt.w||640,H=opt.h||240,L=40,R=8,T=18,B=opt.note?42:26;
+    const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":opt.aria||""},host);
+    const max=niceMax(Math.max(...rows.flatMap(r=>series.map(s=>r[s.key]||0))));
+    const ih=H-T-B,iw=W-L-R;const y=v=>T+ih-(v/max)*ih;
+    const nt=nTicks(max);for(let i=0;i<=nt;i++){const v=max*i/nt;el("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),class:i?"gl":"ax"},svg);const t=el("text",{x:L-6,y:y(v)+4,"text-anchor":"end"},svg);t.textContent=fmt(v)}
+    const band=iw/rows.length,gap=2,inner=Math.min(band*0.72,opt.maxBar||56);const bw=(inner-gap*(series.length-1))/series.length;
+    rows.forEach((r,i)=>{
+      const x0=L+band*i+(band-inner)/2;
+      series.forEach((s,j)=>{const v=r[s.key];if(v==null)return;const x=x0+j*(bw+gap);
+        el("path",{d:roundTop(x,y(v),bw,T+ih-y(v),4),fill:s.color},svg);
+        if(opt.values){const t=el("text",{x:x+bw/2,y:y(v)-5,"text-anchor":"middle",class:"val"},svg);t.textContent=fmt(v)}
+      });
+      const t=el("text",{x:L+band*i+band/2,y:H-B+16,"text-anchor":"middle"},svg);t.textContent=r.label;
+      if(opt.note){const n=el("text",{x:L+band*i+band/2,y:H-B+32,"text-anchor":"middle",class:"val"},svg);n.textContent=r.note}
+      const hit=el("rect",{x:L+band*i,y:T,width:band,height:ih,class:"hit"},svg);
+      const html=`<b>${r.tip||r.label}</b><br>`+series.map(s=>`${s.label}: ${r[s.key]==null?"no data":fmt(r[s.key])}`).join("<br>")+(r.extra?`<br>${r.extra}`:"");
+      hit.addEventListener("mouseenter",e=>show(e,html));hit.addEventListener("mousemove",move);hit.addEventListener("mouseleave",hide);
+    });
+  }
+
+  // Line with endpoint emphasis
+  function line(id,rows,color,label,opt={}){
+    const host=document.getElementById(id);const W=460,H=220,L=40,R=16,T=20,B=26;
+    const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":opt.aria||""},host);
+    const max=niceMax(Math.max(...rows.map(r=>r.v)));const ih=H-T-B,iw=W-L-R;
+    const y=v=>T+ih-(v/max)*ih,x=i=>L+(rows.length===1?iw/2:i*iw/(rows.length-1));
+    const nt=nTicks(max);for(let i=0;i<=nt;i++){const v=max*i/nt;el("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),class:i?"gl":"ax"},svg);const t=el("text",{x:L-6,y:y(v)+4,"text-anchor":"end"},svg);t.textContent=fmt(v)}
+    const pts=rows.map((r,i)=>[x(i),y(r.v)]);
+    el("path",{d:`M${pts[0][0]},${T+ih}`+pts.map(p=>`L${p[0]},${p[1]}`).join("")+`L${pts.at(-1)[0]},${T+ih}Z`,fill:color,"fill-opacity":.1},svg);
+    el("path",{d:"M"+pts.map(p=>p.join(",")).join("L"),fill:"none",stroke:color,"stroke-width":2,"stroke-linejoin":"round"},svg);
+    rows.forEach((r,i)=>{
+      if(i%opt.every===0||i===rows.length-1){const t=el("text",{x:x(i),y:H-8,"text-anchor":"middle"},svg);t.textContent=r.label}
+    });
+    [0,rows.length-1].forEach(i=>{el("circle",{cx:pts[i][0],cy:pts[i][1],r:4.5,fill:color,stroke:"var(--panel)","stroke-width":2},svg);const t=el("text",{x:pts[i][0]+(i?-8:8),y:pts[i][1]-10,"text-anchor":i?"end":"start",class:"val"},svg);t.textContent=fmt(rows[i].v)});
+    const cross=el("line",{y1:T,y2:T+ih,stroke:"var(--muted)","stroke-dasharray":"3 3",visibility:"hidden"},svg);
+    const dot=el("circle",{r:4,fill:color,stroke:"var(--panel)","stroke-width":2,visibility:"hidden"},svg);
+    const hit=el("rect",{x:L,y:T,width:iw,height:ih,class:"hit"},svg);
+    hit.addEventListener("mousemove",e=>{const b=svg.getBoundingClientRect();const sx=(e.clientX-b.left)*W/b.width;let i=Math.round((sx-L)/(iw/(rows.length-1)));i=Math.max(0,Math.min(rows.length-1,i));
+      cross.setAttribute("x1",pts[i][0]);cross.setAttribute("x2",pts[i][0]);cross.setAttribute("visibility","visible");dot.setAttribute("cx",pts[i][0]);dot.setAttribute("cy",pts[i][1]);dot.setAttribute("visibility","visible");
+      show(e,`<b>${rows[i].tip}</b><br>${label}: ${fmt(rows[i].v)}<br>${rows[i].n} posts`)});
+    hit.addEventListener("mouseleave",()=>{hide();cross.setAttribute("visibility","hidden");dot.setAttribute("visibility","hidden")});
+  }
+
+  function rowsList(id,items,unit,cls){
+    const host=document.getElementById(id);const max=Math.max(...items.map(i=>i[1]));
+    items.forEach(([name,v,alt])=>{const r=document.createElement("div");r.className="row";
+      r.innerHTML=`<span>${name}</span><div><div class="bar${alt?" alt":""}" style="width:${(v/max*100).toFixed(1)}%"></div></div><span class="n">${unit==="%"?v.toFixed(1)+"%":fmt(v)}</span>`;host.appendChild(r)});
+  }
+
+  const IG="var(--ig)",FB="var(--fb)";
+  const months=[["Dec","Dec 2025"],["Jan","Jan 2026"],["Feb","Feb 2026"],["Mar","Mar 2026"],["Apr","Apr 2026"],["May","May 2026"],["Jun","Jun 2026"],["Jul","Jul 2026"],["Aug","Aug 2026"],["Sep","Sep 1–24, 2026"]];
+  const igPosts=[34,32,41,61,60,137,75,220,286,263], fbPosts=[null,null,8,85,91,180,105,244,304,280];
+  bars("c-posts",months.map((m,i)=>({label:m[0],tip:m[1],ig:igPosts[i],fb:fbPosts[i]})),[{key:"ig",color:IG,label:"Instagram"},{key:"fb",color:FB,label:"Facebook"}],{h:230,aria:"Posts per month on Instagram and Facebook, rising from about 35 to about 280 each"});
+
+  const igReach=[[440,34],[363,32],[308,41],[327,61],[308,60],[205,137],[335,75],[170,220],[146,286],[131,235]];
+  line("c-igreach",months.map((m,i)=>({label:m[0],tip:m[1],v:igReach[i][0],n:igReach[i][1]})),IG,"Reach of typical post",{every:3,aria:"Instagram reach per typical post fell from 440 in December to 131 in September"});
+  const fbMonths=months.slice(2),fbViews=[[404,8],[467,85],[446,91],[413,180],[638,105],[164,244],[161,304],[92,252]];
+  line("c-fbviews",fbMonths.map((m,i)=>({label:m[0],tip:m[1],v:fbViews[i][0],n:fbViews[i][1]})),FB,"Views of typical post",{every:2,aria:"Facebook views per typical post fell from 467 in March to 92 in September"});
+
+  const daily=[["1–2",573,313,18],["3–5",1193,285,23],["6–9",1996,175,29],["10–14",2071,149,28],["15+",2511,129,7]];
+  bars("c-daily",daily.map(d=>({label:d[0]+" posts",v:d[1],note:d[2]+" / post",tip:`Days with ${d[0]} Instagram posts`,extra:`Reach per post: ${d[2]}<br>${d[3]} days like this`})),[{key:"v",color:IG,label:"Total reach that day"}],{h:250,values:true,note:true,maxBar:72,aria:"Total daily reach rises from 573 at 1-2 posts to about 2,000 at 6-9 posts, then flattens"});
+
+  bars("c-format",[{label:"Reels",v:505,extra:"Interactions: 22"},{label:"Carousels",v:308,extra:"Interactions: 16"},{label:"Photos",v:174,extra:"Interactions: 5"}],[{key:"v",color:IG,label:"Reach of typical post"}],{w:460,h:220,values:true,maxBar:70,aria:"Reels 505, carousels 308, photos 174"});
+  const reelM=[["Dec",13],["Jan",10],["Feb",13],["Mar",21],["Apr",11],["May",15],["Jun",7],["Jul",5],["Aug",0],["Sep",2]];
+  bars("c-reels",reelM.map(r=>({label:r[0],v:r[1],tip:r[0]})),[{key:"v",color:IG,label:"Reels"}],{w:460,h:220,values:true,aria:"Reels per month fell from 21 in March to 2 in September"});
+
+  rowsList("r-events",[["Bikini Bottoms",7.9],["Emo Night drag",7.4],["Mosh Night",4.8],["Furanium Fever",3.9],["Heels w/ Frankie",3.2],["Blackout Party",2.8],["Dolly Parton tribute",2.7],["Heels w/ Kimora",2.2,1],["Vida Amore Divas",2.1,1]],"%");
+  rowsList("r-age",[["18–24",407],["25–34",1241],["35–44",871],["45–54",333],["55–64",99],["65+",39]]);
+  rowsList("r-city",[["Kennewick",489],["Pasco",473],["Richland",371],["Yakima",125],["West Richland",103],["Seattle",82],["Walla Walla",59]]);
+})();
+</script>
