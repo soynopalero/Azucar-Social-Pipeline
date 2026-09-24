@@ -20,6 +20,18 @@
     "reach",
     "follower_count"
   ],
+  "ig_account_total": [
+    "views",
+    "accounts_engaged",
+    "total_interactions",
+    "profile_views",
+    "website_clicks",
+    "likes",
+    "comments",
+    "saves",
+    "shares",
+    "reach"
+  ],
   "ig_demo:age": [
     "follower_demographics"
   ],
