@@ -50,6 +50,12 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from monday_api import MondayError, monday_query  # noqa: E402
 
+# The cadence below is per-event and cannot see the other eleven events on the
+# board. Summed, it produced 20-36 posts a day, and our own reach data says a
+# post in that range reaches ~148 people against ~288 in the 3-5/day band. The
+# cap is the one place that adds every event up; see code/cap_queue.py.
+from cap_queue import DEFAULT_CAP as DAILY_SLOT_CAP, apply_cap  # noqa: E402
+
 BOARD_ID = "18414182966"
 LOCAL_TZ = ZoneInfo("America/Los_Angeles")
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -649,8 +655,22 @@ def enqueue_event(e, captions, now):
                 "event_date": e["date"],
                 "slot": s,
             })
+    # Enforce the global daily cap across EVERY event before saving. This runs
+    # here, on the whole queue, rather than inside schedule_for(), because a
+    # per-event function has no way to know what the other events already
+    # claimed. Nearest-to-event wins, so a "tonight" post displaces a
+    # save-the-date three weeks out rather than the other way round.
+    queue["posts"], dropped = apply_cap(queue["posts"], DAILY_SLOT_CAP)
     qu.save_queue(queue)
-    return len(slots) * len(PLATFORMS)
+
+    if dropped:
+        mine = sum(1 for p in dropped if p.get("monday_event_id") == e["id"])
+        others = len(dropped) - mine
+        print(f"    cap {DAILY_SLOT_CAP}/day: dropped {len(dropped)} entries "
+              f"({mine} from this event, {others} from events further out)")
+
+    return sum(1 for p in queue["posts"]
+               if p.get("monday_event_id") == e["id"] and p.get("status") == "pending")
 
 
 PAGES_BASE = "https://soynopalero.github.io/Azucar-Social-Pipeline"
