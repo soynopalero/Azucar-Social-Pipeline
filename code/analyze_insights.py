@@ -281,15 +281,13 @@ def best_hours(daily: dict) -> str:
     This is the metric with a ~30-day shelf life, so early on this section is
     thin by definition and fills in as the cron accumulates days.
     """
+    # Meta reports these hours in Pacific time already; no conversion needed.
     hourly = defaultdict(list)
-    for row in daily.values():
-        block = (row.get("instagram_online_followers") or {}).get("online_followers")
-        if isinstance(block, dict):
-            for k, v in block.items():
-                if isinstance(v, (int, float)):
-                    m = re.search(r"(\d{1,2})", str(k))
-                    if m:
-                        hourly[int(m.group(1)) % 24].append(v)
+    for hours in load_json(DATA_DIR / "online_followers.json", {}).values():
+        if isinstance(hours, dict):
+            for h, v in hours.items():
+                if isinstance(v, (int, float)) and str(h).isdigit():
+                    hourly[int(h) % 24].append(v)
     if not hourly:
         return ("\n_No `online_followers` data yet — it needs the daily pull to have "
                 "run at least once with the metric available. This is the section "

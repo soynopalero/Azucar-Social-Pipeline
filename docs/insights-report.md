@@ -1,6 +1,6 @@
 # Azúcar — real engagement report
 
-_Generated 2026-09-24 13:18 PDT by `code/analyze_insights.py`. Numbers come from the Meta Graph API, joined to `posts_queue.json`._
+_Generated 2026-09-24 14:04 PDT by `code/analyze_insights.py`. Numbers come from the Meta Graph API, joined to `posts_queue.json`._
 
 ## What this is built on
 
@@ -24,7 +24,18 @@ _Read the first row as the baseline: what a post does on a quiet day. If the bus
 ## 2. When are our followers actually online?
 
 
-_No `online_followers` data yet — it needs the daily pull to have run at least once with the metric available. This is the section that replaces guessing at 11am and 7pm._
+| Hour (Pacific) | Followers online (avg) |
+|---|---:|
+| 20:00 | 1,030 |
+| 19:00 | 1,025 |
+| 18:00 | 1,019 |
+| 17:00 | 1,004 |
+| 16:00 | 999 |
+| 15:00 | 993 |
+| 21:00 | 993 |
+| 14:00 | 975 |
+
+_Peak: **20:00**. Current slots are 11:00 and 19:00._
 
 ## 3. What performs
 
