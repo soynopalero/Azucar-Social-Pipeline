@@ -151,18 +151,24 @@ def instagram_permalink(media_id: str) -> str | None:
         return None
 
 
-def post_to_instagram(image_url: str, caption: str) -> dict:
-    """Post via Meta Graph API. Returns {'ok': True, 'id': ...} or {'ok': False, 'error': ...}."""
+def _publish_instagram(fields: dict, what: str, ready_timeout_s: int = 180) -> dict:
+    """Create a media container, wait for Meta to ingest it, then publish.
+
+    Photos and Reels differ only in the container fields and in how long Meta
+    takes to process them, so they share everything below. A Reel is a video
+    being transcoded, which is minutes of work rather than seconds — hence the
+    caller-supplied timeout.
+    """
     container = graph_post(
         f"{BASE_URL}/{IG_USER_ID}/media",
-        {"image_url": image_url, "caption": caption, "access_token": PAGE_ACCESS_TOKEN},
-        what="IG container creation", timeout=60,
+        {**fields, "access_token": PAGE_ACCESS_TOKEN},
+        what=what, timeout=60,
     )
     if "id" not in container:
         return {"ok": False, "error": f"container creation failed: {container}",
                 "transient": is_transient_meta_error(container)}
 
-    ready = wait_for_container_ready(container["id"])
+    ready = wait_for_container_ready(container["id"], timeout_s=ready_timeout_s)
     if not ready["ok"]:
         return ready
 
@@ -183,6 +189,58 @@ def post_to_instagram(image_url: str, caption: str) -> dict:
         if publish.get("error", {}).get("code") != 9007:
             break
     return {"ok": False, "error": f"publish failed: {publish}"}
+
+
+def post_to_instagram(image_url: str, caption: str) -> dict:
+    """Post a photo. Returns {'ok': True, 'id': ...} or {'ok': False, 'error': ...}."""
+    return _publish_instagram(
+        {"image_url": image_url, "caption": caption},
+        what="IG container creation",
+    )
+
+
+def post_reel_to_instagram(video_url: str, caption: str) -> dict:
+    """Post a Reel from a public video URL.
+
+    Worth the extra code: in our own 2026 numbers a Reel reaches a median 505
+    people against 175 for a flyer — the same reach as three photos, as one
+    post. Reel production had fallen to zero by August, and this pipeline
+    being photo-only was part of why.
+
+    Note for whoever wires captions to audio: Meta's publishing API has no
+    parameter for Instagram's licensed music library — that exists only in the
+    app. Any soundtrack has to be baked into the file before it gets here, and
+    baked-in commercial music on a business account is what Rights Manager
+    mutes. Original or licensed audio only.
+    """
+    return _publish_instagram(
+        {"media_type": "REELS", "video_url": video_url, "caption": caption},
+        what="IG Reel container creation",
+        ready_timeout_s=600,  # transcoding, not a thumbnail fetch
+    )
+
+
+def post_video_to_facebook(video_url: str, caption: str) -> dict:
+    """Post a video to the Page from a public URL.
+
+    Different edge from photos (/videos, and `file_url` rather than `url`), and
+    it answers with the video id alone — there is no post_id to build a
+    permalink from, so posted video entries keep their id but no link.
+    """
+    response = graph_post(
+        f"{BASE_URL}/{FB_PAGE_ID}/videos",
+        {
+            "file_url": video_url,
+            "description": caption,
+            "access_token": PAGE_ACCESS_TOKEN,
+        },
+        what="FB video post", timeout=120,
+    )
+    if "id" in response:
+        return {"ok": True, "id": response["id"],
+                "permalink": facebook_permalink(response)}
+    return {"ok": False, "error": f"FB video post failed: {response}",
+            "transient": is_transient_meta_error(response)}
 
 
 def post_to_facebook(image_url: str, caption: str) -> dict:
@@ -243,18 +301,33 @@ def main():
         print(f"    Platform:  {entry['platform']}")
 
         platform = entry["platform"]
+        # A `video_url` on the entry is what makes it a Reel / Page video.
+        # Absent, it is a photo exactly as before — every existing queue entry
+        # keeps working untouched.
+        video_url = entry.get("video_url")
+        if video_url:
+            print(f"    Media:     video ({video_url})")
+
         if platform == "instagram":
             if not IG_USER_ID:
                 print(f"    ⚠️  IG_USER_ID not set — skipping")
                 continue
-            result = post_to_instagram(entry["image_url"], entry["caption"])
-            result_label = "Instagram media id"
+            if video_url:
+                result = post_reel_to_instagram(video_url, entry["caption"])
+                result_label = "Instagram Reel id"
+            else:
+                result = post_to_instagram(entry["image_url"], entry["caption"])
+                result_label = "Instagram media id"
         elif platform == "facebook":
             if not FB_PAGE_ID:
                 print(f"    ⚠️  FB_PAGE_ID not set — skipping")
                 continue
-            result = post_to_facebook(entry["image_url"], entry["caption"])
-            result_label = "Facebook post id"
+            if video_url:
+                result = post_video_to_facebook(video_url, entry["caption"])
+                result_label = "Facebook video id"
+            else:
+                result = post_to_facebook(entry["image_url"], entry["caption"])
+                result_label = "Facebook post id"
         else:
             print(f"    ⚠️  Unsupported platform '{platform}' — skipping")
             continue

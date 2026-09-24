@@ -66,7 +66,12 @@ def extract_id(entry: dict) -> str | None:
     result line carried the id.
     """
     result = entry.get("result") or ""
-    m = re.search(r"(?:media|post) id:\s*(\d+)", result, re.I)
+    # "reel" and "video" matter as much as "media" and "post": process_queue
+    # labels a Reel "Instagram Reel id" and a Page video "Facebook video id".
+    # A narrower pattern would drop every video from the join — and silently,
+    # which would make Reels look absent from the data that exists to prove
+    # they outperform everything else.
+    m = re.search(r"(?:media|post|reel|video) id:\s*(\d+)", result, re.I)
     if m:
         return m.group(1)
 
@@ -375,6 +380,8 @@ def selftest() -> int:
     assert extract_id({"result": "Instagram media id: 18125845253503265"}) == "18125845253503265"
     assert extract_id({"result": "Facebook post id: 1663577895770335"}) == "1663577895770335"
     assert extract_id({"permalink": "https://www.facebook.com/201644454280/posts/1686277153500409"}) == "1686277153500409"
+    assert extract_id({"result": "Instagram Reel id: 17900000000000000"}) == "17900000000000000"
+    assert extract_id({"result": "Facebook video id: 1234567890"}) == "1234567890"
     assert extract_id({"result": "publish failed: whatever"}) is None
     assert extract_id({}) is None
 
