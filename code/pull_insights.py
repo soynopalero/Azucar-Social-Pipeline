@@ -39,6 +39,7 @@ Usage:
 
 import argparse
 import json
+import os
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -79,7 +80,13 @@ IG_METRICS = {
     ],
 }
 
+# Meta retired the impressions and page-fans families on 2025-11-15; every
+# call naming only those returns `(#100) The value must be a valid insights
+# metric`. The *_media_view / *_follows names are their replacements. The
+# retired names stay listed (harmless, per the note above) in case an older
+# pinned API version is ever needed again.
 FB_POST_METRICS = [
+    "post_media_view", "post_total_media_view_unique",
     "post_impressions", "post_impressions_unique", "post_engaged_users",
     "post_clicks", "post_reactions_by_type_total", "post_video_views",
 ]
@@ -91,6 +98,8 @@ IG_ACCOUNT_DAY = [
 ]
 
 FB_PAGE_DAY = [
+    "page_media_view", "page_total_media_view_unique", "page_follows",
+    "page_daily_follows_unique", "page_daily_unfollows_unique",
     "page_impressions", "page_impressions_unique", "page_post_engagements",
     "page_fans", "page_fan_adds", "page_fan_removes", "page_views_total",
 ]
@@ -242,7 +251,7 @@ def pull_fb_posts(token: str, page_id: str, refresh_days: int) -> int:
     return len(store)
 
 
-def pull_account_daily(token: str, ig_user_id: str, page_id: str):
+def pull_account_daily(token: str, ig_user_id: str, page_id: str) -> list:
     """The perishable rows. Everything here is why the cron matters.
 
     Written keyed by date so a re-run overwrites rather than duplicates, and
@@ -315,6 +324,15 @@ def pull_account_daily(token: str, ig_user_id: str, page_id: str):
     save_store(ACCOUNT_DAILY_PATH, store)
     print(f"  Account snapshot written for {today} ({len(store)} days on file)")
 
+    # Each section above swallows its own error so the rest still land — which
+    # also meant a section dead for weeks never turned the run red. Hand the
+    # dead ones back so main() can. Fans-online is still attempted but never
+    # fails the run: Meta has offered no replacement for page_fans_online, so
+    # counting it would leave the run permanently red.
+    return [name for name, val in row.items()
+            if isinstance(val, dict) and "_error" in val
+            and name != "facebook_fans_online"]
+
 
 def selftest() -> int:
     """Offline checks on the logic that does not need a token."""
@@ -351,6 +369,14 @@ def selftest() -> int:
     return 0
 
 
+def _set_output(name: str, value: str):
+    """Expose a step output when running under GitHub Actions; no-op locally."""
+    out = os.getenv("GITHUB_OUTPUT")
+    if out:
+        with open(out, "a", encoding="utf-8") as fh:
+            fh.write(f"{name}={value}\n")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--skip-media", action="store_true",
@@ -372,12 +398,21 @@ def main() -> int:
           "they are why this runs on a cron)\n")
 
     failures = []
+    # Only the Instagram daily rows are truly perishable (~30-day window).
+    # Per-post numbers and Facebook Page daily metrics can be re-pulled later,
+    # so losing only those is a problem to fix this week, not a lost row.
+    perishable = False
 
     print("Daily account snapshot:")
     try:
-        pull_account_daily(token, env["IG_USER_ID"], env["FB_PAGE_ID"])
+        dead = pull_account_daily(token, env["IG_USER_ID"], env["FB_PAGE_ID"])
+        for section in dead:
+            failures.append(f"account snapshot section '{section}' came back empty")
+            if section.startswith("instagram"):
+                perishable = True
     except Exception as exc:  # noqa: BLE001 - one section must not sink the rest
         failures.append(f"account snapshot: {exc}")
+        perishable = True
         print(f"  ! failed: {exc}")
 
     if not args.skip_media:
@@ -392,13 +427,21 @@ def main() -> int:
         try:
             pull_fb_posts(token, env["FB_PAGE_ID"], args.refresh_days)
         except Exception as exc:  # noqa: BLE001
-            failures.append(f"facebook posts: {exc}")
+            msg = f"facebook posts: {exc}"
+            if "pages_read_user_content" in str(exc):
+                msg += (" -> FB_PAGE_ACCESS_TOKEN needs the pages_read_user_content "
+                        "permission; regenerate the Page token with it (keep the "
+                        "posting scopes, post-scheduler uses the same secret)")
+            failures.append(msg)
             print(f"  ! failed: {exc}")
 
     if failures:
         print("\nFinished with problems:")
         for f in failures:
             print(f"  - {f}")
+        # Lets the workflow tell "today's row is lost" apart from "backfillable
+        # numbers are missing" instead of sending the same alarm for both.
+        _set_output("severity", "perishable" if perishable else "backfillable")
         # Partial data is still worth committing, but the run must go red so
         # a quietly-expired token cannot masquerade as a flat month.
         return 1

@@ -79,6 +79,7 @@ jobs:
         run: python code/analyze_insights.py
 
       - name: Commit the history
+        id: commit
         if: always() && steps.pull.outcome != 'skipped'
         run: |
           git add -A data/insights docs/insights-report.md 2>/dev/null || true
@@ -97,11 +98,25 @@ jobs:
             [ -n "$ok" ] || exit 1
           fi
 
-      - name: Alert on failure
-        if: failure()
+      # Two alerts, because they ask for different urgency. The pull writes
+      # severity=backfillable when only re-pullable numbers are missing (e.g.
+      # a Facebook permission) and today's row was still committed; anything
+      # else — a crash, a dead Instagram daily row, a failed push — keeps the
+      # "gone for good" alarm.
+      - name: Alert on failure (today's row lost)
+        if: failure() && (steps.pull.outputs.severity != 'backfillable' || steps.commit.outcome == 'failure')
         uses: ./.github/actions/ops-alert
         with:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           text: |
             ⚠️ Insights pull failed — today's engagement snapshot is missing. The per-post numbers can be backfilled, but the daily "followers online by hour" row for today is gone for good once it ages out of Meta's 30-day window. Worth a look today rather than next week.
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+      - name: Alert on failure (backfillable only)
+        if: failure() && steps.pull.outputs.severity == 'backfillable' && steps.commit.outcome != 'failure'
+        uses: ./.github/actions/ops-alert
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          text: |
+            🟡 Insights pull partly failed — today's Instagram snapshot (incl. followers online by hour) was saved. Some numbers that can be backfilled later are missing, usually a Facebook permission or a renamed Meta metric. Fix this week; the "Finished with problems" lines in the log say what.
             ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

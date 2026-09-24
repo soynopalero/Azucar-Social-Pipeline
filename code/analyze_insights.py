@@ -124,14 +124,14 @@ def post_stats(platform: str, rec: dict) -> dict:
             )
         views = num(m.get("views")) or num(m.get("plays")) or num(m.get("impressions"))
     else:
-        reach = num(m.get("post_impressions_unique"))
+        reach = num(m.get("post_total_media_view_unique")) or num(m.get("post_impressions_unique"))
         interactions = num(m.get("post_engaged_users"))
         if not interactions:
             interactions = (
                 num(rec.get("reactions")) + num(rec.get("comments"))
                 + num(rec.get("shares"))
             )
-        views = num(m.get("post_impressions"))
+        views = num(m.get("post_media_view")) or num(m.get("post_impressions"))
 
     return {
         "reach": reach,
