@@ -12,9 +12,12 @@ name: Weekly round-up carousel
 # Runs a couple of hours before the post is due, so a failure is visible and
 # fixable while the slot is still ahead rather than behind.
 
+# NO SCHEDULE ON PURPOSE. Queueing the round-up is what approving it in
+# Telegram does — see week-card.yml, which reviews it on Friday and queues it
+# for Monday 11:00 once Pedro taps Approve. A cron here would post the week
+# whether or not he ever tapped, which is the thing the gate exists to stop.
+# This workflow stays dispatch-only as the manual escape hatch.
 on:
-  schedule:
-    - cron: "0 16 * * 1"   # Mondays 09:00 America/Los_Angeles (16:00 UTC, PDT)
   workflow_dispatch:
     inputs:
       week_of:
@@ -50,42 +53,7 @@ jobs:
       - name: Check the logic before touching the queue
         run: |
           python code/build_week_carousel.py --selftest
-          python code/build_week_card.py --selftest
           python code/cap_queue.py --selftest
-
-      # The carousel's first slide is the "This Week at Azúcar" card. Canva
-      # has no API wired up here yet, so this sends the week's six rows to
-      # Telegram for whoever fills the template. Failing to produce the copy
-      # must not stop the flyers going out, hence continue-on-error.
-      - name: Work out this week's card rows
-        id: card
-        continue-on-error: true
-        env:
-          PYTHONUNBUFFERED: "1"
-          MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
-        run: |
-          python code/build_week_card.py \
-            ${{ inputs.week_of && format('--week-of {0}', inputs.week_of) || '' }} \
-            --pretty | tee card.txt
-          # Multi-line step output needs a delimiter that cannot appear in the
-          # body; the card rows are event names, so a random one is safest.
-          delim="EOF_$(openssl rand -hex 8)"
-          {
-            echo "rows<<${delim}"
-            cat card.txt
-            echo "${delim}"
-          } >> "$GITHUB_OUTPUT"
-
-      - name: Send the card rows to Telegram
-        if: ${{ steps.card.outcome == 'success' }}
-        uses: ./.github/actions/ops-alert
-        with:
-          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          text: |
-            🗞️ This Week at Azúcar — card rows for the Canva template
-            ${{ github.server_url }}/${{ github.repository }}/blob/main/docs/week-card.md
-
-            ${{ steps.card.outputs.rows }}
 
       - name: Build the round-up
         id: build
@@ -125,5 +93,5 @@ jobs:
         with:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           text: |
-            ⚠️ The Monday round-up carousel failed to build — this week's "Esta semana en Azúcar" post is NOT queued, and the every-week nights have nothing else covering them. Worth fixing before 11am.
+            ⚠️ A manual round-up carousel run failed — nothing was queued. The normal path is the Friday review in week-card.yml; this is the hand-run escape hatch.
             ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

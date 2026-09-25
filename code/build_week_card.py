@@ -348,14 +348,22 @@ def collect_week(monday: dt.date, sunday: dt.date) -> list[dict]:
     return out
 
 
-def week_window(week_of: dt.date | None, today: dt.date) -> tuple[dt.date, dt.date]:
+def week_window(week_of: dt.date | None, today: dt.date,
+                ahead: bool = False) -> tuple[dt.date, dt.date]:
     """Monday..Sunday of the week CONTAINING the given day.
 
     Same rule as build_week_carousel: the card goes out on Monday morning
     about the days that follow it, so on Monday the answer is this week.
+
+    `ahead` targets the NEXT week instead, which is what the Friday review
+    run wants: it is built on Friday for the week that starts on Monday, so
+    there is a weekend to fix the board before anything posts. An explicit
+    --week-of always wins, so a rerun can name any week directly.
     """
     base = week_of or today
     monday = base - dt.timedelta(days=base.weekday())
+    if ahead and week_of is None:
+        monday += dt.timedelta(days=7)
     return monday, monday + dt.timedelta(days=6)
 
 
@@ -502,6 +510,20 @@ def selftest() -> int:
     assert week_window(None, dt.date(2026, 9, 21))[0] == dt.date(2026, 9, 21)
     assert week_window(dt.date(2026, 10, 8), dt.date(2026, 9, 1))[0] == dt.date(2026, 10, 5)
 
+    # --- the Friday review run targets the week that starts on Monday ---
+    # Friday Sept 25 reviews Sept 28 - Oct 4, so the weekend is left to fix
+    # the board in before anything is queued.
+    assert week_window(None, dt.date(2026, 9, 25), ahead=True) == (
+        dt.date(2026, 9, 28), dt.date(2026, 10, 4))
+    # Every weekday lands on the same following Monday, so a manual rerun on
+    # Saturday reviews the same week the Friday job did.
+    for day in range(21, 28):
+        assert week_window(None, dt.date(2026, 9, day), ahead=True)[0] == dt.date(2026, 9, 28)
+    # An explicit --week-of always wins over --next-week; otherwise a rerun
+    # naming a week would silently review the one after it.
+    assert week_window(dt.date(2026, 9, 23), dt.date(2026, 9, 25), ahead=True)[0] \
+        == dt.date(2026, 9, 21)
+
     print("selftest: all checks passed")
     return 0
 
@@ -510,6 +532,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--week-of", type=str, help="any date inside the target week")
+    ap.add_argument("--next-week", action="store_true",
+                    help="target the week after this one (the Friday review run)")
     ap.add_argument("--pretty", action="store_true", help="human-readable, not JSON")
     ap.add_argument("--selftest", action="store_true")
     args = ap.parse_args()
@@ -521,7 +545,7 @@ def main() -> int:
 
     today = dt.datetime.now(LOCAL_TZ).date()
     week_of = dt.date.fromisoformat(args.week_of) if args.week_of else None
-    monday, sunday = week_window(week_of, today)
+    monday, sunday = week_window(week_of, today, ahead=args.next_week)
 
     card = build_card(collect_week(monday, sunday), monday, sunday)
     print(render(card) if args.pretty else json.dumps(card, indent=2))
