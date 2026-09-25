@@ -81,13 +81,56 @@ PLATFORMS = ["instagram", "facebook"]
 # Pacific time-of-day slots
 SLOTS = {"morning": (11, 0), "afternoon": (15, 0), "evening": (19, 0)}
 
-# Posts per week-bucket by cadence (week-of handled specially below)
-COUNTS = {
-    "standard":   {"w4plus": 3, "w3": 3, "w2": 5},
-    "aggressive": {"w4plus": 3, "w3": 3, "w2": 5},   # doubled via 2 slots/day
-    "light":      {"w4plus": 1, "w3": 1, "w2": 2},
+# ---------- Tiers ----------
+#
+# The board's Cadence column picks one of these. A tier is a TOTAL budget of
+# feed posts for the whole run-up, written as the days before the event that
+# each post lands on — not a rate per week.
+#
+# Why a fixed ladder instead of "N posts a week":
+#
+# A rate compounds. The old model said 3 posts/week at four weeks out, 5 at two
+# weeks, then EVERY REMAINING DAY the week of, which for a single event reads
+# reasonable and across twelve events produced 20-36 posts a day. A ladder
+# cannot do that: eight entries is eight entries however many events are live.
+#
+# The shape is back-loaded on purpose — 14, 10, 7, 5, 3, 2, 1, 0 rather than
+# evenly spread. Nobody buys a ticket three weeks out for a Tuesday bar night;
+# the posts that fill a room are the ones in the last few days. The first post
+# exists to plant the date, and the last one exists to convert it.
+#
+# Every-week nights get an empty ladder deliberately. Karaoke was taking 18
+# posts for one night and the heels class 32. People do not learn that karaoke
+# is Wednesday from the eleventh flyer — they learn it from it being Wednesday
+# every week. Those nights live in the Monday "this week" post and in stories.
+TIERS = {
+    "big show":   {"days_before": [14, 10, 7, 5, 3, 2, 1, 0]},   # 8 posts
+    "one-time":   {"days_before": [7, 4, 2, 0]},                 # 4 posts
+    "every week": {"days_before": []},                           # 0 posts
 }
-HORIZON_WEEKS = 6  # don't start posting earlier than this many weeks out
+
+# The live board still carries the original labels. Until they are renamed in
+# Monday's UI these keep working, so nothing silently stops posting the day
+# this ships. Mapped conservatively: no event gets MORE than it used to.
+LEGACY_TIERS = {
+    "aggressive": "big show",
+    "standard":   "big show",
+    "light":      "one-time",
+}
+
+
+def resolve_tier(label):
+    """Board label -> tier name, or None if it is not one we schedule.
+
+    Accepts the new tier names and the legacy cadence names alike, so the
+    board can be relabelled at leisure rather than in lockstep with a deploy.
+    """
+    if not label:
+        return None
+    key = " ".join(str(label).strip().lower().split())
+    if key in TIERS:
+        return key
+    return LEGACY_TIERS.get(key)
 
 
 def fetch_events():
@@ -194,12 +237,17 @@ def eligibility(e, today):
     if e["phase"] in HIDDEN_PHASES:
         reasons.append(f"phase = {e['phase']}")
     cad = e["cadence"]
+    tier = resolve_tier(cad)
     if not cad:
         reasons.append("no cadence set")
     elif cad == "off":
         reasons.append("cadence = Off")
-    elif cad not in COUNTS:
+    elif not tier:
         reasons.append(f"unknown cadence '{cad}'")
+    elif not TIERS[tier]["days_before"]:
+        # Not an error: an every-week night is meant to ride the Monday
+        # round-up post and stories rather than run its own campaign.
+        reasons.append(f"tier '{tier}' — covered by the weekly round-up")
     if not e["has_flyer"]:
         reasons.append("no flyer")
     if not e["price"]:
@@ -210,49 +258,30 @@ def eligibility(e, today):
 
 
 # ---------- Schedule math ----------
-def _spread(days, n):
-    """Pick n days roughly evenly spread across the sorted list `days`."""
-    if n <= 0 or not days:
+def schedule_for(event_date, cadence, today):
+    """Return a sorted list of (date, slot_name) for one event's tier.
+
+    Walks the tier's ladder of days-before-the-event and keeps the ones that
+    have not already passed, so an event added late simply starts partway down
+    its ladder instead of trying to post into last week.
+
+    Slots alternate evening/morning for feed variety, except day-of, which is
+    always evening: the post that says "tonight" should land while people are
+    deciding what to do with their evening, and 19:00-20:00 is where our
+    followers-online curve peaks.
+    """
+    tier = resolve_tier(cadence)
+    if not tier:
         return []
-    if n >= len(days):
-        return list(days)
-    if n == 1:
-        return [days[len(days) // 2]]
-    step = (len(days) - 1) / (n - 1)
-    idx = sorted({round(i * step) for i in range(n)})
-    return [days[i] for i in idx]
 
-
-def schedule_for(event_date, cadence, today, horizon_weeks=HORIZON_WEEKS):
-    """Return a sorted list of (date, slot_name) for the given cadence."""
     picks = []
-    toggle = 0
-    for w in range(horizon_weeks, 0, -1):
-        win_start = event_date - dt.timedelta(days=w * 7 - 1)
-        win_end   = event_date - dt.timedelta(days=(w - 1) * 7)
-        lo = max(win_start, today)
-        hi = min(win_end, event_date)
-        if lo > hi:
-            continue
-        days = [lo + dt.timedelta(days=i) for i in range((hi - lo).days + 1)]
-        if w == 1:  # week of
-            if cadence == "light":
-                chosen = days[::2]
-                if days and days[-1] not in chosen:
-                    chosen.append(days[-1])  # always include day-of
-            else:
-                chosen = days  # every remaining day
-        else:
-            bucket = "w2" if w == 2 else ("w3" if w == 3 else "w4plus")
-            chosen = _spread(days, COUNTS[cadence][bucket])
-        for d in chosen:
-            slot = "evening" if toggle % 2 == 0 else "morning"
-            toggle += 1
-            picks.append((d, slot))
-            # Aggressive only doubles the WEEK OF the event (w == 1): a morning AND an
-            # evening post each day. The lead-up weeks stay identical to Standard.
-            if cadence == "aggressive" and w == 1:
-                picks.append((d, "morning" if slot == "evening" else "evening"))
+    for i, offset in enumerate(TIERS[tier]["days_before"]):
+        d = event_date - dt.timedelta(days=offset)
+        if d < today:
+            continue  # ladder rung already in the past
+        slot = "evening" if offset == 0 else ("evening" if i % 2 == 0 else "morning")
+        picks.append((d, slot))
+
     seen, out = set(), []
     for d, s in sorted(picks, key=lambda x: (x[0], SLOTS[x[1]])):
         if (d, s) in seen:
@@ -654,6 +683,10 @@ def enqueue_event(e, captions, now):
                 "monday_event_id": e["id"],
                 "event_date": e["date"],
                 "slot": s,
+                # Recorded so the daily cap can prefer a big show over a
+                # one-off when both are competing for the same day, and so the
+                # insights report can compare tiers later.
+                "tier": resolve_tier(e["cadence"]),
             })
     # Enforce the global daily cap across EVERY event before saving. This runs
     # here, on the whole queue, rather than inside schedule_for(), because a
@@ -873,12 +906,48 @@ def selftest():
     today = dt.date(2026, 7, 1)
     event = dt.date(2026, 8, 8)  # ~5.4 weeks out (a Saturday)
     print(f"Self-test - event {event}, today {today} ({(event - today).days} days out)\n")
-    for cad in ("standard", "aggressive", "light"):
+    for cad in ("big show", "one-time", "every week"):
         sched = schedule_for(event, cad, today)
         print(f"=== {cad.upper()}: {len(sched)} posts ({len(sched) * len(PLATFORMS)} queue entries) ===")
         for d, s in sched:
-            print(f"  {d.strftime('%a %Y-%m-%d')}  {s}")
+            print(f"  {d.strftime('%a %Y-%m-%d')}  {s}  (T-{(event - d).days})")
         print()
+
+    # --- tier rules ---
+    assert resolve_tier("Big Show") == "big show"
+    assert resolve_tier("  ONE-TIME ") == "one-time"
+    assert resolve_tier("Standard") == "big show", "legacy labels must keep working"
+    assert resolve_tier("Aggressive") == "big show"
+    assert resolve_tier("Light") == "one-time"
+    assert resolve_tier("Off") is None
+    assert resolve_tier("") is None and resolve_tier(None) is None
+
+    # A ladder is a fixed budget: eight rungs, eight posts, whatever else is
+    # on the board. This is the property the old rate model could not hold.
+    assert len(schedule_for(event, "big show", today)) == 8
+    assert len(schedule_for(event, "one-time", today)) == 4
+    assert schedule_for(event, "every week", today) == []
+
+    # Day-of is always the evening slot.
+    day_of = [(d, s) for d, s in schedule_for(event, "big show", today) if d == event]
+    assert day_of and day_of[0][1] == "evening", day_of
+
+    # Back-loaded: more than half the posts land in the final week.
+    final_week = [d for d, _ in schedule_for(event, "big show", today)
+                  if (event - d).days <= 7]
+    assert len(final_week) >= 5, final_week
+
+    # An event added late starts partway down its ladder rather than trying to
+    # post into the past — and still keeps its day-of post.
+    late = schedule_for(event, "big show", event - dt.timedelta(days=3))
+    assert len(late) == 4, late          # the 3, 2, 1, 0 rungs
+    assert all(d >= event - dt.timedelta(days=3) for d, _ in late)
+    assert late[-1][0] == event
+
+    # An event today still gets its one post rather than nothing.
+    assert len(schedule_for(event, "one-time", event)) == 1
+
+    print("tier rules: all checks passed\n")
 
     if failures:
         sys.exit(f"{failures} caption-parser self-test case(s) failed.")
