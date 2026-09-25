@@ -104,7 +104,7 @@ SLOTS = {"morning": (11, 0), "afternoon": (15, 0), "evening": (19, 0)}
 # is Wednesday from the eleventh flyer — they learn it from it being Wednesday
 # every week. Those nights live in the Monday "this week" post and in stories.
 TIERS = {
-    "big show":   {"days_before": [14, 10, 7, 5, 3, 2, 1, 0]},   # 8 posts
+    "marquee":    {"days_before": [14, 10, 7, 5, 3, 2, 1, 0]},   # 8 posts
     "one-time":   {"days_before": [7, 4, 2, 0]},                 # 4 posts
     "every week": {"days_before": []},                           # 0 posts
 }
@@ -113,9 +113,15 @@ TIERS = {
 # Monday's UI these keep working, so nothing silently stops posting the day
 # this ships. Mapped conservatively: no event gets MORE than it used to.
 LEGACY_TIERS = {
-    "aggressive": "big show",
-    "standard":   "big show",
+    # The board's original labels, kept working so a relabel and a deploy never
+    # have to happen in the same minute. Mapped so no event gets MORE than it
+    # used to.
+    "aggressive": "marquee",
+    "standard":   "marquee",
     "light":      "one-time",
+    # "Big show" was this tier's working name for about a day before the
+    # venue's own word won. Anything still carrying it keeps resolving.
+    "big show":   "marquee",
 }
 
 
@@ -906,7 +912,7 @@ def selftest():
     today = dt.date(2026, 7, 1)
     event = dt.date(2026, 8, 8)  # ~5.4 weeks out (a Saturday)
     print(f"Self-test - event {event}, today {today} ({(event - today).days} days out)\n")
-    for cad in ("big show", "one-time", "every week"):
+    for cad in ("marquee", "one-time", "every week"):
         sched = schedule_for(event, cad, today)
         print(f"=== {cad.upper()}: {len(sched)} posts ({len(sched) * len(PLATFORMS)} queue entries) ===")
         for d, s in sched:
@@ -914,32 +920,33 @@ def selftest():
         print()
 
     # --- tier rules ---
-    assert resolve_tier("Big Show") == "big show"
+    assert resolve_tier("Marquee") == "marquee"
     assert resolve_tier("  ONE-TIME ") == "one-time"
-    assert resolve_tier("Standard") == "big show", "legacy labels must keep working"
-    assert resolve_tier("Aggressive") == "big show"
+    assert resolve_tier("Standard") == "marquee", "legacy labels must keep working"
+    assert resolve_tier("Aggressive") == "marquee"
+    assert resolve_tier("Big Show") == "marquee", "the one-day-old name must still resolve"
     assert resolve_tier("Light") == "one-time"
     assert resolve_tier("Off") is None
     assert resolve_tier("") is None and resolve_tier(None) is None
 
     # A ladder is a fixed budget: eight rungs, eight posts, whatever else is
     # on the board. This is the property the old rate model could not hold.
-    assert len(schedule_for(event, "big show", today)) == 8
+    assert len(schedule_for(event, "marquee", today)) == 8
     assert len(schedule_for(event, "one-time", today)) == 4
     assert schedule_for(event, "every week", today) == []
 
     # Day-of is always the evening slot.
-    day_of = [(d, s) for d, s in schedule_for(event, "big show", today) if d == event]
+    day_of = [(d, s) for d, s in schedule_for(event, "marquee", today) if d == event]
     assert day_of and day_of[0][1] == "evening", day_of
 
     # Back-loaded: more than half the posts land in the final week.
-    final_week = [d for d, _ in schedule_for(event, "big show", today)
+    final_week = [d for d, _ in schedule_for(event, "marquee", today)
                   if (event - d).days <= 7]
     assert len(final_week) >= 5, final_week
 
     # An event added late starts partway down its ladder rather than trying to
     # post into the past — and still keeps its day-of post.
-    late = schedule_for(event, "big show", event - dt.timedelta(days=3))
+    late = schedule_for(event, "marquee", event - dt.timedelta(days=3))
     assert len(late) == 4, late          # the 3, 2, 1, 0 rungs
     assert all(d >= event - dt.timedelta(days=3) for d, _ in late)
     assert late[-1][0] == event
