@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-25 10:06 PDT - **nothing posted, queue untouched**
+Generated 2026-09-25 12:45 PDT - **nothing posted, queue untouched**
 
-Eligible events: **8** - Skipped: **95**
+Eligible events: **14** - Skipped: **89**
 
 ## Furanium Fever - 2026-09-26  (One-time)
 1 posts x 2 platforms = **2** queue entries
@@ -12,50 +12,73 @@ Eligible events: **8** - Skipped: **95**
 | Sat Sep 26, 7:00 PM | evening |
 
 ## Industry Night Drag Show - 2026-09-27  (One-time)
+1 posts x 2 platforms = **2** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sun Sep 27, 7:00 PM | evening |
+
+## Cabana Bass - Casting Call - 2026-09-30  (One-time)
 2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Sep 25, 7:00 PM | evening |
 | Sun Sep 27, 7:00 PM | evening |
+| Wed Sep 30, 7:00 PM | evening |
 
-## Cabana Bass - Casting Call - 2026-09-30  (One-time)
+## Candy Shop - 2026-10-02  (Launch)
 3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Sep 26, 11:00 AM | morning |
-| Mon Sep 28, 7:00 PM | evening |
-| Wed Sep 30, 7:00 PM | evening |
+| Tue Sep 29, 7:00 PM | evening |
+| Thu Oct 1, 7:00 PM | evening |
+| Fri Oct 2, 11:00 AM | morning |
 
-## Emo-Night Drag Show Edition - 2026-10-10  (One-time)
-4 posts x 2 platforms = **8** queue entries
+## Candy Shop - 2026-10-09  (Launch)
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Oct 3, 7:00 PM | evening |
-| Tue Oct 6, 11:00 AM | morning |
+| Tue Oct 6, 7:00 PM | evening |
 | Thu Oct 8, 7:00 PM | evening |
+| Fri Oct 9, 11:00 AM | morning |
+
+## Emo-Night Drag Show Edition - 2026-10-10  (One-time)
+3 posts x 2 platforms = **6** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Wed Sep 30, 11:00 AM | morning |
+| Wed Oct 7, 7:00 PM | evening |
 | Sat Oct 10, 7:00 PM | evening |
 
 ## Mosh Night - 2026-10-11  (One-time)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Oct 4, 7:00 PM | evening |
-| Wed Oct 7, 11:00 AM | morning |
-| Fri Oct 9, 7:00 PM | evening |
+| Thu Oct 1, 11:00 AM | morning |
+| Thu Oct 8, 7:00 PM | evening |
 | Sun Oct 11, 7:00 PM | evening |
+
+## Candy Shop - 2026-10-16  (Launch)
+3 posts x 2 platforms = **6** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Oct 13, 7:00 PM | evening |
+| Thu Oct 15, 7:00 PM | evening |
+| Fri Oct 16, 11:00 AM | morning |
 
 ## The Bikini Bottoms - 2026-10-22  (One-time)
 4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 15, 7:00 PM | evening |
-| Sun Oct 18, 11:00 AM | morning |
-| Tue Oct 20, 7:00 PM | evening |
+| Mon Sep 28, 7:00 PM | evening |
+| Mon Oct 12, 11:00 AM | morning |
+| Mon Oct 19, 7:00 PM | evening |
 | Thu Oct 22, 7:00 PM | evening |
 
 ## Scream Queens Drag Show - 2026-10-23  (One-time)
@@ -63,20 +86,47 @@ Eligible events: **8** - Skipped: **95**
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Oct 16, 7:00 PM | evening |
-| Mon Oct 19, 11:00 AM | morning |
-| Wed Oct 21, 7:00 PM | evening |
+| Tue Sep 29, 7:00 PM | evening |
+| Tue Oct 13, 11:00 AM | morning |
+| Tue Oct 20, 7:00 PM | evening |
 | Fri Oct 23, 7:00 PM | evening |
+
+## Candy Shop - 2026-10-23  (Launch)
+3 posts x 2 platforms = **6** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Oct 20, 7:00 PM | evening |
+| Thu Oct 22, 7:00 PM | evening |
+| Fri Oct 23, 11:00 AM | morning |
 
 ## Rocky horror picture drag show - 2026-10-29  (One-time)
 4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 22, 7:00 PM | evening |
-| Sun Oct 25, 11:00 AM | morning |
+| Mon Oct 5, 7:00 PM | evening |
+| Mon Oct 19, 11:00 AM | morning |
+| Mon Oct 26, 7:00 PM | evening |
+| Thu Oct 29, 7:00 PM | evening |
+
+## Candy Shop - 2026-10-30  (Launch)
+3 posts x 2 platforms = **6** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Tue Oct 27, 7:00 PM | evening |
 | Thu Oct 29, 7:00 PM | evening |
+| Fri Oct 30, 11:00 AM | morning |
+
+## Candy Shop - 2026-11-06  (Launch)
+3 posts x 2 platforms = **6** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Nov 3, 7:00 PM | evening |
+| Thu Nov 5, 7:00 PM | evening |
+| Fri Nov 6, 11:00 AM | morning |
 
 ---
 
@@ -92,12 +142,6 @@ Eligible events: **8** - Skipped: **95**
 - **Build you own carabiner** - date in the past
 - **Build your own Carabiner** - date in the past
 - **Build your own carabiner night** - date in the past
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
@@ -178,4 +222,4 @@ Eligible events: **8** - Skipped: **95**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 52**
+**Total queue entries that would be created: 80**
