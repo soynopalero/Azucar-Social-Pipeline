@@ -24,7 +24,7 @@ What it cost us, from `data/insights/ig_media.json` (105 days of real reach):
 1–2 a day is too few — it more than halves the people reached. Past 5 the
 total stops moving while every post keeps losing reach. 3–5 is the band.
 
-When a day is over cap, **nearest-to-event wins**, with a big show getting
+When a day is over cap, **nearest-to-event wins**, with a marquee getting
 three days' head start. Not a strict tier sort: a marquee three weeks out must
 never bump tonight's show off the calendar.
 
@@ -37,7 +37,7 @@ before the event that each post lands on:
 
 | Tier | Ladder | Posts |
 |---|---|---:|
-| Big show | 14, 10, 7, 5, 3, 2, 1, 0 | 8 |
+| Marquee | 14, 10, 7, 5, 3, 2, 1, 0 | 8 |
 | One-time | 7, 4, 2, 0 | 4 |
 | Every week | — | 0 |
 
@@ -47,10 +47,10 @@ in the evening, where the followers-online curve peaks.
 
 **Every-week nights get zero posts of their own** — karaoke, heels class,
 industry night. They ride the Monday round-up and stories. That is where the
-budget for the big shows comes from: karaoke alone had been taking 18 posts
+budget for the marquee shows comes from: karaoke alone had been taking 18 posts
 for one night, the heels class 32.
 
-The old labels still work — Standard and Aggressive map to Big show, Light to
+The old labels still work — Standard and Aggressive map to Marquee, Light to
 One-time — so the board can be relabelled whenever, not in lockstep with a
 deploy.
 

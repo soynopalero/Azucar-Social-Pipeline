@@ -13,7 +13,7 @@ taking 18 posts for one night and the heels class 32, because the engine knew
 only one way to tell anyone about anything. Those nights are habits, not news:
 people do not learn karaoke is Wednesday from the eleventh flyer. Put them in
 one weekly round-up and their tier can drop to zero posts, which is where the
-budget for the big shows comes from.
+budget for the marquee shows comes from.
 
 The format earns it too. A carousel takes roughly nine times the saves of a
 single image, and Instagram weights saves heavily — a what's-on post is a

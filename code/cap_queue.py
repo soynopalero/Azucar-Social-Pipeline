@@ -80,12 +80,12 @@ def local_day(iso: str) -> dt.date | None:
         return None
 
 
-# A big show's build-up is worth more than a one-off's at the same distance,
+# A marquee show's build-up is worth more than a one-off's at the same distance,
 # but not infinitely more — a one-off happening TONIGHT still has to beat a big
 # show that is a week and a half away. Expressing the tier as a few days of
 # head start keeps both true, where a strict tier-then-distance sort would let
 # a marquee post three weeks out bump tonight's show off the calendar.
-TIER_HEAD_START = {"big show": 3}
+TIER_HEAD_START = {"marquee": 3, "big show": 3}
 
 
 def days_until_event(entry: dict) -> int:
@@ -243,14 +243,14 @@ def selftest() -> int:
     # A big show gets a few days' head start, so at 10 days out it beats a
     # one-off at 8 (10 - 3 = 7).
     when = "2026-10-11T18:00:00+00:00"   # Oct 11, 11:00 PT
-    race = [entry("big", when, "morning", "2026-10-21", tier="big show"),
+    race = [entry("big", when, "morning", "2026-10-21", tier="marquee"),
             entry("small", when, "morning", "2026-10-19")]
     keep6, _ = plan(race, cap=1)
     assert [k[0] for k in keep6] == ["big"], keep6
 
     # But the head start is finite: a one-off happening in 5 days still wins,
     # because tonight's show beats a marquee that is a week and a half out.
-    race2 = [entry("big", when, "morning", "2026-10-21", tier="big show"),
+    race2 = [entry("big", when, "morning", "2026-10-21", tier="marquee"),
              entry("small", when, "morning", "2026-10-16")]
     keep7, _ = plan(race2, cap=1)
     assert [k[0] for k in keep7] == ["small"], keep7
@@ -258,7 +258,7 @@ def selftest() -> int:
     # Entries predating tiers carry none and get no head start — the original
     # nearest-first behaviour, unchanged.
     assert days_until_event(entry("x", when, "morning", "2026-10-21")) == 10
-    assert days_until_event(entry("x", when, "morning", "2026-10-21", tier="big show")) == 7
+    assert days_until_event(entry("x", when, "morning", "2026-10-21", tier="marquee")) == 7
 
     # apply_cap splits the same way plan() decides, and loses nothing:
     # every entry comes back in exactly one of the two lists.
