@@ -37,8 +37,8 @@ before the event that each post lands on:
 
 | Tier | Ladder | Posts |
 |---|---|---:|
-| Marquee | 14, 10, 7, 5, 3, 2, 1, 0 | 8 |
-| One-time | 7, 4, 2, 0 | 4 |
+| Marquee | 24, 17, 12, 8, 5, 3, 0 (a month: 1 · 1 · 2 · 3 per week) | 7 |
+| One-time | 24, 10, 3, 0 (a month: 1 · 0 · 1 · 2 per week) | 4 |
 | Every week | — | 0 |
 | Launch | 3, 1, 0 — every week, for 6 weeks | 3 / week |
 
@@ -70,16 +70,16 @@ deploy.
 ### Stories
 
 Every event that isn't Off gets stories, queued by the same daily engine run
-for the coming 8 days. The flyer is the story (blurred-fill 1080×1920, made
+for the coming 30 days. The flyer is the story (blurred-fill 1080×1920, made
 once per event into `docs/media/stories/`), so there is no caption and nothing
 to approve. They post to Instagram and Facebook, and sit **outside the daily
 cap** — a different tray, so they don't bury feed posts.
 
 | Tier | Stories |
 |---|---|
-| Marquee | day before + day of, 11 AM |
-| One-time | day of, 11 AM |
-| Every week | day of, 11 AM |
+| Marquee | 11: 26, 22 · 19, 15 · 11, 9 · 4, 2, 1 at 11 AM, and day of at 11 AM + 3 PM (2 · 2 · 2 · 5 per week) |
+| One-time | 10: 26 · 19, 15 · 12, 9, 7 · 5, 2, 1, day of — 11 AM (1 · 2 · 3 · 4 per week) |
+| Every week | 3: 2 days before, day before, day of — 11 AM, every week |
 | Launch | 2 days before + day before at 11 AM, day of at 3 PM and 7 PM |
 
 Cancelled, Completed or Off events have their pending stories withdrawn on the
