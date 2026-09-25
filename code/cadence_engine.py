@@ -94,18 +94,20 @@ SLOTS = {"morning": (11, 0), "afternoon": (15, 0), "evening": (19, 0)}
 # reasonable and across twelve events produced 20-36 posts a day. A ladder
 # cannot do that: eight entries is eight entries however many events are live.
 #
-# The shape is back-loaded on purpose — 14, 10, 7, 5, 3, 2, 1, 0 rather than
-# evenly spread. Nobody buys a ticket three weeks out for a Tuesday bar night;
-# the posts that fill a room are the ones in the last few days. The first post
-# exists to plant the date, and the last one exists to convert it.
+# The shape is back-loaded on purpose. Nobody buys a ticket three weeks out for
+# a Tuesday bar night; the posts that fill a room are the ones in the last few
+# days. The first post exists to plant the date, and the last one exists to
+# convert it. Marquee runs a month (Pedro's spec, 2026-09-25): 1 post in each of
+# weeks 4 and 3 out, 2 in week 2 out, 3 the week of; the stories (STORY_RUNGS)
+# carry the rest of the frequency.
 #
 # Every-week nights get an empty ladder deliberately. Karaoke was taking 18
 # posts for one night and the heels class 32. People do not learn that karaoke
 # is Wednesday from the eleventh flyer — they learn it from it being Wednesday
 # every week. Those nights live in the Monday "this week" post and in stories.
 TIERS = {
-    "marquee":    {"days_before": [14, 10, 7, 5, 3, 2, 1, 0]},   # 8 posts
-    "one-time":   {"days_before": [7, 4, 2, 0]},                 # 4 posts
+    "marquee":    {"days_before": [24, 17, 12, 8, 5, 3, 0]},     # 7 posts
+    "one-time":   {"days_before": [7, 3, 0]},                    # 3 posts
     "every week": {"days_before": []},                           # 0 posts
     # A NEW weekly night. "Every week" assumes people already know the night
     # exists; a new one has no habit behind it yet, so for its first
@@ -128,14 +130,21 @@ LAUNCH_DRAFT_DAYS = 3
 # Stories carry no caption and need no approval: the flyer is the story. They
 # sit outside the feed's daily cap (a different tray; they don't bury feed
 # posts), which is what lets every-week nights show up on their own night
-# without undoing the cap. (days_before, slot) rungs per tier.
+# without undoing the cap. (days_before, slot) rungs per tier. Every tier gets
+# an 11 AM story the morning of the event.
 STORY_RUNGS = {
-    "marquee":    [(1, "morning"), (0, "morning")],
-    "one-time":   [(0, "morning")],
-    "every week": [(0, "morning")],
+    # 2 stories in each of weeks 4, 3 and 2 out, 5 the week of = 11
+    "marquee":    [(26, "morning"), (22, "morning"), (19, "morning"), (15, "morning"),
+                   (11, "morning"), (9, "morning"),
+                   (4, "morning"), (2, "morning"), (1, "morning"),
+                   (0, "morning"), (0, "afternoon")],
+    "one-time":   [(5, "morning"), (2, "morning"), (1, "morning"), (0, "morning")],
+    "every week": [(2, "morning"), (1, "morning"), (0, "morning")],
     "launch":     [(2, "morning"), (1, "morning"), (0, "afternoon"), (0, "evening")],
 }
-STORY_LOOKAHEAD_DAYS = 8
+# Far enough to cover the whole marquee month, so every story is visible in
+# the Post Manager as soon as the event is on the board.
+STORY_LOOKAHEAD_DAYS = 30
 STORY_W, STORY_H = 1080, 1920
 
 # The live board still carries the original labels. Until they are renamed in
@@ -1142,25 +1151,28 @@ def selftest():
     assert resolve_tier("Off") is None
     assert resolve_tier("") is None and resolve_tier(None) is None
 
-    # A ladder is a fixed budget: eight rungs, eight posts, whatever else is
-    # on the board. This is the property the old rate model could not hold.
-    assert len(schedule_for(event, "marquee", today)) == 8
-    assert len(schedule_for(event, "one-time", today)) == 4
+    # A ladder is a fixed budget, whatever else is on the board. This is the
+    # property the old rate model could not hold.
+    assert len(schedule_for(event, "marquee", today)) == 7
+    assert len(schedule_for(event, "one-time", today)) == 3
     assert schedule_for(event, "every week", today) == []
 
     # Day-of is always the evening slot.
     day_of = [(d, s) for d, s in schedule_for(event, "marquee", today) if d == event]
     assert day_of and day_of[0][1] == "evening", day_of
 
-    # Back-loaded: more than half the posts land in the final week.
-    final_week = [d for d, _ in schedule_for(event, "marquee", today)
-                  if (event - d).days <= 7]
-    assert len(final_week) >= 5, final_week
+    # Pedro's marquee month, per week counted back from the event
+    # (week 4 out, 3 out, 2 out, week of): posts 1/1/2/3, stories 2/2/2/5.
+    def per_week(offsets):
+        return [sum(1 for o in offsets if lo <= o <= lo + 6) for lo in (21, 14, 7, 0)]
+    assert per_week(TIERS["marquee"]["days_before"]) == [1, 1, 2, 3]
+    assert per_week([o for o, _ in STORY_RUNGS["marquee"]]) == [2, 2, 2, 5]
+    assert len(STORY_RUNGS["one-time"]) == 4 and len(STORY_RUNGS["every week"]) == 3
 
     # An event added late starts partway down its ladder rather than trying to
     # post into the past — and still keeps its day-of post.
     late = schedule_for(event, "marquee", event - dt.timedelta(days=3))
-    assert len(late) == 4, late          # the 3, 2, 1, 0 rungs
+    assert len(late) == 2, late          # the 3 and 0 rungs
     assert all(d >= event - dt.timedelta(days=3) for d, _ in late)
     assert late[-1][0] == event
 
@@ -1189,7 +1201,9 @@ def selftest():
           "has_flyer": True, "cadence": "every week"}
     wed = fri - dt.timedelta(days=2)
     wed_now = dt.datetime(wed.year, wed.month, wed.day, 8, tzinfo=LOCAL_TZ)
-    assert story_eligible(ev, wed) and story_slots(ev, wed, wed_now) == [(fri, "morning")]
+    assert story_eligible(ev, wed)
+    assert story_slots(ev, wed, wed_now) == [(wed, "morning"), (fri - dt.timedelta(days=1), "morning"),
+                                             (fri, "morning")]
     ev["cadence"] = "launch"
     assert len(story_slots(ev, wed, wed_now)) == 4
     ev["cadence"] = "off"
