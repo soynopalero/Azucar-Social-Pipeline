@@ -11,6 +11,7 @@ Credentials are read from environment variables (set as GitHub repo secrets):
     FB_PAGE_ACCESS_TOKEN, IG_USER_ID, FB_PAGE_ID
 """
 
+import json
 import os
 import sys
 import time
@@ -220,6 +221,96 @@ def post_reel_to_instagram(video_url: str, caption: str) -> dict:
     )
 
 
+IG_CAROUSEL_MAX = 10  # Meta's publishing API limit; the app allows more
+
+
+def post_carousel_to_instagram(image_urls: list, caption: str) -> dict:
+    """Post a multi-image carousel.
+
+    Three calls rather than one: every image becomes its own child container
+    (`is_carousel_item`, and deliberately no caption — the caption belongs to
+    the parent), then a CAROUSEL parent referencing them, then the publish.
+
+    This is what makes the Monday "this week" post possible, and it is why the
+    every-week nights can drop to zero posts of their own: one carousel covers
+    the whole week. Carousels also earn their place on the numbers — they take
+    roughly nine times the saves of a single image, and a saved post keeps
+    working all week, which is exactly what a what's-on post is for.
+    """
+    if not image_urls:
+        return {"ok": False, "error": "carousel needs at least one image"}
+    if len(image_urls) > IG_CAROUSEL_MAX:
+        return {"ok": False,
+                "error": f"carousel has {len(image_urls)} images, Meta allows "
+                         f"{IG_CAROUSEL_MAX} — trim it before queueing"}
+    if len(image_urls) == 1:
+        # One slide is not a carousel; Meta rejects the parent. Post it as the
+        # plain photo it actually is rather than failing the whole entry.
+        return post_to_instagram(image_urls[0], caption)
+
+    children = []
+    for i, url in enumerate(image_urls, 1):
+        child = graph_post(
+            f"{BASE_URL}/{IG_USER_ID}/media",
+            {"image_url": url, "is_carousel_item": "true",
+             "access_token": PAGE_ACCESS_TOKEN},
+            what=f"IG carousel child {i}/{len(image_urls)}", timeout=60,
+        )
+        if "id" not in child:
+            return {"ok": False,
+                    "error": f"carousel child {i} failed: {child}",
+                    "transient": is_transient_meta_error(child)}
+        children.append(child["id"])
+
+    return _publish_instagram(
+        {"media_type": "CAROUSEL", "children": ",".join(children), "caption": caption},
+        what="IG carousel container creation",
+        ready_timeout_s=300,  # a parent waits on every child being ingested
+    )
+
+
+def post_carousel_to_facebook(image_urls: list, caption: str) -> dict:
+    """Post a multi-photo Page post.
+
+    Facebook builds these the other way round from Instagram: each photo is
+    uploaded to /photos UNPUBLISHED to get an id, then one /feed post attaches
+    them. Uploading published photos instead would spray the Page with
+    individual photo posts, which is the opposite of the point.
+    """
+    if not image_urls:
+        return {"ok": False, "error": "carousel needs at least one image"}
+    if len(image_urls) == 1:
+        return post_to_facebook(image_urls[0], caption)
+
+    media_ids = []
+    for i, url in enumerate(image_urls, 1):
+        photo = graph_post(
+            f"{BASE_URL}/{FB_PAGE_ID}/photos",
+            {"url": url, "published": "false", "access_token": PAGE_ACCESS_TOKEN},
+            what=f"FB unpublished photo {i}/{len(image_urls)}",
+        )
+        if "id" not in photo:
+            return {"ok": False,
+                    "error": f"FB photo {i} upload failed: {photo}",
+                    "transient": is_transient_meta_error(photo)}
+        media_ids.append(photo["id"])
+
+    response = graph_post(
+        f"{BASE_URL}/{FB_PAGE_ID}/feed",
+        {
+            "message": caption,
+            "attached_media": json.dumps([{"media_fbid": m} for m in media_ids]),
+            "access_token": PAGE_ACCESS_TOKEN,
+        },
+        what="FB multi-photo post", timeout=60,
+    )
+    if "id" in response:
+        return {"ok": True, "id": response["id"],
+                "permalink": facebook_permalink(response)}
+    return {"ok": False, "error": f"FB multi-photo post failed: {response}",
+            "transient": is_transient_meta_error(response)}
+
+
 def post_video_to_facebook(video_url: str, caption: str) -> dict:
     """Post a video to the Page from a public URL.
 
@@ -305,8 +396,13 @@ def main():
         # Absent, it is a photo exactly as before — every existing queue entry
         # keeps working untouched.
         video_url = entry.get("video_url")
+        # `image_urls` (plural) makes it a carousel; `image_url` stays the
+        # single-photo field every existing entry uses.
+        image_urls = entry.get("image_urls") or []
         if video_url:
             print(f"    Media:     video ({video_url})")
+        elif image_urls:
+            print(f"    Media:     carousel, {len(image_urls)} slides")
 
         if platform == "instagram":
             if not IG_USER_ID:
@@ -315,6 +411,9 @@ def main():
             if video_url:
                 result = post_reel_to_instagram(video_url, entry["caption"])
                 result_label = "Instagram Reel id"
+            elif image_urls:
+                result = post_carousel_to_instagram(image_urls, entry["caption"])
+                result_label = "Instagram media id"
             else:
                 result = post_to_instagram(entry["image_url"], entry["caption"])
                 result_label = "Instagram media id"
@@ -325,6 +424,9 @@ def main():
             if video_url:
                 result = post_video_to_facebook(video_url, entry["caption"])
                 result_label = "Facebook video id"
+            elif image_urls:
+                result = post_carousel_to_facebook(image_urls, entry["caption"])
+                result_label = "Facebook post id"
             else:
                 result = post_to_facebook(entry["image_url"], entry["caption"])
                 result_label = "Facebook post id"

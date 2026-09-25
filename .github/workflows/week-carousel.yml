@@ -1,0 +1,94 @@
+name: Weekly round-up carousel
+
+# Queue the Monday "Esta semana en Azúcar" post: one carousel carrying the
+# whole week's flyers.
+#
+# This is the post that lets the every-week nights drop to zero campaigns of
+# their own. Karaoke was taking 18 posts for one night and the heels class 32;
+# people do not learn that karaoke is Wednesday from the eleventh flyer. One
+# round-up covers them all, and the budget that frees is where the big shows
+# get their posts from.
+#
+# Runs a couple of hours before the post is due, so a failure is visible and
+# fixable while the slot is still ahead rather than behind.
+
+on:
+  schedule:
+    - cron: "0 16 * * 1"   # Mondays 09:00 America/Los_Angeles (16:00 UTC, PDT)
+  workflow_dispatch:
+    inputs:
+      week_of:
+        description: "Any date inside the target week (YYYY-MM-DD). Blank = this week."
+        required: false
+        type: string
+      dry_run:
+        description: "Print the carousel without queueing it"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write  # the flyers are committed to docs/ so Pages can serve them
+
+concurrency:
+  group: week-carousel
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Check the logic before touching the queue
+        run: |
+          python code/build_week_carousel.py --selftest
+          python code/cap_queue.py --selftest
+
+      - name: Build the round-up
+        id: build
+        env:
+          PYTHONUNBUFFERED: "1"
+          MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
+        run: |
+          python code/build_week_carousel.py \
+            ${{ inputs.week_of && format('--week-of {0}', inputs.week_of) || '' }} \
+            ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Commit the queue and the slide images
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git add -A posts_queue.json docs/posts_queue.json docs/media/cadence 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Nothing to commit — no carousel queued this week."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Weekly round-up carousel [skip ci]"
+            # The queue is merged by entry id if another workflow committed
+            # meanwhile — see .gitattributes and code/merge_queue.py.
+            git config merge.queue.driver "python code/merge_queue.py %O %A %B"
+            ok=""
+            for i in 1 2 3 4; do
+              if git pull --rebase origin main && git push; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push raced, retry $i"; sleep $((i * 4))
+            done
+            [ -n "$ok" ] || exit 1
+          fi
+
+      - name: Alert on failure
+        if: failure()
+        uses: ./.github/actions/ops-alert
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          text: |
+            ⚠️ The Monday round-up carousel failed to build — this week's "Esta semana en Azúcar" post is NOT queued, and the every-week nights have nothing else covering them. Worth fixing before 11am.
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
