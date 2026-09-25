@@ -40,6 +40,7 @@ before the event that each post lands on:
 | Marquee | 14, 10, 7, 5, 3, 2, 1, 0 | 8 |
 | One-time | 7, 4, 2, 0 | 4 |
 | Every week | — | 0 |
+| Launch | 3, 1, 0 — every week, for 6 weeks | 3 / week |
 
 Back-loaded on purpose: nobody commits to a Tuesday bar night three weeks out.
 The first rung plants the date, the last one converts it. Day-of always posts
@@ -50,9 +51,39 @@ industry night. They ride the Monday round-up and stories. That is where the
 budget for the marquee shows comes from: karaoke alone had been taking 18 posts
 for one night, the heels class 32.
 
+**Launch is for a new weekly night** (Candy Shop was the first). Every week
+assumes people already know the night exists; a new one has no habit yet. For
+its first 6 weeks, counted from the first date labelled Launch, each night gets
+three feed posts — the lineup at 7 PM three days out, the special / deal at
+7 PM the day before, "tonight" at 11 AM — then the engine treats it as Every
+week on its own. Set Launch on the dates once; nothing has to be switched back.
+
+Launch captions are drafted fresh each week, 3 days out. On the Monday before,
+the bot asks in Telegram what's special that week (guest DJ, flavor of the
+week); a reply lands in Campaign Notes and feeds the draft. No reply means
+general copy for the night.
+
 The old labels still work — Standard and Aggressive map to Marquee, Light to
 One-time — so the board can be relabelled whenever, not in lockstep with a
 deploy.
+
+### Stories
+
+Every event that isn't Off gets stories, queued by the same daily engine run
+for the coming 8 days. The flyer is the story (blurred-fill 1080×1920, made
+once per event into `docs/media/stories/`), so there is no caption and nothing
+to approve. They post to Instagram and Facebook, and sit **outside the daily
+cap** — a different tray, so they don't bury feed posts.
+
+| Tier | Stories |
+|---|---|
+| Marquee | day before + day of, 11 AM |
+| One-time | day of, 11 AM |
+| Every week | day of, 11 AM |
+| Launch | 2 days before + day before at 11 AM, day of at 3 PM and 7 PM |
+
+Cancelled, Completed or Off events have their pending stories withdrawn on the
+next run.
 
 ## 3. The Monday round-up — `code/build_week_carousel.py`
 

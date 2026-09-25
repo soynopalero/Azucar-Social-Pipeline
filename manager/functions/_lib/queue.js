@@ -24,6 +24,8 @@ export function mergeLogical(posts) {
         platforms: [],
         scheduled_for_utc: p.scheduled_for_utc,
         caption: p.caption,
+        // "story" entries carry no caption; the UI shows them as stories.
+        format: p.format || "post",
         images: [],
         status: p.status,
         result: p.result || "",

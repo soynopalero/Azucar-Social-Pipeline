@@ -35,7 +35,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install requests pillow
 
       # Offline guard: Monday retry classifier + schedule math + caption-parser
       # cases + queue merge driver, no API calls.

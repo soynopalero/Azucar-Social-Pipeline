@@ -399,7 +399,11 @@ def main():
         # `image_urls` (plural) makes it a carousel; `image_url` stays the
         # single-photo field every existing entry uses.
         image_urls = entry.get("image_urls") or []
-        if video_url:
+        # `format: "story"` routes to the Stories endpoints; no caption is sent.
+        is_story = entry.get("format") == "story"
+        if is_story:
+            print(f"    Media:     story")
+        elif video_url:
             print(f"    Media:     video ({video_url})")
         elif image_urls:
             print(f"    Media:     carousel, {len(image_urls)} slides")
@@ -408,7 +412,10 @@ def main():
             if not IG_USER_ID:
                 print(f"    ⚠️  IG_USER_ID not set — skipping")
                 continue
-            if video_url:
+            if is_story:
+                result = post_story_to_instagram(entry.get("image_url"), video_url)
+                result_label = "Instagram story id"
+            elif video_url:
                 result = post_reel_to_instagram(video_url, entry["caption"])
                 result_label = "Instagram Reel id"
             elif image_urls:
@@ -421,7 +428,10 @@ def main():
             if not FB_PAGE_ID:
                 print(f"    ⚠️  FB_PAGE_ID not set — skipping")
                 continue
-            if video_url:
+            if is_story:
+                result = post_story_to_facebook(entry["image_url"])
+                result_label = "Facebook story id"
+            elif video_url:
                 result = post_video_to_facebook(video_url, entry["caption"])
                 result_label = "Facebook video id"
             elif image_urls:
@@ -471,6 +481,49 @@ def main():
     if any_changes:
         save_queue(queue)
         print(f"\n💾 Queue updated.")
+
+
+def post_story_to_instagram(image_url: str = None, video_url: str = None) -> dict:
+    """Post a Story. Stories carry no caption — the artwork is the message.
+
+    Every-week nights get no feed posts of their own (the Monday round-up
+    covers them), so a same-day story is how they show up on the night they
+    happen. Stories also don't count against the feed's daily cap: they live
+    in a different tray and don't bury the feed posts we paid attention for.
+    """
+    fields = {"media_type": "STORIES"}
+    if video_url:
+        fields["video_url"] = video_url
+    else:
+        fields["image_url"] = image_url
+    return _publish_instagram(fields, what="IG story container creation",
+                              ready_timeout_s=600 if video_url else 180)
+
+
+def post_story_to_facebook(image_url: str) -> dict:
+    """Post a photo Story to the Page.
+
+    Same two-step shape as the multi-photo post: upload the photo UNPUBLISHED
+    to get an id (a published upload would also land in the feed), then hand
+    that id to /photo_stories.
+    """
+    photo = graph_post(
+        f"{BASE_URL}/{FB_PAGE_ID}/photos",
+        {"url": image_url, "published": "false", "access_token": PAGE_ACCESS_TOKEN},
+        what="FB story photo upload",
+    )
+    if "id" not in photo:
+        return {"ok": False, "error": f"FB story photo upload failed: {photo}",
+                "transient": is_transient_meta_error(photo)}
+    response = graph_post(
+        f"{BASE_URL}/{FB_PAGE_ID}/photo_stories",
+        {"photo_id": photo["id"], "access_token": PAGE_ACCESS_TOKEN},
+        what="FB photo story", timeout=60,
+    )
+    if response.get("success") or response.get("post_id") or response.get("id"):
+        return {"ok": True, "id": response.get("post_id") or response.get("id") or photo["id"]}
+    return {"ok": False, "error": f"FB photo story failed: {response}",
+            "transient": is_transient_meta_error(response)}
 
 
 def selftest() -> int:
