@@ -164,11 +164,12 @@ function renderPosts(archived) {
     ${posts.map(p => {
       const time = new Date(p.scheduled_for_utc).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
       const editable = !archived && p.status !== 'posted';
-      return `<div class="post ${editable ? 'editable' : ''}" data-id="${p.ids[0]}">
+      const story = p.format === 'story';
+      return `<div class="post ${editable ? 'editable' : ''}" data-id="${p.ids[0]}" ${story ? 'data-story="1"' : ''}>
         <div class="thumb" style="${postThumb(p, ev)}"><span class="plat ${p.platforms[0]}">${p.platforms[0] === 'facebook' ? 'FB' : 'IG'}</span></div>
         <div class="mid">
           <div class="time">${time}</div>
-          <p class="cap">${esc(p.caption)}</p>
+          <p class="cap">${story ? '📱 <b>Story</b> — the flyer, no caption' : esc(p.caption)}</p>
           <div class="plats">${p.platforms.map(x => {
             const label = x === 'facebook' ? 'FB' : 'IG';
             const href = p.links && p.links[x];
@@ -183,7 +184,7 @@ function renderPosts(archived) {
         <div class="right">
           ${pillOne(p.status)}
           ${editable ? `<div class="rowbtns">
-            <button class="icobtn" data-act="edit" aria-label="Edit">✏️</button>
+            ${story ? '' : '<button class="icobtn" data-act="edit" aria-label="Edit">✏️</button>'}
             <button class="icobtn del" data-act="del" aria-label="Delete">🗑️</button>
           </div>` : ''}
         </div>
@@ -196,7 +197,7 @@ function renderPosts(archived) {
     el.addEventListener('click', (e) => {
       const act = e.target.closest('[data-act]')?.dataset.act;
       if (act === 'del') { e.stopPropagation(); deleteOne(id, el); }
-      else openEdit(findPost(id));
+      else if (!el.dataset.story) openEdit(findPost(id));
     });
   });
 }

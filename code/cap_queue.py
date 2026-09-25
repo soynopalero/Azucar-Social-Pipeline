@@ -121,7 +121,9 @@ def plan(posts: list[dict], cap: int) -> tuple[set, dict]:
     """
     slots: dict[tuple, list] = defaultdict(list)
     for p in posts:
-        if p.get("status") == "pending":
+        # Stories live in their own tray and never crowd the feed, so they
+        # are outside the cap entirely.
+        if p.get("status") == "pending" and p.get("format") != "story":
             slots[slot_key(p)].append(p)
 
     by_day: dict[dt.date, list] = defaultdict(list)
@@ -169,7 +171,7 @@ def apply_cap(posts: list[dict], cap: int = DEFAULT_CAP) -> tuple[list, list]:
     keep, _ = plan(posts, cap)
     kept, dropped = [], []
     for p in posts:
-        if p.get("status") != "pending" or slot_key(p) in keep:
+        if p.get("status") != "pending" or p.get("format") == "story" or slot_key(p) in keep:
             kept.append(p)
         else:
             dropped.append(p)

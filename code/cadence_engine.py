@@ -107,7 +107,36 @@ TIERS = {
     "marquee":    {"days_before": [14, 10, 7, 5, 3, 2, 1, 0]},   # 8 posts
     "one-time":   {"days_before": [7, 4, 2, 0]},                 # 4 posts
     "every week": {"days_before": []},                           # 0 posts
+    # A NEW weekly night. "Every week" assumes people already know the night
+    # exists; a new one has no habit behind it yet, so for its first
+    # LAUNCH_WEEKS weeks it gets three feed posts a week — the lineup three
+    # days out, the drink special / deal the day before, "tonight" the
+    # morning of — and then falls back to Every week on its own (see
+    # apply_launch_window). Explicit slots: a launch night's rhythm is the
+    # same every week, so it doesn't alternate like a one-off's ladder.
+    "launch":     {"days_before": [3, 1, 0],                     # 3 posts / week
+                   "slots": ["evening", "evening", "morning"]},
 }
+
+LAUNCH_WEEKS = 6
+# Launch captions are drafted fresh each week, late enough that the Monday
+# check-in (guest DJ, flavor of the week) has had a chance to come back.
+LAUNCH_DRAFT_DAYS = 3
+
+# ---------- Stories ----------
+#
+# Stories carry no caption and need no approval: the flyer is the story. They
+# sit outside the feed's daily cap (a different tray; they don't bury feed
+# posts), which is what lets every-week nights show up on their own night
+# without undoing the cap. (days_before, slot) rungs per tier.
+STORY_RUNGS = {
+    "marquee":    [(1, "morning"), (0, "morning")],
+    "one-time":   [(0, "morning")],
+    "every week": [(0, "morning")],
+    "launch":     [(2, "morning"), (1, "morning"), (0, "afternoon"), (0, "evening")],
+}
+STORY_LOOKAHEAD_DAYS = 8
+STORY_W, STORY_H = 1080, 1920
 
 # The live board still carries the original labels. Until they are renamed in
 # Monday's UI these keep working, so nothing silently stops posting the day
@@ -229,6 +258,27 @@ def parse_item(item):
     }
 
 
+def _night_key(name):
+    return " ".join((name or "").lower().split())
+
+
+def apply_launch_window(events):
+    """A Launch night runs its launch schedule for LAUNCH_WEEKS weeks, counted
+    from its first Launch-labelled date, then is treated as Every week. The
+    board only needs "Launch" set once; nobody has to remember to switch it
+    back. Mutates each event's cadence in place."""
+    starts = {}
+    for e in events:
+        if e["cadence"] == "launch" and e["date"]:
+            k = _night_key(e["name"])
+            starts[k] = min(starts.get(k, e["date"]), e["date"])
+    for e in events:
+        if e["cadence"] == "launch" and e["date"]:
+            start = dt.date.fromisoformat(starts[_night_key(e["name"])])
+            if dt.date.fromisoformat(e["date"]) >= start + dt.timedelta(weeks=LAUNCH_WEEKS):
+                e["cadence"] = "every week"
+
+
 # ---------- Eligibility ----------
 def eligibility(e, today):
     reasons = []
@@ -281,11 +331,15 @@ def schedule_for(event_date, cadence, today):
         return []
 
     picks = []
+    fixed = TIERS[tier].get("slots")
     for i, offset in enumerate(TIERS[tier]["days_before"]):
         d = event_date - dt.timedelta(days=offset)
         if d < today:
             continue  # ladder rung already in the past
-        slot = "evening" if offset == 0 else ("evening" if i % 2 == 0 else "morning")
+        if fixed:
+            slot = fixed[i]
+        else:
+            slot = "evening" if offset == 0 else ("evening" if i % 2 == 0 else "morning")
         picks.append((d, slot))
 
     seen, out = set(), []
@@ -466,6 +520,17 @@ def draft_captions(e, n=4):
             "- Order the array: hero captions first, then spotlights.\n"
             "Every caption must stand alone and still end with the full info block.\n\n"
         )
+    elif resolve_tier(e.get("cadence")) == "launch":
+        n = 3
+        user = (
+            "This is a NEW weekly night in its launch weeks. Draft exactly 3 captions for THIS week, "
+            "in posting order — they go out 3 days before, the day before, and the morning of:\n"
+            "1) The lineup: who's on the decks / stage this week (use the campaign notes).\n"
+            "2) The reason to come: the drink special, flavor of the week, door deal.\n"
+            "3) Tonight: short and urgent — doors time and the deal.\n"
+            "Keep the night's name front and center so it sticks as a weekly habit. "
+            "Pair every caption with image 1.\n\n"
+        )
     else:
         user = (
             f"Draft {n} distinct captions for this event's multi-week posting campaign. Angles: "
@@ -612,6 +677,25 @@ def notify_captions_review(e, captions):
         "reply_markup": {"inline_keyboard": [[
             {"text": "✅ Approve", "callback_data": f"cap:approve:{e['id']}"},
             {"text": "✏️ Redraft", "callback_data": f"cap:regen:{e['id']}"},
+        ]]},
+    })
+
+
+def ask_week_notes(e):
+    """Monday check-in for a launch night: the week's specifics make the
+    captions. The bot saves a reply to Campaign Notes; no reply just means the
+    draft uses general copy for the night."""
+    d = dt.date.fromisoformat(e["date"])
+    when = d.strftime("%A, %b ") + str(d.day)
+    tg_call("sendMessage", {
+        "chat_id": chat_for(e),
+        "text": (f"🍬 {e['name']} is this {when}.\n\n"
+                 "What's special this week? Guest DJ, flavor of the week, drink special, theme — "
+                 "anything real we can post about. Captions get drafted "
+                 f"{LAUNCH_DRAFT_DAYS} days before and come here for approval as usual.\n\n"
+                 "No answer = general captions for the night."),
+        "reply_markup": {"inline_keyboard": [[
+            {"text": "📝 Add this week's details", "callback_data": f"notes:{e['id']}"},
         ]]},
     })
 
@@ -797,6 +881,18 @@ def run_enqueue(events, today, now):
             continue  # preview already explains skips
         st = e.get("caption_status") or ""
         try:
+            if resolve_tier(e["cadence"]) == "launch" and st in ("", "asked_notes"):
+                days_out = (dt.date.fromisoformat(e["date"]) - today).days
+                if st == "" and today.weekday() == 0 and days_out <= 6:
+                    ask_week_notes(e)
+                    monday_set_text(e["id"], COL_CAPTION_STATUS, "asked_notes")
+                    print(f"• asked for this week's details: {e['name']} ({e['date']})")
+                    continue
+                if days_out > LAUNCH_DRAFT_DAYS:
+                    print(f"• launch week not open yet (drafts {LAUNCH_DRAFT_DAYS} days out): "
+                          f"{e['name']} ({e['date']})")
+                    continue
+                st = ""
             if st in ("", "regenerate"):
                 caps = draft_captions(e)  # paired dicts {flyer, caption}
                 save_captions_file(e["id"], caps)  # full set, no truncation
@@ -831,6 +927,123 @@ def run_enqueue(events, today, now):
         except Exception as ex:
             failures += 1
             print(f"• ERROR {e['name']}: {type(ex).__name__}: {ex}")
+    return failures
+
+
+# ---------- Stories pass ----------
+STORY_MEDIA = REPO_ROOT / "docs" / "media" / "stories"
+
+
+def story_eligible(e, today):
+    """Stories need only a live date and a flyer — no price, description or
+    caption approval, since nothing but the artwork goes out."""
+    if not e["date"] or e["phase"] in HIDDEN_PHASES or not e["has_flyer"]:
+        return False
+    try:
+        ed = dt.date.fromisoformat(e["date"])
+    except ValueError:
+        return False
+    return ed >= today and resolve_tier(e["cadence"]) in STORY_RUNGS
+
+
+def story_slots(e, today, now):
+    ed = dt.date.fromisoformat(e["date"])
+    out = []
+    for offset, slot in STORY_RUNGS[resolve_tier(e["cadence"])]:
+        d = ed - dt.timedelta(days=offset)
+        if d < today or (d - today).days > STORY_LOOKAHEAD_DAYS:
+            continue
+        if to_local_dt(d, slot) < now:
+            continue
+        out.append((d, slot))
+    return out
+
+
+def make_story_image(src, out):
+    """1080x1920 story frame: the whole flyer centred, a blurred, darkened copy
+    of itself filling the rest — so nothing on the artwork is ever cropped."""
+    from PIL import Image, ImageEnhance, ImageFilter
+
+    img = Image.open(src).convert("RGB")
+    scale = max(STORY_W / img.width, STORY_H / img.height)
+    bw, bh = round(img.width * scale), round(img.height * scale)
+    left, top = (bw - STORY_W) // 2, (bh - STORY_H) // 2
+    bg = img.resize((bw, bh)).crop((left, top, left + STORY_W, top + STORY_H))
+    bg = ImageEnhance.Brightness(bg.filter(ImageFilter.GaussianBlur(40))).enhance(0.5)
+    fit = min(STORY_W / img.width, STORY_H / img.height)
+    fw, fh = round(img.width * fit), round(img.height * fit)
+    bg.paste(img.resize((fw, fh)), ((STORY_W - fw) // 2, (STORY_H - fh) // 2))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    bg.save(out, "JPEG", quality=88)
+
+
+def story_image_url(e):
+    out = STORY_MEDIA / f"{e['id']}.jpg"
+    if not out.exists():
+        make_story_image(download_flyer_files(e, cap=1)[0], out)
+    return f"{PAGES_BASE}/media/stories/{out.name}"
+
+
+def run_stories(events, today, now):
+    """Queue the coming week's stories. Idempotent: a story already queued for
+    an event at a given time is left alone, and pending stories for events that
+    were cancelled or switched Off are withdrawn."""
+    import queue_utils as qu
+
+    print("=== Stories pass ===")
+    queue = qu.load_queue()
+    live = {e["id"] for e in events if story_eligible(e, today)}
+    before = len(queue["posts"])
+    queue["posts"] = [p for p in queue["posts"] if not (
+        p.get("format") == "story" and p.get("status") == "pending"
+        and p.get("monday_event_id") not in live)]
+    withdrawn = before - len(queue["posts"])
+    have = {(p.get("monday_event_id"), p.get("scheduled_for_utc"), p.get("platform"))
+            for p in queue["posts"] if p.get("format") == "story"}
+
+    added, failures = 0, 0
+    created = now.isoformat()
+    for e in events:
+        if e["id"] not in live:
+            continue
+        todo = []
+        for d, s in story_slots(e, today, now):
+            utc = to_local_dt(d, s).astimezone(dt.timezone.utc)
+            for platform in PLATFORMS:
+                if (e["id"], utc.isoformat(), platform) not in have:
+                    todo.append((utc, s, platform))
+        if not todo:
+            continue
+        try:
+            url = story_image_url(e)
+        except Exception as ex:
+            failures += 1
+            print(f"• ERROR story image {e['name']}: {type(ex).__name__}: {ex}")
+            continue
+        campaign = "story_" + "".join(ch if ch.isalnum() else "_" for ch in (e["name"] or "").lower()).strip("_")
+        for utc, s, platform in todo:
+            queue["posts"].append({
+                "id": qu.new_post_id(utc),
+                "platform": platform,
+                "format": "story",
+                "scheduled_for_utc": utc.isoformat(),
+                "image_url": url,
+                "caption": "",
+                "status": "pending",
+                "created_at": created,
+                "posted_at": None,
+                "result": None,
+                "campaign": campaign,
+                "monday_event_id": e["id"],
+                "event_date": e["date"],
+                "slot": s,
+                "tier": resolve_tier(e["cadence"]),
+            })
+            added += 1
+        print(f"• {len(todo)} story entries: {e['name']} ({e['date']})")
+    if added or withdrawn:
+        qu.save_queue(queue)
+    print(f"stories: {added} added, {withdrawn} withdrawn")
     return failures
 
 
@@ -954,6 +1167,34 @@ def selftest():
     # An event today still gets its one post rather than nothing.
     assert len(schedule_for(event, "one-time", event)) == 1
 
+    # Launch: three feed posts a week on fixed slots, "tonight" in the morning.
+    fri = dt.date(2026, 10, 2)
+    launch = schedule_for(fri, "launch", fri - dt.timedelta(days=7))
+    assert [(fri - d).days for d, _ in launch] == [3, 1, 0], launch
+    assert [s for _, s in launch] == ["evening", "evening", "morning"], launch
+    assert resolve_tier("Launch") == "launch"
+
+    # The launch window closes by itself after LAUNCH_WEEKS weeks.
+    evs = [{"name": "Candy Shop", "date": (fri + dt.timedelta(weeks=w)).isoformat(),
+            "cadence": "launch"} for w in range(8)]
+    evs.append({"name": "Karaoke", "date": fri.isoformat(), "cadence": "every week"})
+    apply_launch_window(evs)
+    assert [e["cadence"] for e in evs[:8]] == ["launch"] * 6 + ["every week"] * 2, evs
+    assert evs[8]["cadence"] == "every week"
+
+    # Stories: every tier that posts gets a day-of story; Off gets none.
+    for tier in ("marquee", "one-time", "every week", "launch"):
+        assert any(o == 0 for o, _ in STORY_RUNGS[tier]), tier
+    ev = {"id": "1", "name": "X", "date": fri.isoformat(), "phase": None,
+          "has_flyer": True, "cadence": "every week"}
+    wed = fri - dt.timedelta(days=2)
+    wed_now = dt.datetime(wed.year, wed.month, wed.day, 8, tzinfo=LOCAL_TZ)
+    assert story_eligible(ev, wed) and story_slots(ev, wed, wed_now) == [(fri, "morning")]
+    ev["cadence"] = "launch"
+    assert len(story_slots(ev, wed, wed_now)) == 4
+    ev["cadence"] = "off"
+    assert not story_eligible(ev, wed)
+
     print("tier rules: all checks passed\n")
 
     if failures:
@@ -974,10 +1215,12 @@ def main():
     now = dt.datetime.now(dt.timezone.utc)
     today = now.astimezone(LOCAL_TZ).date()
     events = fetch_events()
+    apply_launch_window(events)
 
     failures = 0
     if args.enqueue:
         failures = run_enqueue(events, today, now)
+        failures += run_stories(events, today, now)
         print()
 
     md = build_preview(events, today, now)
