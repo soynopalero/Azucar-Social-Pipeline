@@ -1,157 +1,82 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-24 12:42 PDT - **nothing posted, queue untouched**
+Generated 2026-09-25 10:05 PDT - **nothing posted, queue untouched**
 
-Eligible events: **10** - Skipped: **79**
+Eligible events: **8** - Skipped: **95**
 
-## Heels dance class with Frankie - 2026-09-24  (Standard)
+## Furanium Fever - 2026-09-26  (One-time)
 1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Sep 24, 7:00 PM | evening |
+| Sat Sep 26, 7:00 PM | evening |
 
-## Heels dance class with Kimora - 2026-09-24  (Standard)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Sep 24, 7:00 PM | evening |
-
-## American Horror Story viewing party and Drag show - 2026-09-24  (Standard)
-1 posts x 2 platforms = **2** queue entries
+## Industry Night Drag Show - 2026-09-27  (One-time)
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Sep 24, 7:00 PM | evening |
+| Fri Sep 25, 7:00 PM | evening |
+| Sun Sep 27, 7:00 PM | evening |
 
-## Furanium Fever - 2026-09-26  (Standard)
+## Cabana Bass - Casting Call - 2026-09-30  (One-time)
 3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Sep 24, 7:00 PM | evening |
-| Fri Sep 25, 11:00 AM | morning |
-| Sat Sep 26, 7:00 PM | evening |
+| Sat Sep 26, 11:00 AM | morning |
+| Mon Sep 28, 7:00 PM | evening |
+| Wed Sep 30, 7:00 PM | evening |
 
-## Industry Night Drag Show - 2026-09-27  (Standard)
+## Emo-Night Drag Show Edition - 2026-10-10  (One-time)
 4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Sep 24, 7:00 PM | evening |
-| Fri Sep 25, 11:00 AM | morning |
-| Sat Sep 26, 7:00 PM | evening |
-| Sun Sep 27, 11:00 AM | morning |
-
-## Emo-Night Drag Show Edition - 2026-10-10  (Standard)
-15 posts x 2 platforms = **30** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Sep 24, 7:00 PM | evening |
-| Fri Sep 25, 11:00 AM | morning |
-| Sat Sep 26, 7:00 PM | evening |
-| Sun Sep 27, 11:00 AM | morning |
-| Tue Sep 29, 7:00 PM | evening |
-| Wed Sep 30, 11:00 AM | morning |
-| Thu Oct 1, 7:00 PM | evening |
-| Sat Oct 3, 11:00 AM | morning |
-| Sun Oct 4, 7:00 PM | evening |
-| Mon Oct 5, 11:00 AM | morning |
-| Tue Oct 6, 7:00 PM | evening |
-| Wed Oct 7, 11:00 AM | morning |
-| Thu Oct 8, 7:00 PM | evening |
-| Fri Oct 9, 11:00 AM | morning |
-| Sat Oct 10, 7:00 PM | evening |
-
-## Mosh Night - 2026-10-11  (Standard)
-15 posts x 2 platforms = **30** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Sep 24, 7:00 PM | evening |
-| Sat Sep 26, 11:00 AM | morning |
-| Sun Sep 27, 7:00 PM | evening |
-| Mon Sep 28, 11:00 AM | morning |
-| Wed Sep 30, 7:00 PM | evening |
-| Thu Oct 1, 11:00 AM | morning |
-| Fri Oct 2, 7:00 PM | evening |
-| Sun Oct 4, 11:00 AM | morning |
-| Mon Oct 5, 7:00 PM | evening |
+| Sat Oct 3, 7:00 PM | evening |
 | Tue Oct 6, 11:00 AM | morning |
-| Wed Oct 7, 7:00 PM | evening |
-| Thu Oct 8, 11:00 AM | morning |
-| Fri Oct 9, 7:00 PM | evening |
-| Sat Oct 10, 11:00 AM | morning |
-| Sun Oct 11, 7:00 PM | evening |
-
-## The Bikini Bottoms - 2026-10-22  (Standard)
-19 posts x 2 platforms = **38** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Sep 24, 7:00 PM | evening |
-| Fri Sep 25, 11:00 AM | morning |
-| Mon Sep 28, 7:00 PM | evening |
-| Thu Oct 1, 11:00 AM | morning |
-| Fri Oct 2, 7:00 PM | evening |
-| Mon Oct 5, 11:00 AM | morning |
 | Thu Oct 8, 7:00 PM | evening |
-| Fri Oct 9, 11:00 AM | morning |
-| Sun Oct 11, 7:00 PM | evening |
-| Mon Oct 12, 11:00 AM | morning |
-| Tue Oct 13, 7:00 PM | evening |
-| Thu Oct 15, 11:00 AM | morning |
-| Fri Oct 16, 7:00 PM | evening |
-| Sat Oct 17, 11:00 AM | morning |
-| Sun Oct 18, 7:00 PM | evening |
-| Mon Oct 19, 11:00 AM | morning |
-| Tue Oct 20, 7:00 PM | evening |
-| Wed Oct 21, 11:00 AM | morning |
-| Thu Oct 22, 7:00 PM | evening |
-
-## Scream Queens Drag Show - 2026-10-23  (Standard)
-20 posts x 2 platforms = **40** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Sep 24, 7:00 PM | evening |
-| Fri Sep 25, 11:00 AM | morning |
-| Sat Sep 26, 7:00 PM | evening |
-| Tue Sep 29, 11:00 AM | morning |
-| Fri Oct 2, 7:00 PM | evening |
-| Sat Oct 3, 11:00 AM | morning |
-| Tue Oct 6, 7:00 PM | evening |
-| Fri Oct 9, 11:00 AM | morning |
 | Sat Oct 10, 7:00 PM | evening |
-| Mon Oct 12, 11:00 AM | morning |
-| Tue Oct 13, 7:00 PM | evening |
-| Wed Oct 14, 11:00 AM | morning |
-| Fri Oct 16, 7:00 PM | evening |
-| Sat Oct 17, 11:00 AM | morning |
-| Sun Oct 18, 7:00 PM | evening |
-| Mon Oct 19, 11:00 AM | morning |
-| Tue Oct 20, 7:00 PM | evening |
-| Wed Oct 21, 11:00 AM | morning |
-| Thu Oct 22, 7:00 PM | evening |
-| Fri Oct 23, 11:00 AM | morning |
 
-## Rocky horror picture drag show - 2026-10-29  (Light)
-10 posts x 2 platforms = **20** queue entries
+## Mosh Night - 2026-10-11  (One-time)
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Sep 24, 7:00 PM | evening |
-| Mon Sep 28, 11:00 AM | morning |
-| Mon Oct 5, 7:00 PM | evening |
-| Mon Oct 12, 11:00 AM | morning |
+| Sun Oct 4, 7:00 PM | evening |
+| Wed Oct 7, 11:00 AM | morning |
+| Fri Oct 9, 7:00 PM | evening |
+| Sun Oct 11, 7:00 PM | evening |
+
+## The Bikini Bottoms - 2026-10-22  (One-time)
+4 posts x 2 platforms = **8** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Oct 15, 7:00 PM | evening |
+| Sun Oct 18, 11:00 AM | morning |
+| Tue Oct 20, 7:00 PM | evening |
+| Thu Oct 22, 7:00 PM | evening |
+
+## Scream Queens Drag Show - 2026-10-23  (One-time)
+4 posts x 2 platforms = **8** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Fri Oct 16, 7:00 PM | evening |
-| Thu Oct 22, 11:00 AM | morning |
+| Mon Oct 19, 11:00 AM | morning |
+| Wed Oct 21, 7:00 PM | evening |
 | Fri Oct 23, 7:00 PM | evening |
+
+## Rocky horror picture drag show - 2026-10-29  (One-time)
+4 posts x 2 platforms = **8** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Oct 22, 7:00 PM | evening |
 | Sun Oct 25, 11:00 AM | morning |
 | Tue Oct 27, 7:00 PM | evening |
-| Thu Oct 29, 11:00 AM | morning |
+| Thu Oct 29, 7:00 PM | evening |
 
 ---
 
@@ -159,6 +84,7 @@ Eligible events: **10** - Skipped: **79**
 
 - **Alice in Bass Land** - date in the past
 - **Amature Drag Pageant** - date in the past
+- **American Horror Story viewing party and Drag show** - date in the past
 - **An Open Stage Drag Debut** - date in the past
 - **Aubs Take Over — June** - date in the past, no cadence set, no flyer, no price, no description
 - **Azúcar House Party — DJ Lalique Debut** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -166,6 +92,19 @@ Eligible events: **10** - Skipped: **79**
 - **Build you own carabiner** - date in the past
 - **Build your own Carabiner** - date in the past
 - **Build your own carabiner night** - date in the past
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Dolly Parton; A drag Tribute Night** - date in the past
 - **Drag Brunch de Reinas** - date in the past, phase = Cancelled
@@ -180,6 +119,8 @@ Eligible events: **10** - Skipped: **79**
 - **Frivola — June** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Heels Dance Class with Frankie** - date in the past
 - **Heels Dance Class with Kimora** - date in the past
+- **Heels dance class with Frankie** - date in the past, tier 'every week' — covered by the weekly round-up
+- **Heels dance class with Kimora** - date in the past, tier 'every week' — covered by the weekly round-up
 - **Industry Night Drag Show** - date in the past, phase = Cancelled
 - **Intermittent Heel Class with Kimora** - date in the past, no cadence set, no flyer, no price, no description
 - **Karaoke** - date in the past
@@ -222,8 +163,8 @@ Eligible events: **10** - Skipped: **79**
 - **Sip and Paint with ArtWithAubrey** - date in the past
 - **Speed Friending** - date in the past
 - **Spring into frienship; Diamond Art night** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
-- **Testing for your life** - date in the past, phase = Cancelled
-- **Testing out the name** - date in the past, no flyer
+- **Testing for your life** - date in the past, phase = Cancelled, tier 'every week' — covered by the weekly round-up
+- **Testing out the name** - date in the past, tier 'every week' — covered by the weekly round-up, no flyer
 - **Tha Cookout** - date in the past, phase = Cancelled, no cadence set, no flyer, no price, no description
 - **Tricities After Party — Rohla** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Tricities Pride Beer Garden (off-site)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -237,4 +178,4 @@ Eligible events: **10** - Skipped: **79**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 178**
+**Total queue entries that would be created: 52**
