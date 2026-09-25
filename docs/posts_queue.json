@@ -6843,7 +6843,7 @@
     {
       "id": "20261001_020000_88105f",
       "platform": "instagram",
-      "scheduled_for_utc": "2026-10-01T02:00:00+00:00",
+      "scheduled_for_utc": "2026-09-30T18:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13137283019_0.jpg",
       "caption": "The dark is casting. 🖤⚡\n\nCabana Bass Productions is building Tri-Cities' one-of-a-kind EDM haunted walkthrough for the 2026 season — and they need bodies, voices, and talent to bring it to life. Actors. Artists. Dancers. DJs. Security. Stage & lighting crew. If you've got something to show the dark, this is your call.\n\nWalk into Azúcar, meet the crew behind the madness, and audition live. No callbacks in your inbox — just show up ready. This is how legends get built before the fog machines even turn on. 💀🔊\n\n📅 Wednesday, September 30 | 7PM–11PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free\n🔞 21+\n#AzucarPasco #OutAndAbout #CabanaBass #CastingCall #HauntSeason2026 #PascoWA #TriCitiesEvents #AuditionNight",
       "status": "pending",
@@ -6853,13 +6853,13 @@
       "campaign": "cadence_cabana_bass___casting_call",
       "monday_event_id": "13137283019",
       "event_date": "2026-09-30",
-      "slot": "evening",
+      "slot": "morning",
       "tier": "one-time"
     },
     {
       "id": "20261001_020000_b8f622",
       "platform": "facebook",
-      "scheduled_for_utc": "2026-10-01T02:00:00+00:00",
+      "scheduled_for_utc": "2026-09-30T18:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13137283019_0.jpg",
       "caption": "The dark is casting. 🖤⚡\n\nCabana Bass Productions is building Tri-Cities' one-of-a-kind EDM haunted walkthrough for the 2026 season — and they need bodies, voices, and talent to bring it to life. Actors. Artists. Dancers. DJs. Security. Stage & lighting crew. If you've got something to show the dark, this is your call.\n\nWalk into Azúcar, meet the crew behind the madness, and audition live. No callbacks in your inbox — just show up ready. This is how legends get built before the fog machines even turn on. 💀🔊\n\n📅 Wednesday, September 30 | 7PM–11PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free\n🔞 21+\n#AzucarPasco #OutAndAbout #CabanaBass #CastingCall #HauntSeason2026 #PascoWA #TriCitiesEvents #AuditionNight",
       "status": "pending",
@@ -6869,7 +6869,7 @@
       "campaign": "cadence_cabana_bass___casting_call",
       "monday_event_id": "13137283019",
       "event_date": "2026-09-30",
-      "slot": "evening",
+      "slot": "morning",
       "tier": "one-time"
     }
   ]
