@@ -107,7 +107,7 @@ SLOTS = {"morning": (11, 0), "afternoon": (15, 0), "evening": (19, 0)}
 # every week. Those nights live in the Monday "this week" post and in stories.
 TIERS = {
     "marquee":    {"days_before": [24, 17, 12, 8, 5, 3, 0]},     # 7 posts
-    "one-time":   {"days_before": [7, 3, 0]},                    # 3 posts
+    "one-time":   {"days_before": [24, 10, 3, 0]},               # 4 posts: 1 · 0 · 1 · 2
     "every week": {"days_before": []},                           # 0 posts
     # A NEW weekly night. "Every week" assumes people already know the night
     # exists; a new one has no habit behind it yet, so for its first
@@ -138,7 +138,10 @@ STORY_RUNGS = {
                    (11, "morning"), (9, "morning"),
                    (4, "morning"), (2, "morning"), (1, "morning"),
                    (0, "morning"), (0, "afternoon")],
-    "one-time":   [(5, "morning"), (2, "morning"), (1, "morning"), (0, "morning")],
+    # 1 · 2 · 3 · 4 per week, weeks 4 out through the week of = 10
+    "one-time":   [(26, "morning"), (19, "morning"), (15, "morning"),
+                   (12, "morning"), (9, "morning"), (7, "morning"),
+                   (5, "morning"), (2, "morning"), (1, "morning"), (0, "morning")],
     "every week": [(2, "morning"), (1, "morning"), (0, "morning")],
     "launch":     [(2, "morning"), (1, "morning"), (0, "afternoon"), (0, "evening")],
 }
@@ -1154,7 +1157,7 @@ def selftest():
     # A ladder is a fixed budget, whatever else is on the board. This is the
     # property the old rate model could not hold.
     assert len(schedule_for(event, "marquee", today)) == 7
-    assert len(schedule_for(event, "one-time", today)) == 3
+    assert len(schedule_for(event, "one-time", today)) == 4
     assert schedule_for(event, "every week", today) == []
 
     # Day-of is always the evening slot.
@@ -1167,7 +1170,9 @@ def selftest():
         return [sum(1 for o in offsets if lo <= o <= lo + 6) for lo in (21, 14, 7, 0)]
     assert per_week(TIERS["marquee"]["days_before"]) == [1, 1, 2, 3]
     assert per_week([o for o, _ in STORY_RUNGS["marquee"]]) == [2, 2, 2, 5]
-    assert len(STORY_RUNGS["one-time"]) == 4 and len(STORY_RUNGS["every week"]) == 3
+    assert per_week(TIERS["one-time"]["days_before"]) == [1, 0, 1, 2]
+    assert per_week([o for o, _ in STORY_RUNGS["one-time"]]) == [1, 2, 3, 4]
+    assert len(STORY_RUNGS["every week"]) == 3
 
     # An event added late starts partway down its ladder rather than trying to
     # post into the past — and still keeps its day-of post.

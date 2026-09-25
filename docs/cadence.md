@@ -38,7 +38,7 @@ before the event that each post lands on:
 | Tier | Ladder | Posts |
 |---|---|---:|
 | Marquee | 24, 17, 12, 8, 5, 3, 0 (a month: 1 · 1 · 2 · 3 per week) | 7 |
-| One-time | 7, 3, 0 | 3 |
+| One-time | 24, 10, 3, 0 (a month: 1 · 0 · 1 · 2 per week) | 4 |
 | Every week | — | 0 |
 | Launch | 3, 1, 0 — every week, for 6 weeks | 3 / week |
 
@@ -78,7 +78,7 @@ cap** — a different tray, so they don't bury feed posts.
 | Tier | Stories |
 |---|---|
 | Marquee | 11: 26, 22 · 19, 15 · 11, 9 · 4, 2, 1 at 11 AM, and day of at 11 AM + 3 PM (2 · 2 · 2 · 5 per week) |
-| One-time | 4: 5, 2, 1 days before and day of, 11 AM |
+| One-time | 10: 26 · 19, 15 · 12, 9, 7 · 5, 2, 1, day of — 11 AM (1 · 2 · 3 · 4 per week) |
 | Every week | 3: 2 days before, day before, day of — 11 AM, every week |
 | Launch | 2 days before + day before at 11 AM, day of at 3 PM and 7 PM |
 
