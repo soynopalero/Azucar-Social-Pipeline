@@ -87,8 +87,12 @@ def event_line(name: str, date: dt.date, time_str: str | None, price: str | None
     if time_str:
         bits.append(time_str)
     if price:
+        # Board prices are hand-typed and inconsistent: "$15", "10$", "20",
+        # "Free", "$20-$40". Add a sign only when there is no currency marker
+        # anywhere in the string — testing just the first character turned the
+        # real board value "10$" into "$10$".
         p = price.strip()
-        bits.append(p if p.startswith("$") or not p[:1].isdigit() else f"${p}")
+        bits.append(p if "$" in p or not p[:1].isdigit() else f"${p}")
     return " · ".join(bits)
 
 
@@ -210,8 +214,12 @@ def selftest() -> int:
 
     line = event_line("Candy Shop", dt.date(2026, 9, 25), "9pm", "15")
     assert line == "Vie 25 · Candy Shop · 9pm · $15", line
-    # A price already carrying its own sign is not double-signed.
-    assert "$$" not in event_line("X", dt.date(2026, 9, 25), None, "$10")
+    # A price already carrying its own sign is not double-signed, wherever
+    # the sign sits. "10$" is a real value on the live board.
+    assert event_line("X", dt.date(2026, 9, 25), None, "$10").endswith("$10")
+    assert event_line("X", dt.date(2026, 9, 25), None, "10$").endswith("10$")
+    assert event_line("X", dt.date(2026, 9, 25), None, "20").endswith("$20")
+    assert event_line("X", dt.date(2026, 9, 25), None, "$20-$40").endswith("$20-$40")
     # A non-numeric price ("Free") is passed through as written.
     assert event_line("X", dt.date(2026, 9, 26), None, "Free").endswith("Free")
     # No time and no price still gives a usable line.
