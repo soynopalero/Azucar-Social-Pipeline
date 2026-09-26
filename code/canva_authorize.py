@@ -15,11 +15,15 @@ Outside Canva -> Canva REST APIs):
              brandtemplate:meta Read, design:content Read+Write,
              design:meta Read, profile Read
   * Redirect URL:  http://127.0.0.1:3001/oauth/redirect
+    (its own page in the left nav, under Outside Canva)
   * Generate a client secret
+  * Make sure the "Canva REST APIs" toggle on that page is ON
 
 Then:
 
-    export CANVA_CLIENT_ID=...          # the App ID
+    export CANVA_CLIENT_ID=OC-...       # the AUTH CLIENT's Client ID, shown
+                                        # on Outside Canva -> Configuration.
+                                        # NOT the App ID from the Overview page.
     export CANVA_CLIENT_SECRET=...      # the generated secret
     python3 code/canva_authorize.py
 
@@ -120,7 +124,8 @@ def main() -> int:
     client_secret = (os.environ.get("CANVA_CLIENT_SECRET") or "").strip()
     if not client_id or not client_secret:
         print("Set CANVA_CLIENT_ID and CANVA_CLIENT_SECRET first:\n"
-              "  export CANVA_CLIENT_ID=AAHOGHTimHs\n"
+              "  export CANVA_CLIENT_ID=OC-...      (Outside Canva -> "
+              "Configuration; the auth client's id, not the App ID)\n"
               "  export CANVA_CLIENT_SECRET=...", file=sys.stderr)
         return 2
 
