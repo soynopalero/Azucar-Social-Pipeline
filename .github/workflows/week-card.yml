@@ -45,8 +45,11 @@ permissions:
   contents: write  # approving commits the queue and the slide images
 
 concurrency:
-  # Never let a second approval race the first into the queue.
-  group: week-card
+  # Never let a second approval race the first into the queue. Shared with
+  # week-carousel.yml and canva-check.yml, which also write that queue and
+  # spend the same single-use Canva refresh token — re-using one revokes the
+  # whole flow, so they must not overlap.
+  group: week-roundup
   cancel-in-progress: false
 
 jobs:
@@ -60,13 +63,16 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests
+        # pynacl encrypts the rotated Canva token for the secret write-back.
+        run: pip install requests pynacl
 
       - name: Check the logic before touching anything
         run: |
           python code/build_week_card.py --selftest
           python code/week_card_review.py --selftest
           python code/build_week_carousel.py --selftest
+          python code/canva_api.py --selftest
+          python code/gh_secret.py --selftest
           python code/cap_queue.py --selftest
 
       - name: Run it
@@ -75,6 +81,12 @@ jobs:
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Approving builds the carousel, whose first slide is the Canva
+          # week card. Missing credentials only cost that slide.
+          CANVA_CLIENT_ID: ${{ secrets.CANVA_CLIENT_ID }}
+          CANVA_CLIENT_SECRET: ${{ secrets.CANVA_CLIENT_SECRET }}
+          CANVA_REFRESH_TOKEN: ${{ secrets.CANVA_REFRESH_TOKEN }}
+          GH_SECRETS_PAT: ${{ secrets.GH_SECRETS_PAT }}
           # Every input arrives through the environment, never interpolated
           # into the script. FEEDBACK is whatever Pedro typed or dictated into
           # Telegram; expanded inline it would be a shell injection with the

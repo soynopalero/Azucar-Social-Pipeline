@@ -34,7 +34,11 @@ permissions:
   contents: write  # the flyers are committed to docs/ so Pages can serve them
 
 concurrency:
-  group: week-carousel
+  # Shared with week-card.yml and canva-check.yml on purpose. Two of these
+  # running at once would each spend the other's Canva refresh token — they
+  # are single-use, and re-using one revokes the whole flow — and they write
+  # the same queue. One name serialises both hazards.
+  group: week-roundup
   cancel-in-progress: false
 
 jobs:
@@ -48,11 +52,14 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests
+        # pynacl encrypts the rotated Canva token for the secret write-back.
+        run: pip install requests pynacl
 
       - name: Check the logic before touching the queue
         run: |
           python code/build_week_carousel.py --selftest
+          python code/canva_api.py --selftest
+          python code/gh_secret.py --selftest
           python code/cap_queue.py --selftest
 
       - name: Build the round-up
@@ -60,10 +67,25 @@ jobs:
         env:
           PYTHONUNBUFFERED: "1"
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
+          # Slide one is the Canva week card. Missing credentials only cost
+          # that slide — the carousel still queues the flyers.
+          CANVA_CLIENT_ID: ${{ secrets.CANVA_CLIENT_ID }}
+          CANVA_CLIENT_SECRET: ${{ secrets.CANVA_CLIENT_SECRET }}
+          CANVA_REFRESH_TOKEN: ${{ secrets.CANVA_REFRESH_TOKEN }}
+          GH_SECRETS_PAT: ${{ secrets.GH_SECRETS_PAT }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Through the environment, never interpolated into the script: a
+          # dispatch input expanded inline is a shell injection with the
+          # repo's secrets in reach.
+          WEEK_OF: ${{ inputs.week_of }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
-          python code/build_week_carousel.py \
-            ${{ inputs.week_of && format('--week-of {0}', inputs.week_of) || '' }} \
-            ${{ inputs.dry_run && '--dry-run' || '' }}
+          set -euo pipefail
+          args=()
+          if [ -n "$WEEK_OF" ]; then args+=(--week-of "$WEEK_OF"); fi
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          python code/build_week_carousel.py ${args[@]+"${args[@]}"}
 
       - name: Commit the queue and the slide images
         if: ${{ !inputs.dry_run }}

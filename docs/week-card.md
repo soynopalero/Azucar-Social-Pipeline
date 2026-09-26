@@ -248,9 +248,29 @@ Also fixed in all three: row 4's day text sat 7px lower than every other row
 in the original (tag at 898, text at 910, where the rest are tag+5). **The
 master `DAHWLCTrgMQ` still has that 7px drop** — worth correcting there too.
 
-### What is still missing
+### How the fill runs
 
-The Friday job does not call Canva yet. `build_week_card.py` already emits
-exactly the payload `/v1/autofills` wants and the templates now exist, so what
-remains is wiring: pick the template, trim the fields, autofill, export the
-PNG, hand it to the carousel as slide one.
+`build_week_carousel.py` makes slide one before it collects any flyer:
+
+```
+board -> build_card()      six rows, or fewer
+      -> template_for(n)   pick the matching template
+      -> fields_for()      trim the payload to that template's rows
+      -> /v1/autofills     fill a copy; the template is never touched
+      -> /v1/exports       PNG
+      -> host on Pages     slide one
+```
+
+**A Canva failure costs the card and nothing else.** This post ran without a
+card for months and still can: `build_week_card_png` never raises, so an
+outage, a quiet week with no matching template, or missing credentials just
+means the flyers start at slide one as they always did. The run says which in
+its log. Anything stronger would trade a missing slide for a missing post.
+
+A dry run skips the card deliberately — rendering spends the single-use
+refresh token and leaves a design behind, which is not worth it to preview a
+caption.
+
+Every workflow that can reach Canva shares one concurrency group,
+`week-roundup`. Two of them at once would each spend the other's refresh
+token, and they write the same queue.

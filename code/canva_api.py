@@ -206,6 +206,67 @@ def export_png(token: str, design_id: str) -> list[str]:
     return [u for u in (job.get("urls") or []) if u]
 
 
+def download(url: str, dest: Path) -> Path:
+    """Fetch an export URL to disk. Canva's expire in hours, so this runs in
+    the same job that asked for them."""
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    req = urllib.request.Request(url, headers={"user-agent": "azucar-pipeline"})
+    with urllib.request.urlopen(req, timeout=120) as r, open(dest, "wb") as f:
+        f.write(r.read())
+    return dest
+
+
+def render_card(fields: dict, rows: int, out_dir: str | None = None
+                ) -> tuple[str | None, str]:
+    """Fill the week card and return (png_path, note).
+
+    `png_path` is None when no card could be made, and `note` says why. Every
+    caller must treat that as ordinary: the round-up posted without this card
+    for months, and a Canva outage is not a reason to skip the week's post.
+    So this never raises — a failure is a missing first slide, nothing more.
+
+    Note it spends the stored refresh token, same as any other call, and hands
+    the replacement straight back via deliver_token.
+    """
+    design_id, why = template_for(rows)
+    if not design_id:
+        return None, why
+
+    cid, sec = envvar("CANVA_CLIENT_ID"), envvar("CANVA_CLIENT_SECRET")
+    stored = envvar("CANVA_REFRESH_TOKEN")
+    if not (cid and sec and stored):
+        return None, "Canva credentials not set — skipping the card"
+
+    try:
+        tok = refresh_access_token(cid, sec, stored)
+    except CanvaError as e:
+        # The stored token may or may not be spent here. Nothing to hand back
+        # either way, so say so plainly rather than guessing.
+        return None, f"could not refresh: {str(e)[:160]}"
+
+    access = tok.get("access_token")
+    deliver_token(tok.get("refresh_token"))      # before anything else can fail
+    if not access:
+        return None, "refresh returned no access token"
+
+    label = fields.get("week_label") or "this week"
+    try:
+        job = autofill_from_design(access, design_id, fields_for(fields, rows),
+                                   title=f"Azúcar — {label}")
+        filled = ((job.get("result") or {}).get("design") or {}).get("id")
+        if not filled:
+            return None, f"autofill returned no design id: {job}"
+        urls = export_png(access, filled)
+        if not urls:
+            return None, "export produced no download URL"
+        out = Path(out_dir or ".") / f"week_card_{label.replace(' ', '_')}.png"
+        return str(download(urls[0], out)), f"{rows}-row card from {filled}"
+    except CanvaError as e:
+        return None, str(e)[:200]
+    except OSError as e:
+        return None, f"download failed: {e}"
+
+
 def tg(text: str) -> None:
     """Telegram is where a rotated refresh token can go without ending up in
     a public repo's Actions log."""
@@ -396,6 +457,23 @@ def selftest() -> int:
     assert len(three) == 1 + 3 * 3
     # Empty values are dropped rather than blanking a row to whitespace.
     assert "detail_2" not in fields_for({**full, "detail_2": ""}, 3)
+
+    # render_card must never raise and never block the post. Its callers
+    # treat a None path as ordinary, so every refusal path has to come back
+    # as (None, reason) — including the ones that happen before any network
+    # call. Checked with the credentials cleared, so nothing is contacted.
+    saved = {k: os.environ.pop(k, None)
+             for k in ("CANVA_CLIENT_ID", "CANVA_CLIENT_SECRET",
+                       "CANVA_REFRESH_TOKEN")}
+    try:
+        path, why = render_card(full, 2)              # below the floor
+        assert path is None and "not worth a card" in why, why
+        path, why = render_card(full, 6)              # no credentials
+        assert path is None and "credentials not set" in why, why
+    finally:
+        for k, v in saved.items():
+            if v is not None:
+                os.environ[k] = v
 
     # A rotated token must never reach stdout. The Actions log is public, and
     # this is the one function that handles the token after the refresh.
