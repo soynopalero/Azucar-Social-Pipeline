@@ -12,9 +12,10 @@ name: Canva API check
 # "skip the autofill test".
 #
 # EVERY run spends the stored refresh token: Canva's are single-use, and
-# re-using one revokes the whole flow. The replacement is sent to Telegram
-# and must be pasted back into CANVA_REFRESH_TOKEN, or the next run cannot
-# authenticate.
+# re-using one revokes the whole flow. The replacement is written straight back
+# into CANVA_REFRESH_TOKEN, which needs GH_SECRETS_PAT — a fine-grained PAT on
+# this repo with Secrets: Read and write. Without it the run still works, but
+# the token comes to Telegram to be pasted in by hand.
 #
 # The log is public (this repo is). Nothing prints a token: rotated tokens go
 # to Telegram instead.
@@ -51,8 +52,15 @@ jobs:
         with:
           python-version: "3.12"
 
+      # Sealed-box encryption for the secret write-back. Everything else in
+      # these scripts is stdlib.
+      - name: Install PyNaCl
+        run: pip install pynacl
+
       - name: Check the logic first
-        run: python code/canva_api.py --selftest
+        run: |
+          python code/gh_secret.py --selftest
+          python code/canva_api.py --selftest
 
       - name: Ask Canva
         env:
@@ -60,6 +68,7 @@ jobs:
           CANVA_CLIENT_ID: ${{ secrets.CANVA_CLIENT_ID }}
           CANVA_CLIENT_SECRET: ${{ secrets.CANVA_CLIENT_SECRET }}
           CANVA_REFRESH_TOKEN: ${{ secrets.CANVA_REFRESH_TOKEN }}
+          GH_SECRETS_PAT: ${{ secrets.GH_SECRETS_PAT }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SKIP_AUTOFILL: ${{ inputs.skip_autofill }}
