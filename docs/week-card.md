@@ -44,9 +44,9 @@ dispatch-only as the manual escape hatch.
 
 ## What still needs hands
 
-Filling the Canva template. Canva's API needs an OAuth app registered against
-the Azúcar account, and that does not exist yet, so the last step is manual:
-paste six rows, delete the empty strips, export.
+Filling the Canva template. The credentials now exist — see **Canva API**
+below — but the fill is not wired into the Friday job yet, so the last step is
+manual: paste six rows, delete the empty strips, export.
 
 It takes about two minutes. The section below is the whole procedure.
 
@@ -159,10 +159,61 @@ do not merge on a shared first word.
 
 ---
 
-## Closing the last gap
+## Canva API
 
-To make the fill automatic, the pipeline needs Canva Connect API credentials:
-register an app on the Azúcar Canva account, run the OAuth flow once, store
-the refresh token as `CANVA_REFRESH_TOKEN`. The builder already emits exactly
-the payload that API wants, so it is the credentials that are missing, not the
-logic.
+Connect API credentials are in place. `code/canva_api.py --probe` asked Canva
+directly on **2026-09-26**; these are its answers, not the documentation's:
+
+| Question | Answer |
+|---|---|
+| Is `autofill` available? | **Yes**, and `brand_template` too |
+| Is autofill trial-limited on this account? | **No.** A real autofill returned no `trial_information` at all |
+| Do refresh tokens survive being used? | **No.** Single-use, and re-using one revokes every token from that flow |
+
+The spec says autofill is Enterprise-only. It is not, on this account — which
+is why the probe exists: the only trustworthy answer came from spending one
+real call.
+
+### The token rotation problem
+
+Every refresh spends the stored token and returns a replacement, so a fixed
+`CANVA_REFRESH_TOKEN` secret authenticates exactly once. `code/gh_secret.py`
+writes the replacement straight back into the secret, in the same breath as the
+refresh, before anything else can fail and strand it.
+
+That needs **`GH_SECRETS_PAT`**: a fine-grained PAT scoped to this repository
+alone, with **Secrets: Read and write** and nothing else. `GITHUB_TOKEN` cannot
+do it — there is no `secrets: write` permission to grant a workflow.
+
+Without the PAT nothing breaks immediately: the rotated token is sent to
+Telegram to be pasted in by hand. That works, and it is not a plan — a weekly
+job that needs a human to paste a credential fails on the first busy Friday.
+
+Two rules the code enforces, both for the same reason (**this repo is public,
+and so is every Actions log**):
+
+- A token is never printed. Only a fingerprint — first six characters, last
+  four, length — which is enough to tell two tokens apart in a log and not
+  enough to use one.
+- A failure reason never contains the value that failed to write.
+
+### Re-authorizing
+
+Needed only if the token is ever lost — a crash between refresh and write-back,
+or a revoked flow. `python code/canva_authorize.py` on a normal computer, with
+`CANVA_CLIENT_ID` (the auth client's `OC-…`, from Outside Canva →
+Configuration, **not** the App ID) and `CANVA_CLIENT_SECRET` set. It prints one
+refresh token, once.
+
+Authorizing again silently invalidates the previous refresh token, so do it
+only when you mean to replace it.
+
+### What is still missing
+
+The Friday job does not call Canva yet. `build_week_card.py` already emits
+exactly the payload `/v1/autofills` wants, so that is wiring, not logic.
+
+One real obstacle remains: **Connect cannot delete elements.** An unfilled row
+leaves a blank strip on the page, and the MCP `delete-element` call that removes
+it has no REST equivalent. So a quiet week needs its own template — 3, 4 and 5
+row variants of `DAHWLCTrgMQ`, chosen by row count at fill time.

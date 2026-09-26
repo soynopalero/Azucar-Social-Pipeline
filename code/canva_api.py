@@ -20,13 +20,22 @@ The two unknowns
 
 `--probe` tests (1) for free, then spends exactly one autofill to learn (2).
 
-Rotation, if it is enforced
----------------------------
-The new refresh token has to reach the GitHub secret somehow, and printing a
-credential into a public repo's Actions log is not that. So the probe sends
-it over Telegram, the private channel this pipeline already uses, for Pedro
-to paste in. Automating the write-back needs a PAT with secrets:write; the
-probe says whether that is worth setting up.
+What the probe found (2026-09-26)
+---------------------------------
+* `autofill` and `brand_template` are both available.
+* A real autofill returned **no** `trial_information`, so this account is not
+  trial-limited. There is no use-count to budget against.
+* Rotation **is** enforced: every refresh returns a new token and kills the old
+  one. That is the only hard constraint left, and it is handled below.
+
+Rotation
+--------
+Because the stored token is spent on use, the replacement has to reach the
+GitHub secret or the following week cannot authenticate. `gh_secret.put_secret`
+writes it back directly, in the same breath as the refresh. If that fails the
+token goes to Telegram to be pasted in by hand — not ideal, but far better than
+losing it, which costs a whole browser authorization. It is never printed:
+this repo is public and so is its log.
 
 Usage:
     python code/canva_api.py --probe            # answer both questions
@@ -44,11 +53,20 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from gh_secret import put_secret  # noqa: E402
 
 API = "https://api.canva.com/rest"
 
 # The 6-row weekly card. Autofill copies it; the original is never touched.
 WEEK_CARD_DESIGN_ID = "DAHWLCTrgMQ"
+
+# Where the rotated refresh token is written back. GITHUB_REPOSITORY wins when
+# set; this is the fallback for a local run.
+SECRETS_REPO = "soynopalero/Azucar-Social-Pipeline"
 
 
 class CanvaError(RuntimeError):
@@ -256,16 +274,35 @@ def probe(do_autofill: bool, test_reuse: bool) -> int:
 
 def deliver_token(rotated: str | None) -> None:
     """Every refresh spends the stored token, so the replacement has to reach
-    the secret or the next run cannot authenticate at all. This log is public,
-    so it goes over Telegram instead of being printed."""
+    the secret or the next run cannot authenticate at all.
+
+    First choice is writing it back ourselves — a weekly job that needs a human
+    to paste a credential is a job that breaks on the first busy Friday. If that
+    fails for any reason the token goes to Telegram instead, so it is at least
+    not lost: a stranded token means running the browser authorization again.
+
+    Either way it is never printed. This repo is public and so is its log.
+    """
     if not rotated:
         print("   !! no replacement refresh token returned — the stored one is")
         print("      spent and there is nothing to replace it with.")
         return
-    tg("🔑 Canva refresh token rotated — the one in GitHub Secrets is now dead.\n\n"
-       "Canva refresh tokens are single-use. Replace CANVA_REFRESH_TOKEN with:\n\n"
+
+    repo = envvar("GITHUB_REPOSITORY") or SECRETS_REPO
+    ok, why = put_secret(repo, "CANVA_REFRESH_TOKEN", rotated)
+    if ok:
+        print(f"   {why} — CANVA_REFRESH_TOKEN updated, nothing to paste.")
+        tg("🔑 Canva refresh token rotated. Already written back to GitHub "
+           "Secrets — nothing for you to do.")
+        return
+
+    print(f"   write-back failed ({why}) — falling back to Telegram.")
+    tg("⚠️ Canva refresh token rotated and I could not write it back "
+       f"({why}).\n\n"
+       "The token in GitHub Secrets is dead now. Replace CANVA_REFRESH_TOKEN "
+       "with this or the next run cannot authenticate:\n\n"
        f"{rotated}\n\n"
-       "https://github.com/soynopalero/Azucar-Social-Pipeline/settings/secrets/actions")
+       f"https://github.com/{repo}/settings/secrets/actions")
     print("   replacement token sent to Telegram (this log is public).")
 
 
@@ -286,6 +323,29 @@ def selftest() -> int:
                      for k, v in {"day_1": "THU 24", "title_1": "Karaoke"}.items()}}
     assert body["data"]["day_1"] == {"type": "text", "text": "THU 24"}
     assert json.loads(json.dumps(body))["design_id"] == "D1"
+
+    # A rotated token must never reach stdout. The Actions log is public, and
+    # this is the one function that handles the token after the refresh.
+    import contextlib
+    import io
+
+    buf = io.StringIO()
+    token = "rotated-token-do-not-print"
+    # Clear the PAT for the duration: with one set this would write the dummy
+    # token above over the live CANVA_REFRESH_TOKEN. A test must not be able to
+    # break production because of what is in someone's shell.
+    saved = os.environ.pop("GH_SECRETS_PAT", None)
+    try:
+        with contextlib.redirect_stdout(buf):
+            deliver_token(token)      # no PAT, so it takes the fallback path
+            deliver_token(None)       # and the nothing-came-back path
+    finally:
+        if saved is not None:
+            os.environ["GH_SECRETS_PAT"] = saved
+    out = buf.getvalue()
+    assert token not in out, out
+    assert "write-back failed" in out, out
+    assert "no replacement refresh token" in out, out
     print("selftest: all checks passed")
     return 0
 
