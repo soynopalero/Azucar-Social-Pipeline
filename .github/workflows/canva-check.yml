@@ -1,0 +1,60 @@
+name: Canva API check
+
+# Answers the two things we cannot know without asking Canva:
+#
+#   1. Does the refresh token survive being used? If Canva rotates and
+#      invalidates, a fixed CANVA_REFRESH_TOKEN secret works exactly once and
+#      the Friday card job breaks the week after.
+#   2. How many autofill uses are left? Autofill is trial-limited off Canva
+#      Enterprise, and the count only comes back on a real autofill.
+#
+# Run by hand, not on a schedule — it spends a trial use unless you tick
+# "skip the autofill test".
+#
+# The log is public (this repo is). Nothing prints a token: rotated tokens go
+# to Telegram instead.
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_autofill:
+        description: "Skip the autofill test (free, but no quota number)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  # Two probes at once would each invalidate the other's refresh token.
+  group: canva-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Check the logic first
+        run: python code/canva_api.py --selftest
+
+      - name: Ask Canva
+        env:
+          PYTHONUNBUFFERED: "1"
+          CANVA_CLIENT_ID: ${{ secrets.CANVA_CLIENT_ID }}
+          CANVA_CLIENT_SECRET: ${{ secrets.CANVA_CLIENT_SECRET }}
+          CANVA_REFRESH_TOKEN: ${{ secrets.CANVA_REFRESH_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SKIP_AUTOFILL: ${{ inputs.skip_autofill }}
+        run: |
+          set -euo pipefail
+          args=(--probe)
+          if [ "$SKIP_AUTOFILL" = "true" ]; then args+=(--no-autofill); fi
+          python code/canva_api.py "${args[@]}"
