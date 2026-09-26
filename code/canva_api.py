@@ -61,8 +61,53 @@ from gh_secret import put_secret  # noqa: E402
 
 API = "https://api.canva.com/rest"
 
-# The 6-row weekly card. Autofill copies it; the original is never touched.
-WEEK_CARD_DESIGN_ID = "DAHWLCTrgMQ"
+# The weekly card, one template per row count. Autofill copies whichever one
+# matches the week; the originals are never touched.
+#
+# Separate templates because Canva Connect cannot delete elements: an unfilled
+# row would leave a blank strip on the page, and the MCP `delete-element` call
+# that removes one has no REST equivalent. So the rows are removed up front,
+# by hand, once per row count.
+#
+# Careful: `get-design-dataset` still reports all 19 fields for every one of
+# these, including rows that were deleted. The dataset does not track
+# deletions, so it cannot tell you a template's row count — that is why the
+# count is the key here rather than something read back from Canva.
+WEEK_CARD_TEMPLATES = {
+    3: "DAHWQ9JH6J0",
+    4: "DAHWQpp0I-E",
+    5: "DAHWQnDRd5c",
+    6: "DAHWLCTrgMQ",   # the original
+}
+
+# Below this a week card is the wrong artifact: one or two events is a flyer,
+# and the carousel already falls back to a single photo post. Rather than
+# publish a near-empty card, those weeks go to Telegram to be handled by hand.
+MIN_AUTO_ROWS = min(WEEK_CARD_TEMPLATES)
+
+
+def template_for(rows: int) -> tuple[str | None, str]:
+    """Pick the template for a week with `rows` events. Returns (id, reason);
+    id is None when the week should not be auto-filled at all."""
+    if rows in WEEK_CARD_TEMPLATES:
+        return WEEK_CARD_TEMPLATES[rows], f"{rows}-row template"
+    if rows < MIN_AUTO_ROWS:
+        return None, (f"only {rows} event(s) — below the {MIN_AUTO_ROWS}-row "
+                      f"floor, so this week is not worth a card")
+    return None, f"no template for {rows} rows (have {sorted(WEEK_CARD_TEMPLATES)})"
+
+
+def fields_for(fields: dict, rows: int) -> dict:
+    """Trim a 6-row payload to the rows a template actually has.
+
+    Sending `title_6` to the 3-row template is not harmless-looking noise —
+    the dataset still claims that field exists, so a mistake here fails
+    quietly rather than loudly.
+    """
+    keep = {"week_label"}
+    for i in range(1, rows + 1):
+        keep |= {f"day_{i}", f"title_{i}", f"detail_{i}"}
+    return {k: v for k, v in fields.items() if k in keep and v}
 
 # Where the rotated refresh token is written back. GITHUB_REPOSITORY wins when
 # set; this is the fallback for a local run.
@@ -235,7 +280,7 @@ def probe(do_autofill: bool, test_reuse: bool) -> int:
         else:
             print("\n3. Spending ONE autofill to read the trial counter…")
             job = autofill_from_design(
-                access, WEEK_CARD_DESIGN_ID,
+                access, WEEK_CARD_TEMPLATES[6],
                 {"week_label": "PROBE — delete me"},
                 title="Azúcar — API probe (safe to delete)")
             res = job.get("result") or {}
@@ -323,6 +368,34 @@ def selftest() -> int:
                      for k, v in {"day_1": "THU 24", "title_1": "Karaoke"}.items()}}
     assert body["data"]["day_1"] == {"type": "text", "text": "THU 24"}
     assert json.loads(json.dumps(body))["design_id"] == "D1"
+
+    # Every template is a distinct design; reusing one id for two row counts
+    # would silently post the wrong layout.
+    assert len(set(WEEK_CARD_TEMPLATES.values())) == len(WEEK_CARD_TEMPLATES)
+
+    for n in WEEK_CARD_TEMPLATES:
+        assert template_for(n)[0] == WEEK_CARD_TEMPLATES[n]
+    # A quiet week gets no card rather than a near-empty one, and a week past
+    # the ceiling is refused rather than silently losing events.
+    assert template_for(2)[0] is None
+    assert template_for(0)[0] is None
+    assert template_for(7)[0] is None
+    assert "not worth a card" in template_for(1)[1]
+    assert "no template" in template_for(9)[1]
+
+    # The payload must be trimmed to the template's rows. The dataset still
+    # advertises all 19 fields on a trimmed template, so an untrimmed payload
+    # fails quietly — this is the guard against that.
+    full = {"week_label": "Week Sept 21-27"}
+    for i in range(1, 7):
+        full |= {f"day_{i}": f"D{i}", f"title_{i}": f"T{i}", f"detail_{i}": f"X{i}"}
+    three = fields_for(full, 3)
+    assert three["title_3"] == "T3"
+    assert "title_4" not in three and "day_6" not in three
+    assert three["week_label"] == "Week Sept 21-27"
+    assert len(three) == 1 + 3 * 3
+    # Empty values are dropped rather than blanking a row to whitespace.
+    assert "detail_2" not in fields_for({**full, "detail_2": ""}, 3)
 
     # A rotated token must never reach stdout. The Actions log is public, and
     # this is the one function that handles the token after the refresh.
