@@ -26,14 +26,15 @@ One queue entry per platform, scheduled for Monday morning, carrying
 `image_urls` (a list) rather than `image_url`. process_queue turns that into
 an Instagram carousel and a Facebook multi-photo post.
 
-Slides are the events' own flyers, chronological, capped at Meta's limit of
-10. Anything past the cap still appears in the caption, so a busy week loses
-its picture but never its listing.
+Slide one is the week written out — the punk-zine card, filled from the board
+through Canva. After it come the events' own flyers, chronological, capped at
+Meta's limit of 10. Anything past the cap still appears in the caption, so a
+busy week loses its picture but never its listing.
 
-NOTE: the summary slide Pedro asked for — a card with the week written out —
-is not generated here. That needs a rendered image, which this script has no
-way to make; the caption carries the same information for now. Worth
-revisiting with Canva, which the account already has.
+The card is best-effort on purpose. This post ran without it for months, and
+it still can: `build_week_card_png` never raises, so a Canva outage, a quiet
+week with no matching template, or missing credentials costs the first slide
+and nothing else.
 
 Usage:
     python code/build_week_carousel.py --dry-run     # print, queue nothing
@@ -195,6 +196,32 @@ def queue_carousel(events, monday: dt.date, caption: str, image_urls: list) -> i
     return sum(1 for p in queue["posts"] if p.get("campaign") == campaign)
 
 
+def build_week_card_png(monday: dt.date, sunday: dt.date) -> tuple[str | None, str]:
+    """Render slide one from the board. Returns (path, note); path is None
+    when there is no card, and the note says why.
+
+    The broad except is deliberate and is the whole point of this wrapper.
+    Everything downstream — the flyers, the caption, the queue entry — worked
+    before this slide existed and must keep working without it. A Canva
+    outage, a missing dependency, a changed payload shape: none of those are
+    worth losing the week's post over, so they all come back as a note.
+    """
+    try:
+        import tempfile
+
+        from build_week_card import build_card
+        from build_week_card import collect_week as collect_card_week
+        from canva_api import render_card
+
+        card = build_card(collect_card_week(monday, sunday), monday, sunday)
+        rows = card["rows_used"]
+        if not rows:
+            return None, "no events on the board for the card"
+        return render_card(card["fields"], rows, out_dir=tempfile.gettempdir())
+    except Exception as e:                                   # noqa: BLE001
+        return None, f"skipped — {type(e).__name__}: {e}"
+
+
 def selftest() -> int:
     mon, sun = week_window(None, dt.date(2026, 9, 23))   # a Wednesday
     assert (mon, sun) == (dt.date(2026, 9, 21), dt.date(2026, 9, 27)), (mon, sun)
@@ -224,6 +251,25 @@ def selftest() -> int:
     assert event_line("X", dt.date(2026, 9, 26), None, "Free").endswith("Free")
     # No time and no price still gives a usable line.
     assert event_line("X", dt.date(2026, 9, 27), None, None) == "Dom 27 · X"
+
+    # The card must never take the post down with it. Forcing a failure in
+    # the one dependency it needs has to come back as a note, not an
+    # exception — every caller below treats a None path as ordinary.
+    import builtins
+    real_import = builtins.__import__
+
+    def boom(name, *a, **k):
+        if name == "canva_api":
+            raise RuntimeError("pretend Canva is unreachable")
+        return real_import(name, *a, **k)
+
+    builtins.__import__ = boom
+    try:
+        path, note = build_week_card_png(dt.date(2026, 9, 21), dt.date(2026, 9, 27))
+    finally:
+        builtins.__import__ = real_import
+    assert path is None, path
+    assert "skipped" in note and "pretend Canva is unreachable" in note, note
 
     cap = build_caption(["Vie 25 · A", "Sáb 26 · B"], dt.date(2026, 9, 21), [])
     assert cap.startswith("ESTA SEMANA EN AZÚCAR")
@@ -260,6 +306,25 @@ def main() -> int:
         return 0
 
     lines, extra_names, image_urls = [], [], []
+
+    # Slide one is the week written out — the reference object this post
+    # exists to be, since a stack of flyers still does not say what is on
+    # Thursday. But the round-up posted without it for months, so a Canva
+    # failure costs the card and nothing else: build_week_card_png never
+    # raises, and a None path just means the flyers start at slide one as
+    # they always did.
+    # A dry run is for reading the caption, and rendering the card spends the
+    # single-use Canva refresh token and leaves a design behind. Not worth it
+    # for a preview.
+    if args.dry_run:
+        card_path, card_note = None, "skipped (dry run)"
+    else:
+        card_path, card_note = build_week_card_png(monday, sunday)
+    print(f"  week card: {card_note}")
+    if card_path:
+        image_urls.append(host_image_on_pages(
+            card_path, f"week_{monday.isoformat()}", 0))
+
     for e in events:
         lines.append(event_line(e["name"], e["date"], e["time"], e["price"]))
         if len(image_urls) >= MAX_SLIDES or not e["flyer_assets"]:

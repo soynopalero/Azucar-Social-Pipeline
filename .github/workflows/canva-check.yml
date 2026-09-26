@@ -38,8 +38,10 @@ permissions:
   contents: read
 
 concurrency:
-  # Two probes at once would each invalidate the other's refresh token.
-  group: canva-check
+  # Two runs at once would each invalidate the other's refresh token. Shared
+  # with week-card.yml and week-carousel.yml, which now spend the same token
+  # when they fill the week card.
+  group: week-roundup
   cancel-in-progress: false
 
 jobs:

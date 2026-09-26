@@ -208,12 +208,69 @@ refresh token, once.
 Authorizing again silently invalidates the previous refresh token, so do it
 only when you mean to replace it.
 
-### What is still missing
+### One template per row count
 
-The Friday job does not call Canva yet. `build_week_card.py` already emits
-exactly the payload `/v1/autofills` wants, so that is wiring, not logic.
+**Connect cannot delete elements.** An unfilled row leaves a blank strip, and
+the MCP `delete-element` call that removes one has no REST equivalent. So the
+rows are removed up front — once, by hand — and the job picks the template
+matching the week:
 
-One real obstacle remains: **Connect cannot delete elements.** An unfilled row
-leaves a blank strip on the page, and the MCP `delete-element` call that removes
-it has no REST equivalent. So a quiet week needs its own template — 3, 4 and 5
-row variants of `DAHWLCTrgMQ`, chosen by row count at fill time.
+| Events | Template | |
+|---|---|---|
+| 3 | `DAHWQ9JH6J0` | https://www.canva.com/design/DAHWQ9JH6J0/edit |
+| 4 | `DAHWQpp0I-E` | https://www.canva.com/design/DAHWQpp0I-E/edit |
+| 5 | `DAHWQnDRd5c` | https://www.canva.com/design/DAHWQnDRd5c/edit |
+| 6 | `DAHWLCTrgMQ` | the original |
+
+`canva_api.WEEK_CARD_TEMPLATES` is the registry; `template_for(rows)` picks one.
+
+**Below three events there is no card.** One or two events is a flyer, not a
+week, and the carousel already falls back to a single photo post. Those weeks
+go to Telegram to be handled by hand rather than posting a near-empty card.
+
+Three things learned building these, all of which will bite again:
+
+- **Rows are bottom-anchored, not centred.** The last row always ends at
+  y=1300, where row 6 ended. Centring a short block looked more balanced until
+  it was rendered — see the ghost lettering below.
+- **The background has old text baked into it.** `MAHWLHd8FoY` carries a faint
+  "Heels Class" and "AHS Drag Show" across the strip band, apparently from an
+  earlier export. Six rows cover it; fewer do not, and it reads as a printing
+  error rather than as texture. Each variant therefore carries a black panel
+  over the exposed band (x 312→1060, from y=486 down to its first row). The
+  real fix is re-exporting the background without the ghost text.
+- **`get-design-dataset` lies about trimmed templates.** It reports all 19
+  fields for every variant, including rows that were deleted. It cannot tell
+  you a template's row count, which is why the count is hard-coded, and why
+  `fields_for()` trims the payload — an untrimmed one fails quietly.
+
+Also fixed in all three: row 4's day text sat 7px lower than every other row
+in the original (tag at 898, text at 910, where the rest are tag+5). **The
+master `DAHWLCTrgMQ` still has that 7px drop** — worth correcting there too.
+
+### How the fill runs
+
+`build_week_carousel.py` makes slide one before it collects any flyer:
+
+```
+board -> build_card()      six rows, or fewer
+      -> template_for(n)   pick the matching template
+      -> fields_for()      trim the payload to that template's rows
+      -> /v1/autofills     fill a copy; the template is never touched
+      -> /v1/exports       PNG
+      -> host on Pages     slide one
+```
+
+**A Canva failure costs the card and nothing else.** This post ran without a
+card for months and still can: `build_week_card_png` never raises, so an
+outage, a quiet week with no matching template, or missing credentials just
+means the flyers start at slide one as they always did. The run says which in
+its log. Anything stronger would trade a missing slide for a missing post.
+
+A dry run skips the card deliberately — rendering spends the single-use
+refresh token and leaves a design behind, which is not worth it to preview a
+caption.
+
+Every workflow that can reach Canva shares one concurrency group,
+`week-roundup`. Two of them at once would each spend the other's refresh
+token, and they write the same queue.
