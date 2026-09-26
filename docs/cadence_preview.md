@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-25 12:45 PDT - **nothing posted, queue untouched**
+Generated 2026-09-26 11:54 PDT - **nothing posted, queue untouched**
 
 Eligible events: **14** - Skipped: **89**
 
@@ -148,7 +148,7 @@ Eligible events: **14** - Skipped: **89**
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - date in the past, tier 'every week' — covered by the weekly round-up
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Dolly Parton; A drag Tribute Night** - date in the past
 - **Drag Brunch de Reinas** - date in the past, phase = Cancelled
