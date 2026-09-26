@@ -11,6 +11,11 @@ name: Canva API check
 # Run by hand, not on a schedule — it spends a trial use unless you tick
 # "skip the autofill test".
 #
+# EVERY run spends the stored refresh token: Canva's are single-use, and
+# re-using one revokes the whole flow. The replacement is sent to Telegram
+# and must be pasted back into CANVA_REFRESH_TOKEN, or the next run cannot
+# authenticate.
+#
 # The log is public (this repo is). Nothing prints a token: rotated tokens go
 # to Telegram instead.
 
@@ -19,6 +24,11 @@ on:
     inputs:
       skip_autofill:
         description: "Skip the autofill test (free, but no quota number)"
+        required: false
+        type: boolean
+        default: false
+      test_reuse:
+        description: "DESTRUCTIVE re-check that refresh tokens are single-use"
         required: false
         type: boolean
         default: false
@@ -53,8 +63,10 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SKIP_AUTOFILL: ${{ inputs.skip_autofill }}
+          TEST_REUSE: ${{ inputs.test_reuse }}
         run: |
           set -euo pipefail
           args=(--probe)
           if [ "$SKIP_AUTOFILL" = "true" ]; then args+=(--no-autofill); fi
+          if [ "$TEST_REUSE" = "true" ]; then args+=(--test-reuse); fi
           python code/canva_api.py "${args[@]}"

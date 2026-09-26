@@ -164,7 +164,19 @@ def fingerprint(s: str) -> str:
     return f"{s[:6]}…{s[-4:]} (len {len(s)})" if len(s) > 12 else "(short)"
 
 
-def probe(do_autofill: bool) -> int:
+def probe(do_autofill: bool, test_reuse: bool) -> int:
+    """Order matters here, and it cost us a token to learn why.
+
+    Re-using a refresh token does not merely fail — Canva answers
+    "Refresh token used twice. All access tokens granted from this flow are
+    now revoked" and kills the access token you are holding. Run that test
+    first and everything after it 401s.
+
+    So: refresh, then do all the useful work, and only then, if explicitly
+    asked, run the destructive test. The answer is already known and
+    recorded below; --test-reuse exists to re-confirm it after an API
+    change, not for routine use.
+    """
     cid, sec = envvar("CANVA_CLIENT_ID"), envvar("CANVA_CLIENT_SECRET")
     original = envvar("CANVA_REFRESH_TOKEN")
     missing = [n for n, v in (("CANVA_CLIENT_ID", cid),
@@ -181,34 +193,29 @@ def probe(do_autofill: bool) -> int:
     if not access:
         print(f"No access token came back: {first}", file=sys.stderr)
         return 1
-    print(f"   access token ok, expires_in={first.get('expires_in')}s")
-    print(f"   stored refresh:  {fingerprint(original)}")
-    print(f"   returned refresh:{fingerprint(rotated or '')}")
-    print(f"   same token?      {rotated == original}")
+    print(f"   ok, expires_in={first.get('expires_in')}s")
+    print(f"   stored refresh  : {fingerprint(original)}")
+    print(f"   returned refresh: {fingerprint(rotated or '')}")
+    print(f"   rotated?          {rotated != original}")
 
-    print("\n2. Re-using the ORIGINAL refresh token (the real question)…")
-    reusable = False
+    # The stored secret is spent the moment the line above ran. Hand the
+    # replacement over before anything else can fail and strand it.
+    deliver_token(rotated)
+
+    rc = 0
     try:
-        refresh_access_token(cid, sec, original)
-        reusable = True
-        print("   WORKS — the stored token survives use.")
-        print("   => a fixed CANVA_REFRESH_TOKEN secret is enough. No write-back needed.")
-    except CanvaError as e:
-        print(f"   REJECTED — {str(e)[:200]}")
-        print("   => Canva rotates and invalidates. The secret must be replaced")
-        print("      after every run, or the job breaks next week.")
+        print("\n2. Capabilities:")
+        caps = capabilities(access)
+        for c in sorted(caps):
+            print(f"   - {c}")
 
-    print("\n3. Capabilities:")
-    caps = capabilities(access)
-    for c in sorted(caps):
-        print(f"   - {c}")
-
-    uses = None
-    if do_autofill:
-        if "autofill" not in caps:
-            print("\n4. Skipping the autofill test — no autofill capability.")
+        uses = None
+        if not do_autofill:
+            print("\n3. Autofill test skipped (--no-autofill).")
+        elif "autofill" not in caps:
+            print("\n3. No autofill capability — skipping.")
         else:
-            print("\n4. Spending ONE autofill to read the trial counter…")
+            print("\n3. Spending ONE autofill to read the trial counter…")
             job = autofill_from_design(
                 access, WEEK_CARD_DESIGN_ID,
                 {"week_label": "PROBE — delete me"},
@@ -219,30 +226,47 @@ def probe(do_autofill: bool) -> int:
             uses = trial.get("uses_remaining")
             print(f"   autofill OK -> design {design.get('id')} {design.get('url','')}")
             if uses is None:
-                print("   no trial_information returned — usually means the account")
-                print("   is not trial-limited. Good news, but unconfirmed.")
+                print("   no trial_information returned — usually means the")
+                print("   account is not trial-limited. Good, but unconfirmed.")
             else:
                 print(f"   *** autofill uses remaining: {uses} ***")
-                print(f"   at 52 posts a year that is ~{uses // 52} year(s) "
-                      f"and {uses % 52} week(s).")
+                print(f"   at 52 a year that is ~{uses // 52}y {uses % 52}w.")
 
-    print("\n" + "=" * 60)
-    print(f"refresh token reusable : {reusable}")
-    print(f"autofill capability    : {'autofill' in caps}")
-    print(f"autofill uses remaining: {uses if uses is not None else 'not reported'}")
-    print("=" * 60)
+        print("\n" + "=" * 60)
+        print(f"autofill capability    : {'autofill' in caps}")
+        print(f"autofill uses remaining: {uses if uses is not None else 'not reported'}")
+        print("refresh tokens         : single-use, reuse revokes the whole flow")
+        print("=" * 60)
+    except CanvaError as e:
+        print(f"\nFailed: {e}", file=sys.stderr)
+        rc = 1
 
-    if not reusable and rotated:
-        # The stored secret is now dead; the only live token is this one, and
-        # it must not be printed here.
-        tg("🔑 Canva refresh token rotated.\n\n"
-           "The token in GitHub Secrets no longer works — Canva invalidates it "
-           "on use. Replace CANVA_REFRESH_TOKEN with the value below:\n\n"
-           f"{rotated}\n\n"
-           "https://github.com/soynopalero/Azucar-Social-Pipeline/settings/secrets/actions")
-        print("\nRotation detected: the replacement token was sent to Telegram,")
-        print("not printed here — this log is public.")
-    return 0
+    if test_reuse:
+        # Deliberately destructive. Everything above has already run.
+        print("\n4. DESTRUCTIVE: re-using the original refresh token…")
+        try:
+            refresh_access_token(cid, sec, original)
+            print("   WORKS — reuse is allowed after all. Re-check the design.")
+        except CanvaError as e:
+            print(f"   REJECTED — {str(e)[:160]}")
+            print("   Confirmed: single-use. The token just delivered is still")
+            print("   the live one; the access token is now revoked.")
+    return rc
+
+
+def deliver_token(rotated: str | None) -> None:
+    """Every refresh spends the stored token, so the replacement has to reach
+    the secret or the next run cannot authenticate at all. This log is public,
+    so it goes over Telegram instead of being printed."""
+    if not rotated:
+        print("   !! no replacement refresh token returned — the stored one is")
+        print("      spent and there is nothing to replace it with.")
+        return
+    tg("🔑 Canva refresh token rotated — the one in GitHub Secrets is now dead.\n\n"
+       "Canva refresh tokens are single-use. Replace CANVA_REFRESH_TOKEN with:\n\n"
+       f"{rotated}\n\n"
+       "https://github.com/soynopalero/Azucar-Social-Pipeline/settings/secrets/actions")
+    print("   replacement token sent to Telegram (this log is public).")
 
 
 def selftest() -> int:
@@ -251,6 +275,11 @@ def selftest() -> int:
     # A fingerprint must never be enough to reconstruct the token.
     tok = "x" * 200
     assert len(fingerprint(tok)) < 30
+
+    # Reuse is destructive, so it must never be on by default.
+    ap_defaults = argparse.ArgumentParser()
+    ap_defaults.add_argument("--test-reuse", action="store_true")
+    assert ap_defaults.parse_args([]).test_reuse is False
 
     body = {"type": "create_from_design", "design_id": "D1",
             "data": {k: {"type": "text", "text": v}
@@ -267,12 +296,17 @@ def main() -> int:
     ap.add_argument("--probe", action="store_true")
     ap.add_argument("--no-autofill", action="store_true",
                     help="skip the autofill test so no trial use is spent")
+    ap.add_argument("--test-reuse", action="store_true",
+                    help="DESTRUCTIVE: re-use the old refresh token, which "
+                         "revokes the access token. Runs last. Already proven "
+                         "single-use; only for re-checking after an API change.")
     ap.add_argument("--selftest", action="store_true")
     args = ap.parse_args()
     if args.selftest:
         return selftest()
     if args.probe:
-        return probe(do_autofill=not args.no_autofill)
+        return probe(do_autofill=not args.no_autofill,
+                     test_reuse=args.test_reuse)
     ap.print_help()
     return 0
 
