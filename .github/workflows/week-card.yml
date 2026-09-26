@@ -1,0 +1,123 @@
+name: Weekly round-up review
+
+# The Friday approval gate for Monday's "This Week at Azúcar" round-up.
+#
+# The round-up used to queue itself on Monday morning with nobody looking.
+# That is fine until the board is wrong, and by then the post is out. Building
+# it Friday leaves the weekend to fix the board, and nothing posts until Pedro
+# taps Approve in Telegram.
+#
+# Three ways this runs:
+#   schedule         Friday 09:00 PT  -> send next week's rows for review
+#   dispatch approve (from the bot)   -> queue the round-up for Monday 11:00
+#   dispatch regen   (from the bot)   -> rebuild with Pedro's note, re-send
+#
+# The buttons are handled by the Telegram bot in azucar-events-pipeline, which
+# fires this workflow back with the action. Same baton the caption approval
+# already passes.
+
+on:
+  schedule:
+    - cron: "0 16 * * 5"   # Fridays 09:00 America/Los_Angeles (16:00 UTC, PDT)
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "review (send it) / approve (queue it) / regen (rebuild with a note)"
+        required: false
+        type: choice
+        options: [review, approve, regen]
+        default: review
+      week_of:
+        description: "Any date inside the target week (YYYY-MM-DD). Blank = next week."
+        required: false
+        type: string
+      feedback:
+        description: "What to change (shown back in the review message)"
+        required: false
+        type: string
+      dry_run:
+        description: "Print the message without sending or queueing"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write  # approving commits the queue and the slide images
+
+concurrency:
+  # Never let a second approval race the first into the queue.
+  group: week-card
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Check the logic before touching anything
+        run: |
+          python code/build_week_card.py --selftest
+          python code/week_card_review.py --selftest
+          python code/build_week_carousel.py --selftest
+          python code/cap_queue.py --selftest
+
+      - name: Run it
+        env:
+          PYTHONUNBUFFERED: "1"
+          MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Every input arrives through the environment, never interpolated
+          # into the script. FEEDBACK is whatever Pedro typed or dictated into
+          # Telegram; expanded inline it would be a shell injection with the
+          # repo's secrets in reach.
+          ACTION: ${{ inputs.action || 'review' }}
+          WEEK_OF: ${{ inputs.week_of }}
+          FEEDBACK: ${{ inputs.feedback }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          args=(--action "$ACTION")
+          if [ -n "$WEEK_OF" ];  then args+=(--week-of "$WEEK_OF"); fi
+          if [ -n "$FEEDBACK" ]; then args+=(--feedback "$FEEDBACK"); fi
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          python code/week_card_review.py "${args[@]}"
+
+      - name: Commit the queue and the slide images
+        if: ${{ inputs.action == 'approve' && !inputs.dry_run }}
+        run: |
+          git add -A posts_queue.json docs/posts_queue.json docs/media/cadence 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Nothing to commit — approval queued nothing."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Weekly round-up approved [skip ci]"
+            # The queue is merged by entry id if another workflow committed
+            # meanwhile — see .gitattributes and code/merge_queue.py.
+            git config merge.queue.driver "python code/merge_queue.py %O %A %B"
+            ok=""
+            for i in 1 2 3 4; do
+              if git pull --rebase origin main && git push; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push raced, retry $i"; sleep $((i * 4))
+            done
+            [ -n "$ok" ] || exit 1
+          fi
+
+      - name: Alert on failure
+        if: failure()
+        uses: ./.github/actions/ops-alert
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          text: |
+            ⚠️ The weekly round-up review failed (${{ inputs.action || 'review' }}). Nothing was queued. If this was an approval, tap it again after the fix — the post is not scheduled.
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

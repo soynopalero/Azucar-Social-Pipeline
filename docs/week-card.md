@@ -5,15 +5,42 @@ week written out, because a stack of flyers does not tell anyone what is on
 Thursday.
 
 - **Template (do not post this one):** https://www.canva.com/design/DAHWLCTrgMQ/edit
-- **Builder:** `code/build_week_card.py`
-- **Runs:** inside `.github/workflows/week-carousel.yml`, Mondays 09:00 PT
+- **Builder:** `code/build_week_card.py` — board to six rows
+- **Review + gate:** `code/week_card_review.py` — Telegram approval
+- **Runs:** `.github/workflows/week-card.yml`, **Fridays 09:00 PT**
 
 ---
 
-## What happens on its own
+## The approval gate
 
-Every Monday morning the workflow reads the board, works out the week's rows,
-and sends them to Pedro on Telegram. That part needs no one.
+**Nothing posts unless Pedro taps ✅.** A week that is never approved is
+simply never queued — silence beats a wrong post.
+
+```
+Friday 09:00 PT   workflow reads the board for NEXT week
+                  -> Telegram: the rows + [✅ Post it] [✏️ Change something]
+
+tap ✅            bot fires week-card.yml with action=approve
+                  -> re-reads the board, queues the round-up for Monday 11:00
+
+tap ✏️            bot asks what to change (typing or a voice note)
+                  -> fires action=regen with the note
+                  -> rebuilt card comes back for another look
+```
+
+Friday on purpose: it leaves the weekend to fix the board before anything is
+queued. Most feedback is really "the board is wrong" — fix it there and tap
+🔄 Just rebuild, so the board stays the single source of truth.
+
+The buttons are handled by the Telegram bot in the **azucar-events-pipeline**
+repo (`src/telegram.js`, the `week:` callback). It writes nothing here — it
+fires this workflow back with the action, the same baton the caption approval
+already passes. Pedro's note rides in as a workflow input, so unlike captions
+there is no Monday column to write and later clear.
+
+`week-carousel.yml` has **no schedule any more**. Queueing is what approval
+does; a cron there would post the week whether or not anyone tapped. It stays
+dispatch-only as the manual escape hatch.
 
 ## What still needs hands
 
