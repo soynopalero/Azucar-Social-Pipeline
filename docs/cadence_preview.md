@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-26 11:54 PDT - **nothing posted, queue untouched**
+Generated 2026-09-27 12:26 PDT - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **89**
-
-## Furanium Fever - 2026-09-26  (One-time)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Sep 26, 7:00 PM | evening |
+Eligible events: **13** - Skipped: **90**
 
 ## Industry Night Drag Show - 2026-09-27  (One-time)
 1 posts x 2 platforms = **2** queue entries
@@ -161,6 +154,7 @@ Eligible events: **14** - Skipped: **89**
 - **End of Summer Blackout Party** - date in the past
 - **Faetalitys birthday show** - date in the past
 - **Frivola — June** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
+- **Furanium Fever** - date in the past
 - **Heels Dance Class with Frankie** - date in the past
 - **Heels Dance Class with Kimora** - date in the past
 - **Heels dance class with Frankie** - date in the past, tier 'every week' — covered by the weekly round-up
@@ -222,4 +216,4 @@ Eligible events: **14** - Skipped: **89**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 80**
+**Total queue entries that would be created: 78**
