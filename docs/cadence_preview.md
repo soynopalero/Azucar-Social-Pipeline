@@ -1,22 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-27 12:26 PDT - **nothing posted, queue untouched**
+Generated 2026-09-28 14:30 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **90**
+Eligible events: **12** - Skipped: **91**
 
-## Industry Night Drag Show - 2026-09-27  (One-time)
+## Cabana Bass - Casting Call - 2026-09-30  (One-time)
 1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Sep 27, 7:00 PM | evening |
-
-## Cabana Bass - Casting Call - 2026-09-30  (One-time)
-2 posts x 2 platforms = **4** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Sep 27, 7:00 PM | evening |
 | Wed Sep 30, 7:00 PM | evening |
 
 ## Candy Shop - 2026-10-02  (Launch)
@@ -160,6 +152,7 @@ Eligible events: **13** - Skipped: **90**
 - **Heels dance class with Frankie** - date in the past, tier 'every week' — covered by the weekly round-up
 - **Heels dance class with Kimora** - date in the past, tier 'every week' — covered by the weekly round-up
 - **Industry Night Drag Show** - date in the past, phase = Cancelled
+- **Industry Night Drag Show** - date in the past
 - **Intermittent Heel Class with Kimora** - date in the past, no cadence set, no flyer, no price, no description
 - **Karaoke** - date in the past
 - **Kareoke** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -216,4 +209,4 @@ Eligible events: **13** - Skipped: **90**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 78**
+**Total queue entries that would be created: 74**
