@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-29 13:23 PDT - **nothing posted, queue untouched**
+Generated 2026-09-30 13:26 PDT - **nothing posted, queue untouched**
 
 Eligible events: **12** - Skipped: **91**
 
@@ -12,11 +12,10 @@ Eligible events: **12** - Skipped: **91**
 | Wed Sep 30, 7:00 PM | evening |
 
 ## Candy Shop - 2026-10-02  (Launch)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 29, 7:00 PM | evening |
 | Thu Oct 1, 7:00 PM | evening |
 | Fri Oct 2, 11:00 AM | morning |
 
@@ -30,11 +29,10 @@ Eligible events: **12** - Skipped: **91**
 | Fri Oct 9, 11:00 AM | morning |
 
 ## Emo-Night Drag Show Edition - 2026-10-10  (One-time)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Sep 30, 11:00 AM | morning |
 | Wed Oct 7, 7:00 PM | evening |
 | Sat Oct 10, 7:00 PM | evening |
 
@@ -66,11 +64,10 @@ Eligible events: **12** - Skipped: **91**
 | Thu Oct 22, 7:00 PM | evening |
 
 ## Scream Queens Drag Show - 2026-10-23  (One-time)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Sep 29, 7:00 PM | evening |
 | Tue Oct 13, 11:00 AM | morning |
 | Tue Oct 20, 7:00 PM | evening |
 | Fri Oct 23, 7:00 PM | evening |
@@ -208,4 +205,4 @@ Eligible events: **12** - Skipped: **91**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 72**
+**Total queue entries that would be created: 66**
