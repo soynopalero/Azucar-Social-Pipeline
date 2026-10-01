@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-09-30 13:26 PDT - **nothing posted, queue untouched**
+Generated 2026-10-01 13:43 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **91**
-
-## Cabana Bass - Casting Call - 2026-09-30  (One-time)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Wed Sep 30, 7:00 PM | evening |
+Eligible events: **11** - Skipped: **92**
 
 ## Candy Shop - 2026-10-02  (Launch)
 2 posts x 2 platforms = **4** queue entries
@@ -37,11 +30,10 @@ Eligible events: **12** - Skipped: **91**
 | Sat Oct 10, 7:00 PM | evening |
 
 ## Mosh Night - 2026-10-11  (One-time)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 1, 11:00 AM | morning |
 | Thu Oct 8, 7:00 PM | evening |
 | Sun Oct 11, 7:00 PM | evening |
 
@@ -123,6 +115,7 @@ Eligible events: **12** - Skipped: **91**
 - **Build you own carabiner** - date in the past
 - **Build your own Carabiner** - date in the past
 - **Build your own carabiner night** - date in the past
+- **Cabana Bass - Casting Call** - date in the past
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
@@ -205,4 +198,4 @@ Eligible events: **12** - Skipped: **91**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 66**
+**Total queue entries that would be created: 62**
