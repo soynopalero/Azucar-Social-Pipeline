@@ -1,14 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-02 13:16 PDT - **nothing posted, queue untouched**
+Generated 2026-10-03 11:56 PDT - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **92**
-
-## Candy Shop - 2026-10-02  (Launch)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
+Eligible events: **10** - Skipped: **93**
 
 ## Candy Shop - 2026-10-09  (Launch)
 3 posts x 2 platforms = **6** queue entries
@@ -121,6 +115,7 @@ Eligible events: **11** - Skipped: **92**
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - date in the past, tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - date in the past
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Dolly Parton; A drag Tribute Night** - date in the past
 - **Drag Brunch de Reinas** - date in the past, phase = Cancelled
