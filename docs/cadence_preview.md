@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-05 15:16 PDT - **nothing posted, queue untouched**
+Generated 2026-10-06 13:43 PDT - **nothing posted, queue untouched**
 
 Eligible events: **10** - Skipped: **93**
 
@@ -66,11 +66,10 @@ Eligible events: **10** - Skipped: **93**
 | Fri Oct 23, 11:00 AM | morning |
 
 ## Rocky horror picture drag show - 2026-10-29  (One-time)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Oct 5, 7:00 PM | evening |
 | Mon Oct 19, 11:00 AM | morning |
 | Mon Oct 26, 7:00 PM | evening |
 | Thu Oct 29, 7:00 PM | evening |
@@ -191,4 +190,4 @@ Eligible events: **10** - Skipped: **93**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 58**
+**Total queue entries that would be created: 56**
