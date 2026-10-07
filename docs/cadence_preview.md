@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-06 13:43 PDT - **nothing posted, queue untouched**
+Generated 2026-10-07 13:56 PDT - **nothing posted, queue untouched**
 
 Eligible events: **10** - Skipped: **93**
 
 ## Candy Shop - 2026-10-09  (Launch)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Oct 6, 7:00 PM | evening |
 | Thu Oct 8, 7:00 PM | evening |
 | Fri Oct 9, 11:00 AM | morning |
 
@@ -190,4 +189,4 @@ Eligible events: **10** - Skipped: **93**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 56**
+**Total queue entries that would be created: 54**
