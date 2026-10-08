@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-08 13:57 PDT - **nothing posted, queue untouched**
+Generated 2026-10-08 14:17 PDT - **nothing posted, queue untouched**
 
-Eligible events: **10** - Skipped: **93**
+Eligible events: **11** - Skipped: **93**
 
 ## Candy Shop - 2026-10-09  (Launch)
 2 posts x 2 platforms = **4** queue entries
@@ -35,6 +35,15 @@ Eligible events: **10** - Skipped: **93**
 | Tue Oct 13, 7:00 PM | evening |
 | Thu Oct 15, 7:00 PM | evening |
 | Fri Oct 16, 11:00 AM | morning |
+
+## MENTIVADS ALLSTARS - AFTER PARTY - 2026-10-17  (Launch)
+3 posts x 2 platforms = **6** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Wed Oct 14, 7:00 PM | evening |
+| Fri Oct 16, 7:00 PM | evening |
+| Sat Oct 17, 11:00 AM | morning |
 
 ## The Bikini Bottoms - 2026-10-22  (One-time)
 3 posts x 2 platforms = **6** queue entries
@@ -188,4 +197,4 @@ Eligible events: **10** - Skipped: **93**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 52**
+**Total queue entries that would be created: 58**
