@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-07 13:56 PDT - **nothing posted, queue untouched**
+Generated 2026-10-08 13:57 PDT - **nothing posted, queue untouched**
 
 Eligible events: **10** - Skipped: **93**
 
@@ -13,11 +13,10 @@ Eligible events: **10** - Skipped: **93**
 | Fri Oct 9, 11:00 AM | morning |
 
 ## Emo-Night Drag Show Edition - 2026-10-10  (One-time)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Oct 7, 7:00 PM | evening |
 | Sat Oct 10, 7:00 PM | evening |
 
 ## Mosh Night - 2026-10-11  (One-time)
@@ -189,4 +188,4 @@ Eligible events: **10** - Skipped: **93**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 54**
+**Total queue entries that would be created: 52**
