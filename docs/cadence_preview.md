@@ -1,16 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-08 14:37 PDT - **nothing posted, queue untouched**
+Generated 2026-10-09 13:27 PDT - **nothing posted, queue untouched**
 
 Eligible events: **11** - Skipped: **93**
 
 ## Candy Shop - 2026-10-09  (Launch)
-2 posts x 2 platforms = **4** queue entries
+0 posts x 2 platforms = **0** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 8, 7:00 PM | evening |
-| Fri Oct 9, 11:00 AM | morning |
 
 ## Emo-Night Drag Show Edition - 2026-10-10  (One-time)
 1 posts x 2 platforms = **2** queue entries
@@ -20,11 +18,10 @@ Eligible events: **11** - Skipped: **93**
 | Sat Oct 10, 7:00 PM | evening |
 
 ## Mosh Night - 2026-10-11  (One-time)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 8, 7:00 PM | evening |
 | Sun Oct 11, 7:00 PM | evening |
 
 ## Candy Shop - 2026-10-16  (Launch)
@@ -37,11 +34,10 @@ Eligible events: **11** - Skipped: **93**
 | Fri Oct 16, 11:00 AM | morning |
 
 ## MENTIVADS ALLSTARS - AFTER PARTY - 2026-10-17  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Oct 9, 11:00 AM | morning |
 | Mon Oct 12, 7:00 PM | evening |
 | Wed Oct 14, 11:00 AM | morning |
 | Sat Oct 17, 7:00 PM | evening |
@@ -198,4 +194,4 @@ Eligible events: **11** - Skipped: **93**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 60**
+**Total queue entries that would be created: 52**
