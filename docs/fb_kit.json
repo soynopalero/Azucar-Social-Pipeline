@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-10T05:03:01",
+ "generated_at": "2026-10-10T05:05:43",
  "events": [
   {
    "item_id": "13000186471",
@@ -112,6 +112,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/candy-shop-tickets-2002271098756",
    "flyer": "media/fb-kit/13132979291_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13132979291"
+  },
+  {
+   "item_id": "13253931842",
+   "name": "Drag-O-Weeen",
+   "date_iso": "2026-10-28",
+   "date_display": "Oct 28, 2026",
+   "start_time": "7:00 PM",
+   "end_date_display": "Oct 28, 2026",
+   "end_time": "11:00 PM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "The lounge gets haunted starting at 7PM — Drag-O-Ween is here and the mic is cursed in the best way. Grab your drag queen hostess, grab a song, and let the Main Floor turn into a glittering graveyard of bad decisions and great vocals.\n\nCome in costume — the spookier, sexier, or more unhinged the better. Best dressed walks away with tickets to an upcoming drag show, so this isn't cute-costume energy, this is full-commitment energy. Vampires belting Whitney. Zombies murdering Mariah. It's all fair game.\n\nThe night doesn't have a bedtime — karaoke haunts the room from 7PM till whenever the last song drops, midnight or 2AM, nobody's counting. Drinks flowing, lipstick smudged, confidence at 110%.\n\nAzúcar's Main Floor was made for nights like this — loud, a little chaotic, all heart. Pull your costume together and come sing like the devil's watching.\n\n🗓️ Miércoles 28 de octubre — Show 7:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover Free\n\n🎟️ Tickets: https://www.eventbrite.com/e/drag-o-weeen-tickets-2003228612706",
+   "eventbrite_url": "https://www.eventbrite.com/e/drag-o-weeen-tickets-2003228612706",
+   "flyer": "media/fb-kit/13253931842_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13253931842"
   },
   {
    "item_id": "13054632110",
