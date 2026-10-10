@@ -1,14 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-09 22:08 PDT - **nothing posted, queue untouched**
+Generated 2026-10-10 12:40 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **93**
-
-## Candy Shop - 2026-10-09  (Launch)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
+Eligible events: **12** - Skipped: **94**
 
 ## Emo-Night Drag Show Edition - 2026-10-10  (One-time)
 1 posts x 2 platforms = **2** queue entries
@@ -138,6 +132,7 @@ Eligible events: **13** - Skipped: **93**
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - date in the past, tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Dolly Parton; A drag Tribute Night** - date in the past
