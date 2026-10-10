@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-09 22:03 PDT - **nothing posted, queue untouched**
+Generated 2026-10-09 22:04 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **93**
+Eligible events: **13** - Skipped: **93**
 
 ## Candy Shop - 2026-10-09  (Launch)
 0 posts x 2 platforms = **0** queue entries
@@ -76,6 +76,18 @@ Eligible events: **12** - Skipped: **93**
 | Tue Oct 20, 7:00 PM | evening |
 | Thu Oct 22, 7:00 PM | evening |
 | Fri Oct 23, 11:00 AM | morning |
+
+## Drag-O-Weeen - 2026-10-28  (Marquee)
+6 posts x 2 platforms = **12** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sun Oct 11, 11:00 AM | morning |
+| Fri Oct 16, 7:00 PM | evening |
+| Tue Oct 20, 11:00 AM | morning |
+| Fri Oct 23, 7:00 PM | evening |
+| Sun Oct 25, 11:00 AM | morning |
+| Wed Oct 28, 7:00 PM | evening |
 
 ## Rocky horror picture drag show - 2026-10-29  (One-time)
 3 posts x 2 platforms = **6** queue entries
@@ -202,4 +214,4 @@ Eligible events: **12** - Skipped: **93**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 56**
+**Total queue entries that would be created: 68**
