@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-10 12:40 PDT - **nothing posted, queue untouched**
+Generated 2026-10-11 12:50 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **94**
-
-## Emo-Night Drag Show Edition - 2026-10-10  (One-time)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Oct 10, 7:00 PM | evening |
+Eligible events: **11** - Skipped: **95**
 
 ## Mosh Night - 2026-10-11  (One-time)
 1 posts x 2 platforms = **2** queue entries
@@ -19,11 +12,10 @@ Eligible events: **12** - Skipped: **94**
 | Sun Oct 11, 7:00 PM | evening |
 
 ## Drag-O-Weeen - 2026-10-14  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Oct 11, 11:00 AM | morning |
 | Wed Oct 14, 7:00 PM | evening |
 
 ## Candy Shop - 2026-10-16  (Launch)
@@ -72,11 +64,10 @@ Eligible events: **12** - Skipped: **94**
 | Fri Oct 23, 11:00 AM | morning |
 
 ## Drag-O-Weeen - 2026-10-28  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Oct 11, 11:00 AM | morning |
 | Fri Oct 16, 7:00 PM | evening |
 | Tue Oct 20, 11:00 AM | morning |
 | Fri Oct 23, 7:00 PM | evening |
@@ -143,6 +134,7 @@ Eligible events: **12** - Skipped: **94**
 - **Drag me to brunch** - date in the past, phase = Cancelled
 - **Drag queen Kareoke** - date in the past
 - **Drag queen kareoke** - date in the past
+- **Emo-Night Drag Show Edition** - date in the past
 - **End of Summer Blackout Party** - date in the past
 - **Faetalitys birthday show** - date in the past
 - **Frivola — June** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -209,4 +201,4 @@ Eligible events: **12** - Skipped: **94**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 68**
+**Total queue entries that would be created: 62**
