@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-11 12:50 PDT - **nothing posted, queue untouched**
+Generated 2026-10-12 15:41 PDT - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **95**
-
-## Mosh Night - 2026-10-11  (One-time)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Oct 11, 7:00 PM | evening |
+Eligible events: **10** - Skipped: **96**
 
 ## Drag-O-Weeen - 2026-10-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -37,11 +30,10 @@ Eligible events: **11** - Skipped: **95**
 | Sat Oct 17, 7:00 PM | evening |
 
 ## The Bikini Bottoms - 2026-10-22  (One-time)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Oct 12, 11:00 AM | morning |
 | Mon Oct 19, 7:00 PM | evening |
 | Thu Oct 22, 7:00 PM | evening |
 
@@ -163,6 +155,7 @@ Eligible events: **11** - Skipped: **95**
 - **Love Island Finale Watch Party** - date in the past
 - **Magic Hunks (touring)** - date in the past, no cadence set, no flyer, no price, no description
 - **Magic hunks** - date in the past
+- **Mosh Night** - date in the past
 - **Naughty Drag Bingo** - date in the past, phase = Cancelled
 - **Next Gen Brunch** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Night of Kings** - date in the past
@@ -201,4 +194,4 @@ Eligible events: **11** - Skipped: **95**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 62**
+**Total queue entries that would be created: 58**
