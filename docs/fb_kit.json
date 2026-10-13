@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T06:27:10",
+ "generated_at": "2026-10-13T06:31:54",
  "events": [
   {
    "item_id": "13253934177",
@@ -168,6 +168,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/candy-shop-tickets-2002271083711",
    "flyer": "media/fb-kit/13132977295_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13132977295"
+  },
+  {
+   "item_id": "13272952160",
+   "name": "Lesbians Playing Uno",
+   "date_iso": "2026-11-08",
+   "date_display": "Nov 8, 2026",
+   "start_time": "8:00 PM",
+   "end_date_display": "Nov 9, 2026",
+   "end_time": "12:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Grab a drink, pull up a chair, and get ready to throw down a Draw Four with love. Lesbians Playing Uno takes over the Lounge on November 8th for a night that's equal parts game night and mixer — Jayme's running the show, the energy is loose, and the only goal is to laugh loud and meet someone new before the deck runs out.\n\nTables shuffle, strangers become teammates, drinks keep the trash talk flowing, and every round brings a fresh crew to flirt, bluff, and bond with. It's playful, it's a little competitive, and it's built for everybody who wants connection without the pressure of a dance floor.\n\nWinners don't walk away empty-handed — small merch prizes drop throughout the night for whoever keeps surviving the Wild Draw Fours. Come for the cards, stay for the company, leave with new numbers in your phone and maybe a grudge against whoever hit you with Skip twice in one game.\n\n🗓️ Domingo 8 de noviembre — Show 8:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover Free\n\n🎟️ Tickets: https://www.eventbrite.com/e/lesbians-playing-uno-tickets-2003333044063",
+   "eventbrite_url": "https://www.eventbrite.com/e/lesbians-playing-uno-tickets-2003333044063",
+   "flyer": "media/fb-kit/13272952160_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13272952160"
   },
   {
    "item_id": "13132979292",
