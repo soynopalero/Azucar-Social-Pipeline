@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-12 23:32 PDT - **nothing posted, queue untouched**
+Generated 2026-10-12 23:36 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **96**
+Eligible events: **14** - Skipped: **96**
 
 ## Drag-O-Weeen - 2026-10-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -10,6 +10,13 @@ Eligible events: **13** - Skipped: **96**
 | When (Pacific) | Slot |
 |---|---|
 | Wed Oct 14, 7:00 PM | evening |
+
+## American Horror Story Watch Party - 2026-10-15  (Marquee)
+1 posts x 2 platforms = **2** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Oct 15, 7:00 PM | evening |
 
 ## Candy Shop - 2026-10-16  (Launch)
 3 posts x 2 platforms = **6** queue entries
@@ -227,4 +234,4 @@ Eligible events: **13** - Skipped: **96**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 88**
+**Total queue entries that would be created: 90**
