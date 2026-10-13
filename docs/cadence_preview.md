@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-12 23:27 PDT - **nothing posted, queue untouched**
+Generated 2026-10-12 23:30 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **96**
+Eligible events: **13** - Skipped: **96**
 
 ## Drag-O-Weeen - 2026-10-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -113,6 +113,19 @@ Eligible events: **12** - Skipped: **96**
 | Thu Nov 5, 7:00 PM | evening |
 | Fri Nov 6, 11:00 AM | morning |
 
+## Lesbians Playing Uno - 2026-11-08  (Marquee)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Oct 15, 7:00 PM | evening |
+| Thu Oct 22, 11:00 AM | morning |
+| Tue Oct 27, 7:00 PM | evening |
+| Sat Oct 31, 11:00 AM | morning |
+| Tue Nov 3, 7:00 PM | evening |
+| Thu Nov 5, 11:00 AM | morning |
+| Sun Nov 8, 7:00 PM | evening |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -214,4 +227,4 @@ Eligible events: **12** - Skipped: **96**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 74**
+**Total queue entries that would be created: 88**
