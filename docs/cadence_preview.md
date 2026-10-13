@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-12 23:49 PDT - **nothing posted, queue untouched**
+Generated 2026-10-12 23:51 PDT - **nothing posted, queue untouched**
 
-Eligible events: **15** - Skipped: **97**
+Eligible events: **16** - Skipped: **97**
 
 ## Drag-O-Weeen - 2026-10-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -144,6 +144,19 @@ Eligible events: **15** - Skipped: **97**
 | Thu Nov 5, 11:00 AM | morning |
 | Sun Nov 8, 7:00 PM | evening |
 
+## Bachata class & social dance - 2026-11-19  (Marquee)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Oct 26, 7:00 PM | evening |
+| Mon Nov 2, 11:00 AM | morning |
+| Sat Nov 7, 7:00 PM | evening |
+| Wed Nov 11, 11:00 AM | morning |
+| Sat Nov 14, 7:00 PM | evening |
+| Mon Nov 16, 11:00 AM | morning |
+| Thu Nov 19, 7:00 PM | evening |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -246,4 +259,4 @@ Eligible events: **15** - Skipped: **97**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 100**
+**Total queue entries that would be created: 114**
