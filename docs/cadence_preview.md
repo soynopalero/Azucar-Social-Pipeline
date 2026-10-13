@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-12 23:37 PDT - **nothing posted, queue untouched**
+Generated 2026-10-12 23:42 PDT - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **96**
+Eligible events: **15** - Skipped: **97**
 
 ## Drag-O-Weeen - 2026-10-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -90,6 +90,17 @@ Eligible events: **14** - Skipped: **96**
 | Mon Oct 26, 7:00 PM | evening |
 | Thu Oct 29, 7:00 PM | evening |
 
+## American horror story watch party - 2026-10-29  (Marquee)
+5 posts x 2 platforms = **10** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sat Oct 17, 7:00 PM | evening |
+| Wed Oct 21, 11:00 AM | morning |
+| Sat Oct 24, 7:00 PM | evening |
+| Mon Oct 26, 11:00 AM | morning |
+| Thu Oct 29, 7:00 PM | evening |
+
 ## Candy Shop - 2026-10-30  (Launch)
 3 posts x 2 platforms = **6** queue entries
 
@@ -140,6 +151,7 @@ Eligible events: **14** - Skipped: **96**
 - **Alice in Bass Land** - date in the past
 - **Amature Drag Pageant** - date in the past
 - **American Horror Story viewing party and Drag show** - date in the past
+- **American horror story watch party** - tier 'every week' — covered by the weekly round-up
 - **An Open Stage Drag Debut** - date in the past
 - **Aubs Take Over — June** - date in the past, no cadence set, no flyer, no price, no description
 - **Azúcar House Party — DJ Lalique Debut** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -234,4 +246,4 @@ Eligible events: **14** - Skipped: **96**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 90**
+**Total queue entries that would be created: 100**
