@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T06:25:11",
+ "generated_at": "2026-10-13T06:27:10",
  "events": [
   {
    "item_id": "13253934177",
@@ -140,6 +140,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/candy-shop-tickets-2002271080702",
    "flyer": "media/fb-kit/13132965363_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13132965363"
+  },
+  {
+   "item_id": "13272940275",
+   "name": "Link up",
+   "date_iso": "2026-11-01",
+   "date_display": "Nov 1, 2026",
+   "start_time": "6:00 PM",
+   "end_date_display": "Nov 1, 2026",
+   "end_time": "10:00 PM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Grab a seat, grab some beads — Link Up is Azúcar's craft night with heart. On November 1st starting at 6pm, the Main Floor trades its usual buzz for worktables full of charms, clasps, keychains, and carabiners, and everybody's invited to build something that's a little bit cute and a lot bit meaningful.\n\nJayme's hosting, and this one's co-presented with PFLAG because community doesn't just happen — you make it, link by link, charm by charm. Bring a small non-perishable snack to toss on the shared table, because the best crafting sessions run on chisme and chips. No experience needed, no pressure to make something perfect. Sit next to someone new, swap beads, swap stories.\n\nThis isn't about leaving with a perfect bracelet — though you will. It's about the hour you spent making it next to people who get it. Low lights, good music, hands busy, hearts a little fuller. Come solo, come with your crew, leave with a keychain and maybe a new friend or two.\n\n🗓️ Domingo 1 de noviembre — Show 6:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 18+ · Cover $10\n\n🎟️ Tickets: https://www.eventbrite.com/e/link-up-tickets-2003332983883",
+   "eventbrite_url": "https://www.eventbrite.com/e/link-up-tickets-2003332983883",
+   "flyer": "media/fb-kit/13272940275_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13272940275"
   },
   {
    "item_id": "13132977295",
