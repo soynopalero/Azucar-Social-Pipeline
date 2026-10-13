@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-12 15:41 PDT - **nothing posted, queue untouched**
+Generated 2026-10-12 23:24 PDT - **nothing posted, queue untouched**
 
-Eligible events: **10** - Skipped: **96**
+Eligible events: **11** - Skipped: **96**
 
 ## Drag-O-Weeen - 2026-10-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -21,13 +21,21 @@ Eligible events: **10** - Skipped: **96**
 | Fri Oct 16, 11:00 AM | morning |
 
 ## MENTIVADS ALLSTARS - AFTER PARTY - 2026-10-17  (Marquee)
+2 posts x 2 platforms = **4** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Wed Oct 14, 11:00 AM | morning |
+| Sat Oct 17, 7:00 PM | evening |
+
+## Night Of Kings - 2026-10-18  (Marquee)
 3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Oct 12, 7:00 PM | evening |
-| Wed Oct 14, 11:00 AM | morning |
-| Sat Oct 17, 7:00 PM | evening |
+| Tue Oct 13, 7:00 PM | evening |
+| Thu Oct 15, 11:00 AM | morning |
+| Sun Oct 18, 7:00 PM | evening |
 
 ## The Bikini Bottoms - 2026-10-22  (One-time)
 2 posts x 2 platforms = **4** queue entries
@@ -194,4 +202,4 @@ Eligible events: **10** - Skipped: **96**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 58**
+**Total queue entries that would be created: 62**
