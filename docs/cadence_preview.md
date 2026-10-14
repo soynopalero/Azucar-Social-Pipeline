@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-13 21:10 PDT - **nothing posted, queue untouched**
+Generated 2026-10-14 12:55 PDT - **nothing posted, queue untouched**
 
 Eligible events: **16** - Skipped: **98**
 
@@ -27,11 +27,10 @@ Eligible events: **16** - Skipped: **98**
 | Fri Oct 16, 11:00 AM | morning |
 
 ## MENTIVADS ALLSTARS - AFTER PARTY - 2026-10-17  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Oct 14, 11:00 AM | morning |
 | Sat Oct 17, 7:00 PM | evening |
 
 ## Night Of Kings - 2026-10-18  (Marquee)
@@ -259,4 +258,4 @@ Eligible events: **16** - Skipped: **98**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 112**
+**Total queue entries that would be created: 110**
