@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-13 13:56 PDT - **nothing posted, queue untouched**
+Generated 2026-10-13 21:07 PDT - **nothing posted, queue untouched**
 
-Eligible events: **16** - Skipped: **97**
+Eligible events: **16** - Skipped: **98**
 
 ## Drag-O-Weeen - 2026-10-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -19,11 +19,10 @@ Eligible events: **16** - Skipped: **97**
 | Thu Oct 15, 7:00 PM | evening |
 
 ## Candy Shop - 2026-10-16  (Launch)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Oct 13, 7:00 PM | evening |
 | Thu Oct 15, 7:00 PM | evening |
 | Fri Oct 16, 11:00 AM | morning |
 
@@ -36,11 +35,10 @@ Eligible events: **16** - Skipped: **97**
 | Sat Oct 17, 7:00 PM | evening |
 
 ## Night Of Kings - 2026-10-18  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Oct 13, 7:00 PM | evening |
 | Thu Oct 15, 11:00 AM | morning |
 | Sun Oct 18, 7:00 PM | evening |
 
@@ -52,14 +50,6 @@ Eligible events: **16** - Skipped: **97**
 | Mon Oct 19, 7:00 PM | evening |
 | Thu Oct 22, 7:00 PM | evening |
 
-## Scream Queens Drag Show - 2026-10-23  (One-time)
-2 posts x 2 platforms = **4** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Tue Oct 20, 7:00 PM | evening |
-| Fri Oct 23, 7:00 PM | evening |
-
 ## Candy Shop - 2026-10-23  (Launch)
 3 posts x 2 platforms = **6** queue entries
 
@@ -68,6 +58,16 @@ Eligible events: **16** - Skipped: **97**
 | Tue Oct 20, 7:00 PM | evening |
 | Thu Oct 22, 7:00 PM | evening |
 | Fri Oct 23, 11:00 AM | morning |
+
+## Scream Queens Drag Show - 2026-10-23  (Marquee)
+4 posts x 2 platforms = **8** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Oct 15, 11:00 AM | morning |
+| Sun Oct 18, 7:00 PM | evening |
+| Tue Oct 20, 11:00 AM | morning |
+| Fri Oct 23, 7:00 PM | evening |
 
 ## Drag-O-Weeen - 2026-10-28  (Marquee)
 5 posts x 2 platforms = **10** queue entries
@@ -238,6 +238,7 @@ Eligible events: **16** - Skipped: **97**
 - **Royal flush comedy drag show** - date in the past
 - **Rupaul All Stars Finale Viewing Party** - date in the past
 - **Sappholicious Burlesque show** - date in the past
+- **Scream Queens Drag Show** - cadence = Off
 - **Seven Deadly sins** - date in the past
 - **Sip & Strut Dance Class with Frankie** - date in the past, no cadence set, no flyer, no price, no description
 - **Sip and Paint with ArtWithAubrey** - date in the past
