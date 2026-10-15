@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-14 12:55 PDT - **nothing posted, queue untouched**
+Generated 2026-10-15 12:37 PDT - **nothing posted, queue untouched**
 
-Eligible events: **16** - Skipped: **98**
-
-## Drag-O-Weeen - 2026-10-14  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Wed Oct 14, 7:00 PM | evening |
+Eligible events: **15** - Skipped: **99**
 
 ## American Horror Story Watch Party - 2026-10-15  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -34,11 +27,10 @@ Eligible events: **16** - Skipped: **98**
 | Sat Oct 17, 7:00 PM | evening |
 
 ## Night Of Kings - 2026-10-18  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 15, 11:00 AM | morning |
 | Sun Oct 18, 7:00 PM | evening |
 
 ## The Bikini Bottoms - 2026-10-22  (One-time)
@@ -59,11 +51,10 @@ Eligible events: **16** - Skipped: **98**
 | Fri Oct 23, 11:00 AM | morning |
 
 ## Scream Queens Drag Show - 2026-10-23  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 15, 11:00 AM | morning |
 | Sun Oct 18, 7:00 PM | evening |
 | Tue Oct 20, 11:00 AM | morning |
 | Fri Oct 23, 7:00 PM | evening |
@@ -109,11 +100,10 @@ Eligible events: **16** - Skipped: **98**
 | Fri Oct 30, 11:00 AM | morning |
 
 ## Link up - 2026-11-01  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 15, 11:00 AM | morning |
 | Tue Oct 20, 7:00 PM | evening |
 | Sat Oct 24, 11:00 AM | morning |
 | Tue Oct 27, 7:00 PM | evening |
@@ -189,6 +179,7 @@ Eligible events: **16** - Skipped: **98**
 - **Drag me to brunch** - date in the past, phase = Cancelled
 - **Drag queen Kareoke** - date in the past
 - **Drag queen kareoke** - date in the past
+- **Drag-O-Weeen** - date in the past
 - **Emo-Night Drag Show Edition** - date in the past
 - **End of Summer Blackout Party** - date in the past
 - **Faetalitys birthday show** - date in the past
@@ -258,4 +249,4 @@ Eligible events: **16** - Skipped: **98**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 110**
+**Total queue entries that would be created: 102**
