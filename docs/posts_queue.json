@@ -5019,15 +5019,16 @@
       "scheduled_for_utc": "2026-10-15T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13253934177_0.jpg",
       "caption": "Fog curling off the floor, face paint catching the lights, a mic that's seen things. 🖤🎃 Drag-O-Ween Karaoke isn't background noise — it's the whole vibe. Beah Hazard keeps the Lounge humming while costumed queens and freaks alike take turns owning the spotlight. Every chorus hits different when half the room's in full Halloween drag. The energy builds, the fog thickens, the night gets weirder in the best way. This is the kind of Wednesday you don't scroll past. 🕸️🎤\n\n📅 Wednesday, October 14 — 7PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free Entry\n#AzucarPasco #OutAndAbout #DragOWeen #KaraokeNight #LatinxNightlife #PascoWA #HalloweenVibes",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-10-10T05:03:20.971463+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-10-15T02:01:30.929041+00:00",
+      "result": "Instagram media id: 17910852462515301",
       "campaign": "cadence_drag_o_weeen",
       "monday_event_id": "13253934177",
       "event_date": "2026-10-14",
       "slot": "evening",
-      "tier": "marquee"
+      "tier": "marquee",
+      "permalink": "https://www.instagram.com/p/Def1mHcFd6A/"
     },
     {
       "id": "20261015_020000_83ceee",
@@ -5035,15 +5036,16 @@
       "scheduled_for_utc": "2026-10-15T02:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13253934177_0.jpg",
       "caption": "Fog curling off the floor, face paint catching the lights, a mic that's seen things. 🖤🎃 Drag-O-Ween Karaoke isn't background noise — it's the whole vibe. Beah Hazard keeps the Lounge humming while costumed queens and freaks alike take turns owning the spotlight. Every chorus hits different when half the room's in full Halloween drag. The energy builds, the fog thickens, the night gets weirder in the best way. This is the kind of Wednesday you don't scroll past. 🕸️🎤\n\n📅 Wednesday, October 14 — 7PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free Entry\n#AzucarPasco #OutAndAbout #DragOWeen #KaraokeNight #LatinxNightlife #PascoWA #HalloweenVibes",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-10-10T05:03:20.971463+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-10-15T02:01:35.695288+00:00",
+      "result": "Facebook post id: 1723396879788436",
       "campaign": "cadence_drag_o_weeen",
       "monday_event_id": "13253934177",
       "event_date": "2026-10-14",
       "slot": "evening",
-      "tier": "marquee"
+      "tier": "marquee",
+      "permalink": "https://www.facebook.com/201644454280/posts/1723396913121766"
     },
     {
       "id": "20261010_180000_039cec",
