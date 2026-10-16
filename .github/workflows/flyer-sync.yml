@@ -36,6 +36,14 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # Start from main as it is now, not as it was when the bot dispatched
+      # this run — see the same step in cadence-engine.yml.
+      - name: Use the branch tip, not the commit pinned at dispatch
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          git log -1 --oneline
+
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"

@@ -29,6 +29,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      # A dispatched run is pinned to the commit main was at when it was
+      # dispatched. The Telegram bot dispatches this workflow on every Approve
+      # tap, so two runs seconds apart both start from the same queue, each
+      # decides the same stories are "not queued yet", and both sets land
+      # (Oct 2026). Move to whatever main is NOW, so a run sees what the run
+      # before it committed.
+      - name: Use the branch tip, not the commit pinned at dispatch
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          git log -1 --oneline
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:

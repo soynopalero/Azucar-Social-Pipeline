@@ -54,7 +54,12 @@ from monday_api import MondayError, monday_query  # noqa: E402
 # board. Summed, it produced 20-36 posts a day, and our own reach data says a
 # post in that range reaches ~148 people against ~288 in the 3-5/day band. The
 # cap is the one place that adds every event up; see code/cap_queue.py.
-from cap_queue import DEFAULT_CAP as DAILY_SLOT_CAP, apply_cap  # noqa: E402
+from cap_queue import DEFAULT_CAP as DAILY_SLOT_CAP, STORY_CAP, apply_cap, apply_story_cap  # noqa: E402
+# Two engine runs dispatched seconds apart start from the same commit and each
+# queue the same slots under fresh ids; the id-merge keeps both. Collapsing by
+# natural key before every save (and again in the merge driver) is what makes
+# that harmless. One rule, defined once, in code/merge_queue.py.
+from merge_queue import dedupe_pending  # noqa: E402
 
 BOARD_ID = "18414182966"
 LOCAL_TZ = ZoneInfo("America/Los_Angeles")
@@ -796,8 +801,11 @@ def enqueue_event(e, captions, now):
     # claimed. Nearest-to-event wins, so a "tonight" post displaces a
     # save-the-date three weeks out rather than the other way round.
     queue["posts"], dropped = apply_cap(queue["posts"], DAILY_SLOT_CAP)
+    queue["posts"], dupes = dedupe_pending(queue["posts"])
     qu.save_queue(queue)
 
+    if dupes:
+        print(f"    dedupe: dropped {len(dupes)} pending entries that duplicated another (same event/minute/platform)")
     if dropped:
         mine = sum(1 for p in dropped if p.get("monday_event_id") == e["id"])
         others = len(dropped) - mine
@@ -1053,9 +1061,21 @@ def run_stories(events, today, now):
             })
             added += 1
         print(f"• {len(todo)} story entries: {e['name']} ({e['date']})")
-    if added or withdrawn:
+    # Same story queued twice (two runs from one commit, or a duplicate Monday
+    # item) collapses to one; then the story tray gets its own daily cap,
+    # nearest event first, so a busy week cannot put ten stories up in one
+    # morning. A capped-out story is simply re-offered (and re-capped) on the
+    # next run, so dropping it here loses nothing.
+    queue["posts"], dupes = dedupe_pending(queue["posts"])
+    queue["posts"], capped = apply_story_cap(queue["posts"], STORY_CAP)
+    if dupes:
+        print(f"• dedupe: dropped {len(dupes)} duplicate pending entries")
+    if capped:
+        days = sorted({p.get("scheduled_for_utc", "")[:10] for p in capped})
+        print(f"• story cap {STORY_CAP}/day/platform: dropped {len(capped)} entries on {', '.join(days)}")
+    if added or withdrawn or dupes or capped:
         qu.save_queue(queue)
-    print(f"stories: {added} added, {withdrawn} withdrawn")
+    print(f"stories: {added} added, {withdrawn} withdrawn, {len(dupes)} duplicates removed, {len(capped)} over cap")
     return failures
 
 

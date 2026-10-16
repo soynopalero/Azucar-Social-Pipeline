@@ -45,6 +45,13 @@ a post on one platform and a hole on the other.
 Only `pending` entries are ever touched. Posted and failed entries are history.
 Dropped entries are written to archive/posts_dropped.json, not deleted.
 
+Stories get the same treatment in their own tray (apply_story_cap): at most
+STORY_CAP story slots per day — a slot is again one Instagram + one Facebook
+entry, so that is STORY_CAP stories per platform per day — nearest event
+first. Stories had no cap at all until Oct 2026, which is how ten of them
+landed on Instagram in ninety seconds one morning. The cadence engine applies
+it every time it saves stories; the CLI here reports it alongside the feed cap.
+
 Usage:
     python code/cap_queue.py --dry-run      # report only, write nothing
     python code/cap_queue.py                # apply, cap of 4
@@ -67,6 +74,7 @@ DROPPED_PATH = REPO_ROOT / "archive" / "posts_dropped.json"
 LOCAL_TZ = ZoneInfo("America/Los_Angeles")
 
 DEFAULT_CAP = 4
+STORY_CAP = 4   # story slots per day (= stories per platform per day)
 
 # Evening beats morning on reach in our own data (median 139 vs 121), so when
 # two slots are equally close to their event, the morning one yields first.
@@ -113,17 +121,23 @@ def slot_key(entry: dict) -> tuple:
     return (entry.get("campaign"), entry.get("scheduled_for_utc"))
 
 
-def plan(posts: list[dict], cap: int) -> tuple[set, dict]:
+def _is_story(p: dict) -> bool:
+    return p.get("format") == "story"
+
+
+def plan(posts: list[dict], cap: int, stories: bool = False) -> tuple[set, dict]:
     """Decide which slot keys survive. Returns (keep_keys, per_day_report).
+
+    Feed posts and stories are capped separately (stories=False / True): they
+    live in different trays on Instagram and never crowd each other, so a busy
+    story day should not cost a feed post or vice versa.
 
     Pure: takes the queue, returns a decision. Nothing is written here, so the
     dry run and the real run cannot drift apart — they call this same function.
     """
     slots: dict[tuple, list] = defaultdict(list)
     for p in posts:
-        # Stories live in their own tray and never crowd the feed, so they
-        # are outside the cap entirely.
-        if p.get("status") == "pending" and p.get("format") != "story":
+        if p.get("status") == "pending" and _is_story(p) == stories:
             slots[slot_key(p)].append(p)
 
     by_day: dict[dt.date, list] = defaultdict(list)
@@ -171,7 +185,23 @@ def apply_cap(posts: list[dict], cap: int = DEFAULT_CAP) -> tuple[list, list]:
     keep, _ = plan(posts, cap)
     kept, dropped = [], []
     for p in posts:
-        if p.get("status") != "pending" or p.get("format") == "story" or slot_key(p) in keep:
+        if p.get("status") != "pending" or _is_story(p) or slot_key(p) in keep:
+            kept.append(p)
+        else:
+            dropped.append(p)
+    return kept, dropped
+
+
+def apply_story_cap(posts: list[dict], cap: int = STORY_CAP) -> tuple[list, list]:
+    """Split a queue into (kept, dropped) under the daily STORY cap.
+
+    Mirrors apply_cap for the story tray: nearest-to-event first, the IG+FB
+    pair of a slot kept or dropped together, feed entries and history untouched.
+    """
+    keep, _ = plan(posts, cap, stories=True)
+    kept, dropped = [], []
+    for p in posts:
+        if p.get("status") != "pending" or not _is_story(p) or slot_key(p) in keep:
             kept.append(p)
         else:
             dropped.append(p)
@@ -272,6 +302,41 @@ def selftest() -> int:
     kept2, dropped2 = apply_cap(hist, cap=0)
     assert kept2 == hist and dropped2 == []
 
+    # --- stories: their own tray, their own cap ---
+    def story(camp, when, event, platform="instagram", status="pending"):
+        e = entry(camp, when, "morning", event, status=status, platform=platform)
+        e["format"] = "story"
+        e["id"] = "s_" + e["id"]
+        return e
+
+    # Six stories on one morning (the Oct 13 2026 pattern), cap 4: the four
+    # events nearest their date survive, both platforms together.
+    when = "2026-10-17T18:00:00+00:00"
+    burst = []
+    for camp, ev in [("a", "2026-10-17"), ("b", "2026-10-18"), ("c", "2026-10-22"),
+                     ("d", "2026-10-28"), ("e", "2026-11-01"), ("f", "2026-11-10")]:
+        burst += [story(camp, when, ev), story(camp, when, ev, platform="facebook")]
+    kept_s, dropped_s = apply_story_cap(burst, cap=4)
+    assert {p["campaign"] for p in kept_s} == {"a", "b", "c", "d"}, kept_s
+    assert {p["campaign"] for p in dropped_s} == {"e", "f"}, dropped_s
+    assert len(kept_s) == 8 and len(dropped_s) == 4
+    assert all(p["format"] == "story" for p in dropped_s)
+
+    # The two trays never see each other: a day with 6 story slots and 2 feed
+    # slots loses stories only, and the feed cap ignores the stories.
+    mixed = burst + [entry("x", when, "morning", "2026-10-17"),
+                     entry("y", when, "morning", "2026-10-20")]
+    kept_m, dropped_m = apply_story_cap(mixed, cap=4)
+    assert all(p["format"] == "story" for p in dropped_m) and len(dropped_m) == 4
+    kept_f, dropped_f = apply_cap(mixed, cap=1)
+    assert [p["campaign"] for p in dropped_f] == ["y"], dropped_f
+    assert sum(1 for p in kept_f if p.get("format") == "story") == 12
+
+    # Posted stories are history, and a day under the cap is untouched.
+    old = [story("z", when, "2026-10-17", status="posted")] * 1 + burst[:4]
+    kept_o, dropped_o = apply_story_cap(old, cap=4)
+    assert kept_o == old and dropped_o == []
+
     print("selftest: all checks passed")
     return 0
 
@@ -281,6 +346,8 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--cap", type=int, default=DEFAULT_CAP,
                     help=f"max posting slots per day across all events (default {DEFAULT_CAP})")
+    ap.add_argument("--story-cap", type=int, default=STORY_CAP,
+                    help=f"max story slots per day across all events (default {STORY_CAP})")
     ap.add_argument("--dry-run", action="store_true", help="report only, write nothing")
     ap.add_argument("--selftest", action="store_true", help="offline rule check")
     args = ap.parse_args()
@@ -294,18 +361,23 @@ def main() -> int:
 
     _, report = plan(posts, args.cap)
     kept, dropped = apply_cap(posts, args.cap)
+    _, story_report = plan(kept, args.story_cap, stories=True)
+    kept, dropped_stories = apply_story_cap(kept, args.story_cap)
+    dropped += dropped_stories
 
-    print(f"Global cap: {args.cap} slots/day ({args.cap} posts per platform per day)\n")
-    if not report:
-        print("Every day is already at or under the cap — nothing to drop.")
+    print(f"Global cap: {args.cap} feed slots/day, {args.story_cap} story slots/day "
+          f"(per platform per day)\n")
+    if not report and not story_report:
+        print("Every day is already at or under both caps — nothing to drop.")
         return 0
 
-    for day in sorted(report):
-        r = report[day]
-        print(f"  {day}  {r['before']:>2} slots -> {r['after']:>2}   "
-              f"(dropping {len(r['dropped'])})")
-        for d in r["dropped"]:
-            print(f"        - {d['campaign']} · {d['slot']} · {d['days_out']}d before its event")
+    for label, rep in (("feed", report), ("stories", story_report)):
+        for day in sorted(rep):
+            r = rep[day]
+            print(f"  {day}  {label:<7} {r['before']:>2} slots -> {r['after']:>2}   "
+                  f"(dropping {len(r['dropped'])})")
+            for d in r["dropped"]:
+                print(f"        - {d['campaign']} · {d['slot']} · {d['days_out']}d before its event")
 
     print(f"\nPending entries: {pending_before} -> {pending_before - len(dropped)} "
           f"({len(dropped)} dropped, {len(dropped)//2} slots)")
