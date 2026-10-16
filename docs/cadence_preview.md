@@ -1,22 +1,20 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-15 12:37 PDT - **nothing posted, queue untouched**
+Generated 2026-10-15 21:44 PDT - **nothing posted, queue untouched**
 
 Eligible events: **15** - Skipped: **99**
 
 ## American Horror Story Watch Party - 2026-10-15  (Marquee)
+0 posts x 2 platforms = **0** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+
+## Candy Shop - 2026-10-16  (Launch)
 1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 15, 7:00 PM | evening |
-
-## Candy Shop - 2026-10-16  (Launch)
-2 posts x 2 platforms = **4** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Oct 15, 7:00 PM | evening |
 | Fri Oct 16, 11:00 AM | morning |
 
 ## MENTIVADS ALLSTARS - AFTER PARTY - 2026-10-17  (Marquee)
@@ -120,11 +118,10 @@ Eligible events: **15** - Skipped: **99**
 | Fri Nov 6, 11:00 AM | morning |
 
 ## Lesbians Playing Uno - 2026-11-08  (Marquee)
-7 posts x 2 platforms = **14** queue entries
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 15, 7:00 PM | evening |
 | Thu Oct 22, 11:00 AM | morning |
 | Tue Oct 27, 7:00 PM | evening |
 | Sat Oct 31, 11:00 AM | morning |
@@ -228,7 +225,7 @@ Eligible events: **15** - Skipped: **99**
 - **Royal flush comedy drag show** - date in the past
 - **Rupaul All Stars Finale Viewing Party** - date in the past
 - **Sappholicious Burlesque show** - date in the past
-- **Scream Queens Drag Show** - cadence = Off
+- **Scream Queens Drag Show** - phase = Cancelled, cadence = Off
 - **Seven Deadly sins** - date in the past
 - **Sip & Strut Dance Class with Frankie** - date in the past, no cadence set, no flyer, no price, no description
 - **Sip and Paint with ArtWithAubrey** - date in the past
@@ -249,4 +246,4 @@ Eligible events: **15** - Skipped: **99**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 102**
+**Total queue entries that would be created: 96**
