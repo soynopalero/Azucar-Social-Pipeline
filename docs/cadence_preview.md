@@ -1,21 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-15 21:44 PDT - **nothing posted, queue untouched**
+Generated 2026-10-16 12:11 PDT - **nothing posted, queue untouched**
 
-Eligible events: **15** - Skipped: **99**
+Eligible events: **14** - Skipped: **100**
 
-## American Horror Story Watch Party - 2026-10-15  (Marquee)
+## Candy Shop - 2026-10-16  (Launch)
 0 posts x 2 platforms = **0** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-
-## Candy Shop - 2026-10-16  (Launch)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Fri Oct 16, 11:00 AM | morning |
 
 ## MENTIVADS ALLSTARS - AFTER PARTY - 2026-10-17  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -148,6 +141,7 @@ Eligible events: **15** - Skipped: **99**
 
 - **Alice in Bass Land** - date in the past
 - **Amature Drag Pageant** - date in the past
+- **American Horror Story Watch Party** - date in the past
 - **American Horror Story viewing party and Drag show** - date in the past
 - **American horror story watch party** - tier 'every week' — covered by the weekly round-up
 - **An Open Stage Drag Debut** - date in the past
@@ -246,4 +240,4 @@ Eligible events: **15** - Skipped: **99**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 96**
+**Total queue entries that would be created: 94**
