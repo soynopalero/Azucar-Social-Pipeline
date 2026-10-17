@@ -1,14 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-16 12:11 PDT - **nothing posted, queue untouched**
+Generated 2026-10-17 11:05 PDT - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **100**
-
-## Candy Shop - 2026-10-16  (Launch)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
+Eligible events: **13** - Skipped: **101**
 
 ## MENTIVADS ALLSTARS - AFTER PARTY - 2026-10-17  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -51,11 +45,10 @@ Eligible events: **14** - Skipped: **100**
 | Fri Oct 23, 7:00 PM | evening |
 
 ## Drag-O-Weeen - 2026-10-28  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Oct 16, 7:00 PM | evening |
 | Tue Oct 20, 11:00 AM | morning |
 | Fri Oct 23, 7:00 PM | evening |
 | Sun Oct 25, 11:00 AM | morning |
@@ -161,6 +154,7 @@ Eligible events: **14** - Skipped: **100**
 - **Candy Shop** - date in the past, tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
+- **Candy Shop** - date in the past
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Dolly Parton; A drag Tribute Night** - date in the past
 - **Drag Brunch de Reinas** - date in the past, phase = Cancelled
@@ -240,4 +234,4 @@ Eligible events: **14** - Skipped: **100**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 94**
+**Total queue entries that would be created: 92**
