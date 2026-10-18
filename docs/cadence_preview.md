@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-17 11:05 PDT - **nothing posted, queue untouched**
+Generated 2026-10-18 11:24 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **101**
-
-## MENTIVADS ALLSTARS - AFTER PARTY - 2026-10-17  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Oct 17, 7:00 PM | evening |
+Eligible events: **12** - Skipped: **102**
 
 ## Night Of Kings - 2026-10-18  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -64,11 +57,10 @@ Eligible events: **13** - Skipped: **101**
 | Thu Oct 29, 7:00 PM | evening |
 
 ## American horror story watch party - 2026-10-29  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Oct 17, 7:00 PM | evening |
 | Wed Oct 21, 11:00 AM | morning |
 | Sat Oct 24, 7:00 PM | evening |
 | Mon Oct 26, 11:00 AM | morning |
@@ -192,6 +184,7 @@ Eligible events: **13** - Skipped: **101**
 - **Lollipop Raves: Techno vs House Part 2** - date in the past, phase = Cancelled, no flyer
 - **Lollipop Raves: Techno vs House Part 2** - date in the past, phase = Cancelled
 - **Love Island Finale Watch Party** - date in the past
+- **MENTIVADS ALLSTARS - AFTER PARTY** - date in the past
 - **Magic Hunks (touring)** - date in the past, no cadence set, no flyer, no price, no description
 - **Magic hunks** - date in the past
 - **Mosh Night** - date in the past
@@ -234,4 +227,4 @@ Eligible events: **13** - Skipped: **101**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 92**
+**Total queue entries that would be created: 88**
