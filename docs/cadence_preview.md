@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-18 11:24 PDT - **nothing posted, queue untouched**
+Generated 2026-10-19 13:49 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **102**
-
-## Night Of Kings - 2026-10-18  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Oct 18, 7:00 PM | evening |
+Eligible events: **11** - Skipped: **103**
 
 ## The Bikini Bottoms - 2026-10-22  (One-time)
 2 posts x 2 platforms = **4** queue entries
@@ -29,11 +22,10 @@ Eligible events: **12** - Skipped: **102**
 | Fri Oct 23, 11:00 AM | morning |
 
 ## Scream Queens Drag Show - 2026-10-23  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Oct 18, 7:00 PM | evening |
 | Tue Oct 20, 11:00 AM | morning |
 | Fri Oct 23, 7:00 PM | evening |
 
@@ -48,11 +40,10 @@ Eligible events: **12** - Skipped: **102**
 | Wed Oct 28, 7:00 PM | evening |
 
 ## Rocky horror picture drag show - 2026-10-29  (One-time)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Oct 19, 11:00 AM | morning |
 | Mon Oct 26, 7:00 PM | evening |
 | Thu Oct 29, 7:00 PM | evening |
 
@@ -190,6 +181,7 @@ Eligible events: **12** - Skipped: **102**
 - **Mosh Night** - date in the past
 - **Naughty Drag Bingo** - date in the past, phase = Cancelled
 - **Next Gen Brunch** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
+- **Night Of Kings** - date in the past
 - **Night of Kings** - date in the past
 - **Night of Kings; An All King Drag Show** - date in the past
 - **Noche Latina** - date in the past
@@ -227,4 +219,4 @@ Eligible events: **12** - Skipped: **102**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 88**
+**Total queue entries that would be created: 82**
