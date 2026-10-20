@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-19 13:49 PDT - **nothing posted, queue untouched**
+Generated 2026-10-20 12:47 PDT - **nothing posted, queue untouched**
 
 Eligible events: **11** - Skipped: **103**
 
 ## The Bikini Bottoms - 2026-10-22  (One-time)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Oct 19, 7:00 PM | evening |
 | Thu Oct 22, 7:00 PM | evening |
 
 ## Candy Shop - 2026-10-23  (Launch)
@@ -22,19 +21,17 @@ Eligible events: **11** - Skipped: **103**
 | Fri Oct 23, 11:00 AM | morning |
 
 ## Scream Queens Drag Show - 2026-10-23  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Oct 20, 11:00 AM | morning |
 | Fri Oct 23, 7:00 PM | evening |
 
 ## Drag-O-Weeen - 2026-10-28  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Oct 20, 11:00 AM | morning |
 | Fri Oct 23, 7:00 PM | evening |
 | Sun Oct 25, 11:00 AM | morning |
 | Wed Oct 28, 7:00 PM | evening |
@@ -219,4 +216,4 @@ Eligible events: **11** - Skipped: **103**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 82**
+**Total queue entries that would be created: 76**
