@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-20 23:47 PDT - **nothing posted, queue untouched**
+Generated 2026-10-21 12:52 PDT - **nothing posted, queue untouched**
 
 Eligible events: **13** - Skipped: **103**
 
@@ -60,11 +60,10 @@ Eligible events: **13** - Skipped: **103**
 | Thu Oct 29, 7:00 PM | evening |
 
 ## American horror story watch party - 2026-10-29  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Oct 21, 11:00 AM | morning |
 | Sat Oct 24, 7:00 PM | evening |
 | Mon Oct 26, 11:00 AM | morning |
 | Thu Oct 29, 7:00 PM | evening |
@@ -230,4 +229,4 @@ Eligible events: **13** - Skipped: **103**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 80**
+**Total queue entries that would be created: 78**
