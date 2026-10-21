@@ -20296,5 +20296,111 @@
       "website_clicks": 1
     },
     "pulled_at": "2026-10-20T17:43:42+00:00"
+  },
+  "2026-10-21": {
+    "facebook": {
+      "_unsupported": [
+        "page_impressions",
+        "page_impressions_unique",
+        "page_fans",
+        "page_fan_adds",
+        "page_fan_removes"
+      ],
+      "page_daily_follows_unique": {
+        "2026-10-21T07:00:00+0000": 0,
+        "2026-10-22T07:00:00+0000": 1
+      },
+      "page_daily_unfollows_unique": {
+        "2026-10-21T07:00:00+0000": 0,
+        "2026-10-22T07:00:00+0000": 0
+      },
+      "page_follows": {
+        "2026-10-21T07:00:00+0000": 8934,
+        "2026-10-22T07:00:00+0000": 8935
+      },
+      "page_media_view": {
+        "2026-10-21T07:00:00+0000": 1708,
+        "2026-10-22T07:00:00+0000": 341
+      },
+      "page_post_engagements": {
+        "2026-10-21T07:00:00+0000": 50,
+        "2026-10-22T07:00:00+0000": 10
+      },
+      "page_total_media_view_unique": {
+        "2026-10-21T07:00:00+0000": 571,
+        "2026-10-22T07:00:00+0000": 141
+      },
+      "page_views_total": {
+        "2026-10-21T07:00:00+0000": 68,
+        "2026-10-22T07:00:00+0000": 21
+      }
+    },
+    "facebook_fans_online": {
+      "_error": "201644454280/insights failed [400] code=100: (#100) The value must be a valid insights metric",
+      "_unsupported": [
+        "page_fans_online_per_day",
+        "page_fans_online"
+      ]
+    },
+    "instagram": {
+      "_unsupported": [],
+      "follower_count": {
+        "2026-10-20T07:00:00+0000": 6,
+        "2026-10-21T07:00:00+0000": 0
+      },
+      "reach": {
+        "2026-10-20T07:00:00+0000": 775,
+        "2026-10-21T07:00:00+0000": 313
+      }
+    },
+    "instagram_demographics": {
+      "age": [
+        {
+          "dimension_keys": [
+            "age"
+          ]
+        }
+      ],
+      "city": [
+        {
+          "dimension_keys": [
+            "city"
+          ]
+        }
+      ],
+      "country": [
+        {
+          "dimension_keys": [
+            "country"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "dimension_keys": [
+            "gender"
+          ]
+        }
+      ]
+    },
+    "instagram_online_followers": {
+      "days_added": 1,
+      "days_filled": 27,
+      "days_on_file": 54
+    },
+    "instagram_totals": {
+      "_unsupported": [],
+      "accounts_engaged": 14,
+      "comments": 0,
+      "likes": 10,
+      "profile_views": 29,
+      "reach": 313,
+      "saves": 1,
+      "shares": 8,
+      "total_interactions": 27,
+      "views": 989,
+      "website_clicks": 2
+    },
+    "pulled_at": "2026-10-21T17:49:33+00:00"
   }
 }
