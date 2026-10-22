@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-21 12:52 PDT - **nothing posted, queue untouched**
+Generated 2026-10-22 12:40 PDT - **nothing posted, queue untouched**
 
 Eligible events: **13** - Skipped: **103**
 
@@ -27,19 +27,17 @@ Eligible events: **13** - Skipped: **103**
 | Fri Oct 23, 7:00 PM | evening |
 
 ## Burlesque Dance Workshop - 2026-10-25  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 22, 11:00 AM | morning |
 | Sun Oct 25, 7:00 PM | evening |
 
 ## Pumpkin Painting Night - 2026-10-25  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 22, 11:00 AM | morning |
 | Sun Oct 25, 7:00 PM | evening |
 
 ## Drag-O-Weeen - 2026-10-28  (Marquee)
@@ -97,11 +95,10 @@ Eligible events: **13** - Skipped: **103**
 | Fri Nov 6, 11:00 AM | morning |
 
 ## Lesbians Playing Uno - 2026-11-08  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 22, 11:00 AM | morning |
 | Tue Oct 27, 7:00 PM | evening |
 | Sat Oct 31, 11:00 AM | morning |
 | Tue Nov 3, 7:00 PM | evening |
@@ -229,4 +226,4 @@ Eligible events: **13** - Skipped: **103**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 78**
+**Total queue entries that would be created: 72**
