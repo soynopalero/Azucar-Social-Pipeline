@@ -1,23 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-22 12:40 PDT - **nothing posted, queue untouched**
+Generated 2026-10-23 12:42 PDT - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **103**
-
-## The Bikini Bottoms - 2026-10-22  (One-time)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Oct 22, 7:00 PM | evening |
+Eligible events: **12** - Skipped: **104**
 
 ## Candy Shop - 2026-10-23  (Launch)
-2 posts x 2 platforms = **4** queue entries
+0 posts x 2 platforms = **0** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 22, 7:00 PM | evening |
-| Fri Oct 23, 11:00 AM | morning |
 
 ## Scream Queens Drag Show - 2026-10-23  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -126,7 +117,7 @@ Eligible events: **13** - Skipped: **103**
 - **Amature Drag Pageant** - date in the past
 - **American Horror Story Watch Party** - date in the past
 - **American Horror Story viewing party and Drag show** - date in the past
-- **American horror story watch party** - tier 'every week' — covered by the weekly round-up
+- **American horror story watch party** - date in the past, tier 'every week' — covered by the weekly round-up
 - **An Open Stage Drag Debut** - date in the past
 - **Aubs Take Over — June** - date in the past, no cadence set, no flyer, no price, no description
 - **Azúcar House Party — DJ Lalique Debut** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -214,6 +205,7 @@ Eligible events: **13** - Skipped: **103**
 - **Testing for your life** - date in the past, phase = Cancelled, tier 'every week' — covered by the weekly round-up
 - **Testing out the name** - date in the past, tier 'every week' — covered by the weekly round-up, no flyer
 - **Tha Cookout** - date in the past, phase = Cancelled, no cadence set, no flyer, no price, no description
+- **The Bikini Bottoms** - date in the past
 - **Tricities After Party — Rohla** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Tricities Pride Beer Garden (off-site)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **VIDA AMORE DIVAS SHOW: LA MAS DRAGA** - date in the past
@@ -226,4 +218,4 @@ Eligible events: **13** - Skipped: **103**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 72**
+**Total queue entries that would be created: 66**
