@@ -1,21 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-23 12:42 PDT - **nothing posted, queue untouched**
+Generated 2026-10-24 11:31 PDT - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **104**
-
-## Candy Shop - 2026-10-23  (Launch)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-
-## Scream Queens Drag Show - 2026-10-23  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Fri Oct 23, 7:00 PM | evening |
+Eligible events: **10** - Skipped: **106**
 
 ## Burlesque Dance Workshop - 2026-10-25  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -32,11 +19,10 @@ Eligible events: **12** - Skipped: **104**
 | Sun Oct 25, 7:00 PM | evening |
 
 ## Drag-O-Weeen - 2026-10-28  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Oct 23, 7:00 PM | evening |
 | Sun Oct 25, 11:00 AM | morning |
 | Wed Oct 28, 7:00 PM | evening |
 
@@ -67,11 +53,10 @@ Eligible events: **12** - Skipped: **104**
 | Fri Oct 30, 11:00 AM | morning |
 
 ## Link up - 2026-11-01  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Oct 24, 11:00 AM | morning |
 | Tue Oct 27, 7:00 PM | evening |
 | Thu Oct 29, 11:00 AM | morning |
 | Sun Nov 1, 7:00 PM | evening |
@@ -136,6 +121,7 @@ Eligible events: **12** - Skipped: **104**
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
+- **Candy Shop** - date in the past
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Dolly Parton; A drag Tribute Night** - date in the past
 - **Drag Brunch de Reinas** - date in the past, phase = Cancelled
@@ -196,7 +182,8 @@ Eligible events: **12** - Skipped: **104**
 - **Royal flush comedy drag show** - date in the past
 - **Rupaul All Stars Finale Viewing Party** - date in the past
 - **Sappholicious Burlesque show** - date in the past
-- **Scream Queens Drag Show** - phase = Cancelled, cadence = Off
+- **Scream Queens Drag Show** - date in the past, phase = Cancelled, cadence = Off
+- **Scream Queens Drag Show** - date in the past
 - **Seven Deadly sins** - date in the past
 - **Sip & Strut Dance Class with Frankie** - date in the past, no cadence set, no flyer, no price, no description
 - **Sip and Paint with ArtWithAubrey** - date in the past
@@ -218,4 +205,4 @@ Eligible events: **12** - Skipped: **104**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 66**
+**Total queue entries that would be created: 60**
