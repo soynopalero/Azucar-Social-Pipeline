@@ -85,6 +85,22 @@ cap** — a different tray, so they don't bury feed posts.
 Cancelled, Completed or Off events have their pending stories withdrawn on the
 next run.
 
+### When in the day they actually go out — `code/spread.py`
+
+The slot times above (11 AM, 3 PM, 7 PM) are *earliest* times, not exact
+ones. Since Oct 2026 the scheduler releases each slot-scheduled entry a
+deterministic pseudo-random number of minutes after its slot — up to 2h30
+after 11 AM, up to 2h after 3 PM and 7 PM, never later than 10 PM — and sends
+at most one feed post and one story per platform per five-minute run, with a
+25-minute gap between feed posts and 12 minutes between stories. So a day
+with four events reads as someone posting through the afternoon, not four
+flyers at 11:00 sharp. The delay is a hash of the event + day + slot, so it
+never drifts between runs and needs nothing stored; the Facebook mirror keeps
+the same delay as its Instagram post. Hand-scheduled posts (no slot) still go
+at their exact minute, and `"spread": false` on an entry opts it out. The
+queue file and the dashboard keep showing the slot time; the actual send time
+is in `posted_at`.
+
 ## 3. The Monday round-up — `code/build_week_carousel.py`
 
 One carousel every Monday morning carrying the whole week's flyers, with the
