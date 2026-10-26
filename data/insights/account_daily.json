@@ -22970,5 +22970,647 @@
       "website_clicks": 0
     },
     "pulled_at": "2026-10-25T16:56:15+00:00"
+  },
+  "2026-10-26": {
+    "facebook": {
+      "_unsupported": [
+        "page_impressions",
+        "page_impressions_unique",
+        "page_fans",
+        "page_fan_adds",
+        "page_fan_removes"
+      ],
+      "page_daily_follows_unique": {
+        "2026-10-26T07:00:00+0000": 2,
+        "2026-10-27T07:00:00+0000": 1
+      },
+      "page_daily_unfollows_unique": {
+        "2026-10-26T07:00:00+0000": 2,
+        "2026-10-27T07:00:00+0000": 0
+      },
+      "page_follows": {
+        "2026-10-26T07:00:00+0000": 8936,
+        "2026-10-27T07:00:00+0000": 8937
+      },
+      "page_media_view": {
+        "2026-10-26T07:00:00+0000": 3309,
+        "2026-10-27T07:00:00+0000": 507
+      },
+      "page_post_engagements": {
+        "2026-10-26T07:00:00+0000": 120,
+        "2026-10-27T07:00:00+0000": 11
+      },
+      "page_total_media_view_unique": {
+        "2026-10-26T07:00:00+0000": 1386,
+        "2026-10-27T07:00:00+0000": 220
+      },
+      "page_views_total": {
+        "2026-10-26T07:00:00+0000": 175,
+        "2026-10-27T07:00:00+0000": 27
+      }
+    },
+    "facebook_fans_online": {
+      "_error": "201644454280/insights failed [400] code=100: (#100) The value must be a valid insights metric",
+      "_unsupported": [
+        "page_fans_online_per_day",
+        "page_fans_online"
+      ]
+    },
+    "instagram": {
+      "_unsupported": [],
+      "follower_count": {
+        "2026-10-25T07:00:00+0000": 0,
+        "2026-10-26T07:00:00+0000": 0
+      },
+      "reach": {
+        "2026-10-25T07:00:00+0000": 1127,
+        "2026-10-26T07:00:00+0000": 309
+      }
+    },
+    "instagram_demographics": {
+      "age": [
+        {
+          "dimension_keys": [
+            "age"
+          ],
+          "results": [
+            {
+              "dimension_values": [
+                "13-17"
+              ],
+              "value": 3
+            },
+            {
+              "dimension_values": [
+                "18-24"
+              ],
+              "value": 440
+            },
+            {
+              "dimension_values": [
+                "25-34"
+              ],
+              "value": 1288
+            },
+            {
+              "dimension_values": [
+                "35-44"
+              ],
+              "value": 934
+            },
+            {
+              "dimension_values": [
+                "45-54"
+              ],
+              "value": 355
+            },
+            {
+              "dimension_values": [
+                "55-64"
+              ],
+              "value": 108
+            },
+            {
+              "dimension_values": [
+                "65+"
+              ],
+              "value": 45
+            }
+          ]
+        }
+      ],
+      "city": [
+        {
+          "dimension_keys": [
+            "city"
+          ],
+          "results": [
+            {
+              "dimension_values": [
+                "Burbank, Washington"
+              ],
+              "value": 15
+            },
+            {
+              "dimension_values": [
+                "Toppenish, Washington"
+              ],
+              "value": 13
+            },
+            {
+              "dimension_values": [
+                "Seattle, Washington"
+              ],
+              "value": 79
+            },
+            {
+              "dimension_values": [
+                "Wenatchee, Washington"
+              ],
+              "value": 10
+            },
+            {
+              "dimension_values": [
+                "Mattawa, Washington"
+              ],
+              "value": 9
+            },
+            {
+              "dimension_values": [
+                "Benton City, Washington"
+              ],
+              "value": 22
+            },
+            {
+              "dimension_values": [
+                "Basin City, Washington"
+              ],
+              "value": 8
+            },
+            {
+              "dimension_values": [
+                "West Richland, Washington"
+              ],
+              "value": 103
+            },
+            {
+              "dimension_values": [
+                "Sunnyside, Washington"
+              ],
+              "value": 43
+            },
+            {
+              "dimension_values": [
+                "Richland, Washington"
+              ],
+              "value": 399
+            },
+            {
+              "dimension_values": [
+                "Connell, Washington"
+              ],
+              "value": 8
+            },
+            {
+              "dimension_values": [
+                "Royal City, Washington"
+              ],
+              "value": 10
+            },
+            {
+              "dimension_values": [
+                "Umatilla, Oregon"
+              ],
+              "value": 13
+            },
+            {
+              "dimension_values": [
+                "Othello, Washington"
+              ],
+              "value": 19
+            },
+            {
+              "dimension_values": [
+                "Kennewick, Washington"
+              ],
+              "value": 488
+            },
+            {
+              "dimension_values": [
+                "Pasco, Washington"
+              ],
+              "value": 470
+            },
+            {
+              "dimension_values": [
+                "Chicago, Illinois"
+              ],
+              "value": 9
+            },
+            {
+              "dimension_values": [
+                "Los Angeles, California"
+              ],
+              "value": 14
+            },
+            {
+              "dimension_values": [
+                "Hermiston, Oregon"
+              ],
+              "value": 36
+            },
+            {
+              "dimension_values": [
+                "West Pasco, Washington"
+              ],
+              "value": 36
+            },
+            {
+              "dimension_values": [
+                "Tacoma, Washington"
+              ],
+              "value": 17
+            },
+            {
+              "dimension_values": [
+                "Spokane, Washington"
+              ],
+              "value": 52
+            },
+            {
+              "dimension_values": [
+                "Bellingham, Washington"
+              ],
+              "value": 12
+            },
+            {
+              "dimension_values": [
+                "Spokane Valley, Washington"
+              ],
+              "value": 16
+            },
+            {
+              "dimension_values": [
+                "Walla Walla, Washington"
+              ],
+              "value": 63
+            },
+            {
+              "dimension_values": [
+                "Denver, Colorado"
+              ],
+              "value": 10
+            },
+            {
+              "dimension_values": [
+                "Vancouver, Washington"
+              ],
+              "value": 20
+            },
+            {
+              "dimension_values": [
+                "Milton-Freewater, Oregon"
+              ],
+              "value": 11
+            },
+            {
+              "dimension_values": [
+                "Coeur d'Alene, Idaho"
+              ],
+              "value": 7
+            },
+            {
+              "dimension_values": [
+                "Pendleton, Oregon"
+              ],
+              "value": 7
+            },
+            {
+              "dimension_values": [
+                "Boise, Idaho"
+              ],
+              "value": 9
+            },
+            {
+              "dimension_values": [
+                "Port Of Kennewick, Washington"
+              ],
+              "value": 16
+            },
+            {
+              "dimension_values": [
+                "Ellensburg, Washington"
+              ],
+              "value": 9
+            },
+            {
+              "dimension_values": [
+                "College Place, Washington"
+              ],
+              "value": 14
+            },
+            {
+              "dimension_values": [
+                "Moses Lake, Washington"
+              ],
+              "value": 15
+            },
+            {
+              "dimension_values": [
+                "Finley, Washington"
+              ],
+              "value": 36
+            },
+            {
+              "dimension_values": [
+                "East Wenatchee, Washington"
+              ],
+              "value": 7
+            },
+            {
+              "dimension_values": [
+                "Portland, Oregon"
+              ],
+              "value": 35
+            },
+            {
+              "dimension_values": [
+                "Grandview, Washington"
+              ],
+              "value": 39
+            },
+            {
+              "dimension_values": [
+                "Yakima, Washington"
+              ],
+              "value": 125
+            },
+            {
+              "dimension_values": [
+                "Granger, Washington"
+              ],
+              "value": 11
+            },
+            {
+              "dimension_values": [
+                "Prosser, Washington"
+              ],
+              "value": 23
+            },
+            {
+              "dimension_values": [
+                "New York, New York"
+              ],
+              "value": 10
+            },
+            {
+              "dimension_values": [
+                "Moxee City, Washington"
+              ],
+              "value": 11
+            },
+            {
+              "dimension_values": [
+                "San Diego, California"
+              ],
+              "value": 8
+            }
+          ]
+        }
+      ],
+      "country": [
+        {
+          "dimension_keys": [
+            "country"
+          ],
+          "results": [
+            {
+              "dimension_values": [
+                "RS"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "DE"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "BG"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "TZ"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "NZ"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "SE"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "DZ"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "GB"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "ID"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "EC"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "CA"
+              ],
+              "value": 3
+            },
+            {
+              "dimension_values": [
+                "US"
+              ],
+              "value": 3103
+            },
+            {
+              "dimension_values": [
+                "GH"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "IL"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "AE"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "IN"
+              ],
+              "value": 4
+            },
+            {
+              "dimension_values": [
+                "ZA"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "IR"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "CL"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "IT"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "CN"
+              ],
+              "value": 3
+            },
+            {
+              "dimension_values": [
+                "MX"
+              ],
+              "value": 22
+            },
+            {
+              "dimension_values": [
+                "CO"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "VE"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "CR"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "TH"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "AU"
+              ],
+              "value": 3
+            },
+            {
+              "dimension_values": [
+                "PE"
+              ],
+              "value": 2
+            },
+            {
+              "dimension_values": [
+                "VN"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "PH"
+              ],
+              "value": 2
+            },
+            {
+              "dimension_values": [
+                "NG"
+              ],
+              "value": 6
+            },
+            {
+              "dimension_values": [
+                "PK"
+              ],
+              "value": 1
+            },
+            {
+              "dimension_values": [
+                "TR"
+              ],
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "dimension_keys": [
+            "gender"
+          ],
+          "results": [
+            {
+              "dimension_values": [
+                "F"
+              ],
+              "value": 1611
+            },
+            {
+              "dimension_values": [
+                "M"
+              ],
+              "value": 980
+            },
+            {
+              "dimension_values": [
+                "U"
+              ],
+              "value": 582
+            }
+          ]
+        }
+      ]
+    },
+    "instagram_online_followers": {
+      "days_added": 1,
+      "days_filled": 27,
+      "days_on_file": 59
+    },
+    "instagram_totals": {
+      "_unsupported": [],
+      "accounts_engaged": 11,
+      "comments": 1,
+      "likes": 14,
+      "profile_views": 25,
+      "reach": 309,
+      "saves": 0,
+      "shares": 3,
+      "total_interactions": 24,
+      "views": 1061,
+      "website_clicks": 1
+    },
+    "pulled_at": "2026-10-26T18:59:19+00:00"
   }
 }
