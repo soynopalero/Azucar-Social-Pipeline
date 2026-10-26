@@ -147,7 +147,10 @@ STORY_RUNGS = {
     "one-time":   [(26, "morning"), (19, "morning"), (15, "morning"),
                    (12, "morning"), (9, "morning"), (7, "morning"),
                    (5, "morning"), (2, "morning"), (1, "morning"), (0, "morning")],
-    "every week": [(2, "morning"), (1, "morning"), (0, "morning")],
+    # Once a week (Pedro, 2026-10-26): the day-of story and nothing else. The
+    # cap (cap_queue.WEEKLY_ONCE_TIERS) enforces the same rule on anything
+    # already queued.
+    "every week": [(0, "morning")],
     "launch":     [(2, "morning"), (1, "morning"), (0, "afternoon"), (0, "evening")],
 }
 # Far enough to cover the whole marquee month, so every story is visible in
@@ -1192,7 +1195,7 @@ def selftest():
     assert per_week([o for o, _ in STORY_RUNGS["marquee"]]) == [2, 2, 2, 5]
     assert per_week(TIERS["one-time"]["days_before"]) == [1, 0, 1, 2]
     assert per_week([o for o, _ in STORY_RUNGS["one-time"]]) == [1, 2, 3, 4]
-    assert len(STORY_RUNGS["every week"]) == 3
+    assert STORY_RUNGS["every week"] == [(0, "morning")]
 
     # An event added late starts partway down its ladder rather than trying to
     # post into the past — and still keeps its day-of post.
@@ -1227,8 +1230,8 @@ def selftest():
     wed = fri - dt.timedelta(days=2)
     wed_now = dt.datetime(wed.year, wed.month, wed.day, 8, tzinfo=LOCAL_TZ)
     assert story_eligible(ev, wed)
-    assert story_slots(ev, wed, wed_now) == [(wed, "morning"), (fri - dt.timedelta(days=1), "morning"),
-                                             (fri, "morning")]
+    # A recurring night gets the day-of story only (once a week).
+    assert story_slots(ev, wed, wed_now) == [(fri, "morning")]
     ev["cadence"] = "launch"
     assert len(story_slots(ev, wed, wed_now)) == 4
     ev["cadence"] = "off"

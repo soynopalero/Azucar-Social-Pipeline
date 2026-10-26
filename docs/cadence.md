@@ -4,8 +4,9 @@ Three moving parts. In order of how much they matter:
 
 ## 1. The daily cap — `code/cap_queue.py`
 
-**No more than 4 posting slots a day**, across every event on the board. One
-slot is one Instagram post plus its Facebook mirror.
+**No more than 2 feed posts and 5 stories a day** (since 2026-10-26; it was 4
+and 4), across every event on the board. One slot is one Instagram post plus
+its Facebook mirror.
 
 This is the backstop, and it is the one rule that cannot be argued with by a
 single event. It exists because the scheduler is per-event and per-event rules
@@ -24,9 +25,15 @@ What it cost us, from `data/insights/ig_media.json` (105 days of real reach):
 1–2 a day is too few — it more than halves the people reached. Past 5 the
 total stops moving while every post keeps losing reach. 3–5 is the band.
 
-When a day is over cap, **nearest-to-event wins**, with a marquee getting
-three days' head start. Not a strict tier sort: a marquee three weeks out must
-never bump tonight's show off the calendar.
+When a day is over cap, **tier wins first**: Marquee, then Launch (a new
+night), then One-time, then Every week. Within a tier, nearest-to-event wins,
+and evening beats morning. This is a strict tier sort (Pedro's call,
+2026-10-26), so a marquee save-the-date can bump a one-off's day-of post; the
+trade-off is deliberate.
+
+**Recurring nights are reminded once a week.** An Every-week event keeps one
+slot per Mon-Sun week in each tray — the one nearest the night — whatever
+else was queued for it. Both rules run inside the same `cap_queue.py` pass.
 
 Run it by hand any time: `python code/cap_queue.py --dry-run`
 
@@ -79,11 +86,27 @@ cap** — a different tray, so they don't bury feed posts.
 |---|---|
 | Marquee | 11: 26, 22 · 19, 15 · 11, 9 · 4, 2, 1 at 11 AM, and day of at 11 AM + 3 PM (2 · 2 · 2 · 5 per week) |
 | One-time | 10: 26 · 19, 15 · 12, 9, 7 · 5, 2, 1, day of — 11 AM (1 · 2 · 3 · 4 per week) |
-| Every week | 3: 2 days before, day before, day of — 11 AM, every week |
+| Every week | 1: day of — 11 AM, every week (once a week, since 2026-10-26) |
 | Launch | 2 days before + day before at 11 AM, day of at 3 PM and 7 PM |
 
 Cancelled, Completed or Off events have their pending stories withdrawn on the
 next run.
+
+### When in the day they actually go out — `code/spread.py`
+
+The slot times above (11 AM, 3 PM, 7 PM) are *earliest* times, not exact
+ones. Since Oct 2026 the scheduler releases each slot-scheduled entry a
+deterministic pseudo-random number of minutes after its slot — up to 2h30
+after 11 AM, up to 2h after 3 PM and 7 PM, never later than 10 PM — and sends
+at most one feed post and one story per platform per five-minute run, with a
+25-minute gap between feed posts and 12 minutes between stories. So a day
+with four events reads as someone posting through the afternoon, not four
+flyers at 11:00 sharp. The delay is a hash of the event + day + slot, so it
+never drifts between runs and needs nothing stored; the Facebook mirror keeps
+the same delay as its Instagram post. Hand-scheduled posts (no slot) still go
+at their exact minute, and `"spread": false` on an entry opts it out. The
+queue file and the dashboard keep showing the slot time; the actual send time
+is in `posted_at`.
 
 ## 3. The Monday round-up — `code/build_week_carousel.py`
 

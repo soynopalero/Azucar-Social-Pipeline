@@ -21,6 +21,7 @@ from pathlib import Path
 import requests
 
 from queue_utils import load_queue, save_queue, from_utc_iso
+from spread import select_due, release_time, LOCAL_TZ as _LOCAL_TZ  # spread the day out; see code/spread.py
 
 # Load .env when running locally (no-op in GitHub Actions where env is set natively)
 try:
@@ -374,10 +375,15 @@ def main():
     now_utc = datetime.now(timezone.utc)
     print(f"⏰ Now (UTC): {now_utc.isoformat()}")
 
-    due = [
-        p for p in posts
-        if p["status"] == "pending" and from_utc_iso(p["scheduled_for_utc"]) <= now_utc
-    ]
+    # Slot-scheduled entries are released a deterministic few minutes to a
+    # couple of hours after their slot, and sent one feed post + one story per
+    # platform per run with a minimum gap between them, so a busy day reads as
+    # a person posting through the afternoon rather than a bot at 11:00 sharp.
+    # Hand-scheduled entries (no slot) still go at their exact minute.
+    # See code/spread.py.
+    due, held = select_due(posts, now_utc)
+    for p, why in held:
+        print(f"⏳ holding {p['id']} ({p['platform']}, {p.get('format') or 'feed'}): {why}")
 
     if not due:
         print(f"ℹ️  No posts due. Queue has {len(posts)} entry(ies).")
@@ -388,7 +394,8 @@ def main():
 
     for entry in due:
         print(f"--- Processing {entry['id']} ---")
-        print(f"    Scheduled: {entry['scheduled_for_utc']}")
+        print(f"    Scheduled: {entry['scheduled_for_utc']}  "
+              f"(released {release_time(entry).astimezone(_LOCAL_TZ).strftime('%H:%M')} local)")
         print(f"    Platform:  {entry['platform']}")
 
         platform = entry["platform"]

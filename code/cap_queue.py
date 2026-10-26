@@ -73,8 +73,22 @@ QUEUE_PATH = REPO_ROOT / "posts_queue.json"
 DROPPED_PATH = REPO_ROOT / "archive" / "posts_dropped.json"
 LOCAL_TZ = ZoneInfo("America/Los_Angeles")
 
-DEFAULT_CAP = 4
-STORY_CAP = 4   # story slots per day (= stories per platform per day)
+# Pedro's limits (2026-10-26): no more than 2 feed posts and 5 stories a day,
+# per platform. A slot is one Instagram + one Facebook entry.
+DEFAULT_CAP = 2
+STORY_CAP = 5   # story slots per day (= stories per platform per day)
+
+# Who wins when a day is over cap (2026-10-26): a marquee show first, then a
+# new night (Launch), then a one-off, and a recurring every-week night last.
+# Within a tier, nearest-to-event first. Entries written before tiers existed
+# carry none and rank with the one-offs.
+TIER_RANK = {"marquee": 0, "big show": 0, "launch": 1, "one-time": 2, "every week": 3}
+DEFAULT_TIER_RANK = 2
+
+# A recurring night only needs reminding once a week, whatever the engine
+# queued for it: of its slots that fall in the same Mon-Sun week, only the one
+# nearest the night survives (the day-of story), in each tray.
+WEEKLY_ONCE_TIERS = {"every week"}
 
 # Evening beats morning on reach in our own data (median 139 vs 121), so when
 # two slots are equally close to their event, the morning one yields first.
@@ -88,16 +102,12 @@ def local_day(iso: str) -> dt.date | None:
         return None
 
 
-# A marquee show's build-up is worth more than a one-off's at the same distance,
-# but not infinitely more — a one-off happening TONIGHT still has to beat a big
-# show that is a week and a half away. Expressing the tier as a few days of
-# head start keeps both true, where a strict tier-then-distance sort would let
-# a marquee post three weeks out bump tonight's show off the calendar.
-TIER_HEAD_START = {"marquee": 3, "big show": 3}
+def tier_rank(entry: dict) -> int:
+    return TIER_RANK.get(entry.get("tier"), DEFAULT_TIER_RANK)
 
 
 def days_until_event(entry: dict) -> int:
-    """Effective distance from its event, in days. Lower wins.
+    """Distance from its event, in days. Lower wins within a tier.
 
     An entry with no readable event date sorts last rather than being dropped
     outright: we cannot prove it is low value, and silently discarding a post
@@ -108,12 +118,19 @@ def days_until_event(entry: dict) -> int:
     if not sched or not raw:
         return 10_000
     try:
-        gap = (dt.date.fromisoformat(str(raw)[:10]) - sched).days
+        return (dt.date.fromisoformat(str(raw)[:10]) - sched).days
     except ValueError:
         return 10_000
-    # Entries written before tiers existed carry no tier and simply get no
-    # head start, which leaves the old nearest-first behaviour intact.
-    return gap - TIER_HEAD_START.get(entry.get("tier"), 0)
+
+
+def priority(entry: dict) -> tuple:
+    """Sort key for who keeps a day: tier first, then nearest event, then
+    evening over morning (evening out-reaches morning in our own numbers)."""
+    return (tier_rank(entry), days_until_event(entry), SLOT_RANK.get(entry.get("slot"), 9))
+
+
+def week_of(day: dt.date) -> tuple:
+    return day.isocalendar()[:2]
 
 
 def slot_key(entry: dict) -> tuple:
@@ -149,29 +166,42 @@ def plan(posts: list[dict], cap: int, stories: bool = False) -> tuple[set, dict]
     keep: set = {k for k, _ in undated}  # unschedulable: leave alone
     report: dict = {}
 
+    def dropped_row(k, e, why=None):
+        row = {"campaign": k[0], "when": k[1], "slot": e[0].get("slot"),
+               "days_out": days_until_event(e[0])}
+        if why:
+            row["why"] = why
+        return row
+
+    # Recurring nights: one slot per campaign per Mon-Sun week, the one nearest
+    # the night. Decided before the daily cap so the surviving slot still
+    # competes for its day on tier (last) like everything else.
+    weekly: dict[tuple, list] = defaultdict(list)
+    for day, items in by_day.items():
+        for key, entries in items:
+            if entries[0].get("tier") in WEEKLY_ONCE_TIERS:
+                weekly[(key[0], week_of(day))].append((day, key, entries))
+    weekly_dropped: set = set()
+    for group in weekly.values():
+        if len(group) <= 1:
+            continue
+        group.sort(key=lambda dke: (priority(dke[2][0]), dke[1][1] or ""))
+        for day, key, entries in group[1:]:
+            weekly_dropped.add(key)
+            rep = report.setdefault(day, {"before": 0, "after": 0, "dropped": []})
+            rep["dropped"].append(dropped_row(key, entries, "recurring night: once a week"))
+
     for day, items in sorted(by_day.items()):
-        items.sort(key=lambda ke: (
-            days_until_event(ke[1][0]),
-            SLOT_RANK.get(ke[1][0].get("slot"), 9),
-            ke[0][1] or "",
-        ))
+        items = [(k, e) for k, e in items if k not in weekly_dropped]
+        items.sort(key=lambda ke: (priority(ke[1][0]), ke[0][1] or ""))
         kept = items[:cap]
         dropped = items[cap:]
         keep.update(k for k, _ in kept)
-        if dropped:
-            report[day] = {
-                "before": len(items),
-                "after": len(kept),
-                "dropped": [
-                    {
-                        "campaign": k[0],
-                        "when": k[1],
-                        "slot": e[0].get("slot"),
-                        "days_out": days_until_event(e[0]),
-                    }
-                    for k, e in dropped
-                ],
-            }
+        if dropped or day in report:
+            rep = report.setdefault(day, {"before": 0, "after": 0, "dropped": []})
+            rep["before"] = len(items) + sum(1 for r in rep["dropped"] if r.get("why"))
+            rep["after"] = len(kept)
+            rep["dropped"] += [dropped_row(k, e) for k, e in dropped]
     return keep, report
 
 
@@ -272,25 +302,45 @@ def selftest() -> int:
     keep5, _ = plan(odd, cap=4)
     assert len(keep5) == 1
 
-    # A big show gets a few days' head start, so at 10 days out it beats a
-    # one-off at 8 (10 - 3 = 7).
+    # Priority is by tier first: a marquee beats a one-off on the same day even
+    # when the one-off is nearer its date (Pedro's rule, 2026-10-26).
     when = "2026-10-11T18:00:00+00:00"   # Oct 11, 11:00 PT
     race = [entry("big", when, "morning", "2026-10-21", tier="marquee"),
-            entry("small", when, "morning", "2026-10-19")]
+            entry("small", when, "morning", "2026-10-16", tier="one-time")]
     keep6, _ = plan(race, cap=1)
     assert [k[0] for k in keep6] == ["big"], keep6
 
-    # But the head start is finite: a one-off happening in 5 days still wins,
-    # because tonight's show beats a marquee that is a week and a half out.
-    race2 = [entry("big", when, "morning", "2026-10-21", tier="marquee"),
-             entry("small", when, "morning", "2026-10-16")]
-    keep7, _ = plan(race2, cap=1)
-    assert [k[0] for k in keep7] == ["small"], keep7
+    # Then a new night (Launch), then a one-off, then a recurring night.
+    ladder = [entry("weekly", when, "morning", "2026-10-11", tier="every week"),
+              entry("once", when, "morning", "2026-10-11", tier="one-time"),
+              entry("new", when, "morning", "2026-10-11", tier="launch"),
+              entry("big", when, "morning", "2026-10-11", tier="marquee")]
+    keep7, _ = plan(ladder, cap=2)
+    assert {k[0] for k in keep7} == {"big", "new"}, keep7
+    keep7b, _ = plan(ladder, cap=3)
+    assert {k[0] for k in keep7b} == {"big", "new", "once"}, keep7b
 
-    # Entries predating tiers carry none and get no head start — the original
-    # nearest-first behaviour, unchanged.
+    # Entries predating tiers carry none and rank with the one-offs.
+    assert tier_rank(entry("x", when, "morning", "2026-10-21")) == tier_rank(
+        entry("x", when, "morning", "2026-10-21", tier="one-time"))
     assert days_until_event(entry("x", when, "morning", "2026-10-21")) == 10
-    assert days_until_event(entry("x", when, "morning", "2026-10-21", tier="marquee")) == 7
+
+    # A recurring night keeps one slot per Mon-Sun week: of three stories in
+    # the week of Oct 12-18 (Mon-Sun) only the day-of one survives, while its
+    # story in the following week is untouched.
+    def wk(camp, when, event, tier="every week"):
+        e = entry(camp, when, "morning", event, tier=tier)
+        e["format"] = "story"
+        return e
+    weekly = [wk("kara", "2026-10-14T18:00:00+00:00", "2026-10-16"),   # Wed, 2 days out
+              wk("kara", "2026-10-15T18:00:00+00:00", "2026-10-16"),   # Thu, day before
+              wk("kara", "2026-10-16T18:00:00+00:00", "2026-10-16"),   # Fri, day of
+              wk("kara", "2026-10-23T18:00:00+00:00", "2026-10-23"),   # next week's night
+              wk("other", "2026-10-14T18:00:00+00:00", "2026-10-30", tier="marquee")]
+    keep8, rep8 = plan(weekly, cap=5, stories=True)
+    assert {k[1][:10] for k in keep8 if k[0] == "kara"} == {"2026-10-16", "2026-10-23"}, keep8
+    assert ("other", "2026-10-14T18:00:00+00:00") in keep8
+    assert all(r.get("why") for d in rep8.values() for r in d["dropped"]), rep8
 
     # apply_cap splits the same way plan() decides, and loses nothing:
     # every entry comes back in exactly one of the two lists.
@@ -377,7 +427,8 @@ def main() -> int:
             print(f"  {day}  {label:<7} {r['before']:>2} slots -> {r['after']:>2}   "
                   f"(dropping {len(r['dropped'])})")
             for d in r["dropped"]:
-                print(f"        - {d['campaign']} · {d['slot']} · {d['days_out']}d before its event")
+                why = f" · {d['why']}" if d.get("why") else ""
+                print(f"        - {d['campaign']} · {d['slot']} · {d['days_out']}d before its event{why}")
 
     print(f"\nPending entries: {pending_before} -> {pending_before - len(dropped)} "
           f"({len(dropped)} dropped, {len(dropped)//2} slots)")

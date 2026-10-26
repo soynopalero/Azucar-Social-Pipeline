@@ -34,6 +34,10 @@ jobs:
       - name: Install dependencies
         run: pip install requests python-dotenv
 
+      # Offline guard for the release/spacing rules before anything is sent.
+      - name: Self-test spread rules
+        run: python code/spread.py --selftest
+
       - name: Run queue processor
         id: post
         env:
