@@ -1,22 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-25 11:40 PDT - **nothing posted, queue untouched**
+Generated 2026-10-26 11:26 PDT - **nothing posted, queue untouched**
 
-Eligible events: **10** - Skipped: **106**
-
-## Burlesque Dance Workshop - 2026-10-25  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Oct 25, 7:00 PM | evening |
-
-## Pumpkin Painting Night - 2026-10-25  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Oct 25, 7:00 PM | evening |
+Eligible events: **8** - Skipped: **108**
 
 ## Drag-O-Weeen - 2026-10-28  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -34,11 +20,10 @@ Eligible events: **10** - Skipped: **106**
 | Thu Oct 29, 7:00 PM | evening |
 
 ## American horror story watch party - 2026-10-29  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Oct 26, 11:00 AM | morning |
 | Thu Oct 29, 7:00 PM | evening |
 
 ## Candy Shop - 2026-10-30  (Launch)
@@ -108,6 +93,7 @@ Eligible events: **10** - Skipped: **106**
 - **Build you own carabiner** - date in the past
 - **Build your own Carabiner** - date in the past
 - **Build your own carabiner night** - date in the past
+- **Burlesque Dance Workshop** - date in the past
 - **Cabana Bass - Casting Call** - date in the past
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
@@ -175,6 +161,7 @@ Eligible events: **10** - Skipped: **106**
 - **PFLAG Summer Pride BBQ** - date in the past, no cadence set, no flyer, no price, no description
 - **Paint and Sip with ArtwithAubrey** - date in the past
 - **Pride Karaoke** - date in the past, no cadence set, no flyer, no price, no description
+- **Pumpkin Painting Night** - date in the past
 - **Rop Jams & Kinky Kareoke** - date in the past, no cadence set, no flyer, no price, no description
 - **Rosie’s Birthday Bash** - date in the past
 - **Royal flush comedy drag show** - date in the past
@@ -203,4 +190,4 @@ Eligible events: **10** - Skipped: **106**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 56**
+**Total queue entries that would be created: 50**
