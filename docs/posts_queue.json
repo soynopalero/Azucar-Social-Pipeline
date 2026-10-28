@@ -5927,7 +5927,7 @@
     {
       "id": "20261029_020000_b0d387",
       "platform": "instagram",
-      "scheduled_for_utc": "2026-10-29T02:00:00+00:00",
+      "scheduled_for_utc": "2026-10-28T00:39:10+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13402196158_0.jpg",
       "caption": "El show de drag más longevo de Washington regresa con un twist peligroso. 🚦💋\n\nVida Amore y sus Divas transforman Azúcar en la Fiesta Semáforo: pulsera roja si estás ocupade, amarilla si la cosa está complicada, verde si andas libre y disponible. Tu vida amorosa, en un accesorio. DJ ShaReal pone el soundtrack mientras las Divas suben al escenario con looks que van a dejar a todo mundo sin aire. 🎤✨\n\nAquí no solo vienes a ver el show — vienes a jugar el juego. ¿Qué color te vas a poner?\n\n🗓️ Sábado 21 de noviembre • Puertas 8:30pm | Show 9:30pm\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ $20\n🔞 21+\n\n#AzucarPasco #OutAndAbout #VidaAmoreDivas #FiestaSemaforo #DragShow #TriCities #Pasco #Latinx",
       "status": "pending",
@@ -5937,13 +5937,13 @@
       "campaign": "cadence_vida_amore_divas_show__fiesta_semáforo__stoplight_party",
       "monday_event_id": "13402196158",
       "event_date": "2026-11-21",
-      "slot": "evening",
-      "tier": "marquee"
+      "tier": "marquee",
+      "spread": false
     },
     {
       "id": "20261029_020000_153b6b",
       "platform": "facebook",
-      "scheduled_for_utc": "2026-10-29T02:00:00+00:00",
+      "scheduled_for_utc": "2026-10-28T00:39:10+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13402196158_0.jpg",
       "caption": "El show de drag más longevo de Washington regresa con un twist peligroso. 🚦💋\n\nVida Amore y sus Divas transforman Azúcar en la Fiesta Semáforo: pulsera roja si estás ocupade, amarilla si la cosa está complicada, verde si andas libre y disponible. Tu vida amorosa, en un accesorio. DJ ShaReal pone el soundtrack mientras las Divas suben al escenario con looks que van a dejar a todo mundo sin aire. 🎤✨\n\nAquí no solo vienes a ver el show — vienes a jugar el juego. ¿Qué color te vas a poner?\n\n🗓️ Sábado 21 de noviembre • Puertas 8:30pm | Show 9:30pm\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ $20\n🔞 21+\n\n#AzucarPasco #OutAndAbout #VidaAmoreDivas #FiestaSemaforo #DragShow #TriCities #Pasco #Latinx",
       "status": "pending",
@@ -5953,8 +5953,8 @@
       "campaign": "cadence_vida_amore_divas_show__fiesta_semáforo__stoplight_party",
       "monday_event_id": "13402196158",
       "event_date": "2026-11-21",
-      "slot": "evening",
-      "tier": "marquee"
+      "tier": "marquee",
+      "spread": false
     },
     {
       "id": "20261104_190000_494a6a",
