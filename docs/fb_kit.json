@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T01:27:00",
+ "generated_at": "2026-10-28T01:26:04",
  "events": [
   {
    "item_id": "13253931842",
@@ -140,6 +140,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/candy-shop-tickets-2002271092738",
    "flyer": "media/fb-kit/13132977632_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13132977632"
+  },
+  {
+   "item_id": "13402196158",
+   "name": "Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party)",
+   "date_iso": "2026-11-21",
+   "date_display": "Nov 21, 2026",
+   "start_time": "9:30 PM",
+   "end_date_display": "Nov 22, 2026",
+   "end_time": "1:30 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "¿Roja, amarilla o verde? ¿Cuál te vas a poner? 🚦\n\nVida Amore y sus Divas regresan a Azúcar el sábado 21 de noviembre con la Fiesta Semáforo. En la puerta eliges tu pulsera: ROJA si estás ocupade, AMARILLA si es complicado, VERDE si estás libre. El resto de la noche, el color habla por ti.\n\nEn el escenario: Vida Amore, Alyana Amore y las divas de VADS con números en vivo, lip-syncs con actitud y ese descaro que solo el drag show más longevo de Washington sabe servir. DJ ShaReal mantiene la pista prendida antes, entre y después del show. Show, baile y tragos — esa es toda la fórmula.\n\nPuertas 8:30pm, show 9:30pm. Cover $20, solo mayores de 21. Mesas y reservaciones por Instagram: @vidaamore, @alyanaamore, @vidaamoredivasshow.\n\nAzúcar at Out & About — 327 W Lewis St, Pasco WA.\n\n🗓️ Sábado 21 de noviembre — Show 9:30 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $20\n\n🎟️ Tickets: https://www.eventbrite.com/e/vida-amore-divas-show-fiesta-semaforo-stoplight-party-tickets-2003997609797",
+   "eventbrite_url": "https://www.eventbrite.com/e/vida-amore-divas-show-fiesta-semaforo-stoplight-party-tickets-2003997609797",
+   "flyer": "media/fb-kit/13402196158_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13402196158"
   },
   {
    "item_id": "13132979229",
