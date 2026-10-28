@@ -148,11 +148,14 @@ LAUNCH_DRAFT_DAYS = 3
 # without undoing the cap. (days_before, slot) rungs per tier. Every tier gets
 # an 11 AM story the morning of the event.
 STORY_RUNGS = {
-    # 2 stories in each of weeks 4, 3 and 2 out, 5 the week of = 11
+    # 2 stories in each of weeks 4, 3 and 2 out, 4 the week of = 10.
+    # Day-of is one morning story + the evening feed post; the afternoon
+    # story was dropped 2026-10-27 (Pedro: three items for one night on the
+    # calendar read as too much).
     "marquee":    [(26, "morning"), (22, "morning"), (19, "morning"), (15, "morning"),
                    (11, "morning"), (9, "morning"),
                    (4, "morning"), (2, "morning"), (1, "morning"),
-                   (0, "morning"), (0, "afternoon")],
+                   (0, "morning")],
     # 1 · 2 · 3 · 4 per week, weeks 4 out through the week of = 10
     "one-time":   [(26, "morning"), (19, "morning"), (15, "morning"),
                    (12, "morning"), (9, "morning"), (7, "morning"),
@@ -1266,11 +1269,14 @@ def selftest():
     assert day_of and day_of[0][1] == "evening", day_of
 
     # Pedro's marquee month, per week counted back from the event
-    # (week 4 out, 3 out, 2 out, week of): posts 1/1/2/3, stories 2/2/2/5.
+    # (week 4 out, 3 out, 2 out, week of): posts 1/1/2/3, stories 2/2/2/4
+    # (was 5 until the afternoon day-of story went, 2026-10-27).
     def per_week(offsets):
         return [sum(1 for o in offsets if lo <= o <= lo + 6) for lo in (21, 14, 7, 0)]
     assert per_week(TIERS["marquee"]["days_before"]) == [1, 1, 2, 3]
-    assert per_week([o for o, _ in STORY_RUNGS["marquee"]]) == [2, 2, 2, 5]
+    assert per_week([o for o, _ in STORY_RUNGS["marquee"]]) == [2, 2, 2, 4]
+    # Day-of is exactly one story for a marquee night.
+    assert [s for o, s in STORY_RUNGS["marquee"] if o == 0] == ["morning"]
     assert per_week(TIERS["one-time"]["days_before"]) == [1, 0, 1, 2]
     assert per_week([o for o, _ in STORY_RUNGS["one-time"]]) == [1, 2, 3, 4]
     assert STORY_RUNGS["every week"] == [(0, "morning")]

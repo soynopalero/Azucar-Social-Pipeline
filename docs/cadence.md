@@ -97,7 +97,7 @@ cap** — a different tray, so they don't bury feed posts.
 
 | Tier | Stories |
 |---|---|
-| Marquee | 11: 26, 22 · 19, 15 · 11, 9 · 4, 2, 1 at 11 AM, and day of at 11 AM + 3 PM (2 · 2 · 2 · 5 per week) |
+| Marquee | 10: 26, 22 · 19, 15 · 11, 9 · 4, 2, 1, day of — 11 AM (2 · 2 · 2 · 4 per week; the 3 PM day-of story was dropped 2026-10-27) |
 | One-time | 10: 26 · 19, 15 · 12, 9, 7 · 5, 2, 1, day of — 11 AM (1 · 2 · 3 · 4 per week) |
 | Every week | 1: day of — 11 AM, every week (once a week, since 2026-10-26) |
 | Launch | 2 days before + day before at 11 AM, day of at 3 PM and 7 PM |
