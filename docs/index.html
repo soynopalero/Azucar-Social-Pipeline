@@ -102,6 +102,27 @@
   .post.failed { background: #ffe9e9; border-left-color: #ff3b30; }
   .post.pending { border-left-color: #f5b800; }
   .post.posted-status { border-left-color: #34c759; }
+  /* Stories: the flyer alone, no caption, a different tray on Instagram.
+     Dashed outline + lighter fill so they read as "not a feed post". */
+  .post.story { background: #fcfcfa; border: 1px dashed #c8c8c2; border-left-width: 3px; border-left-style: solid; }
+  .post.story img { border-radius: 50%; }
+  .post .kind { display: block; color: #999; font-size: 0.6rem; letter-spacing: 0.04em; text-transform: uppercase;
+                white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chips { display: inline-flex; gap: 2px; margin-left: 0.3rem; vertical-align: 1px; }
+  .chip {
+    font-size: 0.5rem; font-weight: 700; letter-spacing: 0.03em; line-height: 1;
+    padding: 2px 3px; border-radius: 3px; color: white; background: #999;
+  }
+  .chip.ig { background: #c13584; }
+  .chip.fb { background: #1877f2; }
+  .chip.posted { opacity: 0.55; }
+  .chip.failed { background: #ff3b30; }
+  .chip.missing { background: transparent; color: #bbb; border: 1px dashed #ccc; }
+  .legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; font-size: 0.75rem; color: #777; align-items: center; }
+  .legend .swatch { display: inline-block; width: 22px; height: 12px; border-radius: 2px; vertical-align: -2px; margin-right: 4px; background: #f7f7f4; border-left: 3px solid #f5b800; }
+  .legend .swatch.story { background: #fcfcfa; border: 1px dashed #c8c8c2; border-left: 3px solid #f5b800; }
+  .modal .chips { margin-left: 0; }
+  .modal .chip { font-size: 0.7rem; padding: 3px 6px; }
   .loading, .empty {
     text-align: center;
     padding: 3rem;
@@ -177,8 +198,16 @@
     <h1>Azúcar Social Pipeline</h1>
     <div class="sub">@cluboutandabout — what's queued and what's posted</div>
     <div class="stats" id="stats"></div>
+    <div class="legend">
+      <span><span class="swatch"></span>Feed post (with caption)</span>
+      <span><span class="swatch story"></span>Story (flyer only, 24h)</span>
+      <span><span class="chips"><span class="chip ig">IG</span><span class="chip fb">FB</span></span> one card = both platforms</span>
+    </div>
   </div>
   <div class="controls">
+    <button id="f-all" class="active" onclick="setFilter('all')">All</button>
+    <button id="f-feed" onclick="setFilter('feed')">Posts</button>
+    <button id="f-story" onclick="setFilter('story')">Stories</button>
     <button onclick="reload()">↻ Refresh</button>
   </div>
 </header>
@@ -202,32 +231,62 @@ const STATUS_COLOR = {
   failed: "#ff3b30",
 };
 
+let ALL_POSTS = [];
+let FILTER = "all";   // all | feed | story
+
 async function reload() {
   const res = await fetch("posts_queue.json?ts=" + Date.now(), { cache: "no-store" });
   const data = await res.json();
-  render(data.posts || []);
+  ALL_POSTS = data.posts || [];
+  render(ALL_POSTS);
+}
+
+function setFilter(f) {
+  FILTER = f;
+  ["all", "feed", "story"].forEach(k => document.getElementById("f-" + k).classList.toggle("active", k === f));
+  render(ALL_POSTS);
+}
+
+const kindOf = p => (p.format === "story" ? "story" : "feed");
+
+// The Instagram and Facebook copies of a post are always a mirrored pair
+// (same event, same minute, same artwork), so the calendar shows ONE card per
+// slot with an IG and an FB chip, each coloured by its own status. Two cards
+// per slot made every day look twice as busy as it is.
+function groupSlots(posts) {
+  const slots = new Map();
+  posts.forEach(p => {
+    const key = [p.monday_event_id || p.campaign || p.id, p.scheduled_for_utc, kindOf(p)].join("|");
+    if (!slots.has(key)) slots.set(key, { key, kind: kindOf(p), when: p.scheduled_for_utc, entries: [] });
+    slots.get(key).entries.push(p);
+  });
+  return [...slots.values()];
 }
 
 function render(posts) {
   const counts = { pending: 0, posted: 0, failed: 0 };
   posts.forEach(p => { counts[p.status] = (counts[p.status] || 0) + 1; });
+  const pendingFeed = posts.filter(p => p.status === "pending" && kindOf(p) === "feed").length;
+  const pendingStory = posts.filter(p => p.status === "pending" && kindOf(p) === "story").length;
 
   const stats = document.getElementById("stats");
   stats.innerHTML = `
-    <span class="stat"><span class="stat-dot" style="background:${STATUS_COLOR.pending}"></span>Pending: ${counts.pending}</span>
+    <span class="stat"><span class="stat-dot" style="background:${STATUS_COLOR.pending}"></span>Pending: ${counts.pending} <span style="color:#999">(${pendingFeed} posts · ${pendingStory} stories)</span></span>
     <span class="stat"><span class="stat-dot" style="background:${STATUS_COLOR.posted}"></span>Posted: ${counts.posted}</span>
     <span class="stat"><span class="stat-dot" style="background:${STATUS_COLOR.failed}"></span>Failed: ${counts.failed}</span>
   `;
 
+  const visible = FILTER === "all" ? posts : posts.filter(p => kindOf(p) === FILTER);
   const grouped = {};
-  posts.forEach(p => {
-    const d = new Date(p.scheduled_for_utc);
+  groupSlots(visible).forEach(s => {
+    const d = new Date(s.when);
     const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
     if (!grouped[key]) grouped[key] = [];
-    grouped[key].push(p);
+    grouped[key].push(s);
   });
-  // Sort each day by time
-  Object.values(grouped).forEach(arr => arr.sort((a, b) => new Date(a.scheduled_for_utc) - new Date(b.scheduled_for_utc)));
+  // Sort each day by time, feed posts before stories at the same minute
+  Object.values(grouped).forEach(arr => arr.sort((a, b) =>
+    (new Date(a.when) - new Date(b.when)) || (a.kind === "feed" ? -1 : 1)));
 
   const now = new Date();
   const months = [];
@@ -276,7 +335,7 @@ function renderMonth(monthDate, grouped, now) {
       if (!inMonth) classes.push("other-month");
       if (isToday) classes.push("today");
       const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
-      const postsHtml = (grouped[key] || []).map(p => postCell(p)).join("");
+      const postsHtml = (grouped[key] || []).map(s => slotCell(s)).join("");
       row += `<td class="${classes.join(" ")}"><div class="day-num">${d.getDate()}</div>${postsHtml}</td>`;
     }
     row += "</tr>";
@@ -294,33 +353,62 @@ function renderMonth(monthDate, grouped, now) {
   `;
 }
 
-function postCell(p) {
-  const d = new Date(p.scheduled_for_utc);
+// A slot's overall status: failed if any copy failed, posted only once every
+// copy is posted, otherwise pending.
+function slotStatus(entries) {
+  if (entries.some(p => p.status === "failed")) return "failed";
+  if (entries.every(p => p.status === "posted")) return "posted";
+  return "pending";
+}
+
+function chips(entries) {
+  const by = Object.fromEntries(entries.map(p => [p.platform, p]));
+  return `<span class="chips">` + ["instagram", "facebook"].map(pl => {
+    const p = by[pl];
+    const label = pl === "instagram" ? "IG" : "FB";
+    if (!p) return `<span class="chip missing" title="no ${pl} copy">${label}</span>`;
+    return `<span class="chip ${pl === "instagram" ? "ig" : "fb"} ${p.status}" title="${pl}: ${p.status}">${label}</span>`;
+  }).join("") + `</span>`;
+}
+
+function eventName(p) {
+  const c = (p.campaign || "").replace(/^(cadence|story)_/, "").replace(/_+/g, " ").trim();
+  return c ? c.replace(/\b\w/g, ch => ch.toUpperCase()) : "";
+}
+
+function slotCell(s) {
+  const p = s.entries[0];
+  const d = new Date(s.when);
   const time = d.toLocaleTimeString("en-US", { timeZone: "America/Los_Angeles", hour: "numeric", minute: "2-digit" }).toLowerCase().replace(" ", "");
-  const firstLine = p.caption.split("\n")[0].slice(0, 60);
-  const cls = p.status === "posted" ? "post posted posted-status" : `post ${p.status}`;
-  return `<div class="${cls}" onclick='showModal(${JSON.stringify(p).replace(/'/g, "&apos;")})'>
+  const status = slotStatus(s.entries);
+  const cls = ["post", s.kind, status === "posted" ? "posted posted-status" : status].join(" ");
+  const line = s.kind === "story"
+    ? `<span class="kind">Story · ${escapeHtml(eventName(p))}</span>`
+    : `<span class="caption">${escapeHtml((p.caption || "").split("\n")[0].slice(0, 60))}</span>`;
+  return `<div class="${cls}" onclick='showModal(${JSON.stringify(s).replace(/'/g, "&apos;")})'>
     <img src="${escapeHtml(p.image_url)}" loading="lazy" />
     <div class="post-meta">
-      <span class="time">${time}</span>
-      <span class="caption">${escapeHtml(firstLine)}</span>
+      <span class="time">${time}${chips(s.entries)}</span>
+      ${line}
     </div>
   </div>`;
 }
 
-function showModal(p) {
-  const d = new Date(p.scheduled_for_utc);
+function showModal(s) {
+  const p = s.entries[0];
+  const d = new Date(s.when);
   const when = d.toLocaleString("en-US", { timeZone: "America/Los_Angeles", dateStyle: "full", timeStyle: "short" });
+  const rows = s.entries.map(e => `
+    <div class="meta-row"><span class="chip ${e.platform === "instagram" ? "ig" : "fb"}">${e.platform === "instagram" ? "IG" : "FB"}</span> <strong>${e.status}</strong>
+      · <code>${e.id}</code>${e.result ? ` · ${escapeHtml(e.result)}` : ""}</div>`).join("");
   const html = `
     <button class="modal-close" onclick="closeModal()">×</button>
     <img src="${escapeHtml(p.image_url)}" />
-    <div class="meta-row"><strong>Status:</strong> ${p.status}</div>
+    <div class="meta-row"><strong>${s.kind === "story" ? "Story" : "Feed post"}</strong> · ${escapeHtml(eventName(p))}${p.event_date ? ` · event ${p.event_date}` : ""}${p.tier ? ` · ${p.tier}` : ""}</div>
     <div class="meta-row"><strong>Scheduled:</strong> ${when} PT</div>
-    <div class="meta-row"><strong>Platform:</strong> ${p.platform}</div>
-    <div class="meta-row"><strong>ID:</strong> <code>${p.id}</code></div>
-    ${p.result ? `<div class="meta-row"><strong>Result:</strong> ${escapeHtml(p.result)}</div>` : ""}
-    <div style="margin-top:1rem"><strong>Caption:</strong></div>
-    <div class="caption-full">${escapeHtml(p.caption)}</div>
+    ${rows}
+    ${s.kind === "story" ? "" : `<div style="margin-top:1rem"><strong>Caption:</strong></div>
+    <div class="caption-full">${escapeHtml(p.caption)}</div>`}
   `;
   document.getElementById("modalContent").innerHTML = html;
   document.getElementById("modal").classList.add("show");
