@@ -81,6 +81,11 @@ COL_CAMPAIGN_NOTES = "long_text_mm52r831"   # performer stories/context from the
 COL_CAPTION_FEEDBACK = "long_text_mm53rtrx" # one-shot revision notes from the Redraft prompt (cleared after use)
 
 HIDDEN_PHASES = {"Cancelled", "Completed"}
+# Caption roles: "general" rotates through the lead-up weeks, "week" posts in
+# the final WEEK_ROLE_DAYS days, "day" posts the day of (Pedro, 2026-10-27:
+# the week-of and day-of posts should read differently from the campaign).
+CAPTION_ROLES = ("general", "week", "day")
+WEEK_ROLE_DAYS = 6
 PLATFORMS = ["instagram", "facebook"]
 
 # Pacific time-of-day slots
@@ -510,9 +515,10 @@ Voice: FOMO-driven, fun, energetic, sensorial. Full campaign captions like the v
 GROUNDING — hard rules:
 - Use ONLY performer names, hosts, times, and facts that appear in the event details, the flyer image(s), the past captions, or the runbook provided. NEVER invent names, guests, specials, or details. If you don't know who's performing, hype the night without naming anyone.{weekday}
 - NEVER use the words "nightclub", "queer", or "gay" (positioning constraints). Say "Latinx" when referencing community.
+- Don't name the room inside the venue (Main Floor, Ranchero Room, Lounge, Patio) unless the event details make the room the point. Say "Azucar", or "la pista" for the dance floor.
 - Every caption ends with, on separate lines: a date/time line, "📍 Azucar at Out & About — 327 W Lewis St, Pasco WA", a price line, an age line if age is given, then 6-10 hashtags including #AzucarPasco and #OutAndAbout.
 
-Output ONLY a JSON array of objects, each {{"flyer": <image number, 1-based>, "caption": "<caption text>"}}. No preamble, no code fences."""
+Output ONLY a JSON array of objects, each {{"flyer": <image number, 1-based>, "role": "general" | "week" | "day", "caption": "<caption text>"}}. "general" captions rotate through the weeks before; "week" posts in the final week (this Saturday / este sabado, countdown, reserve your table); "day" posts the day of (tonight / esta noche, short and urgent, doors and show time up top). No preamble, no code fences."""
 
 
 def draft_captions(e, n=4):
@@ -526,7 +532,7 @@ def draft_captions(e, n=4):
     images = flyer_images_b64(e, cap=8)
 
     if len(images) > 1:
-        n = min(10, max(4, len(images) + 2))
+        n = min(12, max(7, len(images) + 5))
         user = (
             f"This event has {len(images)} flyer images attached, in order (image 1 = first). "
             "CURATE the campaign — study each image and decide what it is: a full-cast/hero flyer, "
@@ -537,7 +543,10 @@ def draft_captions(e, n=4):
             "(their name is on the artwork; use the campaign notes for their story — debut, birthday, hosting, etc.).\n"
             "- COVERAGE IS MANDATORY: every distinct performer image MUST appear as some caption's flyer. "
             "Never pair more than 3 captions with the hero image.\n"
-            "- Order the array: hero captions first, then spotlights.\n"
+            "- Then TWO captions with role \"week\" (final week: this Saturday / este sabado, countdown, reserve a table) "
+            "and ONE with role \"day\" (tonight / esta noche, short and urgent, doors time first), all paired with the hero image. "
+            "Every other caption has role \"general\".\n"
+            "- Order the array: hero captions first, then spotlights, then week, then day.\n"
             "Every caption must stand alone and still end with the full info block.\n\n"
         )
     elif resolve_tier(e.get("cadence")) == "launch":
@@ -552,10 +561,16 @@ def draft_captions(e, n=4):
             "Pair every caption with image 1.\n\n"
         )
     else:
+        n = 6
         user = (
-            f"Draft {n} distinct captions for this event's multi-week posting campaign. Angles: "
-            "1) hype announcement, 2) vibe/sensory, 3) community/come-as-you-are, 4) info-forward. "
-            "They rotate across many days, so each must stand alone. Pair every caption with image 1.\n\n"
+            "Draft 6 distinct captions for this event's multi-week posting campaign, each with a role:\n"
+            '- 3 with role "general" (hype announcement, vibe/sensory, community/come-as-you-are). '
+            "They rotate across the weeks before, so each must stand alone.\n"
+            '- 2 with role "week": they post in the final week. It is THIS week / este sabado -- countdown '
+            "energy, reserve your table, who you're bringing. Make the two different from each other.\n"
+            '- 1 with role "day": it posts the day of. Tonight / esta noche -- short and urgent, doors and '
+            "show time up top, one reason to get there, no long build-up.\n"
+            "Pair every caption with image 1.\n\n"
         )
     user += (
         f"Event: {e['name']}\nDate: {e['date']}" + (f" ({weekday_en})" if weekday_en else "") + "\n"
@@ -651,9 +666,11 @@ def parse_caption_array(text, images, date_iso):
             fl = int(fl) if isinstance(fl, (int, float, str)) and str(fl).isdigit() else None
             if fl is not None and images:
                 fl = max(1, min(fl, len(images)))
-            caps.append({"flyer": fl, "caption": fix_weekdays(str(item["caption"]).strip(), date_iso)})
+            role = str(item.get("role") or "general").strip().lower()
+            caps.append({"flyer": fl, "role": role if role in CAPTION_ROLES else "general",
+                         "caption": fix_weekdays(str(item["caption"]).strip(), date_iso)})
         elif isinstance(item, str) and item.strip():
-            caps.append({"flyer": None, "caption": fix_weekdays(item.strip(), date_iso)})
+            caps.append({"flyer": None, "role": "general", "caption": fix_weekdays(item.strip(), date_iso)})
     return caps
 
 
@@ -682,9 +699,11 @@ def notify_captions_review(e, captions):
             f"📣 Captions ready — {e['name']} ({e['date']}, "
             f"{(e['cadence'] or '?').capitalize()} cadence) — {len(captions)} variants incoming:"})
     buf = ""
+    labels = {"week": " · semana del show", "day": " · día del show"}
     for i, c in enumerate(captions, 1):
-        short = c if len(c) <= 900 else c[:900] + "…"
-        block = f"— Variant {i} —\n{short}\n\n"
+        text = _caption_text(c)
+        short = text if len(text) <= 900 else text[:900] + "…"
+        block = f"— Variant {i}{labels.get(_role_of(c), '')} —\n{short}\n\n"
         if buf and len(buf) + len(block) > 3500:
             tg_call("sendMessage", {"chat_id": chat, "text": buf.rstrip()})
             buf = ""
@@ -754,6 +773,30 @@ def _paired_image(cap, image_urls, i):
     return image_urls[i % len(image_urls)]
 
 
+def _role_of(cap):
+    return (cap.get("role") if isinstance(cap, dict) else None) or "general"
+
+
+def assign_captions(captions, days_out_list):
+    """One caption per slot, by role. The "day" caption takes the day-of slot,
+    "week" captions take the final-week slots (each used once, then the general
+    rotation fills in), "general" captions rotate through everything else. A
+    set with no roles (legacy / bot intake) rotates exactly as it always did."""
+    by = {r: [c for c in captions if _role_of(c) == r] for r in CAPTION_ROLES}
+    general = by["general"] or list(captions)
+    out, gi, wi = [], 0, 0
+    for d in days_out_list:
+        if d == 0 and by["day"]:
+            out.append(by["day"][0])
+        elif 1 <= d <= WEEK_ROLE_DAYS and wi < len(by["week"]):
+            out.append(by["week"][wi])
+            wi += 1
+        else:
+            out.append(general[gi % len(general)])
+            gi += 1
+    return out
+
+
 def enqueue_event(e, captions, now):
     import queue_utils as qu  # sibling module; hosts to catbox + saves the queue
 
@@ -774,6 +817,7 @@ def enqueue_event(e, captions, now):
     queue["posts"] = [p for p in queue["posts"]
                       if not (p.get("monday_event_id") == e["id"] and p.get("status") == "pending")]
 
+    assigned = assign_captions(captions, [(ed - d).days for d, _ in slots])
     created = now.isoformat()
     campaign = "cadence_" + "".join(ch if ch.isalnum() else "_" for ch in (e["name"] or "").lower()).strip("_")
     for i, (d, s) in enumerate(slots):
@@ -783,8 +827,8 @@ def enqueue_event(e, captions, now):
                 "id": qu.new_post_id(utc),
                 "platform": platform,
                 "scheduled_for_utc": utc.isoformat(),
-                "image_url": _paired_image(captions[i % len(captions)], image_urls, i),
-                "caption": _caption_text(captions[i % len(captions)]),
+                "image_url": _paired_image(assigned[i], image_urls, i),
+                "caption": _caption_text(assigned[i]),
                 "status": "pending",
                 "created_at": created,
                 "posted_at": None,
@@ -926,7 +970,7 @@ def run_enqueue(events, today, now):
                 if e.get("caption_feedback"):
                     # One-shot notes: applied to this draft, cleared for the next.
                     monday_set_long_text(e["id"], COL_CAPTION_FEEDBACK, "")
-                notify_captions_review(e, texts)
+                notify_captions_review(e, caps)
                 print(f"• drafted {len(caps)} captions, sent for review: {e['name']}")
             elif st == "needs_review":
                 print(f"• awaiting Telegram approval: {e['name']}")
@@ -1156,6 +1200,22 @@ def selftest():
     print("Caption-parser self-test\n")
     failures = parser_selftest()
     print()
+
+    # --- caption roles -> posting slots ---
+    caps = [{"role": "general", "caption": "g1"}, {"role": "general", "caption": "g2"},
+            {"role": "week", "caption": "w1"}, {"role": "week", "caption": "w2"},
+            {"role": "day", "caption": "d1"}]
+    got = [c["caption"] for c in assign_captions(caps, [24, 17, 12, 8, 5, 3, 0])]
+    assert got == ["g1", "g2", "g1", "g2", "w1", "w2", "d1"], got
+    got = [c["caption"] for c in assign_captions(caps, [24, 10, 3, 0])]
+    assert got == ["g1", "g2", "w1", "d1"], got
+    got = [c["caption"] for c in assign_captions(caps[:3], [6, 4, 2, 0])]
+    assert got == ["w1", "g1", "g2", "g1"], "week caption used once, general fills the rest; no day caption -> general"
+    assert assign_captions(["a", "b", "c"], [10, 3, 0]) == ["a", "b", "c"], "legacy string sets rotate as before"
+    assert assign_captions([{"caption": "only"}], [5, 0]) == [{"caption": "only"}] * 2
+    parsed = parse_caption_array('[{"flyer":1,"role":"DAY","caption":"x"},{"caption":"y","role":"bogus"},"z"]', [], "2026-11-21")
+    assert [c["role"] for c in parsed] == ["day", "general", "general"], parsed
+    print("Caption-role assignment OK\n")
 
     today = dt.date(2026, 7, 1)
     event = dt.date(2026, 8, 8)  # ~5.4 weeks out (a Saturday)

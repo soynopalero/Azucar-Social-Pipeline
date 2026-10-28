@@ -74,6 +74,17 @@ The old labels still work — Standard and Aggressive map to Marquee, Light to
 One-time — so the board can be relabelled whenever, not in lockstep with a
 deploy.
 
+### Which caption goes on which day
+
+Since 2026-10-27 the engine drafts captions with a **role**: three `general`
+ones that rotate through the lead-up weeks, two `week` ones for the final six
+days (this Saturday, countdown, reserve a table) and one `day` one for the day
+of (tonight, doors and show time first). `assign_captions()` in
+`code/cadence_engine.py` maps them onto the ladder; a set with no roles (older
+events, bot intake) rotates exactly as before. Telegram labels the week and
+day variants when it sends them for approval. Captions also never name the
+room — "Azúcar", or "la pista" for the floor.
+
 ### Stories
 
 Every event that isn't Off gets stories, queued by the same daily engine run
