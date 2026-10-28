@@ -6423,7 +6423,8 @@
       "monday_event_id": "13132979229",
       "event_date": "2026-11-27",
       "slot": "morning",
-      "tier": "every week"
+      "tier": "every week",
+      "release_at_utc": "2026-11-27T20:10:00+00:00"
     },
     {
       "id": "20261127_190000_d6f912",
@@ -6440,7 +6441,8 @@
       "monday_event_id": "13132979229",
       "event_date": "2026-11-27",
       "slot": "morning",
-      "tier": "every week"
+      "tier": "every week",
+      "release_at_utc": "2026-11-27T20:10:00+00:00"
     }
   ]
 }
