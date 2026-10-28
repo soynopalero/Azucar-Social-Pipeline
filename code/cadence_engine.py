@@ -86,6 +86,11 @@ HIDDEN_PHASES = {"Cancelled", "Completed"}
 # the week-of and day-of posts should read differently from the campaign).
 CAPTION_ROLES = ("general", "week", "day")
 WEEK_ROLE_DAYS = 6
+# Off by default (Pedro, 2026-10-27: "not for every event just yet"). Flip to
+# True to have every new draft carry week/day captions; the Vida Amore Nov 21
+# set was drafted with roles and keeps them. With it off the engine drafts the
+# 4 general captions it always did, and assign_captions() rotates them as before.
+ROLE_CAPTIONS = False
 PLATFORMS = ["instagram", "facebook"]
 
 # Pacific time-of-day slots
@@ -506,6 +511,12 @@ def caption_system(language, weekday_en, weekday_es):
         f"\n- The event is on {weekday_en} (Spanish: {weekday_es}). If you mention a weekday, "
         "it MUST be that one — never any other." if weekday_en else ""
     )
+    roles = (
+        ' "general" captions rotate through the weeks before; "week" posts in the final week '
+        '(this Saturday / este sabado, countdown, reserve your table); "day" posts the day of '
+        '(tonight / esta noche, short and urgent, doors and show time up top).'
+        if ROLE_CAPTIONS else "")
+    role_key = ', "role": "general" | "week" | "day"' if ROLE_CAPTIONS else ""
     return f"""You are the social media copywriter for Azucar — a Latinx bar, restaurant, and live venue at Out & About in Pasco, WA.
 
 Voice: FOMO-driven, fun, energetic, sensorial. Full campaign captions like the venue's past hits — a hook that stops the scroll, a body that builds the night (who, what sounds, what it feels like, why you can't miss it), then the info block. Emojis welcome. Short punchy lines inside a longer caption (~150-220 words). Never corporate, never "Join us for".
@@ -518,7 +529,7 @@ GROUNDING — hard rules:
 - Don't name the room inside the venue (Main Floor, Ranchero Room, Lounge, Patio) unless the event details make the room the point. Say "Azucar", or "la pista" for the dance floor.
 - Every caption ends with, on separate lines: a date/time line, "📍 Azucar at Out & About — 327 W Lewis St, Pasco WA", a price line, an age line if age is given, then 6-10 hashtags including #AzucarPasco and #OutAndAbout.
 
-Output ONLY a JSON array of objects, each {{"flyer": <image number, 1-based>, "role": "general" | "week" | "day", "caption": "<caption text>"}}. "general" captions rotate through the weeks before; "week" posts in the final week (this Saturday / este sabado, countdown, reserve your table); "day" posts the day of (tonight / esta noche, short and urgent, doors and show time up top). No preamble, no code fences."""
+Output ONLY a JSON array of objects, each {{"flyer": <image number, 1-based>{role_key}, "caption": "<caption text>"}}.{roles} No preamble, no code fences."""
 
 
 def draft_captions(e, n=4):
@@ -532,7 +543,7 @@ def draft_captions(e, n=4):
     images = flyer_images_b64(e, cap=8)
 
     if len(images) > 1:
-        n = min(12, max(7, len(images) + 5))
+        n = min(12, max(7, len(images) + 5)) if ROLE_CAPTIONS else min(10, max(4, len(images) + 2))
         user = (
             f"This event has {len(images)} flyer images attached, in order (image 1 = first). "
             "CURATE the campaign — study each image and decide what it is: a full-cast/hero flyer, "
@@ -543,10 +554,11 @@ def draft_captions(e, n=4):
             "(their name is on the artwork; use the campaign notes for their story — debut, birthday, hosting, etc.).\n"
             "- COVERAGE IS MANDATORY: every distinct performer image MUST appear as some caption's flyer. "
             "Never pair more than 3 captions with the hero image.\n"
-            "- Then TWO captions with role \"week\" (final week: this Saturday / este sabado, countdown, reserve a table) "
-            "and ONE with role \"day\" (tonight / esta noche, short and urgent, doors time first), all paired with the hero image. "
-            "Every other caption has role \"general\".\n"
-            "- Order the array: hero captions first, then spotlights, then week, then day.\n"
+            + (("- Then TWO captions with role \"week\" (final week: this Saturday / este sabado, countdown, reserve a table) "
+                "and ONE with role \"day\" (tonight / esta noche, short and urgent, doors time first), all paired with the hero image. "
+                "Every other caption has role \"general\".\n"
+                "- Order the array: hero captions first, then spotlights, then week, then day.\n")
+               if ROLE_CAPTIONS else "- Order the array: hero captions first, then spotlights.\n") +
             "Every caption must stand alone and still end with the full info block.\n\n"
         )
     elif resolve_tier(e.get("cadence")) == "launch":
@@ -560,7 +572,7 @@ def draft_captions(e, n=4):
             "Keep the night's name front and center so it sticks as a weekly habit. "
             "Pair every caption with image 1.\n\n"
         )
-    else:
+    elif ROLE_CAPTIONS:
         n = 6
         user = (
             "Draft 6 distinct captions for this event's multi-week posting campaign, each with a role:\n"
@@ -571,6 +583,12 @@ def draft_captions(e, n=4):
             '- 1 with role "day": it posts the day of. Tonight / esta noche -- short and urgent, doors and '
             "show time up top, one reason to get there, no long build-up.\n"
             "Pair every caption with image 1.\n\n"
+        )
+    else:
+        user = (
+            f"Draft {n} distinct captions for this event's multi-week posting campaign. Angles: "
+            "1) hype announcement, 2) vibe/sensory, 3) community/come-as-you-are, 4) info-forward. "
+            "They rotate across many days, so each must stand alone. Pair every caption with image 1.\n\n"
         )
     user += (
         f"Event: {e['name']}\nDate: {e['date']}" + (f" ({weekday_en})" if weekday_en else "") + "\n"

@@ -76,7 +76,9 @@ deploy.
 
 ### Which caption goes on which day
 
-Since 2026-10-27 the engine drafts captions with a **role**: three `general`
+**Switched off for now** (`ROLE_CAPTIONS = False` in `code/cadence_engine.py`; the
+Vida Amore Nov 21 set was drafted with it on and keeps its roles). When on, the
+engine drafts captions with a **role**: three `general`
 ones that rotate through the lead-up weeks, two `week` ones for the final six
 days (this Saturday, countdown, reserve a table) and one `day` one for the day
 of (tonight, doors and show time first). `assign_captions()` in
