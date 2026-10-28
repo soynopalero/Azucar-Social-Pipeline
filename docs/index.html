@@ -69,7 +69,8 @@
   td.today .day-num { color: #b07700; font-weight: 700; }
   .day-num { font-size: 0.8rem; color: #888; margin-bottom: 0.25rem; }
   .post {
-    background: #f7f7f4;
+    background: #fff;
+    border: 1px solid #3a3a3a;
     border-left: 3px solid #999;
     border-radius: 3px;
     padding: 0.2rem;
@@ -104,10 +105,13 @@
   .post.posted-status { border-left-color: #34c759; }
   /* Stories: the flyer alone, no caption, a different tray on Instagram.
      Dashed outline + lighter fill so they read as "not a feed post". */
-  .post.story { background: #fcfcfa; border: 1px dashed #c8c8c2; border-left-width: 3px; border-left-style: solid; }
+  .post.story { background: #eceef6; border-color: transparent; border-left: 3px solid #999; }
+  .post.story:hover { background: #e2e5f1; }
   .post.story img { border-radius: 50%; }
-  .post .kind { display: block; color: #999; font-size: 0.6rem; letter-spacing: 0.04em; text-transform: uppercase;
+  .post .kind { display: block; color: #5a5f7a; font-size: 0.6rem;
                 white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pill { display: inline-block; background: #5a5f7a; color: #fff; font-size: 0.5rem; font-weight: 700;
+          letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 4px; border-radius: 3px; margin-right: 3px; vertical-align: 1px; }
   .chips { display: inline-flex; gap: 2px; margin-left: 0.3rem; vertical-align: 1px; }
   .chip {
     font-size: 0.5rem; font-weight: 700; letter-spacing: 0.03em; line-height: 1;
@@ -119,8 +123,8 @@
   .chip.failed { background: #ff3b30; }
   .chip.missing { background: transparent; color: #bbb; border: 1px dashed #ccc; }
   .legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; font-size: 0.75rem; color: #777; align-items: center; }
-  .legend .swatch { display: inline-block; width: 22px; height: 12px; border-radius: 2px; vertical-align: -2px; margin-right: 4px; background: #f7f7f4; border-left: 3px solid #f5b800; }
-  .legend .swatch.story { background: #fcfcfa; border: 1px dashed #c8c8c2; border-left: 3px solid #f5b800; }
+  .legend .swatch { display: inline-block; width: 22px; height: 12px; border-radius: 2px; vertical-align: -2px; margin-right: 4px; background: #fff; border: 1px solid #3a3a3a; border-left: 3px solid #f5b800; }
+  .legend .swatch.story { background: #eceef6; border-color: transparent; border-left: 3px solid #f5b800; }
   .modal .chips { margin-left: 0; }
   .modal .chip { font-size: 0.7rem; padding: 3px 6px; }
   .loading, .empty {
@@ -199,8 +203,8 @@
     <div class="sub">@cluboutandabout — what's queued and what's posted</div>
     <div class="stats" id="stats"></div>
     <div class="legend">
-      <span><span class="swatch"></span>Feed post (with caption)</span>
-      <span><span class="swatch story"></span>Story (flyer only, 24h)</span>
+      <span><span class="swatch"></span>Outlined = feed post with caption</span>
+      <span><span class="swatch story"></span>Tinted = story (flyer only, gone in 24h)</span>
       <span><span class="chips"><span class="chip ig">IG</span><span class="chip fb">FB</span></span> one card = both platforms</span>
     </div>
   </div>
@@ -383,7 +387,7 @@ function slotCell(s) {
   const status = slotStatus(s.entries);
   const cls = ["post", s.kind, status === "posted" ? "posted posted-status" : status].join(" ");
   const line = s.kind === "story"
-    ? `<span class="kind">Story · ${escapeHtml(eventName(p))}</span>`
+    ? `<span class="kind"><span class="pill">Story</span>${escapeHtml(eventName(p))}</span>`
     : `<span class="caption">${escapeHtml((p.caption || "").split("\n")[0].slice(0, 60))}</span>`;
   return `<div class="${cls}" onclick='showModal(${JSON.stringify(s).replace(/'/g, "&apos;")})'>
     <img src="${escapeHtml(p.image_url)}" loading="lazy" />
