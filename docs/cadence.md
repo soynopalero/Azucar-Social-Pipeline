@@ -112,14 +112,21 @@ ones. Since Oct 2026 the scheduler releases each slot-scheduled entry a
 deterministic pseudo-random number of minutes after its slot — up to 2h30
 after 11 AM, up to 2h after 3 PM and 7 PM, never later than 10 PM — and sends
 at most one feed post and one story per platform per five-minute run, with a
-25-minute gap between feed posts and 12 minutes between stories. So a day
+25-minute gap between feed posts and 12 minutes between stories.
+
+**Stories ignore the slot window** (since 2026-10-28): the day's stories on a
+platform are spread evenly from about 8:30 AM to 7 PM, in a fixed
+pseudo-random order with ±20 minutes of jitter, so five stories land roughly
+every two and a half hours from breakfast to the evening. A story can go out
+before its nominal 11 AM. A lone story goes out around noon. So a day
 with four events reads as someone posting through the afternoon, not four
 flyers at 11:00 sharp. The delay is a hash of the event + day + slot, so it
 never drifts between runs and needs nothing stored; the Facebook mirror keeps
 the same delay as its Instagram post. Hand-scheduled posts (no slot) still go
 at their exact minute, and `"spread": false` on an entry opts it out. The
-queue file and the dashboard keep showing the slot time; the actual send time
-is in `posted_at`.
+queue file keeps the slot time in `scheduled_for_utc`; the scheduler stamps
+the computed minute into `release_at_utc`, which the dashboard shows, and the
+actual send time is in `posted_at`.
 
 ## 3. The Monday round-up — `code/build_week_carousel.py`
 

@@ -34,9 +34,22 @@ is derived from it on the fly.
    pile-up drains one at a time. An entry that is already hours late (cron
    outage) skips the gap rule and catches up.
 
+3. Stories take the whole day (Pedro, 2026-10-28). A day's stories on a
+   platform are spread evenly from ~8:30 AM to ~7 PM local in a fixed
+   pseudo-random order with a little jitter, whatever slot the cadence engine
+   put on them -- so five stories read as one every couple of hours from
+   breakfast to the evening, not a burst at 11. A story can therefore go out
+   BEFORE its nominal slot time. Same determinism: the day's set decides the
+   minutes, nothing is stored, and the Facebook mirror lands with its
+   Instagram twin.
+
 Entries scheduled by hand (no `slot`, e.g. schedule_post.py / the Post
 Manager at an exact minute) are sent at exactly that minute, as before.
 `"spread": false` on any entry opts it out too.
+
+The scheduler stamps each pending entry's computed time into `release_at_utc`
+so the dashboard can show when it will really go out; the field is advisory
+and recomputed every run.
 
 Self-test (offline): python code/spread.py --selftest
 """
@@ -44,7 +57,7 @@ from __future__ import annotations
 
 import hashlib
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 LOCAL_TZ = ZoneInfo("America/Los_Angeles")
@@ -61,6 +74,15 @@ MAX_PER_RUN = 1
 # An entry this far past its release time is a backlog, not a pile-up:
 # send it without waiting for the gap.
 LATE_CATCHUP_MINUTES = 240
+
+# Stories: the day's set is spread from first to last across this window
+# (minutes after local midnight), each nudged by up to +/- STORY_JITTER_MIN
+# and clamped to STORY_DAY_CLAMP. A lone story goes out around STORY_SOLO_MIN.
+STORY_DAY_START_MIN = 8 * 60 + 30     # ~8:30 AM
+STORY_DAY_END_MIN = 19 * 60           # ~7:00 PM
+STORY_JITTER_MIN = 20
+STORY_DAY_CLAMP = (8 * 60, 19 * 60 + 30)
+STORY_SOLO_MIN = 12 * 60
 
 
 def kind_of(entry: dict) -> str:
@@ -87,7 +109,51 @@ def release_offset_minutes(entry: dict) -> int:
     return int.from_bytes(h[:4], "big") % (window + 1)
 
 
-def release_time(entry: dict) -> datetime:
+def _story_key(entry: dict) -> str:
+    """Platform-independent identity of a story on its day: the IG and FB
+    copies share it, so they share an order position and a minute."""
+    return "|".join(str(x) for x in (
+        entry.get("monday_event_id") or entry.get("campaign") or entry.get("id"),
+        entry.get("scheduled_for_utc"),
+    ))
+
+
+def _story_order(entry: dict) -> str:
+    return hashlib.sha256(_story_key(entry).encode("utf-8")).hexdigest()
+
+
+def _story_jitter(entry: dict) -> int:
+    h = hashlib.sha256((_story_key(entry) + "|jitter").encode("utf-8")).digest()
+    return int.from_bytes(h[:4], "big") % (2 * STORY_JITTER_MIN + 1) - STORY_JITTER_MIN
+
+
+def story_day_plan(posts: list[dict]) -> dict[str, datetime]:
+    """Release time per story entry id, spreading each day's stories (per
+    platform) evenly across the day. Every story of the day counts, whatever
+    its status, so adding one later shifts the others only as much as it must."""
+    groups: dict[tuple, list[dict]] = {}
+    for p in posts:
+        if kind_of(p) != "story" or p.get("spread") is False or not p.get("slot") or not p.get("id"):
+            continue
+        d = _parse(p["scheduled_for_utc"]).astimezone(LOCAL_TZ).date()
+        groups.setdefault((p.get("platform"), d), []).append(p)
+    plan: dict[str, datetime] = {}
+    span = STORY_DAY_END_MIN - STORY_DAY_START_MIN
+    for (_platform, d), ps in groups.items():
+        ps.sort(key=_story_order)
+        n = len(ps)
+        for i, p in enumerate(ps):
+            base = STORY_SOLO_MIN if n == 1 else STORY_DAY_START_MIN + i * span / (n - 1)
+            m = int(round(base + _story_jitter(p)))
+            m = max(STORY_DAY_CLAMP[0], min(STORY_DAY_CLAMP[1], m))
+            local = datetime.combine(d, time(0), tzinfo=LOCAL_TZ) + timedelta(minutes=m)
+            plan[p["id"]] = local.astimezone(timezone.utc)
+    return plan
+
+
+def release_time(entry: dict, plan: dict | None = None) -> datetime:
+    if plan is not None and entry.get("id") in plan:
+        return plan[entry["id"]]
     nominal = _parse(entry["scheduled_for_utc"])
     rel = nominal + timedelta(minutes=release_offset_minutes(entry))
     local = rel.astimezone(LOCAL_TZ)
@@ -110,20 +176,42 @@ def last_sent(posts: list[dict]) -> dict[tuple[str, str], datetime]:
     return out
 
 
-def select_due(posts: list[dict], now: datetime) -> tuple[list[dict], list[tuple[dict, str]]]:
+def stamp_release_times(posts: list[dict], plan: dict | None = None) -> int:
+    """Write each pending slot entry's computed release time into
+    `release_at_utc` (for the dashboard). Returns how many entries changed."""
+    plan = story_day_plan(posts) if plan is None else plan
+    changed = 0
+    for p in posts:
+        if p.get("status") != "pending" or not p.get("slot") or p.get("spread") is False:
+            continue
+        rel = release_time(p, plan).isoformat()
+        if p.get("release_at_utc") != rel:
+            p["release_at_utc"] = rel
+            changed += 1
+    return changed
+
+
+def select_due(posts: list[dict], now: datetime, plan: dict | None = None) -> tuple[list[dict], list[tuple[dict, str]]]:
     """Which pending entries this run should send, in order, and why the rest wait.
 
     Returns (send, held) where held is [(entry, reason)] for pending entries
-    whose slot time has passed but which are not sent this run.
+    whose time has come but which are not sent this run. A planned story is
+    due at its planned minute (which may precede its slot); everything else
+    is due once its scheduled minute has passed.
     """
-    due = [p for p in posts if p.get("status") == "pending" and _parse(p["scheduled_for_utc"]) <= now]
-    due.sort(key=lambda p: (release_time(p), p.get("id") or ""))
+    plan = story_day_plan(posts) if plan is None else plan
+
+    def gate(p):
+        return plan.get(p.get("id")) or _parse(p["scheduled_for_utc"])
+
+    due = [p for p in posts if p.get("status") == "pending" and gate(p) <= now]
+    due.sort(key=lambda p: (release_time(p, plan), p.get("id") or ""))
     recent = last_sent(posts)
     sent_this_run: dict[tuple[str, str], int] = {}
     send, held = [], []
     for p in due:
         k = (p.get("platform"), kind_of(p))
-        rel = release_time(p)
+        rel = release_time(p, plan)
         if rel > now:
             held.append((p, "releases at " + rel.astimezone(LOCAL_TZ).strftime("%H:%M") + " local"))
             continue
@@ -179,8 +267,34 @@ def selftest() -> int:
     ev = _e("v", nov5_19, slot="evening", event="E9")
     check(release_time(ev).astimezone(LOCAL_TZ).hour <= LATEST_LOCAL_HOUR, "evening release never passes 10 PM local")
 
-    # Pile-up: three feed posts + two stories all due at 11:00; a run at 13:40.
-    now = datetime(2026, 11, 5, 21, 40, tzinfo=timezone.utc)  # 13:40 Pacific, past every window
+    # Stories spread across the day, not the slot window.
+    day = [_e("st" + str(i), nov5_11, event="S" + str(i), fmt="story") for i in range(5)]
+    day += [dict(p, id=p["id"] + "fb", platform="facebook") for p in day]
+    plan = story_day_plan(day)
+    ig_times = sorted(plan["st" + str(i)].astimezone(LOCAL_TZ) for i in range(5))
+    mins = [t.hour * 60 + t.minute for t in ig_times]
+    check(mins[0] <= 9 * 60 and mins[-1] >= 18 * 60 + 30,
+          "5 stories run from ~8:30 (%02d:%02d) to ~7 PM (%02d:%02d)" % (ig_times[0].hour, ig_times[0].minute, ig_times[-1].hour, ig_times[-1].minute))
+    gaps = [b - a for a, b in zip(mins, mins[1:])]
+    check(min(gaps) >= 90, "stories are at least 90 min apart (min gap %d min)" % min(gaps))
+    check(all(plan["st" + str(i)] == plan["st" + str(i) + "fb"] for i in range(5)), "Facebook story lands with its Instagram twin")
+    check(plan == story_day_plan(list(reversed(day))), "plan does not depend on queue order")
+    solo = story_day_plan([day[0]])["st0"].astimezone(LOCAL_TZ)
+    check(11 * 60 + 40 <= solo.hour * 60 + solo.minute <= 12 * 60 + 20, "a lone story goes out around noon (%02d:%02d)" % (solo.hour, solo.minute))
+    early_story = min(day[:5], key=lambda p: plan[p["id"]])
+    at_9 = datetime(2026, 11, 5, 17, 0, tzinfo=timezone.utc)  # 09:00 Pacific, before the 11:00 slot
+    send_e, _ = select_due(day, at_9)
+    check([p["id"] for p in send_e] == [early_story["id"], early_story["id"] + "fb"] if plan[early_story["id"]] <= at_9 else not send_e,
+          "the first story of the day goes out before its 11:00 slot")
+    feed_only = _e("fx", nov5_11, event="FX")
+    check("fx" not in story_day_plan([feed_only]), "feed posts keep the slot-window rule")
+    n_st = stamp_release_times(day + [feed_only])
+    check(n_st == 11 and day[0]["release_at_utc"] == plan["st0"].isoformat() and "release_at_utc" in feed_only,
+          "release_at_utc stamped on every pending slot entry (%d)" % n_st)
+    check(stamp_release_times(day + [feed_only]) == 0, "re-stamping an unchanged set changes nothing")
+
+    # Pile-up: three feed posts + two stories all due at 11:00; a run at 20:00, past every window.
+    now = datetime(2026, 11, 6, 4, 0, tzinfo=timezone.utc)  # 20:00 Pacific
     feeds = [_e("f1", nov5_11, event="E1"), _e("f2", nov5_11, event="E2"), _e("f3", nov5_11, event="E3")]
     posts = feeds + [_e("s1", nov5_11, event="E1", fmt="story"), _e("s2", nov5_11, event="E2", fmt="story"),
                      _e("fb1", nov5_11, platform="facebook", event="E1")]
@@ -192,9 +306,10 @@ def selftest() -> int:
     check(send[0]["id"] == first_feed or any(p["id"] == first_feed for p in send), "earliest-releasing feed post is the one sent")
 
     # Gap: a feed post went out 10 minutes ago -> the next waits; a story is unaffected.
-    posts2 = [_e("done", nov5_11, event="E0", status="posted", posted_at=(now - timedelta(minutes=10)).isoformat()),
+    mid = datetime(2026, 11, 5, 21, 40, tzinfo=timezone.utc)  # 13:40 Pacific: late, but not backlog-late
+    posts2 = [_e("done", nov5_11, event="E0", status="posted", posted_at=(mid - timedelta(minutes=10)).isoformat()),
               _e("f4", nov5_11, event="E4"), _e("s4", nov5_11, event="E4", fmt="story")]
-    send2, held2 = select_due(posts2, now)
+    send2, held2 = select_due(posts2, mid)
     check([p["id"] for p in send2] == ["s4"] and held2 and held2[0][0]["id"] == "f4",
           "feed post waits out the 25-minute gap, story still goes")
 

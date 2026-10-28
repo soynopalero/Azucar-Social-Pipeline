@@ -261,7 +261,10 @@ function groupSlots(posts) {
   const slots = new Map();
   posts.forEach(p => {
     const key = [p.monday_event_id || p.campaign || p.id, p.scheduled_for_utc, kindOf(p)].join("|");
-    if (!slots.has(key)) slots.set(key, { key, kind: kindOf(p), when: p.scheduled_for_utc, entries: [] });
+    // Show the minute it really goes (or went) out: posted_at once sent, the
+    // scheduler's release_at_utc while pending, the nominal slot as a fallback.
+    const when = (p.status === "posted" && p.posted_at) ? p.posted_at : (p.release_at_utc || p.scheduled_for_utc);
+    if (!slots.has(key)) slots.set(key, { key, kind: kindOf(p), when, entries: [] });
     slots.get(key).entries.push(p);
   });
   return [...slots.values()];
