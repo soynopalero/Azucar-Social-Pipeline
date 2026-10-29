@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T01:09:21",
+ "generated_at": "2026-10-29T04:16:40",
  "events": [
   {
    "item_id": "13054632110",
@@ -42,6 +42,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/candy-shop-tickets-2002271080702",
    "flyer": "media/fb-kit/13132965363_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13132965363"
+  },
+  {
+   "item_id": "13413615484",
+   "name": "Noche Latina: Dia de los Muertos",
+   "date_iso": "2026-10-31",
+   "date_display": "Oct 31, 2026",
+   "start_time": "9:00 PM",
+   "end_date_display": "Nov 1, 2026",
+   "end_time": "1:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Catrinas, calaveras, and costumes colliding — Azúcar is going full send for Halloween and Día de los Muertos this Noche Latina, and the whole building is transforming for it. El lounge turns into a beer pong arena for the chaotic ones, while the main floor becomes pura pista de baile with Azúcar on the decks dropping reggaetón, cumbia, and perreo all night long.\n\nDecoraciones por todos lados — think marigolds meets fog machine, altars meets strobe lights. Come dressed as your scariest, sexiest, or most sagrado self because the costume contest is running all night with prizes dropping at random moments, so you'll want to stay sharp (and in character) hasta el final.\n\nWhether you're team beer pong champion or team baila-hasta-que-sudes, there's a lane for you. Grab your disfráz, bring your people, and let's send off October like los muertos would want — con mucho ritmo y cero reglas.\n\nNoche Latina: Día de los Muertos. October 31st, 9PM. Azúcar Main Floor.\n\n🗓️ Sábado 31 de octubre — Show 9:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover Free\n\n🎟️ Tickets: https://www.eventbrite.com/e/noche-latina-dia-de-los-muertos-tickets-2004053188033",
+   "eventbrite_url": "https://www.eventbrite.com/e/noche-latina-dia-de-los-muertos-tickets-2004053188033",
+   "flyer": "media/fb-kit/13413615484_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13413615484"
   },
   {
    "item_id": "13272940275",
