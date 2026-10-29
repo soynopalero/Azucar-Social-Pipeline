@@ -2925,16 +2925,17 @@
       "scheduled_for_utc": "2026-10-29T18:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13272940275_0.jpg",
       "caption": "Link up, lock in, make something cute 🧿✨ Azúcar's Main Floor is turning into a craft table and YOU'RE invited to build your own carabiner or charm bracelet from scratch. Jayme's hosting this one and trust — it's giving Friendsgiving energy before Friendsgiving even happens. Grab your beads, grab a stranger-turned-friend, and get crafting. Bring a snack to share because we're building community one charm at a time. This is a PFLAG co-presented night, so you already know the vibes are soft and the welcome is real. Mark it, don't miss it. 💛\n\nSunday, November 1, 2026 — Starting at 6PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $10 tickets\n🔞 18+\n#AzucarPasco #OutAndAbout #LinkUpCraftNight #PFLAG #PascoWA #CraftNight #CommunityFirst #TriCitiesEvents",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-10-13T06:27:31.369741+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-10-29T19:31:27.888992+00:00",
+      "result": "Instagram media id: 17906336010350866",
       "campaign": "cadence_link_up",
       "monday_event_id": "13272940275",
       "event_date": "2026-11-01",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-10-29T19:31:00+00:00"
+      "release_at_utc": "2026-10-29T19:31:00+00:00",
+      "permalink": "https://www.instagram.com/p/DfFw5ElGmek/"
     },
     {
       "id": "20261029_180000_25a4db",
@@ -2942,16 +2943,17 @@
       "scheduled_for_utc": "2026-10-29T18:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13272940275_0.jpg",
       "caption": "Link up, lock in, make something cute 🧿✨ Azúcar's Main Floor is turning into a craft table and YOU'RE invited to build your own carabiner or charm bracelet from scratch. Jayme's hosting this one and trust — it's giving Friendsgiving energy before Friendsgiving even happens. Grab your beads, grab a stranger-turned-friend, and get crafting. Bring a snack to share because we're building community one charm at a time. This is a PFLAG co-presented night, so you already know the vibes are soft and the welcome is real. Mark it, don't miss it. 💛\n\nSunday, November 1, 2026 — Starting at 6PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $10 tickets\n🔞 18+\n#AzucarPasco #OutAndAbout #LinkUpCraftNight #PFLAG #PascoWA #CraftNight #CommunityFirst #TriCitiesEvents",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-10-13T06:27:31.369741+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-10-29T19:31:18.875629+00:00",
+      "result": "Facebook post id: 1739895664805224",
       "campaign": "cadence_link_up",
       "monday_event_id": "13272940275",
       "event_date": "2026-11-01",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-10-29T19:31:00+00:00"
+      "release_at_utc": "2026-10-29T19:31:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1739895704805220"
     },
     {
       "id": "20261102_030000_36310a",
