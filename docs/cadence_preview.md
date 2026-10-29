@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-28 13:43 PDT - **nothing posted, queue untouched**
+Generated 2026-10-28 21:15 PDT - **nothing posted, queue untouched**
 
-Eligible events: **9** - Skipped: **108**
+Eligible events: **10** - Skipped: **108**
 
 ## Drag-O-Weeen - 2026-10-28  (Marquee)
-1 posts x 2 platforms = **2** queue entries
+0 posts x 2 platforms = **0** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Oct 28, 7:00 PM | evening |
 
 ## Rocky horror picture drag show - 2026-10-29  (One-time)
 1 posts x 2 platforms = **2** queue entries
@@ -32,6 +31,13 @@ Eligible events: **9** - Skipped: **108**
 |---|---|
 | Thu Oct 29, 7:00 PM | evening |
 | Fri Oct 30, 11:00 AM | morning |
+
+## Noche Latina: Dia de los Muertos - 2026-10-31  (Marquee)
+1 posts x 2 platforms = **2** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sat Oct 31, 7:00 PM | evening |
 
 ## Link up - 2026-11-01  (Marquee)
 2 posts x 2 platforms = **4** queue entries
@@ -73,11 +79,10 @@ Eligible events: **9** - Skipped: **108**
 | Thu Nov 19, 7:00 PM | evening |
 
 ## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
-7 posts x 2 platforms = **14** queue entries
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Oct 28, 7:00 PM | evening |
 | Wed Nov 4, 11:00 AM | morning |
 | Mon Nov 9, 7:00 PM | evening |
 | Fri Nov 13, 11:00 AM | morning |
@@ -198,4 +203,4 @@ Eligible events: **9** - Skipped: **108**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 54**
+**Total queue entries that would be created: 52**
