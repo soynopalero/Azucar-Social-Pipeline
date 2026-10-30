@@ -1,30 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-29 13:47 PDT - **nothing posted, queue untouched**
+Generated 2026-10-30 13:17 PDT - **nothing posted, queue untouched**
 
-Eligible events: **9** - Skipped: **109**
-
-## Rocky horror picture drag show - 2026-10-29  (One-time)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Oct 29, 7:00 PM | evening |
-
-## American horror story watch party - 2026-10-29  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Oct 29, 7:00 PM | evening |
+Eligible events: **7** - Skipped: **111**
 
 ## Candy Shop - 2026-10-30  (Launch)
-2 posts x 2 platforms = **4** queue entries
+0 posts x 2 platforms = **0** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Oct 29, 7:00 PM | evening |
-| Fri Oct 30, 11:00 AM | morning |
 
 ## Noche Latina: Dia de los Muertos - 2026-10-31  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -92,6 +76,7 @@ Eligible events: **9** - Skipped: **109**
 - **American Horror Story Watch Party** - date in the past
 - **American Horror Story viewing party and Drag show** - date in the past
 - **American horror story watch party** - date in the past, tier 'every week' — covered by the weekly round-up
+- **American horror story watch party** - date in the past
 - **An Open Stage Drag Debut** - date in the past
 - **Aubs Take Over — June** - date in the past, no cadence set, no flyer, no price, no description
 - **Azúcar House Party — DJ Lalique Debut** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -169,6 +154,7 @@ Eligible events: **9** - Skipped: **109**
 - **Paint and Sip with ArtwithAubrey** - date in the past
 - **Pride Karaoke** - date in the past, no cadence set, no flyer, no price, no description
 - **Pumpkin Painting Night** - date in the past
+- **Rocky horror picture drag show** - date in the past
 - **Rop Jams & Kinky Kareoke** - date in the past, no cadence set, no flyer, no price, no description
 - **Rosie’s Birthday Bash** - date in the past
 - **Royal flush comedy drag show** - date in the past
@@ -197,4 +183,4 @@ Eligible events: **9** - Skipped: **109**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 50**
+**Total queue entries that would be created: 42**

@@ -5338,6 +5338,40 @@
       "slot": "morning",
       "tier": "marquee",
       "release_at_utc": "2026-11-01T01:58:00+00:00"
+    },
+    {
+      "id": "20261030_220000_13e408",
+      "platform": "instagram",
+      "format": "story",
+      "scheduled_for_utc": "2026-10-30T22:00:00+00:00",
+      "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/stories/13132965363.jpg",
+      "caption": "",
+      "status": "pending",
+      "created_at": "2026-10-30T20:17:47.619152+00:00",
+      "posted_at": null,
+      "result": null,
+      "campaign": "story_candy_shop",
+      "monday_event_id": "13132965363",
+      "event_date": "2026-10-30",
+      "slot": "afternoon",
+      "tier": "launch"
+    },
+    {
+      "id": "20261030_220000_0f2bae",
+      "platform": "facebook",
+      "format": "story",
+      "scheduled_for_utc": "2026-10-30T22:00:00+00:00",
+      "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/stories/13132965363.jpg",
+      "caption": "",
+      "status": "pending",
+      "created_at": "2026-10-30T20:17:47.619152+00:00",
+      "posted_at": null,
+      "result": null,
+      "campaign": "story_candy_shop",
+      "monday_event_id": "13132965363",
+      "event_date": "2026-10-30",
+      "slot": "afternoon",
+      "tier": "launch"
     }
   ]
 }
