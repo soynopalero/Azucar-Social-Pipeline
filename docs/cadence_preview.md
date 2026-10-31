@@ -1,14 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-30 13:17 PDT - **nothing posted, queue untouched**
+Generated 2026-10-31 12:39 PDT - **nothing posted, queue untouched**
 
-Eligible events: **7** - Skipped: **111**
-
-## Candy Shop - 2026-10-30  (Launch)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
+Eligible events: **6** - Skipped: **112**
 
 ## Noche Latina: Dia de los Muertos - 2026-10-31  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -34,11 +28,10 @@ Eligible events: **7** - Skipped: **111**
 | Fri Nov 6, 11:00 AM | morning |
 
 ## Lesbians Playing Uno - 2026-11-08  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Oct 31, 11:00 AM | morning |
 | Tue Nov 3, 7:00 PM | evening |
 | Thu Nov 5, 11:00 AM | morning |
 | Sun Nov 8, 7:00 PM | evening |
@@ -93,6 +86,7 @@ Eligible events: **7** - Skipped: **111**
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - date in the past, tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
@@ -183,4 +177,4 @@ Eligible events: **7** - Skipped: **111**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 42**
+**Total queue entries that would be created: 40**
