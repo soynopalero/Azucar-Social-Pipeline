@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-01T01:19:13",
+ "generated_at": "2026-11-01T02:37:19",
  "events": [
   {
    "item_id": "13272940275",
@@ -56,6 +56,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/candy-shop-tickets-2002271099759",
    "flyer": "media/fb-kit/13132979292_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13132979292"
+  },
+  {
+   "item_id": "13434843724",
+   "name": "The Sweet Spot",
+   "date_iso": "2026-11-14",
+   "date_display": "Nov 14, 2026",
+   "start_time": "7:00 PM",
+   "end_date_display": "Nov 14, 2026",
+   "end_time": "11:00 PM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "The lights dim low and gold over the Main Floor, candle-glow catching on glasses as the room fills slow and easy. This is The Sweet Spot — the night Azúcar slows its pulse just enough for real conversation to happen. No pressure, no performance to keep up. Just warm light, good music, and strangers turning into familiar faces.\n\nHouse of The Iron Halo hosts the evening with that rare mix of warmth and wit — guiding the room, sparking conversation, making space for the questions you've been holding onto. Expect soft house rhythms threading through the air, laughter rising between tables, and that unmistakable hum of people finding their people.\n\nCome curious. Come ready to listen, to ask, to simply be in a room that feels like it was built for exactly that. Drinks are flowing, the mood is unhurried, and every corner of the Main Floor is an invitation to sit a little closer, stay a little longer.\n\nNovember 14th, 7pm. Sweet in every sense — come find your spot.\n\n🗓️ Sábado 14 de noviembre — Show 7:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover Free\n\n🎟️ Tickets: https://www.eventbrite.com/e/the-sweet-spot-tickets-2004177946188",
+   "eventbrite_url": "https://www.eventbrite.com/e/the-sweet-spot-tickets-2004177946188",
+   "flyer": "media/fb-kit/13434843724_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13434843724"
   },
   {
    "item_id": "13273047674",
