@@ -1,15 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-31 12:39 PDT - **nothing posted, queue untouched**
+Generated 2026-10-31 19:36 PDT - **nothing posted, queue untouched**
 
-Eligible events: **6** - Skipped: **112**
+Eligible events: **7** - Skipped: **112**
 
 ## Noche Latina: Dia de los Muertos - 2026-10-31  (Marquee)
-1 posts x 2 platforms = **2** queue entries
+0 posts x 2 platforms = **0** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Oct 31, 7:00 PM | evening |
 
 ## Link up - 2026-11-01  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -35,6 +34,17 @@ Eligible events: **6** - Skipped: **112**
 | Tue Nov 3, 7:00 PM | evening |
 | Thu Nov 5, 11:00 AM | morning |
 | Sun Nov 8, 7:00 PM | evening |
+
+## The Sweet Spot - 2026-11-14  (Marquee)
+5 posts x 2 platforms = **10** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Nov 2, 7:00 PM | evening |
+| Fri Nov 6, 11:00 AM | morning |
+| Mon Nov 9, 7:00 PM | evening |
+| Wed Nov 11, 11:00 AM | morning |
+| Sat Nov 14, 7:00 PM | evening |
 
 ## Bachata class & social dance - 2026-11-19  (Marquee)
 6 posts x 2 platforms = **12** queue entries
@@ -177,4 +187,4 @@ Eligible events: **6** - Skipped: **112**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 40**
+**Total queue entries that would be created: 48**
