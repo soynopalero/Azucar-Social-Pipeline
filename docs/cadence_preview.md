@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-31 19:37 PDT - **nothing posted, queue untouched**
+Generated 2026-10-31 19:39 PDT - **nothing posted, queue untouched**
 
-Eligible events: **7** - Skipped: **112**
+Eligible events: **8** - Skipped: **112**
 
 ## Noche Latina: Dia de los Muertos - 2026-10-31  (Marquee)
 0 posts x 2 platforms = **0** queue entries
@@ -69,6 +69,18 @@ Eligible events: **7** - Skipped: **112**
 | Mon Nov 16, 7:00 PM | evening |
 | Wed Nov 18, 11:00 AM | morning |
 | Sat Nov 21, 7:00 PM | evening |
+
+## Queersgiving - 2026-11-22  (Marquee)
+6 posts x 2 platforms = **12** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Nov 5, 11:00 AM | morning |
+| Tue Nov 10, 7:00 PM | evening |
+| Sat Nov 14, 11:00 AM | morning |
+| Tue Nov 17, 7:00 PM | evening |
+| Thu Nov 19, 11:00 AM | morning |
+| Sun Nov 22, 7:00 PM | evening |
 
 ---
 
@@ -187,4 +199,4 @@ Eligible events: **7** - Skipped: **112**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 48**
+**Total queue entries that would be created: 60**
