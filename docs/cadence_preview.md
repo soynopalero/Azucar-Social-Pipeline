@@ -1,14 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-10-31 19:39 PDT - **nothing posted, queue untouched**
+Generated 2026-11-01 12:03 PST - **nothing posted, queue untouched**
 
-Eligible events: **8** - Skipped: **112**
-
-## Noche Latina: Dia de los Muertos - 2026-10-31  (Marquee)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
+Eligible events: **7** - Skipped: **113**
 
 ## Link up - 2026-11-01  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -161,6 +155,7 @@ Eligible events: **8** - Skipped: **112**
 - **Night of Kings** - date in the past
 - **Night of Kings; An All King Drag Show** - date in the past
 - **Noche Latina** - date in the past
+- **Noche Latina: Dia de los Muertos** - date in the past
 - **Noche Latina: EL SHOW DE PONCHO Y DEBORAH** - date in the past
 - **Noche Vaquera — August** - date in the past, no cadence set, no flyer, no price, no description
 - **Noche Vaquera: Cynthia Marche, DJ Nopalitos, Poncho y Deborah** - date in the past
