@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-01 12:03 PST - **nothing posted, queue untouched**
+Generated 2026-11-02 15:16 PST - **nothing posted, queue untouched**
 
-Eligible events: **7** - Skipped: **113**
-
-## Link up - 2026-11-01  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Nov 1, 7:00 PM | evening |
+Eligible events: **6** - Skipped: **114**
 
 ## Candy Shop - 2026-11-06  (Launch)
 3 posts x 2 platforms = **6** queue entries
@@ -41,11 +34,10 @@ Eligible events: **7** - Skipped: **113**
 | Sat Nov 14, 7:00 PM | evening |
 
 ## Bachata class & social dance - 2026-11-19  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Nov 2, 11:00 AM | morning |
 | Sat Nov 7, 7:00 PM | evening |
 | Wed Nov 11, 11:00 AM | morning |
 | Sat Nov 14, 7:00 PM | evening |
@@ -140,6 +132,7 @@ Eligible events: **7** - Skipped: **113**
 - **Les-Be-Emo Drag Show** - date in the past
 - **Lesbian Pride** - date in the past, no cadence set, no flyer, no price, no description
 - **Lesmeets - Wiener for Fathersday** - date in the past, no cadence set, no flyer, no price, no description
+- **Link up** - date in the past
 - **Lollipop Rave (Aug 7) — sign BoldSign amendment** - date in the past, no cadence set, no flyer, no price, no description
 - **Lollipop Raves: Techno vs House Part 2** - date in the past
 - **Lollipop Raves: Techno vs House Part 2** - date in the past, phase = Cancelled, no flyer
@@ -194,4 +187,4 @@ Eligible events: **7** - Skipped: **113**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 60**
+**Total queue entries that would be created: 56**
