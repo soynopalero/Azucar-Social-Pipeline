@@ -3935,16 +3935,17 @@
       "scheduled_for_utc": "2026-11-03T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13434843724_0.jpg",
       "caption": "Mark it, underline it, set a reminder 🖤 The Sweet Spot is back and this month it's got your name on it. Once a month, Azucar turns the lights down low and opens the doors to something different — Leather Night, hosted by House of the Iron Halo. Curiosity welcome. Questions encouraged. New faces, familiar faces, all in the mix. This isn't a one-and-done — it's the second Saturday ritual you don't wanna sleep on. Come see what the whispers are about. 👀\n\n📅 Saturday, November 14, 2026 | 7PM–10PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free\n#AzucarPasco #OutAndAbout #TheSweetSpot #IronHalo #LeatherNight #PascoNightlife #LatinxNightlife #CommunityFirst",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-01T02:37:30.788551+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-03T04:16:01.747793+00:00",
+      "result": "Instagram media id: 18107617178455984",
       "campaign": "cadence_the_sweet_spot",
       "monday_event_id": "13434843724",
       "event_date": "2026-11-14",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-03T04:15:00+00:00"
+      "release_at_utc": "2026-11-03T04:15:00+00:00",
+      "permalink": "https://www.instagram.com/p/DfRAGHTgTvT/"
     },
     {
       "id": "20261103_030000_33c203",
@@ -3952,16 +3953,17 @@
       "scheduled_for_utc": "2026-11-03T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13434843724_0.jpg",
       "caption": "Mark it, underline it, set a reminder 🖤 The Sweet Spot is back and this month it's got your name on it. Once a month, Azucar turns the lights down low and opens the doors to something different — Leather Night, hosted by House of the Iron Halo. Curiosity welcome. Questions encouraged. New faces, familiar faces, all in the mix. This isn't a one-and-done — it's the second Saturday ritual you don't wanna sleep on. Come see what the whispers are about. 👀\n\n📅 Saturday, November 14, 2026 | 7PM–10PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free\n#AzucarPasco #OutAndAbout #TheSweetSpot #IronHalo #LeatherNight #PascoNightlife #LatinxNightlife #CommunityFirst",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-01T02:37:30.788551+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-03T04:15:49.326878+00:00",
+      "result": "Facebook post id: 1745065610954896",
       "campaign": "cadence_the_sweet_spot",
       "monday_event_id": "13434843724",
       "event_date": "2026-11-14",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-03T04:15:00+00:00"
+      "release_at_utc": "2026-11-03T04:15:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1745065630954894"
     },
     {
       "id": "20261106_190000_a5bea2",
