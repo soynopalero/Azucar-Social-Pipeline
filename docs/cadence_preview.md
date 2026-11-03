@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-02 15:16 PST - **nothing posted, queue untouched**
+Generated 2026-11-03 13:25 PST - **nothing posted, queue untouched**
 
 Eligible events: **6** - Skipped: **114**
 
@@ -23,11 +23,10 @@ Eligible events: **6** - Skipped: **114**
 | Sun Nov 8, 7:00 PM | evening |
 
 ## The Sweet Spot - 2026-11-14  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Nov 2, 7:00 PM | evening |
 | Fri Nov 6, 11:00 AM | morning |
 | Mon Nov 9, 7:00 PM | evening |
 | Wed Nov 11, 11:00 AM | morning |
@@ -187,4 +186,4 @@ Eligible events: **6** - Skipped: **114**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 56**
+**Total queue entries that would be created: 54**
