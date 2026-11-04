@@ -1,24 +1,30 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-03 13:25 PST - **nothing posted, queue untouched**
+Generated 2026-11-04 10:42 PST - **nothing posted, queue untouched**
 
-Eligible events: **6** - Skipped: **114**
+Eligible events: **7** - Skipped: **114**
 
 ## Candy Shop - 2026-11-06  (Launch)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 3, 7:00 PM | evening |
 | Thu Nov 5, 7:00 PM | evening |
 | Fri Nov 6, 11:00 AM | morning |
 
-## Lesbians Playing Uno - 2026-11-08  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+## Speed friending - 2026-11-07  (Marquee)
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 3, 7:00 PM | evening |
+| Wed Nov 4, 11:00 AM | morning |
+| Sat Nov 7, 7:00 PM | evening |
+
+## Lesbians Playing Uno - 2026-11-08  (Marquee)
+2 posts x 2 platforms = **4** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Thu Nov 5, 11:00 AM | morning |
 | Sun Nov 8, 7:00 PM | evening |
 
