@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-04 10:47 PST - **nothing posted, queue untouched**
+Generated 2026-11-04 10:52 PST - **nothing posted, queue untouched**
 
-Eligible events: **8** - Skipped: **114**
+Eligible events: **8** - Skipped: **115**
 
 ## Candy Shop - 2026-11-06  (Launch)
 2 posts x 2 platforms = **4** queue entries
@@ -157,6 +157,7 @@ Eligible events: **8** - Skipped: **114**
 - **Magic Hunks (touring)** - date in the past, no cadence set, no flyer, no price, no description
 - **Magic hunks** - date in the past
 - **Mosh Night** - date in the past
+- **My Little Drag Show** - no flyer
 - **Naughty Drag Bingo** - date in the past, phase = Cancelled
 - **Next Gen Brunch** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Night Of Kings** - date in the past
