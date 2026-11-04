@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-04 10:59 PST - **nothing posted, queue untouched**
+Generated 2026-11-04 11:14 PST - **nothing posted, queue untouched**
 
 Eligible events: **8** - Skipped: **115**
 
@@ -13,11 +13,10 @@ Eligible events: **8** - Skipped: **115**
 | Fri Nov 6, 11:00 AM | morning |
 
 ## Speed friending - 2026-11-07  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Nov 4, 11:00 AM | morning |
 | Sat Nov 7, 7:00 PM | evening |
 
 ## Lesbians Playing Uno - 2026-11-08  (Marquee)
@@ -60,11 +59,10 @@ Eligible events: **8** - Skipped: **115**
 | Thu Nov 19, 7:00 PM | evening |
 
 ## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Nov 4, 11:00 AM | morning |
 | Mon Nov 9, 7:00 PM | evening |
 | Fri Nov 13, 11:00 AM | morning |
 | Mon Nov 16, 7:00 PM | evening |
@@ -203,4 +201,4 @@ Eligible events: **8** - Skipped: **115**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 62**
+**Total queue entries that would be created: 58**
