@@ -1496,16 +1496,17 @@
       "scheduled_for_utc": "2026-11-04T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13272952160_0.jpg",
       "caption": "Pull up your chair, shuffle the deck, and get ready — Lesbians Playing Uno is BACK 🃏✨\n\nThis ain't your grandma's card night. It's cards, cocktails, and straight-up chaos hosted by Jayme Davis. Someone's gonna throw a +4 out of spite. Someone's gonna flip the table (lovingly). Everyone's gonna have the time of their life.\n\nLow stakes. High energy. Zero pressure to actually be good at Uno — we just want the vibes and the laughs. Grab your crew, grab a drink, and come claim your spot at the table before it fills up. This is the Latinx hangout you didn't know you needed every second Sunday. 💛💙❤️💚\n\n🗓️ Sunday, November 8th — 8PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free Entry\n#AzucarPasco #OutAndAbout #LesbiansPlayingUno #UnoNight #PascoNightlife #LatinxNightlife #FreeEntry #CommunityNight",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-10-13T06:32:52.614949+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-04T03:40:25.750514+00:00",
+      "result": "Instagram media id: 18145976512591416",
       "campaign": "cadence_lesbians_playing_uno",
       "monday_event_id": "13272952160",
       "event_date": "2026-11-08",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-04T03:37:00+00:00"
+      "release_at_utc": "2026-11-04T03:37:00+00:00",
+      "permalink": "https://www.instagram.com/p/DfTg0q9Gt_0/"
     },
     {
       "id": "20261104_030000_bbe88c",
@@ -1513,16 +1514,17 @@
       "scheduled_for_utc": "2026-11-04T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13272952160_0.jpg",
       "caption": "Pull up your chair, shuffle the deck, and get ready — Lesbians Playing Uno is BACK 🃏✨\n\nThis ain't your grandma's card night. It's cards, cocktails, and straight-up chaos hosted by Jayme Davis. Someone's gonna throw a +4 out of spite. Someone's gonna flip the table (lovingly). Everyone's gonna have the time of their life.\n\nLow stakes. High energy. Zero pressure to actually be good at Uno — we just want the vibes and the laughs. Grab your crew, grab a drink, and come claim your spot at the table before it fills up. This is the Latinx hangout you didn't know you needed every second Sunday. 💛💙❤️💚\n\n🗓️ Sunday, November 8th — 8PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free Entry\n#AzucarPasco #OutAndAbout #LesbiansPlayingUno #UnoNight #PascoNightlife #LatinxNightlife #FreeEntry #CommunityNight",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-10-13T06:32:52.614949+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-04T03:40:16.607301+00:00",
+      "result": "Facebook post id: 1746222460839211",
       "campaign": "cadence_lesbians_playing_uno",
       "monday_event_id": "13272952160",
       "event_date": "2026-11-08",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-04T03:37:00+00:00"
+      "release_at_utc": "2026-11-04T03:37:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1746222480839209"
     },
     {
       "id": "20261105_190000_1dbc91",
