@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-04 12:17 PST - **nothing posted, queue untouched**
+Generated 2026-11-04 12:44 PST - **nothing posted, queue untouched**
 
 Eligible events: **8** - Skipped: **115**
 
