@@ -4582,16 +4582,17 @@
       "scheduled_for_utc": "2026-11-04T19:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13467042682_0.jpg",
       "caption": "New besties are about to happen and y'all aren't ready 👯‍♀️🔥 Azucar is throwing SPEED FRIENDING and your hosts Rosie & Michael are breaking every ounce of awkward energy before it even starts. Mini games. Prizes. Zero boring small talk. This is the night you walk in solo and walk out with a whole new group chat. La pista's calling, the energy's electric, and the connections? Unmatched. Pull up and let the chaos (the fun kind) begin.\n\n📅 Saturday, November 7, 2026 — 9PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 Free Entry\n#AzucarPasco #OutAndAbout #SpeedFriending #PascoNightlife #LatinxNightlife #NewBesties #FreeEntry #TriCitiesWA",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-04T18:43:59.191611+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-04T19:40:38.000849+00:00",
+      "result": "Instagram media id: 18399606901163010",
       "campaign": "cadence_speed_friending",
       "monday_event_id": "13467042682",
       "event_date": "2026-11-07",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-04T19:38:00+00:00"
+      "release_at_utc": "2026-11-04T19:38:00+00:00",
+      "permalink": "https://www.instagram.com/p/DfVOtFODNsX/"
     },
     {
       "id": "20261104_190000_7f815c",
@@ -4599,16 +4600,17 @@
       "scheduled_for_utc": "2026-11-04T19:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13467042682_0.jpg",
       "caption": "New besties are about to happen and y'all aren't ready 👯‍♀️🔥 Azucar is throwing SPEED FRIENDING and your hosts Rosie & Michael are breaking every ounce of awkward energy before it even starts. Mini games. Prizes. Zero boring small talk. This is the night you walk in solo and walk out with a whole new group chat. La pista's calling, the energy's electric, and the connections? Unmatched. Pull up and let the chaos (the fun kind) begin.\n\n📅 Saturday, November 7, 2026 — 9PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 Free Entry\n#AzucarPasco #OutAndAbout #SpeedFriending #PascoNightlife #LatinxNightlife #NewBesties #FreeEntry #TriCitiesWA",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-04T18:43:59.191611+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-04T19:40:26.687634+00:00",
+      "result": "Facebook post id: 1747064410755016",
       "campaign": "cadence_speed_friending",
       "monday_event_id": "13467042682",
       "event_date": "2026-11-07",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-04T19:38:00+00:00"
+      "release_at_utc": "2026-11-04T19:38:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1747064427421681"
     },
     {
       "id": "20261108_030000_0f24b0",
