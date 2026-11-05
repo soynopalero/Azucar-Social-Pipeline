@@ -5264,9 +5264,9 @@
     {
       "id": "20261106_030000_bb34f8",
       "platform": "instagram",
-      "scheduled_for_utc": "2026-11-06T03:00:00+00:00",
+      "scheduled_for_utc": "2026-11-05T19:05:25+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13480639730_0.jpg",
-      "caption": "Now let's talk about what's in the cup. 🍹✨\nFreaketonas isn't just about the music — it's a whole flavor experience. We're talking Mexican candy cocktails that taste like your childhood dulces got a glow-up, tequila cocktails made for sipping slow (or not so slow 👀), and the spiked horchata everybody's already obsessed with. Creamy, cinnamon, dangerous. 🥥🌶️\nPair that with DJ Ralphy-Ray keeping perreo, dembow, and house rolling all night, and you've got zero reasons to stay home this Friday. ZERO. 🙅‍♀️\nAnd the best part? No cover. All night. So that extra round? Yeah, get it. 💅\nThis is Azucar's new Friday obsession — come find out why everyone's already talking about the horchata. 🫢\n\n🗓️ Friday, November 6 | 9PM – Close\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 No Cover\n🔞 21+\n#AzucarPasco #OutAndAbout #Freaketonas #SpikedHorchata #VibrasLatinas #PascoNightlife #DjRalphyRay #LatinoNightOut",
+      "caption": "Friday just got a new name to know: FREAKETONAS. 🔥🍑\nA brand new weekly ritual lands at Azucar, and this week DJ Ralphy-Ray is running the decks all night — perreo that won't let your hips sit still, dembow that hits chest-first, house that keeps building, and Latin hits woven through like it's nothing. 🎧\nThis is vibras latinas on a whole other level — the kind of night where la pista fills up and doesn't empty till close. No gimmicks, no filler, just a DJ who knows exactly how to read a crowd and keep it moving all night long. 💃🕺\nMark it, save it, tell your people — Freaketonas is about to be the Friday everybody circles on the calendar. This is only the beginning. 🌟\n\n🗓️ Friday, November 6 | 9PM – Close\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 No Cover\n🔞 21+\n#AzucarPasco #OutAndAbout #Freaketonas #VibrasLatinas #PascoNightlife #DjRalphyRay #LatinNight #PerreoNight",
       "status": "pending",
       "created_at": "2026-11-05T19:05:33.074511+00:00",
       "posted_at": null,
@@ -5274,15 +5274,15 @@
       "campaign": "cadence_freaketonas",
       "monday_event_id": "13480639730",
       "event_date": "2026-11-06",
-      "slot": "evening",
-      "tier": "launch"
+      "tier": "launch",
+      "spread": false
     },
     {
       "id": "20261106_030000_36c5c6",
       "platform": "facebook",
-      "scheduled_for_utc": "2026-11-06T03:00:00+00:00",
+      "scheduled_for_utc": "2026-11-05T19:05:25+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13480639730_0.jpg",
-      "caption": "Now let's talk about what's in the cup. 🍹✨\nFreaketonas isn't just about the music — it's a whole flavor experience. We're talking Mexican candy cocktails that taste like your childhood dulces got a glow-up, tequila cocktails made for sipping slow (or not so slow 👀), and the spiked horchata everybody's already obsessed with. Creamy, cinnamon, dangerous. 🥥🌶️\nPair that with DJ Ralphy-Ray keeping perreo, dembow, and house rolling all night, and you've got zero reasons to stay home this Friday. ZERO. 🙅‍♀️\nAnd the best part? No cover. All night. So that extra round? Yeah, get it. 💅\nThis is Azucar's new Friday obsession — come find out why everyone's already talking about the horchata. 🫢\n\n🗓️ Friday, November 6 | 9PM – Close\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 No Cover\n🔞 21+\n#AzucarPasco #OutAndAbout #Freaketonas #SpikedHorchata #VibrasLatinas #PascoNightlife #DjRalphyRay #LatinoNightOut",
+      "caption": "Friday just got a new name to know: FREAKETONAS. 🔥🍑\nA brand new weekly ritual lands at Azucar, and this week DJ Ralphy-Ray is running the decks all night — perreo that won't let your hips sit still, dembow that hits chest-first, house that keeps building, and Latin hits woven through like it's nothing. 🎧\nThis is vibras latinas on a whole other level — the kind of night where la pista fills up and doesn't empty till close. No gimmicks, no filler, just a DJ who knows exactly how to read a crowd and keep it moving all night long. 💃🕺\nMark it, save it, tell your people — Freaketonas is about to be the Friday everybody circles on the calendar. This is only the beginning. 🌟\n\n🗓️ Friday, November 6 | 9PM – Close\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 No Cover\n🔞 21+\n#AzucarPasco #OutAndAbout #Freaketonas #VibrasLatinas #PascoNightlife #DjRalphyRay #LatinNight #PerreoNight",
       "status": "pending",
       "created_at": "2026-11-05T19:05:33.074511+00:00",
       "posted_at": null,
@@ -5290,8 +5290,8 @@
       "campaign": "cadence_freaketonas",
       "monday_event_id": "13480639730",
       "event_date": "2026-11-06",
-      "slot": "evening",
-      "tier": "launch"
+      "tier": "launch",
+      "spread": false
     },
     {
       "id": "20261106_190000_a76a4d",
