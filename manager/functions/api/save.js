@@ -17,7 +17,7 @@
    - posts that already went out (status "posted") are never modified or deleted
 */
 
-import { LEAD_MS, genId, loadQueue, saveQueue, json } from "../_lib/queue.js";
+import { LEAD_MS, genId, loadQueue, saveQueue, json, belongsTo } from "../_lib/queue.js";
 
 export async function onRequestPost(context) {
   const { env, request } = context;
@@ -64,8 +64,9 @@ function applyOp(queue, body) {
   if (body.op === "delete_campaign") {
     if (!body.campaign) return { error: "Missing campaign." };
     const before = posts.length;
-    const mine = (p) => p.campaign === body.campaign &&
-      (!body.monday_event_id || p.monday_event_id === body.monday_event_id);
+    // Feed posts and stories of the event alike (they sit under sibling
+    // "cadence_" / "story_" campaign keys).
+    const mine = (p) => belongsTo(p, body);
     queue.posts = posts.filter((p) => !(mine(p) && p.status !== "posted"));
     const n = before - queue.posts.length;
     if (!n) return { error: "No pending posts found for that event." };

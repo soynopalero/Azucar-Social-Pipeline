@@ -62,7 +62,9 @@ export function buildEvents(queuePosts, meta) {
 
   const events = [];
   for (const [key, plist] of byEvent) {
-    const camp = plist[0].campaign;
+    // Stories carry their own "story_" campaign; the card is named and
+    // decorated after the feed campaign when the event has one.
+    const camp = feedCampaign(plist);
     const mondayId = plist.find((p) => p.monday_event_id)?.monday_event_id || null;
     const m = (meta && meta[camp]) || {};
     events.push({
@@ -94,15 +96,36 @@ export function buildEvents(queuePosts, meta) {
   return events;
 }
 
-/* One card per Monday event. Legacy posts (pre-engine, no monday_event_id)
-   keep grouping by campaign alone. */
+/* One card per Monday event — feed posts AND stories together (Pedro,
+   2026-11-05: two cards per event read as everything doubling up). Stories
+   are queued under a "story_<name>" campaign beside the feed's
+   "cadence_<name>", so the key ignores that prefix. Legacy posts (pre-engine,
+   no monday_event_id) keep grouping by campaign alone. */
 export function eventKey(p) {
-  return p.monday_event_id ? `${p.campaign}#${p.monday_event_id}` : p.campaign;
+  return p.monday_event_id ? `#${p.monday_event_id}` : campaignFamily(p.campaign);
+}
+
+/* "story_x" and "cadence_x" belong to the same event. */
+export function campaignFamily(camp) {
+  return String(camp || "").replace(/^story_/, "cadence_");
+}
+
+/* The feed campaign of a group, for naming and meta lookups; a stories-only
+   group (feed captions not approved yet) falls back to its story campaign. */
+function feedCampaign(plist) {
+  const feed = plist.find((p) => p.format !== "story" && p.campaign);
+  return feed ? feed.campaign : plist[0].campaign;
+}
+
+/* Does this queue entry belong to the event the client is addressing? */
+export function belongsTo(p, ref) {
+  if (ref.monday_event_id) return p.monday_event_id === ref.monday_event_id;
+  return !!p.campaign && !p.monday_event_id && campaignFamily(p.campaign) === campaignFamily(ref.campaign);
 }
 
 function campaignName(camp) {
   // Word-start only (not \b\w: that flips "Beyoncés" into "BeyoncéS").
-  return camp.replace(/^cadence_/, "").replace(/_+/g, " ").trim()
+  return camp.replace(/^(cadence|story)_/, "").replace(/_+/g, " ").trim()
     .replace(/(^|\s)(\S)/g, (_, sp, c) => sp + c.toUpperCase());
 }
 

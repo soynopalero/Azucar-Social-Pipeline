@@ -109,9 +109,9 @@ function renderList() {
       </div>
       <div class="body">
         <p class="name">${esc(ev.name)}</p>
-        <p class="date">${eventDateDisplay(ev)} · ${ev.posts.length} posts</p>
+        <p class="date">${eventDateDisplay(ev)} · ${countLabel(ev)}</p>
         <div class="meta">
-          <span class="pill pill-count">${ev.posts.length} posts</span>
+          <span class="pill pill-count">${countLabel(ev)}</span>
           ${c.pending ? pill('pending', c.pending) : ''}
           ${c.failed ? pill('failed', c.failed) : ''}
           ${isHist && c.posted ? pill('posted', c.posted) : ''}
@@ -120,6 +120,16 @@ function renderList() {
     </button>`;
   }).join('');
   $$('.ev', wrap).forEach(el => el.addEventListener('click', () => openEvent(el.dataset.ev)));
+}
+
+/* "3 posts · 2 stories" — stories live on the same card as the feed posts. */
+function countLabel(ev) {
+  const stories = ev.posts.filter(p => p.format === 'story').length;
+  const feed = ev.posts.length - stories;
+  const parts = [];
+  if (feed || !stories) parts.push(`${feed} post${feed === 1 ? '' : 's'}`);
+  if (stories) parts.push(`${stories} stor${stories === 1 ? 'y' : 'ies'}`);
+  return parts.join(' · ');
 }
 
 /* ---------- detail view ---------- */

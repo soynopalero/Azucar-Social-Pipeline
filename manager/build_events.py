@@ -52,6 +52,7 @@ def merge_logical(posts):
                 "platforms": [],
                 "scheduled_for_utc": p["scheduled_for_utc"],
                 "caption": p["caption"],
+                "format": p.get("format") or "post",
                 "image_url": p.get("image_url"),
                 "images": [],
                 "status": p["status"],
@@ -90,12 +91,14 @@ def event_key(p):
     edition; grouping by campaign alone folded the new edition into the old one
     and the old date sent the whole card to History. Legacy posts without a
     Monday id keep grouping by campaign."""
-    return f"{p['campaign']}#{p['monday_event_id']}" if p.get("monday_event_id") else p["campaign"]
+    # Feed posts and stories share a card: "story_x" sits beside "cadence_x".
+    fam = (p.get("campaign") or "").replace("story_", "cadence_", 1) if (p.get("campaign") or "").startswith("story_") else p.get("campaign")
+    return f"#{p['monday_event_id']}" if p.get("monday_event_id") else fam
 
 
 def campaign_name(camp):
     import re
-    words = re.sub(r"_+", " ", camp.removeprefix("cadence_")).split()
+    words = re.sub(r"_+", " ", camp.removeprefix("cadence_").removeprefix("story_")).split()
     return " ".join(w[:1].upper() + w[1:] for w in words)
 
 
@@ -117,7 +120,7 @@ def build_real_events(posts):
 
     events = []
     for key, plist in by_event.items():
-        camp = plist[0]["campaign"]
+        camp = next((p["campaign"] for p in plist if p.get("format") != "story"), plist[0]["campaign"])
         monday_id = next((p["monday_event_id"] for p in plist if p.get("monday_event_id")), None)
         meta = CAMPAIGN_META.get(camp, {})
         logical = merge_logical(plist)
