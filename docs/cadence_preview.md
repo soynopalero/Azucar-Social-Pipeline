@@ -1,10 +1,10 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-04 16:38 PST - **nothing posted, queue untouched**
+Generated 2026-11-05 11:02 PST - **nothing posted, queue untouched**
 
-Eligible events: **9** - Skipped: **114**
+Eligible events: **11** - Skipped: **115**
 
-## Candy Shop - 2026-11-06  (Launch)
+## Freaketonas - 2026-11-06  (Launch)
 2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
@@ -20,12 +20,20 @@ Eligible events: **9** - Skipped: **114**
 | Sat Nov 7, 7:00 PM | evening |
 
 ## Lesbians Playing Uno - 2026-11-08  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 5, 11:00 AM | morning |
 | Sun Nov 8, 7:00 PM | evening |
+
+## Freaketonas - 2026-11-13  (Launch)
+3 posts x 2 platforms = **6** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Nov 10, 7:00 PM | evening |
+| Thu Nov 12, 7:00 PM | evening |
+| Fri Nov 13, 11:00 AM | morning |
 
 ## The Sweet Spot - 2026-11-14  (Marquee)
 4 posts x 2 platforms = **8** queue entries
@@ -58,6 +66,15 @@ Eligible events: **9** - Skipped: **114**
 | Mon Nov 16, 11:00 AM | morning |
 | Thu Nov 19, 7:00 PM | evening |
 
+## Freaketonas - 2026-11-20  (Launch)
+3 posts x 2 platforms = **6** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Nov 17, 7:00 PM | evening |
+| Thu Nov 19, 7:00 PM | evening |
+| Fri Nov 20, 11:00 AM | morning |
+
 ## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
 5 posts x 2 platforms = **10** queue entries
 
@@ -70,11 +87,10 @@ Eligible events: **9** - Skipped: **114**
 | Sat Nov 21, 7:00 PM | evening |
 
 ## Queersgiving - 2026-11-22  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 5, 11:00 AM | morning |
 | Tue Nov 10, 7:00 PM | evening |
 | Sat Nov 14, 11:00 AM | morning |
 | Tue Nov 17, 7:00 PM | evening |
@@ -113,12 +129,13 @@ Eligible events: **9** - Skipped: **114**
 - **Build your own carabiner night** - date in the past
 - **Burlesque Dance Workshop** - date in the past
 - **Cabana Bass - Casting Call** - date in the past
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
-- **Candy Shop** - tier 'every week' — covered by the weekly round-up
+- **Candy Shop** - phase = Cancelled, cadence = Off
+- **Candy Shop** - phase = Cancelled, cadence = Off
+- **Candy Shop** - phase = Cancelled, cadence = Off
+- **Candy Shop** - phase = Cancelled, cadence = Off
+- **Candy Shop** - phase = Cancelled, cadence = Off
+- **Candy Shop** - phase = Cancelled, cadence = Off
+- **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - date in the past, tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
@@ -213,4 +230,4 @@ Eligible events: **9** - Skipped: **114**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 72**
+**Total queue entries that would be created: 80**
