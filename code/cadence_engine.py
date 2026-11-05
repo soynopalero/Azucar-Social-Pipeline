@@ -818,25 +818,20 @@ def assign_captions(captions, days_out_list):
     return out
 
 
-def launch_roles(captions, tier):
+def launch_assign(captions, days_out_list):
     """A launch week's three captions are drafted in posting order — lineup,
-    the deal, "tonight" — for slots 3 days out, the day before and the
-    morning of. When the first slot has already passed (the night was created
-    late) plain rotation would put the lineup caption on the day-before slot
-    and drop "tonight" entirely, so tag them as general / week / day and let
-    assign_captions() match them to the days that remain."""
-    if tier != "launch" or len(captions) != 3 or any(_role_of(c) != "general" for c in captions):
-        return captions
-    out = []
-    for c, role in zip(captions, ("general", "week", "day")):
-        out.append(dict(c, role=role) if isinstance(c, dict) else {"flyer": None, "role": role, "caption": c})
-    return out
+    the deal, "tonight" — for the slots 3 days out, the day before and the
+    morning of. Match them by day rather than by position, so a night created
+    late (first slot already gone) still ends on the "tonight" caption instead
+    of dropping it. Returns None when the set is not a plain 3-caption launch
+    set, and the caller falls back to assign_captions()."""
+    if len(captions) != 3 or any(_role_of(c) != "general" for c in captions):
+        return None
+    return [captions[2] if d == 0 else captions[1] if d == 1 else captions[0] for d in days_out_list]
 
 
 def enqueue_event(e, captions, now):
     import queue_utils as qu  # sibling module; hosts to catbox + saves the queue
-
-    captions = launch_roles(captions, resolve_tier(e["cadence"]))
 
     today = now.astimezone(LOCAL_TZ).date()
     ed = dt.date.fromisoformat(e["date"])
@@ -855,7 +850,9 @@ def enqueue_event(e, captions, now):
     queue["posts"] = [p for p in queue["posts"]
                       if not (p.get("monday_event_id") == e["id"] and p.get("status") == "pending")]
 
-    assigned = assign_captions(captions, [(ed - d).days for d, _ in slots])
+    days_out = [(ed - d).days for d, _ in slots]
+    assigned = (launch_assign(captions, days_out) if resolve_tier(e["cadence"]) == "launch" else None) \
+        or assign_captions(captions, days_out)
     created = now.isoformat()
     campaign = "cadence_" + "".join(ch if ch.isalnum() else "_" for ch in (e["name"] or "").lower()).strip("_")
     for i, (d, s) in enumerate(slots):
@@ -1299,13 +1296,13 @@ def selftest():
     assert assign_captions([{"caption": "only"}], [5, 0]) == [{"caption": "only"}] * 2
     parsed = parse_caption_array('[{"flyer":1,"role":"DAY","caption":"x"},{"caption":"y","role":"bogus"},"z"]', [], "2026-11-21")
     assert [c["role"] for c in parsed] == ["day", "general", "general"], parsed
-    lw = launch_roles([{"caption": "lineup"}, {"caption": "deal"}, {"caption": "tonight"}], "launch")
-    got = [c["caption"] for c in assign_captions(lw, [3, 1, 0])]
+    lw = [{"caption": "lineup"}, {"caption": "deal"}, {"caption": "tonight"}]
+    got = [c["caption"] for c in launch_assign(lw, [3, 1, 0])]
     assert got == ["lineup", "deal", "tonight"], got
-    got = [c["caption"] for c in assign_captions(lw, [1, 0])]
+    got = [c["caption"] for c in launch_assign(lw, [1, 0])]
     assert got == ["deal", "tonight"], "a late-created launch night still ends on the tonight caption: %s" % got
-    assert launch_roles(["a", "b"], "launch") == ["a", "b"], "only a full 3-caption launch set is tagged"
-    assert launch_roles([{"caption": "x"}] * 3, "marquee") == [{"caption": "x"}] * 3
+    assert launch_assign(["a", "b"], [1, 0]) is None, "only a full 3-caption launch set is matched by day"
+    assert launch_assign([{"caption": "x", "role": "day"}] * 3, [1, 0]) is None, "role-tagged sets go through assign_captions"
     print("Caption-role assignment OK\n")
 
     today = dt.date(2026, 7, 1)
