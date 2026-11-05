@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T23:50:19",
+ "generated_at": "2026-11-05T16:30:28",
  "events": [
   {
    "item_id": "13132977295",
@@ -154,6 +154,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/candy-shop-tickets-2002271094744",
    "flyer": "media/fb-kit/13132979229_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13132979229"
+  },
+  {
+   "item_id": "13467091295",
+   "name": "My Little Drag Show",
+   "date_iso": "2026-12-03",
+   "date_display": "Dec 3, 2026",
+   "start_time": "8:00 PM",
+   "end_date_display": "Dec 4, 2026",
+   "end_time": "12:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Saddle up, Azúcar — this birthday is getting the full fairy-tale treatment. We're throwing a technicolor pony parade in honor of local queen & king Beah Hazard, and the cast is bringing every favorite childhood pony to glittering, lip-synced life. Think rainbow manes, candy-colored fits, and numbers built for maximum whimsy and maximum heat.\n\nHolding the reins for her very first time as host: Twilight, stepping into the spotlight to guide you through a night of birthday chaos and pony pageantry. Expect surprise guest ponies, birthday toasts to Beah, and a cast ready to turn the Main Floor into a magical kingdom where sparkle has no rules.\n\nCome in your best pastel, your best glam, or your best \"I used to collect these as a kid\" energy — this herd welcomes every body. Birthday shots, specialty cocktails, and a crowd ready to canter till close. Beah's birthday, Twilight's debut, and your favorite ponies — all under one roof, one night only.\n\nDecember 3rd. 8PM. Main Floor. Come out and pony for all looking fun — because this isn't just a show, it's a celebration.\n\n🗓️ Jueves 3 de diciembre — Show 8:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 18+ · Cover $10\n\n🎟️ Tickets: https://www.eventbrite.com/e/my-little-drag-show-tickets-2004436220694",
+   "eventbrite_url": "https://www.eventbrite.com/e/my-little-drag-show-tickets-2004436220694",
+   "flyer": "media/fb-kit/13467091295_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13467091295"
   },
   {
    "item_id": "13132977560",
