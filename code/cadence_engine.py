@@ -1072,20 +1072,46 @@ def story_image_url(e):
     return f"{PAGES_BASE}/media/stories/{out.name}"
 
 
+def event_is_dead(e):
+    """Cancelled / Completed on the board, or Social Cadence switched Off:
+    nothing more should go out for it (the bot's /delete sets both)."""
+    return e.get("phase") in HIDDEN_PHASES or " ".join(str(e.get("cadence") or "").lower().split()) == "off"
+
+
+def withdraw_dead(posts, events, today):
+    """Drop pending entries that should no longer post: every pending story of
+    an event that is not story-eligible any more, and every pending FEED post
+    of a board event that is dead. Feed posts of events still on the board
+    but merely ineligible (say, the flyer was pulled) are left alone, as are
+    hand-scheduled entries with no board event. Returns (kept, withdrawn)."""
+    live = {e["id"] for e in events if story_eligible(e, today)}
+    dead = {e["id"] for e in events if event_is_dead(e)}
+    kept, gone = [], []
+    for p in posts:
+        pending = p.get("status") == "pending"
+        ev = p.get("monday_event_id")
+        if pending and p.get("format") == "story" and ev not in live:
+            gone.append(p)
+        elif pending and p.get("format") != "story" and ev in dead:
+            gone.append(p)
+        else:
+            kept.append(p)
+    return kept, gone
+
+
 def run_stories(events, today, now):
     """Queue the coming week's stories. Idempotent: a story already queued for
     an event at a given time is left alone, and pending stories for events that
-    were cancelled or switched Off are withdrawn."""
+    were cancelled or switched Off are withdrawn (and so are their feed posts)."""
     import queue_utils as qu
 
     print("=== Stories pass ===")
     queue = qu.load_queue()
     live = {e["id"] for e in events if story_eligible(e, today)}
-    before = len(queue["posts"])
-    queue["posts"] = [p for p in queue["posts"] if not (
-        p.get("format") == "story" and p.get("status") == "pending"
-        and p.get("monday_event_id") not in live)]
-    withdrawn = before - len(queue["posts"])
+    queue["posts"], gone = withdraw_dead(queue["posts"], events, today)
+    withdrawn = len(gone)
+    for p in gone:
+        print(f"  withdrawn: {p.get('platform')} {p.get('format') or 'feed'} {p.get('scheduled_for_utc', '')[:16]} ({p.get('campaign')})")
     have = {(p.get("monday_event_id"), p.get("scheduled_for_utc"), p.get("platform"))
             for p in queue["posts"] if p.get("format") == "story"}
 
@@ -1221,6 +1247,26 @@ def selftest():
     print("Caption-parser self-test\n")
     failures = parser_selftest()
     print()
+
+    # --- withdrawing dead events' posts ---
+    ok_ev = {"id": "A", "name": "A", "date": "2026-12-05", "phase": "Planning", "cadence": "Marquee", "has_flyer": True}
+    dead_ev = dict(ok_ev, id="B", phase="Cancelled")
+    off_ev = dict(ok_ev, id="C", cadence="Off")
+    noflyer_ev = dict(ok_ev, id="D", has_flyer=False)
+    q = [
+        {"id": 1, "status": "pending", "monday_event_id": "A"},
+        {"id": 2, "status": "pending", "monday_event_id": "B"},
+        {"id": 3, "status": "pending", "monday_event_id": "C", "format": "story"},
+        {"id": 4, "status": "pending", "monday_event_id": "C"},
+        {"id": 5, "status": "posted", "monday_event_id": "B"},
+        {"id": 6, "status": "pending", "monday_event_id": "D"},
+        {"id": 7, "status": "pending", "monday_event_id": "D", "format": "story"},
+        {"id": 8, "status": "pending"},
+    ]
+    kept, gone = withdraw_dead(q, [ok_ev, dead_ev, off_ev, noflyer_ev], dt.date(2026, 11, 5))
+    assert sorted(p["id"] for p in gone) == [2, 3, 4, 7], [p["id"] for p in gone]
+    assert sorted(p["id"] for p in kept) == [1, 5, 6, 8], "posted entries, live events, hand-scheduled posts untouched; no-flyer keeps its feed post"
+    print("Withdraw-dead rules OK\n")
 
     # --- caption roles -> posting slots ---
     caps = [{"role": "general", "caption": "g1"}, {"role": "general", "caption": "g2"},
