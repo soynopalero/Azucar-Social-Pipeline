@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-04 16:15 PST - **nothing posted, queue untouched**
+Generated 2026-11-04 16:18 PST - **nothing posted, queue untouched**
 
-Eligible events: **8** - Skipped: **115**
+Eligible events: **9** - Skipped: **114**
 
 ## Candy Shop - 2026-11-06  (Launch)
 2 posts x 2 platforms = **4** queue entries
@@ -81,6 +81,19 @@ Eligible events: **8** - Skipped: **115**
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
+## My Little Drag Show - 2026-12-03  (Marquee)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Nov 9, 7:00 PM | evening |
+| Mon Nov 16, 11:00 AM | morning |
+| Sat Nov 21, 7:00 PM | evening |
+| Wed Nov 25, 11:00 AM | morning |
+| Sat Nov 28, 7:00 PM | evening |
+| Mon Nov 30, 11:00 AM | morning |
+| Thu Dec 3, 7:00 PM | evening |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -155,7 +168,6 @@ Eligible events: **8** - Skipped: **115**
 - **Magic Hunks (touring)** - date in the past, no cadence set, no flyer, no price, no description
 - **Magic hunks** - date in the past
 - **Mosh Night** - date in the past
-- **My Little Drag Show** - no flyer
 - **Naughty Drag Bingo** - date in the past, phase = Cancelled
 - **Next Gen Brunch** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Night Of Kings** - date in the past
@@ -201,4 +213,4 @@ Eligible events: **8** - Skipped: **115**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 58**
+**Total queue entries that would be created: 72**
