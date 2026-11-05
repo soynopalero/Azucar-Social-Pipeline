@@ -818,8 +818,25 @@ def assign_captions(captions, days_out_list):
     return out
 
 
+def launch_roles(captions, tier):
+    """A launch week's three captions are drafted in posting order — lineup,
+    the deal, "tonight" — for slots 3 days out, the day before and the
+    morning of. When the first slot has already passed (the night was created
+    late) plain rotation would put the lineup caption on the day-before slot
+    and drop "tonight" entirely, so tag them as general / week / day and let
+    assign_captions() match them to the days that remain."""
+    if tier != "launch" or len(captions) != 3 or any(_role_of(c) != "general" for c in captions):
+        return captions
+    out = []
+    for c, role in zip(captions, ("general", "week", "day")):
+        out.append(dict(c, role=role) if isinstance(c, dict) else {"flyer": None, "role": role, "caption": c})
+    return out
+
+
 def enqueue_event(e, captions, now):
     import queue_utils as qu  # sibling module; hosts to catbox + saves the queue
+
+    captions = launch_roles(captions, resolve_tier(e["cadence"]))
 
     today = now.astimezone(LOCAL_TZ).date()
     ed = dt.date.fromisoformat(e["date"])
@@ -1282,6 +1299,13 @@ def selftest():
     assert assign_captions([{"caption": "only"}], [5, 0]) == [{"caption": "only"}] * 2
     parsed = parse_caption_array('[{"flyer":1,"role":"DAY","caption":"x"},{"caption":"y","role":"bogus"},"z"]', [], "2026-11-21")
     assert [c["role"] for c in parsed] == ["day", "general", "general"], parsed
+    lw = launch_roles([{"caption": "lineup"}, {"caption": "deal"}, {"caption": "tonight"}], "launch")
+    got = [c["caption"] for c in assign_captions(lw, [3, 1, 0])]
+    assert got == ["lineup", "deal", "tonight"], got
+    got = [c["caption"] for c in assign_captions(lw, [1, 0])]
+    assert got == ["deal", "tonight"], "a late-created launch night still ends on the tonight caption: %s" % got
+    assert launch_roles(["a", "b"], "launch") == ["a", "b"], "only a full 3-caption launch set is tagged"
+    assert launch_roles([{"caption": "x"}] * 3, "marquee") == [{"caption": "x"}] * 3
     print("Caption-role assignment OK\n")
 
     today = dt.date(2026, 7, 1)
