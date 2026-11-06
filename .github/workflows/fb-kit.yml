@@ -31,6 +31,19 @@ jobs:
           MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
         run: python code/build_fb_kit.py
 
+      # Ask the event's creator on Telegram whether the Facebook event is
+      # live yet (first time, an hour later, then daily). A failure here must
+      # not block the kit commit below.
+      - name: Facebook event reminders
+        continue-on-error: true
+        env:
+          MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python code/fb_event_reminders.py --selftest
+          python code/fb_event_reminders.py
+
       - name: Commit if the kit changed
         id: commit
         run: |
