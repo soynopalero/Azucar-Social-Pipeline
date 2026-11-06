@@ -1154,16 +1154,17 @@
       "scheduled_for_utc": "2026-11-06T19:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/stories/13272952160.jpg",
       "caption": "",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-10-13T06:32:52.614949+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-06T21:15:44.663160+00:00",
+      "result": "Instagram story id: 17993252463067960",
       "campaign": "story_lesbians_playing_uno",
       "monday_event_id": "13272952160",
       "event_date": "2026-11-08",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-06T21:38:00+00:00"
+      "release_at_utc": "2026-11-06T20:35:00+00:00",
+      "permalink": "https://www.instagram.com/stories/cluboutandabout/4024683974446489040"
     },
     {
       "id": "20261106_190000_77b3b1",
@@ -1172,16 +1173,16 @@
       "scheduled_for_utc": "2026-11-06T19:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/stories/13272952160.jpg",
       "caption": "",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-10-13T06:32:52.614949+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-06T21:15:38.044934+00:00",
+      "result": "Facebook story id: 962402823257649",
       "campaign": "story_lesbians_playing_uno",
       "monday_event_id": "13272952160",
       "event_date": "2026-11-08",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-06T21:38:00+00:00"
+      "release_at_utc": "2026-11-06T20:35:00+00:00"
     },
     {
       "id": "20261107_190000_9ea15e",
@@ -2227,16 +2228,17 @@
       "scheduled_for_utc": "2026-11-06T19:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13434843724_0.jpg",
       "caption": "Low light. Soft music. Doors wide open. 🕯️ That's the mood the second the sun goes down at The Sweet Spot. Glasses clinking, conversations getting a little deeper, strangers turning into friends somewhere around drink number two. It's the kind of night that doesn't need a spotlight — it just needs you to walk through the door and let it unfold. Amazing drinks, great food, connection that actually feels real. Breathe it in. 🥂\n\n📅 Saturday, November 14, 2026 | 7PM–10PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free\n#AzucarPasco #OutAndAbout #TheSweetSpot #IronHalo #LeatherNight #MoodLighting #PascoVibes #LatinxCommunity",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-01T02:37:30.788551+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-06T21:15:56.665276+00:00",
+      "result": "Instagram media id: 18093701675206350",
       "campaign": "cadence_the_sweet_spot",
       "monday_event_id": "13434843724",
       "event_date": "2026-11-14",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-06T21:11:00+00:00"
+      "release_at_utc": "2026-11-06T21:11:00+00:00",
+      "permalink": "https://www.instagram.com/p/DfajM03FzhI/"
     },
     {
       "id": "20261106_190000_d81074",
@@ -2244,16 +2246,17 @@
       "scheduled_for_utc": "2026-11-06T19:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13434843724_0.jpg",
       "caption": "Low light. Soft music. Doors wide open. 🕯️ That's the mood the second the sun goes down at The Sweet Spot. Glasses clinking, conversations getting a little deeper, strangers turning into friends somewhere around drink number two. It's the kind of night that doesn't need a spotlight — it just needs you to walk through the door and let it unfold. Amazing drinks, great food, connection that actually feels real. Breathe it in. 🥂\n\n📅 Saturday, November 14, 2026 | 7PM–10PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free\n#AzucarPasco #OutAndAbout #TheSweetSpot #IronHalo #LeatherNight #MoodLighting #PascoVibes #LatinxCommunity",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-01T02:37:30.788551+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-06T21:16:00.439406+00:00",
+      "result": "Facebook post id: 1749568133837977",
       "campaign": "cadence_the_sweet_spot",
       "monday_event_id": "13434843724",
       "event_date": "2026-11-14",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-06T21:11:00+00:00"
+      "release_at_utc": "2026-11-06T21:11:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1749568153837975"
     },
     {
       "id": "20261110_030000_af105c",
@@ -4616,7 +4619,7 @@
       "event_date": "2026-11-06",
       "slot": "evening",
       "tier": "launch",
-      "release_at_utc": "2026-11-07T00:20:00+00:00"
+      "release_at_utc": "2026-11-06T22:45:00+00:00"
     },
     {
       "id": "20261107_030000_3c196e",
@@ -4634,7 +4637,7 @@
       "event_date": "2026-11-06",
       "slot": "evening",
       "tier": "launch",
-      "release_at_utc": "2026-11-07T00:20:00+00:00"
+      "release_at_utc": "2026-11-06T22:45:00+00:00"
     },
     {
       "id": "20261106_230000_90d689",
@@ -4651,7 +4654,8 @@
       "monday_event_id": "13480639730",
       "event_date": "2026-11-06",
       "slot": "afternoon",
-      "tier": "launch"
+      "tier": "launch",
+      "release_at_utc": "2026-11-07T00:38:00+00:00"
     },
     {
       "id": "20261106_230000_f15dd8",
@@ -4668,7 +4672,8 @@
       "monday_event_id": "13480639730",
       "event_date": "2026-11-06",
       "slot": "afternoon",
-      "tier": "launch"
+      "tier": "launch",
+      "release_at_utc": "2026-11-07T00:38:00+00:00"
     }
   ]
 }
