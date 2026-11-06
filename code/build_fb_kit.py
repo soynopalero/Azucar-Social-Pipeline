@@ -1,8 +1,11 @@
 """
 Build the FB Event Kit — docs/fb_kit.json + flyer copies under docs/media/fb-kit/.
 
-Lists every upcoming Monday event that HAS an Eventbrite URL but has NO
-Facebook Event URL yet (the handshake columns), with every field pre-formatted
+Lists every upcoming Monday event that has NO Facebook Event URL yet, with
+every field pre-formatted. Since 2026-11-06 an Eventbrite page is optional
+(the bot asks): an event marked Eventbrite? = Yes is held back until its page
+exists so the kit never shows it without the ticket link; a pay-at-the-door
+event is listed with no ticket link at all.
 in the exact order Facebook's "Create event" form asks for them. The kit page
 (docs/fb-kit.html) renders these with one-tap copy buttons so creating the
 native FB event takes ~1 minute.
@@ -34,6 +37,7 @@ COL_SHORT_DESC = "long_text_mm4nvacq"
 COL_PRICE = "text_mm4nazaw"
 COL_AGE = "color_mm4p6jsr"
 COL_EVENTBRITE = "link_mm4nmhe3"
+COL_EB_WANT = "color_mm8vzf05"  # Eventbrite? Yes/No (bot intake, 2026-11-06)
 COL_FB_EVENT = "link_mm4xv1nv"
 COL_FLYER = "file_mm4nnwtq"
 COL_COVER = "file_mm4t6n8c"  # optional user-uploaded wide FB/Eventbrite cover
@@ -197,7 +201,8 @@ def build_description(item: dict, event_date: dt.date, start_str: str,
     if extras:
         logistics.append(f"🔞 {extras}" if age else f"💵 {extras}")
 
-    return f"{body}\n\n" + "\n".join(logistics) + f"\n\n🎟️ Tickets: {eventbrite_url}"
+    tickets = f"\n\n🎟️ Tickets: {eventbrite_url}" if eventbrite_url else ""
+    return f"{body}\n\n" + "\n".join(logistics) + tickets
 
 
 def main() -> int:
@@ -212,8 +217,12 @@ def main() -> int:
 
         if not date_iso or date_iso < today or phase in HIDDEN_PHASES:
             continue
-        if not eb or fb:
-            continue  # no Eventbrite yet, or FB event already exists
+        if fb:
+            continue  # FB event already exists
+        wants_eb = (col(item, COL_EB_WANT).get("label") or "").strip().lower() == "yes"
+        if wants_eb and not eb:
+            print(f"  hold {item['name']!r}: Eventbrite page not created yet")
+            continue
 
         hour_c = col(item, COL_TIME)
         hour, minute = hour_c.get("hour"), hour_c.get("minute")

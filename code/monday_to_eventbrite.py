@@ -18,8 +18,12 @@ Hard-won API facts baked in (see memory/project_eventbrite_integration.md):
 - description.html in the CREATE post only; never send summary too
   (SUMMARY_DESCRIPTION_CONFLICT) and never touch structured_content.
 - Venue 298365330 must keep its lat/long (a null there breaks EB's editor).
-- Paid tickets blocked until account tax settings are done (EVENT_TAX_
-  SETTINGS_MISSING) -> free RSVP ticket named "...— $X cover at door".
+- Pages are only created for items whose "Eventbrite?" column is Yes, with
+  ONE paid General Admission ticket at the "Ticket Price" column (never a
+  free ticket — Pedro, 2026-11-06). Publishing a paid event needs the
+  per-event Washington tax questionnaire answered first (otherwise
+  EVENT_TAX_SETTINGS_MISSING); eb_answer_tax() does that through the
+  undocumented /events/{id}/tax_settings/ endpoint.
 - Portrait flyers get a generated 1920x1005 blurred-wings cover (same
   make_fb_cover used by the FB kit) so EB's wide cover band never crops art.
 - Emoji in event names: create/update accept them, but an async sanitizer
@@ -82,6 +86,10 @@ EB_VENUE = "298365330"
 EB_BASE = "https://www.eventbriteapi.com/v3"
 EB_AUTH = {"Authorization": f"Bearer {EB_TOKEN}"}
 EB_JSON = {**EB_AUTH, "Content-Type": "application/json"}
+
+# Intake columns added 2026-11-06 (the Telegram bot sets them).
+COL_EB_WANT = "color_mm8vzf05"        # status: Yes / No
+COL_TICKET_PRICE = "numeric_mm8vmw52"  # USD, one paid ticket
 
 PACIFIC = ZoneInfo("America/Los_Angeles")
 VENUE_LINE = "📍 Azúcar at Out &amp; About — 327 W Lewis St, Pasco WA"
@@ -323,22 +331,92 @@ def eb_create_event(item: dict, image_id: str, start_utc: str, end_utc: str,
                    headers=EB_JSON, json=payload).json()
 
 
-def eb_ensure_ticket(event_id: str, price: str) -> None:
-    """Add the free RSVP ticket class unless the event already has one (an
-    adopted draft may have got as far as the ticket before dying)."""
+def ticket_cents(item: dict) -> int | None:
+    """The board's Ticket Price as whole cents, or None when missing / not > 0."""
+    raw = (col(item, COL_TICKET_PRICE).get("text") or "").strip().replace("$", "").replace(",", "")
+    try:
+        dollars = float(raw)
+    except ValueError:
+        return None
+    return int(round(dollars * 100)) if dollars > 0 else None
+
+
+def eb_ensure_ticket(event_id: str, cents: int) -> None:
+    """One paid General Admission ticket at the board's price. A paid class
+    already on an adopted draft is kept; a FREE class left by the old code is
+    removed first — free tickets are never offered (Pedro, 2026-11-06)."""
     existing = eb_call("GET", f"{EB_BASE}/events/{event_id}/ticket_classes/",
-                       "ticket class lookup", headers=EB_AUTH).json()
-    if existing.get("ticket_classes"):
-        print("  ticket class  : already present")
+                       "ticket class lookup", headers=EB_AUTH).json().get("ticket_classes") or []
+    paid = [t for t in existing if not t.get("free")]
+    if paid:
+        print(f"  ticket class  : already present ({(paid[0].get('cost') or {}).get('display', 'paid')})")
         return
-    name = "General Admission"
-    if price and price.lower() not in {"free", "gratis"}:
-        name = f"General Admission — {price} cover at door"
+    for t in existing:
+        eb_call("DELETE", f"{EB_BASE}/events/{event_id}/ticket_classes/{t['id']}/",
+                "free ticket removal", headers=EB_AUTH)
+        print("  ticket class  : removed a leftover free ticket")
     eb_call("POST", f"{EB_BASE}/events/{event_id}/ticket_classes/", "ticket class",
             headers=EB_JSON, json={"ticket_class": {
-                "name": name, "free": True, "quantity_total": 200,
-                "minimum_quantity": 1, "maximum_quantity": 10}})
-    print("  ticket class  : created")
+                "name": "General Admission", "cost": f"USD,{cents}", "quantity_total": 200,
+                "minimum_quantity": 1, "maximum_quantity": 10, "include_fee": False}})
+    print(f"  ticket class  : created (${cents / 100:.2f} General Admission)")
+
+
+def _answer_text(ans: dict) -> str:
+    for t in ans.get("texts") or []:
+        if t.get("translated_text"):
+            return t["translated_text"]
+    for t in ans.get("texts") or []:
+        if t.get("text"):
+            return t["text"]
+    return ""
+
+
+def _no_answer(question: dict) -> dict | None:
+    """The plain "No" answer of a tax question ("No", "No (Not an enumerated
+    activity)" — never "Not sure")."""
+    for a in question.get("answers") or []:
+        t = _answer_text(a).strip().lower()
+        if t == "no" or t.startswith("no (") or t.startswith("no,"):
+            return a
+    return None
+
+
+def tax_responses(form: dict) -> tuple[int | None, list[dict]]:
+    """Walk the questionnaire answering No at every step (a bar night is not
+    a lecture, course, or amusement activity). Returns (template_id, responses)."""
+    root = (form or {}).get("questions") or {}
+    if not root.get("question_id"):
+        return None, []
+    responses, q = [], root
+    for _ in range(8):
+        ans = _no_answer(q)
+        if not ans:
+            break
+        responses.append({"question_id": q["question_id"], "answer_id": ans["answer_id"],
+                          "answer_text": _answer_text(ans)})
+        q = ans.get("next_question") or {}
+        if not q.get("question_id"):
+            break
+    return root["question_id"], responses
+
+
+def eb_answer_tax(event_id: str) -> None:
+    """Answer Eventbrite's per-event Washington tax questionnaire so a paid
+    event can publish; without it publish 400s with EVENT_TAX_SETTINGS_MISSING.
+    Undocumented endpoint, verified live 2026-11-06 (GET returns the question
+    tree, POST takes template_id = root question id + the chosen answers)."""
+    form = eb_call("GET", f"{EB_BASE}/events/{event_id}/tax_settings/", "tax form",
+                   headers=EB_AUTH).json()
+    template_id, responses = tax_responses(form)
+    if template_id is None:
+        print("  tax form      : none offered for this event")
+        return
+    if not responses:
+        raise RuntimeError("tax form: no 'No' answer path found — Eventbrite changed the questionnaire")
+    r = eb_call("POST", f"{EB_BASE}/events/{event_id}/tax_settings/", "tax answers",
+                headers=EB_JSON, json={"template_id": template_id, "responses": responses})
+    print(f"  tax form      : answered ({len(responses)} steps) -> {r.json().get('tax_status')}")
 
 
 def eb_publish(event_id: str) -> None:
@@ -465,6 +543,10 @@ def readiness(item: dict) -> tuple[bool, str]:
         return False, f"phase is {col(item, COL_PHASE).get('label')}"
     if (col(item, COL_EVENTBRITE).get("url") or "").strip():
         return False, "already has an Eventbrite URL"
+    if (col(item, COL_EB_WANT).get("label") or "").strip().lower() != "yes":
+        return False, "Eventbrite not requested (Eventbrite? column is not Yes)"
+    if ticket_cents(item) is None:
+        return False, "no Ticket Price above $0"
     if col(item, COL_TIME).get("hour") is None:
         return False, "no event time"
     if not (long_text(item, COL_LONG_DESC) or long_text(item, COL_SHORT_DESC)):
@@ -477,14 +559,14 @@ def process_item(item: dict, dry_run: bool) -> tuple[str, str, str] | None:
     date_iso = col(item, COL_DATE).get("date")
     hour = col(item, COL_TIME).get("hour")
     minute = col(item, COL_TIME).get("minute") or 0
-    price = (col(item, COL_PRICE).get("text") or "").strip()
+    cents = ticket_cents(item) or 0
 
     start_utc, end_utc = event_times_utc(date_iso, hour, minute)
     desc_html = build_description_html(item, date_iso, hour, minute)
 
     print(f"\n=== {name} ({item['id']}) — {date_iso} {hour:02d}:{minute:02d} PT ===")
     print(f"  start/end UTC : {start_utc} → {end_utc}")
-    print(f"  ticket        : free RSVP{f' ({price} cover at door)' if price else ''}")
+    print(f"  ticket        : ${cents / 100:.2f} General Admission (paid, no free tier)")
 
     cover = resolve_eb_cover(item)
     if not cover:
@@ -509,7 +591,8 @@ def process_item(item: dict, dry_run: bool) -> tuple[str, str, str] | None:
         print(f"  event created : {event['id']}")
     event_id = event["id"]
     try:
-        eb_ensure_ticket(event_id, price)
+        eb_ensure_ticket(event_id, cents)
+        eb_answer_tax(event_id)
         eb_publish(event_id)
     except Exception as e:
         raise RuntimeError(
@@ -528,7 +611,7 @@ def main() -> int:
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--item-id", help="Monday item id to process")
     g.add_argument("--all-pending", action="store_true",
-                   help="process every upcoming, complete item with no Eventbrite URL")
+                   help="process every upcoming item with Eventbrite? = Yes, a Ticket Price and no Eventbrite URL")
     ap.add_argument("--dry-run", action="store_true",
                     help="show what would happen without creating anything")
     args = ap.parse_args()
@@ -623,7 +706,7 @@ def selftest() -> int:
         script["GET /events/E1/ticket_classes/"] = [(200, {"ticket_classes": []})]
         script["POST /events/E1/ticket_classes/"] = [
             (500, {"status_code": 500, "error": "INTERNAL_ERROR"}), (200, {"id": "T1"})]
-        eb_ensure_ticket("E1", "$10")
+        eb_ensure_ticket("E1", 1000)
         check("ticket class retried after HTTP 500",
               sum(1 for m, u in calls if m == "POST") == 2)
 
@@ -659,11 +742,47 @@ def selftest() -> int:
         check("no match when start differs",
               eb_find_draft("Noche Vaquera", "2026-10-25T02:00:00Z") is None)
 
-        # 5. Adopted draft that already has a ticket: don't add a second one.
+        # 5. Adopted draft that already has a PAID ticket: don't add a second one.
         calls.clear()
-        script["GET /events/E4/ticket_classes/"] = [(200, {"ticket_classes": [{"id": "T"}]})]
-        eb_ensure_ticket("E4", "")
-        check("existing ticket class is kept", not any(m == "POST" for m, _ in calls))
+        script["GET /events/E4/ticket_classes/"] = [(200, {"ticket_classes": [{"id": "T", "free": False, "cost": {"display": "$20.00"}}]})]
+        eb_ensure_ticket("E4", 2000)
+        check("existing paid ticket class is kept", not any(m == "POST" for m, _ in calls))
+
+        # 6. A leftover FREE ticket (old behaviour) is removed and replaced by the paid one.
+        calls.clear()
+        script["GET /events/E5/ticket_classes/"] = [(200, {"ticket_classes": [{"id": "F", "free": True}]})]
+        script["DELETE /events/E5/ticket_classes/F/"] = [(200, {"deleted": True})]
+        script["POST /events/E5/ticket_classes/"] = [(200, {"id": "P"})]
+        eb_ensure_ticket("E5", 2500)
+        check("free ticket deleted, paid one created",
+              [m for m, _ in calls] == ["GET", "DELETE", "POST"])
+
+        # 7. Tax questionnaire: walk the No path, never "Not sure".
+        form = {"questions": {"question_id": 81840, "answers": [
+            {"answer_id": 81841, "texts": [{"translated_text": "Yes"}], "next_question": {"question_id": 1}},
+            {"answer_id": 81842, "texts": [{"translated_text": "No"}], "next_question": {
+                "question_id": 82507, "answers": [
+                    {"answer_id": 82508, "texts": [{"translated_text": "Yes (Enumerated activity)"}]},
+                    {"answer_id": 82510, "texts": [{"translated_text": "Not sure — show me the list"}]},
+                    {"answer_id": 82509, "texts": [{"translated_text": "No (Not an enumerated activity)"}]},
+                ]}},
+        ]}}
+        tid, resp = tax_responses(form)
+        check("tax form: template id + two No answers",
+              tid == 81840 and [r["answer_id"] for r in resp] == [81842, 82509]
+              and resp[1]["answer_text"].startswith("No ("))
+        check("tax form: no questionnaire -> nothing to answer", tax_responses({}) == (None, []))
+        calls.clear()
+        script["GET /events/E6/tax_settings/"] = [(200, form)]
+        script["POST /events/E6/tax_settings/"] = [(200, {"tax_status": {"eb_tax": 0, "org_tax": 1}})]
+        eb_answer_tax("E6")
+        check("tax answers posted before publish", [m for m, _ in calls] == ["GET", "POST"])
+
+        # 8. Ticket Price column -> cents; empty, zero or junk means not ready.
+        mk = lambda txt: {"column_values": [{"id": COL_TICKET_PRICE, "text": txt}]}
+        check("ticket price parsing",
+              ticket_cents(mk("20")) == 2000 and ticket_cents(mk("$15.50")) == 1550
+              and ticket_cents(mk("0")) is None and ticket_cents(mk("")) is None)
 
         check("emoji-safe name still used for matching",
               eb_safe_name("🌿 JOTERÍA: La Plant House Edition 🌿") == "JOTERÍA: La Plant House Edition")

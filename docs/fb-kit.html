@@ -104,7 +104,7 @@ function render() {
 
   kit.innerHTML = '';
   if (!active.length) {
-    kit.innerHTML = '<div class="empty">🎉 Nothing pending — every event with an Eventbrite page already has its Facebook event.</div>';
+    kit.innerHTML = '<div class="empty">🎉 Nothing pending — every upcoming event already has its Facebook event.</div>';
   }
   for (const ev of active) {
     const card = document.createElement('div');
@@ -129,8 +129,10 @@ function render() {
       ${field(4, 'End date', ev.end_date_display)}
       ${field(5, 'End time', ev.end_time)}
       ${field(6, 'Location', ev.location)}
-      ${field(7, 'Description (ticket link included)', ev.description, true)}
-      ${field(8, 'Ticket link — for FB\'s "Add ticket link" field', ev.eventbrite_url)}
+      ${field(7, ev.eventbrite_url ? 'Description (ticket link included)' : 'Description', ev.description, true)}
+      ${ev.eventbrite_url
+        ? field(8, 'Ticket link — for FB\'s "Add ticket link" field', ev.eventbrite_url)
+        : '<div class="done">🎟️ No Eventbrite for this one — pay at the door. Leave Facebook\'s ticket link field empty.</div>'}
       <div class="done">✅ Event live? <a href="${esc(ev.monday_url)}" target="_blank" rel="noopener">Open the Monday item</a> and paste the Facebook event URL into <b>Facebook Event URL</b> — it disappears from this list on the next refresh.</div>
     `;
     kit.appendChild(card);
