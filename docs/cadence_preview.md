@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-07 02:00 PST - **nothing posted, queue untouched**
+Generated 2026-11-07 02:02 PST - **nothing posted, queue untouched**
 
-Eligible events: **12** - Skipped: **116**
+Eligible events: **13** - Skipped: **116**
 
 ## Speed friending - 2026-11-07  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -17,6 +17,15 @@ Eligible events: **12** - Skipped: **116**
 | When (Pacific) | Slot |
 |---|---|
 | Sun Nov 8, 7:00 PM | evening |
+
+## Gay’s N Gameboards - 2026-11-12  (Marquee)
+3 posts x 2 platforms = **6** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sat Nov 7, 7:00 PM | evening |
+| Mon Nov 9, 11:00 AM | morning |
+| Thu Nov 12, 7:00 PM | evening |
 
 ## Freaketonas - 2026-11-13  (Launch)
 3 posts x 2 platforms = **6** queue entries
@@ -246,4 +255,4 @@ Eligible events: **12** - Skipped: **116**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 98**
+**Total queue entries that would be created: 104**
