@@ -1,6 +1,20 @@
 {
- "generated_at": "2026-11-07T10:00:25",
+ "generated_at": "2026-11-07T10:02:36",
  "events": [
+  {
+   "item_id": "13495511970",
+   "name": "Gay’s N Gameboards",
+   "date_iso": "2026-11-12",
+   "date_display": "Nov 12, 2026",
+   "start_time": "8:00 PM",
+   "end_date_display": "Nov 13, 2026",
+   "end_time": "12:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "The Lounge goes full game night — tables flipped from cocktail mode to competition mode, cards shuffling, dice rolling, and Catan empires rising and falling before midnight. Alejandro's running the room, stirring up friendly chaos and making sure nobody leaves without at least one rematch demanded.\n\nStack up your favorite classics or dive into the deep stuff — strategy, trading, a little betrayal if the board calls for it. Come solo and find your new game-night crew, or roll in with your people and prove once and for all who's the real winner at the table.\n\nDrinks flowing, playlist humming, Lounge lit low and easy — just enough mood to make losing sting a little less. Grab a seat, pick your weapon of choice, and let's see who's still undefeated by last call.\n\n🗓️ Jueves 12 de noviembre — Show 8:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover Free",
+   "eventbrite_url": "",
+   "flyer": "media/fb-kit/13495511970_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13495511970"
+  },
   {
    "item_id": "13480654044",
    "name": "Freaketonas",
