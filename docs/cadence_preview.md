@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-07 01:58 PST - **nothing posted, queue untouched**
+Generated 2026-11-07 01:59 PST - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **116**
+Eligible events: **12** - Skipped: **116**
 
 ## Speed friending - 2026-11-07  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -111,6 +111,19 @@ Eligible events: **11** - Skipped: **116**
 | Sat Nov 28, 7:00 PM | evening |
 | Mon Nov 30, 11:00 AM | morning |
 | Thu Dec 3, 7:00 PM | evening |
+
+## Build Your Own Carabiner Night - 2026-12-06  (Marquee)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Nov 12, 7:00 PM | evening |
+| Thu Nov 19, 11:00 AM | morning |
+| Tue Nov 24, 7:00 PM | evening |
+| Sat Nov 28, 11:00 AM | morning |
+| Tue Dec 1, 7:00 PM | evening |
+| Thu Dec 3, 11:00 AM | morning |
+| Sun Dec 6, 7:00 PM | evening |
 
 ---
 
@@ -233,4 +246,4 @@ Eligible events: **11** - Skipped: **116**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 84**
+**Total queue entries that would be created: 98**
