@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-07 02:20 PST - **nothing posted, queue untouched**
+Generated 2026-11-07 11:46 PST - **nothing posted, queue untouched**
 
 Eligible events: **15** - Skipped: **116**
 
@@ -46,11 +46,10 @@ Eligible events: **15** - Skipped: **116**
 | Sat Nov 14, 7:00 PM | evening |
 
 ## Teen Heart Throb: An All Kings Drag Show - 2026-11-15  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Nov 7, 11:00 AM | morning |
 | Tue Nov 10, 7:00 PM | evening |
 | Thu Nov 12, 11:00 AM | morning |
 | Sun Nov 15, 7:00 PM | evening |
@@ -177,7 +176,6 @@ Eligible events: **15** - Skipped: **116**
 - **Build your own carabiner night** - date in the past
 - **Burlesque Dance Workshop** - date in the past
 - **Cabana Bass - Casting Call** - date in the past
-- **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
 - **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - phase = Cancelled, cadence = Off
@@ -190,6 +188,7 @@ Eligible events: **15** - Skipped: **116**
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
+- **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Dolly Parton; A drag Tribute Night** - date in the past
 - **Drag Brunch de Reinas** - date in the past, phase = Cancelled
@@ -279,4 +278,4 @@ Eligible events: **15** - Skipped: **116**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 128**
+**Total queue entries that would be created: 126**
