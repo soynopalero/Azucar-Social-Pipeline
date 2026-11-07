@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-07 02:03 PST - **nothing posted, queue untouched**
+Generated 2026-11-07 02:05 PST - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **116**
+Eligible events: **14** - Skipped: **116**
 
 ## Speed friending - 2026-11-07  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -98,6 +98,17 @@ Eligible events: **13** - Skipped: **116**
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Cartoon Chaos Drag Show - 2026-11-22  (Marquee)
+5 posts x 2 platforms = **10** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Nov 10, 7:00 PM | evening |
+| Sat Nov 14, 11:00 AM | morning |
+| Tue Nov 17, 7:00 PM | evening |
+| Thu Nov 19, 11:00 AM | morning |
+| Sun Nov 22, 7:00 PM | evening |
+
+## Paint and Sip with Artwithaubrey - 2026-11-22  (Marquee)
 5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
@@ -255,4 +266,4 @@ Eligible events: **13** - Skipped: **116**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 104**
+**Total queue entries that would be created: 114**
