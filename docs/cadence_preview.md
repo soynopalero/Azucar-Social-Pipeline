@@ -1,14 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-06 13:12 PST - **nothing posted, queue untouched**
+Generated 2026-11-07 01:57 PST - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **115**
-
-## Freaketonas - 2026-11-06  (Launch)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
+Eligible events: **11** - Skipped: **116**
 
 ## Speed friending - 2026-11-07  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -94,6 +88,17 @@ Eligible events: **11** - Skipped: **115**
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
+## Cartoon Chaos Drag Show - 2026-11-22  (Marquee)
+5 posts x 2 platforms = **10** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Nov 10, 7:00 PM | evening |
+| Sat Nov 14, 11:00 AM | morning |
+| Tue Nov 17, 7:00 PM | evening |
+| Thu Nov 19, 11:00 AM | morning |
+| Sun Nov 22, 7:00 PM | evening |
+
 ## My Little Drag Show - 2026-12-03  (Marquee)
 7 posts x 2 platforms = **14** queue entries
 
@@ -126,7 +131,7 @@ Eligible events: **11** - Skipped: **115**
 - **Build your own carabiner night** - date in the past
 - **Burlesque Dance Workshop** - date in the past
 - **Cabana Bass - Casting Call** - date in the past
-- **Candy Shop** - phase = Cancelled, cadence = Off
+- **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
 - **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - phase = Cancelled, cadence = Off
@@ -153,6 +158,7 @@ Eligible events: **11** - Skipped: **115**
 - **Emo-Night Drag Show Edition** - date in the past
 - **End of Summer Blackout Party** - date in the past
 - **Faetalitys birthday show** - date in the past
+- **Freaketonas** - date in the past
 - **Frivola — June** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Furanium Fever** - date in the past
 - **Heels Dance Class with Frankie** - date in the past
@@ -227,4 +233,4 @@ Eligible events: **11** - Skipped: **115**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 74**
+**Total queue entries that would be created: 84**
