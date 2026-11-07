@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-07T10:05:44",
+ "generated_at": "2026-11-07T10:19:16",
  "events": [
   {
    "item_id": "13495511970",
@@ -70,6 +70,20 @@
    "eventbrite_url": "https://www.eventbrite.com/e/build-your-own-carabiner-night-tickets-2004512928128",
    "flyer": "media/fb-kit/13495491962_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13495491962"
+  },
+  {
+   "item_id": "13495599426",
+   "name": "Sip and Paint with ArtwithAubrey",
+   "date_iso": "2026-12-06",
+   "date_display": "Dec 6, 2026",
+   "start_time": "6:00 PM",
+   "end_date_display": "Dec 6, 2026",
+   "end_time": "10:00 PM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Forget blank canvases and pressure — this is sip-and-paint season, Azúcar style. Pull up a seat in the Ranchero Room while Art With Aubrey walks you through decorating your very own set of Christmas bulbs, one sip and one brushstroke at a time. No art degree required, just a little holiday chispa and a drink in hand.\n\nAubrey's got the instruction and inspiration covered, so whether you're painting a tiny masterpiece or something delightfully chaotic, you'll leave with ornaments nobody else has and a tree that actually looks like you. Glitter, color, a little sparkle in your glass — it's festive, it's forgiving, and it's made for laughing at your own art.\n\nCome solo, bring your people, make it a date night — every bulb, every brushstroke, every body welcome. December 6th at 6pm, Ranchero Room. Come paint, sip, and deck your tree the Azúcar way.\n\n🗓️ Domingo 6 de diciembre — Show 6:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $33\n\n🎟️ Tickets: https://artwithaubrey.com/event/christmas-baubles-ages-21/?fbclid=IwVERDUAVb195leHRuA2FlbQIxMABwZG9mBWZkaWQWURxUFbqINRnCyFwUfzG7r4Xd0Vxrv3NydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR_HowAOf6IJ0CxcvK_VYf25wrmZYO6Xh4P8GY6HZdy91zVZFr9v7G8n1EwgbQ_aem_Gexu0xFEKZvI0zkvs5L12w",
+   "eventbrite_url": "https://artwithaubrey.com/event/christmas-baubles-ages-21/?fbclid=IwVERDUAVb195leHRuA2FlbQIxMABwZG9mBWZkaWQWURxUFbqINRnCyFwUfzG7r4Xd0Vxrv3NydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR_HowAOf6IJ0CxcvK_VYf25wrmZYO6Xh4P8GY6HZdy91zVZFr9v7G8n1EwgbQ_aem_Gexu0xFEKZvI0zkvs5L12w",
+   "flyer": "media/fb-kit/13495599426_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13495599426"
   }
  ]
 }
