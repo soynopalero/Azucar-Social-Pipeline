@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-07 02:06 PST - **nothing posted, queue untouched**
+Generated 2026-11-07 02:19 PST - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **116**
+Eligible events: **15** - Skipped: **116**
 
 ## Speed friending - 2026-11-07  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -145,6 +145,19 @@ Eligible events: **14** - Skipped: **116**
 | Thu Dec 3, 11:00 AM | morning |
 | Sun Dec 6, 7:00 PM | evening |
 
+## Sip and Paint with ArtwithAubrey - 2026-12-06  (Marquee)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Nov 12, 7:00 PM | evening |
+| Thu Nov 19, 11:00 AM | morning |
+| Tue Nov 24, 7:00 PM | evening |
+| Sat Nov 28, 11:00 AM | morning |
+| Tue Dec 1, 7:00 PM | evening |
+| Thu Dec 3, 11:00 AM | morning |
+| Sun Dec 6, 7:00 PM | evening |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -266,4 +279,4 @@ Eligible events: **14** - Skipped: **116**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 114**
+**Total queue entries that would be created: 128**
