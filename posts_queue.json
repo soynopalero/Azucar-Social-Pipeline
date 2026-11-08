@@ -2619,16 +2619,17 @@
       "scheduled_for_utc": "2026-11-08T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13467042682_0.jpg",
       "caption": "Picture this 🫶 laughter bouncing off the walls, drinks clinking, strangers turning into your new favorite people by the second round of games. That's the vibe when Rosie & Michael take over Azucar for a night built on connection, not small talk. The music's got that pulse that pulls you to la pista, the air smells like good food and better energy, and every corner of the room is buzzing with new faces about to become familiar ones. This is what community feels like — loud, warm, and a little unpredictable.\n\n📅 Saturday, November 7, 2026 — 9PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 Free Entry\n#AzucarPasco #OutAndAbout #SpeedFriending #GoodVibesOnly #LatinxCommunity #PascoWA #FreeEntry",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-04T18:43:59.191611+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-08T04:25:49.286148+00:00",
+      "result": "Instagram media id: 18093445412227540",
       "campaign": "cadence_speed_friending",
       "monday_event_id": "13467042682",
       "event_date": "2026-11-07",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-08T04:22:00+00:00"
+      "release_at_utc": "2026-11-08T04:22:00+00:00",
+      "permalink": "https://www.instagram.com/p/Dfd5MEIjYPr/"
     },
     {
       "id": "20261108_030000_2cbb57",
@@ -2636,16 +2637,17 @@
       "scheduled_for_utc": "2026-11-08T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13467042682_0.jpg",
       "caption": "Picture this 🫶 laughter bouncing off the walls, drinks clinking, strangers turning into your new favorite people by the second round of games. That's the vibe when Rosie & Michael take over Azucar for a night built on connection, not small talk. The music's got that pulse that pulls you to la pista, the air smells like good food and better energy, and every corner of the room is buzzing with new faces about to become familiar ones. This is what community feels like — loud, warm, and a little unpredictable.\n\n📅 Saturday, November 7, 2026 — 9PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 Free Entry\n#AzucarPasco #OutAndAbout #SpeedFriending #GoodVibesOnly #LatinxCommunity #PascoWA #FreeEntry",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-04T18:43:59.191611+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-08T04:25:53.605060+00:00",
+      "result": "Facebook post id: 1751074313687359",
       "campaign": "cadence_speed_friending",
       "monday_event_id": "13467042682",
       "event_date": "2026-11-07",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-08T04:22:00+00:00"
+      "release_at_utc": "2026-11-08T04:22:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1751074337020690"
     },
     {
       "id": "20261105_190000_26d829",
