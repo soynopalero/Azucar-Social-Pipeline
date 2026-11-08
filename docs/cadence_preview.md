@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-07 11:46 PST - **nothing posted, queue untouched**
+Generated 2026-11-08 12:05 PST - **nothing posted, queue untouched**
 
-Eligible events: **15** - Skipped: **116**
-
-## Speed friending - 2026-11-07  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Nov 7, 7:00 PM | evening |
+Eligible events: **14** - Skipped: **117**
 
 ## Lesbians Playing Uno - 2026-11-08  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -19,11 +12,10 @@ Eligible events: **15** - Skipped: **116**
 | Sun Nov 8, 7:00 PM | evening |
 
 ## Gay’s N Gameboards - 2026-11-12  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Nov 7, 7:00 PM | evening |
 | Mon Nov 9, 11:00 AM | morning |
 | Thu Nov 12, 7:00 PM | evening |
 
@@ -55,11 +47,10 @@ Eligible events: **15** - Skipped: **116**
 | Sun Nov 15, 7:00 PM | evening |
 
 ## Bachata class & social dance - 2026-11-19  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Nov 7, 7:00 PM | evening |
 | Wed Nov 11, 11:00 AM | morning |
 | Sat Nov 14, 7:00 PM | evening |
 | Mon Nov 16, 11:00 AM | morning |
@@ -261,6 +252,7 @@ Eligible events: **15** - Skipped: **116**
 - **Sip & Strut Dance Class with Frankie** - date in the past, no cadence set, no flyer, no price, no description
 - **Sip and Paint with ArtWithAubrey** - date in the past
 - **Speed Friending** - date in the past
+- **Speed friending** - date in the past
 - **Spring into frienship; Diamond Art night** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Testing for your life** - date in the past, phase = Cancelled, tier 'every week' — covered by the weekly round-up
 - **Testing out the name** - date in the past, tier 'every week' — covered by the weekly round-up, no flyer
@@ -278,4 +270,4 @@ Eligible events: **15** - Skipped: **116**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 126**
+**Total queue entries that would be created: 120**
