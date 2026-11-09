@@ -1,22 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-08 12:05 PST - **nothing posted, queue untouched**
+Generated 2026-11-09 15:55 PST - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **117**
+Eligible events: **13** - Skipped: **118**
 
-## Lesbians Playing Uno - 2026-11-08  (Marquee)
+## Gay’s N Gameboards - 2026-11-12  (Marquee)
 1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Nov 8, 7:00 PM | evening |
-
-## Gay’s N Gameboards - 2026-11-12  (Marquee)
-2 posts x 2 platforms = **4** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Mon Nov 9, 11:00 AM | morning |
 | Thu Nov 12, 7:00 PM | evening |
 
 ## Freaketonas - 2026-11-13  (Launch)
@@ -213,6 +205,7 @@ Eligible events: **14** - Skipped: **117**
 - **Les-Be-Emo** - date in the past
 - **Les-Be-Emo Drag Show** - date in the past
 - **Lesbian Pride** - date in the past, no cadence set, no flyer, no price, no description
+- **Lesbians Playing Uno** - date in the past
 - **Lesmeets - Wiener for Fathersday** - date in the past, no cadence set, no flyer, no price, no description
 - **Link up** - date in the past
 - **Lollipop Rave (Aug 7) — sign BoldSign amendment** - date in the past, no cadence set, no flyer, no price, no description
@@ -270,4 +263,4 @@ Eligible events: **14** - Skipped: **117**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 120**
+**Total queue entries that would be created: 116**
