@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-09 15:55 PST - **nothing posted, queue untouched**
+Generated 2026-11-10 13:36 PST - **nothing posted, queue untouched**
 
 Eligible events: **13** - Skipped: **118**
 
@@ -21,11 +21,10 @@ Eligible events: **13** - Skipped: **118**
 | Fri Nov 13, 11:00 AM | morning |
 
 ## The Sweet Spot - 2026-11-14  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Nov 9, 7:00 PM | evening |
 | Wed Nov 11, 11:00 AM | morning |
 | Sat Nov 14, 7:00 PM | evening |
 
@@ -58,11 +57,10 @@ Eligible events: **13** - Skipped: **118**
 | Fri Nov 20, 11:00 AM | morning |
 
 ## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Nov 9, 7:00 PM | evening |
 | Fri Nov 13, 11:00 AM | morning |
 | Mon Nov 16, 7:00 PM | evening |
 | Wed Nov 18, 11:00 AM | morning |
@@ -102,11 +100,10 @@ Eligible events: **13** - Skipped: **118**
 | Sun Nov 22, 7:00 PM | evening |
 
 ## My Little Drag Show - 2026-12-03  (Marquee)
-7 posts x 2 platforms = **14** queue entries
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Nov 9, 7:00 PM | evening |
 | Mon Nov 16, 11:00 AM | morning |
 | Sat Nov 21, 7:00 PM | evening |
 | Wed Nov 25, 11:00 AM | morning |
@@ -263,4 +260,4 @@ Eligible events: **13** - Skipped: **118**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 116**
+**Total queue entries that would be created: 110**
