@@ -53,7 +53,7 @@ jobs:
           PYTHONUNBUFFERED: "1"
           EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_NOTIFY_CHAT_IDS: "5056319378,8734741621"
+          TELEGRAM_NOTIFY_CHAT_IDS: "9019031968,8734741621"
           # Toast is optional: with no credentials the script reads a CSV export
           # from reports/toast/, and says so plainly if there isn't one.
           TOAST_CLIENT_ID: ${{ secrets.TOAST_CLIENT_ID }}
@@ -70,7 +70,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: |
-          for chat in 5056319378 8734741621; do
+          for chat in 9019031968 8734741621; do
             curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
               -d chat_id=$chat \
               --data-urlencode "text=⚠️ The sales report failed to run — Saturday's numbers aren't in Telegram. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null || true

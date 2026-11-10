@@ -16,7 +16,7 @@ inputs:
   chat_ids:
     description: Space-separated Telegram chat ids to notify
     required: false
-    default: "5056319378"   # Pedro
+    default: "9019031968"   # Pedro (new Telegram account since 2026-11-05)
 
 runs:
   using: composite

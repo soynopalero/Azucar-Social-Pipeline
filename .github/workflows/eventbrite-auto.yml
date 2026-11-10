@@ -59,11 +59,11 @@ jobs:
           # Telegram "done" message (Pedro + Jayme). Silently skipped if the
           # TELEGRAM_BOT_TOKEN secret hasn't been added to this repo yet.
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_NOTIFY_CHAT_IDS: "5056319378,8734741621"
+          TELEGRAM_NOTIFY_CHAT_IDS: "9019031968,8734741621"
           # Failure details go to the maintainer only (Pedro); the script
           # sends a message that names the event and says whether anything
           # needs doing. Same id as the default in .github/actions/ops-alert.
-          OPS_ALERT_CHAT_ID: "5056319378"
+          OPS_ALERT_CHAT_ID: "9019031968"
           # Azucar Events Google Calendar (Apps Script webhook) — silent no-op until set
           GCAL_WEBHOOK_URL: ${{ secrets.GCAL_WEBHOOK_URL }}
         run: python code/monday_to_eventbrite.py --all-pending
