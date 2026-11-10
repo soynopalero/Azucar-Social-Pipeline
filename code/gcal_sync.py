@@ -13,6 +13,13 @@ This script walks the Azucar Events board and, for each item, asks the Apps
 Script webhook to sync the calendar:
   - phase looks Cancelled/Postponed  -> delete the matching calendar entry
   - active item whose date/time moved -> re-date the entry to match Monday
+  - upcoming active item with NO entry -> add one (since 2026-11-10)
+
+Why the last one: until 2026-11-06 every event got an Eventbrite page, and the
+calendar entry rode along with it. Eventbrite is now on request only (the
+bot's "Eventbrite?" question), so events answered "No" never reached the
+calendar. Adding missing entries here decouples the calendar from Eventbrite.
+"Idea" items stay off the calendar: they aren't committed yet.
 Matching happens inside the webhook, by the Monday pulse URL that the create
 path bakes into every entry's description (with an exact title+date fallback
 for hand-made entries).
@@ -41,7 +48,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_fb_kit import (  # noqa: E402
-    COL_DATE, COL_EVENTBRITE, COL_PHASE, COL_TIME, col, fetch_items,
+    BOARD_ID, COL_DATE, COL_EVENTBRITE, COL_PHASE, COL_TIME, col, fetch_items,
 )
 
 PACIFIC = ZoneInfo("America/Los_Angeles")
@@ -50,6 +57,21 @@ SHARED_TOKEN = "azucar-gcal-2026"  # must match code/gcal_webhook.gs
 # Cancelled/postponed items older than this were cleaned long ago (or by hand);
 # skip them so the daily run doesn't re-probe ancient history forever.
 LOOKBACK_DAYS = 14
+# Active phases that never get a calendar entry. Idea = not committed yet;
+# Completed = already happened.
+NO_CALENDAR_PHASES = {"idea", "completed"}
+LOCATION = "Azúcar at Out & About — 327 W Lewis St, Pasco, WA 99301"  # same as monday_to_eventbrite
+
+
+def monday_url(item_id: str) -> str:
+    # The webhook matches entries to Monday items by this "/pulses/<id>" link.
+    return f"https://nopaleros-org.monday.com/boards/{BOARD_ID}/pulses/{item_id}"
+
+
+def entry_description(item_id: str, eventbrite_url: str = "") -> str:
+    lines = [f"🎟️ {eventbrite_url}"] if eventbrite_url else []
+    lines.append(f"📋 {monday_url(item_id)}")
+    return "\n".join(lines)
 
 
 def sync_status(phase_label: str | None) -> str:
@@ -158,10 +180,10 @@ def build_requests(items: list[dict], today: dt.date) -> list[dict]:
             out.append({**base, "event_date": date_iso})
             continue
 
-        # Active items: the pipeline only ever created a calendar entry
-        # alongside an Eventbrite event, so items without one have nothing
-        # on the calendar to re-date.
-        if not (col(item, COL_EVENTBRITE).get("url") or "").strip():
+        # Active items: re-date an existing entry, or add one if missing
+        # (with or without an Eventbrite page).
+        phase = (col(item, COL_PHASE).get("label") or "").strip().lower()
+        if phase in NO_CALENDAR_PHASES:
             continue
         hour = col(item, COL_TIME).get("hour")
         if not date_iso or hour is None or date_iso < today.isoformat():
@@ -169,8 +191,47 @@ def build_requests(items: list[dict], today: dt.date) -> list[dict]:
         start_utc, end_utc = event_times_utc(date_iso, hour,
                                              col(item, COL_TIME).get("minute") or 0)
         out.append({**base, "event_date": date_iso,
-                    "start_utc": start_utc, "end_utc": end_utc})
+                    "start_utc": start_utc, "end_utc": end_utc,
+                    "eventbrite_url": (col(item, COL_EVENTBRITE).get("url") or "").strip()})
     return out
+
+
+def has_any_entry(url: str, item_id: str, name: str, event_date: str) -> bool:
+    """Is there already an entry for this event — tagged with its Monday link,
+    OR a hand-made one with the exact same title on the same day?
+
+    The v3 webhook only applies the title+date fallback when asked to remove,
+    so this asks for a removal with dry_run:true. dry_run never touches the
+    calendar (the webhook skips deleteEvent); it just reports the matches.
+    Read-only by construction, and it needs no Apps Script redeploy."""
+    raw = webhook_post(url, {"token": SHARED_TOKEN, "action": "sync", "item_id": item_id,
+                             "name": name, "status": "postponed",
+                             "event_date": event_date, "dry_run": True})
+    resp = json.loads(raw)
+    if not resp.get("ok") or not resp.get("dry_run"):
+        raise RuntimeError(f"unexpected probe answer: {raw[:200]}")
+    return bool(resp.get("matched"))
+
+
+def create_entry(url: str, item_id: str, name: str, start_utc: str, end_utc: str,
+                 eventbrite_url: str = "") -> str:
+    """Add the event to the calendar (the webhook's original create action)."""
+    raw = webhook_post(url, {"token": SHARED_TOKEN, "action": "create", "name": name,
+                             "start_utc": start_utc, "end_utc": end_utc,
+                             "location": LOCATION,
+                             "description": entry_description(item_id, eventbrite_url)})
+    if raw.strip() != "ok":
+        raise RuntimeError(f"webhook create answered {raw[:200]!r}")
+    return raw
+
+
+def ensure_entry(url: str, item_id: str, name: str, event_date: str, start_utc: str,
+                 end_utc: str, eventbrite_url: str = "") -> bool:
+    """Create the calendar entry unless one already exists. True if created."""
+    if has_any_entry(url, item_id, name, event_date):
+        return False
+    create_entry(url, item_id, name, start_utc, end_utc, eventbrite_url)
+    return True
 
 
 def describe_change(c: dict, dry: bool) -> str:
@@ -209,9 +270,10 @@ def main() -> int:
     mode = "DRY-RUN (nothing will change)" if dry else "LIVE"
     print(f"=== GCal sync — {mode} — {len(payloads)} item(s) to check ===")
 
-    errors = changed = 0
+    errors = changed = added = 0
     for p in payloads:
         label = f"{p['name'] or '(unnamed)'} ({p['item_id']}, {p['status']})"
+        eb_url = p.pop("eventbrite_url", "")
         try:
             raw = webhook_post(url, {**p, "dry_run": dry})
             resp = json.loads(raw)
@@ -232,9 +294,26 @@ def main() -> int:
             print(f"• {label}: {resp['matched']} entry(ies) already correct")
         elif p["status"] != "active":
             print(f"• {label}: no calendar entry found (already clean)")
+        else:
+            # Active, upcoming, and nothing tagged with its Monday link: add it
+            # (unless someone already put it on the calendar by hand).
+            try:
+                if has_any_entry(url, p["item_id"], p["name"], p["event_date"]):
+                    print(f"• {label}: already on the calendar (hand-made entry), left as is")
+                elif dry:
+                    added += 1
+                    print(f"• {label}: would add to the calendar on {p['event_date']}")
+                else:
+                    create_entry(url, p["item_id"], p["name"], p["start_utc"], p["end_utc"], eb_url)
+                    added += 1
+                    print(f"• {label}: added to the calendar on {p['event_date']}")
+            except (OSError, json.JSONDecodeError, RuntimeError) as e:
+                errors += 1
+                print(f"• ERROR adding {label}: {type(e).__name__}: {e}")
 
     verb = "would be changed" if dry else "changed"
-    print(f"\n{changed} calendar entry(ies) {verb}; {errors} error(s).")
+    print(f"\n{changed} calendar entry(ies) {verb}; "
+          f"{added} {'would be added' if dry else 'added'}; {errors} error(s).")
     return 1 if errors else 0
 
 
