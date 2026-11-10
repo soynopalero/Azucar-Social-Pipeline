@@ -70,7 +70,8 @@ jobs:
 
       # Cleanup pass for the shared Azucar Events Google Calendar: deletes the
       # entry when a Monday item goes Cancelled/Postponed, re-dates it when the
-      # event's date/time moves. LIVE since 2026-08-06. Requires the v3
+      # event's date/time moves, and (since 2026-11-10) adds upcoming events
+      # that aren't on the calendar yet. LIVE since 2026-08-06. Requires the v3
       # code/gcal_webhook.gs deployment; against anything older the script
       # refuses to send.
       #

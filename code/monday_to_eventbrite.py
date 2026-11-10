@@ -488,18 +488,18 @@ def notify_gcal(created: list) -> None:
     url = os.environ.get("GCAL_WEBHOOK_URL", "").strip()
     if not url or not created:
         return
+    import gcal_sync  # same folder; stdlib-only
     for name, eb_url, monday_url, start_utc, end_utc in created:
+        item_id = monday_url.rstrip("/").rsplit("/", 1)[-1]
+        event_date = dt.datetime.fromisoformat(start_utc.replace("Z", "+00:00")) \
+            .astimezone(ZoneInfo("America/Los_Angeles")).date().isoformat()
         try:
-            r = requests.post(url, timeout=30, json={
-                "token": "azucar-gcal-2026",
-                "name": name,
-                "start_utc": start_utc,
-                "end_utc": end_utc,
-                "location": "Azúcar at Out & About — 327 W Lewis St, Pasco, WA 99301",
-                "description": f"🎟️ {eb_url}\n📋 {monday_url}",
-            })
-            print(f"  Google Calendar: {name} -> {r.status_code} {r.text[:60]}")
-        except requests.RequestException as e:
+            # Since 2026-11-10 gcal_sync.py also adds events with no Eventbrite
+            # page, so the event may already be on the calendar: don't add a twin.
+            made = gcal_sync.ensure_entry(url, item_id, name, event_date,
+                                          start_utc, end_utc, eb_url)
+            print(f"  Google Calendar: {name} -> {'added' if made else 'already on the calendar'}")
+        except Exception as e:  # the calendar is a convenience; never fail the run
             print(f"  Google Calendar notify failed for {name}: {e}")
 
 

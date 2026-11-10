@@ -68,6 +68,23 @@ jobs:
           GCAL_WEBHOOK_URL: ${{ secrets.GCAL_WEBHOOK_URL }}
         run: python code/monday_to_eventbrite.py --all-pending
 
+      # Every upcoming event goes on the Azucar Events Google Calendar, with or
+      # without an Eventbrite page. Until 2026-11-06 every event got an
+      # Eventbrite page and the calendar entry came with it; Eventbrite is now
+      # on request only, so this step adds whatever is missing (and, as in the
+      # daily cadence run, removes cancelled/postponed entries and re-dates
+      # moved ones). Runs right after the bot publishes and every 2 hours.
+      # continue-on-error: the calendar is a convenience — an Apps Script
+      # hiccup must not mark the run red or page anyone.
+      - name: Google Calendar (add missing events, clean up)
+        if: always() && steps.selftest.outcome == 'success'
+        continue-on-error: true
+        env:
+          PYTHONUNBUFFERED: "1"
+          MONDAY_API_KEY: ${{ secrets.MONDAY_API_KEY }}
+          GCAL_WEBHOOK_URL: ${{ secrets.GCAL_WEBHOOK_URL }}
+        run: python code/gcal_sync.py --live
+
       # The script alerts itself when an event fails (specific message, above).
       # This catches everything else: a broken checkout, a failed self-test.
       - name: Alert on failure
