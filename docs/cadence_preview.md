@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-10 13:36 PST - **nothing posted, queue untouched**
+Generated 2026-11-11 14:25 PST - **nothing posted, queue untouched**
 
 Eligible events: **13** - Skipped: **118**
 
@@ -12,37 +12,33 @@ Eligible events: **13** - Skipped: **118**
 | Thu Nov 12, 7:00 PM | evening |
 
 ## Freaketonas - 2026-11-13  (Launch)
-3 posts x 2 platforms = **6** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Tue Nov 10, 7:00 PM | evening |
-| Thu Nov 12, 7:00 PM | evening |
-| Fri Nov 13, 11:00 AM | morning |
-
-## The Sweet Spot - 2026-11-14  (Marquee)
 2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Nov 11, 11:00 AM | morning |
-| Sat Nov 14, 7:00 PM | evening |
+| Thu Nov 12, 7:00 PM | evening |
+| Fri Nov 13, 11:00 AM | morning |
 
-## Teen Heart Throb: An All Kings Drag Show - 2026-11-15  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+## The Sweet Spot - 2026-11-14  (Marquee)
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 10, 7:00 PM | evening |
+| Sat Nov 14, 7:00 PM | evening |
+
+## Teen Heart Throb: An All Kings Drag Show - 2026-11-15  (Marquee)
+2 posts x 2 platforms = **4** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
 | Thu Nov 12, 11:00 AM | morning |
 | Sun Nov 15, 7:00 PM | evening |
 
 ## Bachata class & social dance - 2026-11-19  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Nov 11, 11:00 AM | morning |
 | Sat Nov 14, 7:00 PM | evening |
 | Mon Nov 16, 11:00 AM | morning |
 | Thu Nov 19, 7:00 PM | evening |
@@ -67,33 +63,30 @@ Eligible events: **13** - Skipped: **118**
 | Sat Nov 21, 7:00 PM | evening |
 
 ## Queersgiving - 2026-11-22  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 10, 7:00 PM | evening |
 | Sat Nov 14, 11:00 AM | morning |
 | Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Cartoon Chaos Drag Show - 2026-11-22  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 10, 7:00 PM | evening |
 | Sat Nov 14, 11:00 AM | morning |
 | Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Paint and Sip with Artwithaubrey - 2026-11-22  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 10, 7:00 PM | evening |
 | Sat Nov 14, 11:00 AM | morning |
 | Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
@@ -260,4 +253,4 @@ Eligible events: **13** - Skipped: **118**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 110**
+**Total queue entries that would be created: 96**
