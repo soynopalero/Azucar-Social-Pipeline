@@ -2423,16 +2423,17 @@
       "scheduled_for_utc": "2026-11-12T19:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13467038230_0.jpg",
       "caption": "Whoever had a poster on their wall, a crush on a boy-band member, or a heart that still skips a beat at that one song — this night is for you. 💖 Teen Heart Throb brings an all-Kings lineup to Azucar, hosted by Cherry Pop, with dancing King Slayonce ready to steal the spotlight. No judgment, no pretending you're too cool — this is a room for everybody to show up exactly as the fan they always were. Bring your friends, bring your group chat, bring the energy, and let la pista do the rest. Azucar is for the whole Latinx community to come together, dress the part, and lose it to the music.\n\n🗓️ Sunday, November 15 • Doors 7pm / Show 8pm\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ $10 online / $15 at the door\n🔞 18+\n\n#AzucarPasco #OutAndAbout #TeenHeartThrob #AllKingsDragShow #CherryPop #DragShow #TriCities #Pasco",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-04T20:17:50.054394+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-12T19:35:45.054584+00:00",
+      "result": "Instagram media id: 18131143147852844",
       "campaign": "cadence_teen_heart_throb__an_all_kings_drag_show",
       "monday_event_id": "13467038230",
       "event_date": "2026-11-15",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-12T19:32:00+00:00"
+      "release_at_utc": "2026-11-12T19:32:00+00:00",
+      "permalink": "https://www.instagram.com/p/Dfp0gFElPWO/"
     },
     {
       "id": "20261112_190000_e9563a",
@@ -2440,16 +2441,17 @@
       "scheduled_for_utc": "2026-11-12T19:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13467038230_0.jpg",
       "caption": "Whoever had a poster on their wall, a crush on a boy-band member, or a heart that still skips a beat at that one song — this night is for you. 💖 Teen Heart Throb brings an all-Kings lineup to Azucar, hosted by Cherry Pop, with dancing King Slayonce ready to steal the spotlight. No judgment, no pretending you're too cool — this is a room for everybody to show up exactly as the fan they always were. Bring your friends, bring your group chat, bring the energy, and let la pista do the rest. Azucar is for the whole Latinx community to come together, dress the part, and lose it to the music.\n\n🗓️ Sunday, November 15 • Doors 7pm / Show 8pm\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ $10 online / $15 at the door\n🔞 18+\n\n#AzucarPasco #OutAndAbout #TeenHeartThrob #AllKingsDragShow #CherryPop #DragShow #TriCities #Pasco",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-04T20:17:50.054394+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-12T19:35:30.893599+00:00",
+      "result": "Facebook post id: 1756795563115234",
       "campaign": "cadence_teen_heart_throb__an_all_kings_drag_show",
       "monday_event_id": "13467038230",
       "event_date": "2026-11-15",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-12T19:32:00+00:00"
+      "release_at_utc": "2026-11-12T19:32:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1756795586448565"
     },
     {
       "id": "20261116_030000_5224bc",
