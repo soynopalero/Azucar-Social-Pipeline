@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-11 14:25 PST - **nothing posted, queue untouched**
+Generated 2026-11-12 13:59 PST - **nothing posted, queue untouched**
 
 Eligible events: **13** - Skipped: **118**
 
@@ -27,11 +27,10 @@ Eligible events: **13** - Skipped: **118**
 | Sat Nov 14, 7:00 PM | evening |
 
 ## Teen Heart Throb: An All Kings Drag Show - 2026-11-15  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 12, 11:00 AM | morning |
 | Sun Nov 15, 7:00 PM | evening |
 
 ## Bachata class & social dance - 2026-11-19  (Marquee)
@@ -253,4 +252,4 @@ Eligible events: **13** - Skipped: **118**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 96**
+**Total queue entries that would be created: 94**
