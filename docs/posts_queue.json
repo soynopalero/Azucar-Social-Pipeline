@@ -5079,7 +5079,7 @@
       "event_date": "2026-11-22",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-14T00:34:00+00:00"
+      "release_at_utc": "2026-11-14T01:26:00+00:00"
     },
     {
       "id": "20261113_190000_79c16b",
@@ -5097,7 +5097,7 @@
       "event_date": "2026-11-22",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-14T00:34:00+00:00"
+      "release_at_utc": "2026-11-14T01:26:00+00:00"
     },
     {
       "id": "20261118_190000_d3f54a",
@@ -5640,15 +5640,17 @@
       "scheduled_for_utc": "2026-11-13T23:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/stories/13480650233.jpg",
       "caption": "",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-13T21:45:31.918573+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-13T21:50:52.900598+00:00",
+      "result": "Instagram story id: 18119163653040492",
       "campaign": "story_freaketonas",
       "monday_event_id": "13480650233",
       "event_date": "2026-11-13",
       "slot": "afternoon",
-      "tier": "launch"
+      "tier": "launch",
+      "release_at_utc": "2026-11-13T17:56:00+00:00",
+      "permalink": "https://www.instagram.com/stories/cluboutandabout/4029775076417017192"
     },
     {
       "id": "20261113_230000_00b577",
@@ -5657,15 +5659,16 @@
       "scheduled_for_utc": "2026-11-13T23:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/stories/13480650233.jpg",
       "caption": "",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-13T21:45:31.918573+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-13T21:50:44.600462+00:00",
+      "result": "Facebook story id: 1121016234146427",
       "campaign": "story_freaketonas",
       "monday_event_id": "13480650233",
       "event_date": "2026-11-13",
       "slot": "afternoon",
-      "tier": "launch"
+      "tier": "launch",
+      "release_at_utc": "2026-11-13T17:56:00+00:00"
     },
     {
       "id": "20261114_030000_7397dc",
@@ -5682,7 +5685,8 @@
       "monday_event_id": "13480650233",
       "event_date": "2026-11-13",
       "slot": "evening",
-      "tier": "launch"
+      "tier": "launch",
+      "release_at_utc": "2026-11-13T21:36:00+00:00"
     },
     {
       "id": "20261114_030000_409c77",
@@ -5699,7 +5703,8 @@
       "monday_event_id": "13480650233",
       "event_date": "2026-11-13",
       "slot": "evening",
-      "tier": "launch"
+      "tier": "launch",
+      "release_at_utc": "2026-11-13T21:36:00+00:00"
     }
   ]
 }
