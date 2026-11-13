@@ -1,23 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-12 13:59 PST - **nothing posted, queue untouched**
+Generated 2026-11-13 13:45 PST - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **118**
-
-## Gay’s N Gameboards - 2026-11-12  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Nov 12, 7:00 PM | evening |
+Eligible events: **12** - Skipped: **119**
 
 ## Freaketonas - 2026-11-13  (Launch)
-2 posts x 2 platforms = **4** queue entries
+0 posts x 2 platforms = **0** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 12, 7:00 PM | evening |
-| Fri Nov 13, 11:00 AM | morning |
 
 ## The Sweet Spot - 2026-11-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -52,11 +43,10 @@ Eligible events: **13** - Skipped: **118**
 | Fri Nov 20, 11:00 AM | morning |
 
 ## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Nov 13, 11:00 AM | morning |
 | Mon Nov 16, 7:00 PM | evening |
 | Wed Nov 18, 11:00 AM | morning |
 | Sat Nov 21, 7:00 PM | evening |
@@ -104,11 +94,10 @@ Eligible events: **13** - Skipped: **118**
 | Thu Dec 3, 7:00 PM | evening |
 
 ## Build Your Own Carabiner Night - 2026-12-06  (Marquee)
-7 posts x 2 platforms = **14** queue entries
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 12, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Tue Nov 24, 7:00 PM | evening |
 | Sat Nov 28, 11:00 AM | morning |
@@ -117,11 +106,10 @@ Eligible events: **13** - Skipped: **118**
 | Sun Dec 6, 7:00 PM | evening |
 
 ## Sip and Paint with ArtwithAubrey - 2026-12-06  (Marquee)
-7 posts x 2 platforms = **14** queue entries
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 12, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Tue Nov 24, 7:00 PM | evening |
 | Sat Nov 28, 11:00 AM | morning |
@@ -178,6 +166,7 @@ Eligible events: **13** - Skipped: **118**
 - **Freaketonas** - date in the past
 - **Frivola — June** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Furanium Fever** - date in the past
+- **Gay’s N Gameboards** - date in the past
 - **Heels Dance Class with Frankie** - date in the past
 - **Heels Dance Class with Kimora** - date in the past
 - **Heels dance class with Frankie** - date in the past, tier 'every week' — covered by the weekly round-up
@@ -252,4 +241,4 @@ Eligible events: **13** - Skipped: **118**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 94**
+**Total queue entries that would be created: 82**
