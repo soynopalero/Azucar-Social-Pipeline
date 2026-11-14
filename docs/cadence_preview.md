@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-13 18:39 PST - **nothing posted, queue untouched**
+Generated 2026-11-13 18:41 PST - **nothing posted, queue untouched**
 
-Eligible events: **13** - Skipped: **119**
+Eligible events: **14** - Skipped: **119**
 
 ## Freaketonas - 2026-11-13  (Launch)
 0 posts x 2 platforms = **0** queue entries
@@ -52,6 +52,15 @@ Eligible events: **13** - Skipped: **119**
 | Fri Nov 20, 7:00 PM | evening |
 
 ## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
+3 posts x 2 platforms = **6** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Nov 16, 7:00 PM | evening |
+| Wed Nov 18, 11:00 AM | morning |
+| Sat Nov 21, 7:00 PM | evening |
+
+## Rope Jam - 2026-11-21  (Marquee)
 3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
@@ -250,4 +259,4 @@ Eligible events: **13** - Skipped: **119**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 88**
+**Total queue entries that would be created: 94**
