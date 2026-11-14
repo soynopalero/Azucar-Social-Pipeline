@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-14 12:17 PST - **nothing posted, queue untouched**
+Generated 2026-11-14 13:13 PST - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **120**
+Eligible events: **15** - Skipped: **120**
 
 ## The Sweet Spot - 2026-11-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -111,6 +111,18 @@ Eligible events: **14** - Skipped: **120**
 | Sat Nov 28, 7:00 PM | evening |
 | Mon Nov 30, 11:00 AM | morning |
 | Thu Dec 3, 7:00 PM | evening |
+
+## Drag Me To Christmas - 2026-12-05  (Marquee)
+6 posts x 2 platforms = **12** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Wed Nov 18, 11:00 AM | morning |
+| Mon Nov 23, 7:00 PM | evening |
+| Fri Nov 27, 11:00 AM | morning |
+| Mon Nov 30, 7:00 PM | evening |
+| Wed Dec 2, 11:00 AM | morning |
+| Sat Dec 5, 7:00 PM | evening |
 
 ## Build Your Own Carabiner Night - 2026-12-06  (Marquee)
 6 posts x 2 platforms = **12** queue entries
@@ -261,4 +273,4 @@ Eligible events: **14** - Skipped: **120**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 96**
+**Total queue entries that would be created: 108**
