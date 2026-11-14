@@ -1,14 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-13 18:44 PST - **nothing posted, queue untouched**
+Generated 2026-11-14 12:17 PST - **nothing posted, queue untouched**
 
-Eligible events: **15** - Skipped: **119**
-
-## Freaketonas - 2026-11-13  (Launch)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
+Eligible events: **14** - Skipped: **120**
 
 ## The Sweet Spot - 2026-11-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -70,41 +64,37 @@ Eligible events: **15** - Skipped: **119**
 | Sat Nov 21, 7:00 PM | evening |
 
 ## Queersgiving - 2026-11-22  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Nov 14, 11:00 AM | morning |
 | Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Cartoon Chaos Drag Show - 2026-11-22  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Nov 14, 11:00 AM | morning |
 | Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Paint and Sip with Artwithaubrey - 2026-11-22  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Nov 14, 11:00 AM | morning |
 | Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Drag Queen Kareoke - 2026-11-25  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Nov 13, 7:00 PM | evening |
 | Tue Nov 17, 11:00 AM | morning |
 | Fri Nov 20, 7:00 PM | evening |
 | Sun Nov 22, 11:00 AM | morning |
@@ -170,13 +160,13 @@ Eligible events: **15** - Skipped: **119**
 - **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - phase = Cancelled, cadence = Off
-- **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - date in the past, tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
+- **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
 - **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Dolly Parton; A drag Tribute Night** - date in the past
@@ -192,6 +182,7 @@ Eligible events: **15** - Skipped: **119**
 - **Emo-Night Drag Show Edition** - date in the past
 - **End of Summer Blackout Party** - date in the past
 - **Faetalitys birthday show** - date in the past
+- **Freaketonas** - date in the past
 - **Freaketonas** - date in the past
 - **Frivola — June** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Furanium Fever** - date in the past
@@ -270,4 +261,4 @@ Eligible events: **15** - Skipped: **119**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 104**
+**Total queue entries that would be created: 96**
