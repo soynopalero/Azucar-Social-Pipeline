@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-13 18:43 PST - **nothing posted, queue untouched**
+Generated 2026-11-13 18:44 PST - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **119**
+Eligible events: **15** - Skipped: **119**
 
 ## Freaketonas - 2026-11-13  (Launch)
 0 posts x 2 platforms = **0** queue entries
@@ -98,6 +98,17 @@ Eligible events: **14** - Skipped: **119**
 | Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
+
+## Drag Queen Kareoke - 2026-11-25  (Marquee)
+5 posts x 2 platforms = **10** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Nov 13, 7:00 PM | evening |
+| Tue Nov 17, 11:00 AM | morning |
+| Fri Nov 20, 7:00 PM | evening |
+| Sun Nov 22, 11:00 AM | morning |
+| Wed Nov 25, 7:00 PM | evening |
 
 ## My Little Drag Show - 2026-12-03  (Marquee)
 6 posts x 2 platforms = **12** queue entries
@@ -259,4 +270,4 @@ Eligible events: **14** - Skipped: **119**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 94**
+**Total queue entries that would be created: 104**
