@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-14 13:17 PST - **nothing posted, queue untouched**
+Generated 2026-11-14 13:35 PST - **nothing posted, queue untouched**
 
-Eligible events: **15** - Skipped: **120**
+Eligible events: **16** - Skipped: **120**
 
 ## The Sweet Spot - 2026-11-14  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -148,6 +148,16 @@ Eligible events: **15** - Skipped: **120**
 | Thu Dec 3, 11:00 AM | morning |
 | Sun Dec 6, 7:00 PM | evening |
 
+## Lesbians Playing Uno - 2026-12-13  (One-time)
+4 posts x 2 platforms = **8** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Thu Nov 19, 7:00 PM | evening |
+| Thu Dec 3, 11:00 AM | morning |
+| Thu Dec 10, 7:00 PM | evening |
+| Sun Dec 13, 7:00 PM | evening |
+
 ---
 
 ### Skipped (not eligible yet)
@@ -273,4 +283,4 @@ Eligible events: **15** - Skipped: **120**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 108**
+**Total queue entries that would be created: 116**
