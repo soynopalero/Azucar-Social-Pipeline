@@ -6716,7 +6716,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-26T21:13:00+00:00"
     },
     {
       "id": "20261126_190000_a00f0b",
@@ -6732,7 +6733,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-26T21:13:00+00:00"
     },
     {
       "id": "20261130_030000_1067f7",
@@ -6748,7 +6750,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "evening",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-30T04:23:00+00:00"
     },
     {
       "id": "20261130_030000_6e4b31",
@@ -6764,7 +6767,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "evening",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-30T04:23:00+00:00"
     },
     {
       "id": "20261201_190000_f5501b",
@@ -6780,7 +6784,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-12-01T20:55:00+00:00"
     },
     {
       "id": "20261201_190000_7dc946",
@@ -6796,7 +6801,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-12-01T20:55:00+00:00"
     },
     {
       "id": "20261205_030000_76f1bb",
@@ -6812,7 +6818,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "evening",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-12-05T04:28:00+00:00"
     },
     {
       "id": "20261205_030000_a537d9",
@@ -6828,7 +6835,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "evening",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-12-05T04:28:00+00:00"
     },
     {
       "id": "20261115_190000_c9fdf8",
@@ -6845,7 +6853,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-15T16:42:00+00:00"
     },
     {
       "id": "20261115_190000_cb2d6b",
@@ -6862,7 +6871,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-15T16:42:00+00:00"
     },
     {
       "id": "20261119_190000_4fb27b",
@@ -6879,7 +6889,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-19T21:49:00+00:00"
     },
     {
       "id": "20261119_190000_42be26",
@@ -6896,7 +6907,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-19T21:49:00+00:00"
     },
     {
       "id": "20261123_190000_6ab816",
@@ -6913,7 +6925,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-23T21:56:00+00:00"
     },
     {
       "id": "20261123_190000_b7a34a",
@@ -6930,7 +6943,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-23T21:56:00+00:00"
     },
     {
       "id": "20261125_190000_433e23",
@@ -6947,7 +6961,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-25T19:24:00+00:00"
     },
     {
       "id": "20261125_190000_0d44c1",
@@ -6964,7 +6979,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-25T19:24:00+00:00"
     },
     {
       "id": "20261130_190000_edd70a",
@@ -6981,7 +6997,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-30T19:50:00+00:00"
     },
     {
       "id": "20261130_190000_d18af5",
@@ -6998,7 +7015,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-11-30T19:50:00+00:00"
     },
     {
       "id": "20261202_190000_97aebb",
@@ -7015,7 +7033,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-12-02T16:29:00+00:00"
     },
     {
       "id": "20261202_190000_7c42ef",
@@ -7032,7 +7051,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-12-02T16:29:00+00:00"
     },
     {
       "id": "20261203_190000_b3303a",
@@ -7049,7 +7069,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-12-04T02:53:00+00:00"
     },
     {
       "id": "20261203_190000_ee6406",
@@ -7066,7 +7087,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-12-04T02:53:00+00:00"
     },
     {
       "id": "20261204_190000_926e4a",
@@ -7083,7 +7105,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-12-05T03:20:00+00:00"
     },
     {
       "id": "20261204_190000_0323ef",
@@ -7100,7 +7123,8 @@
       "monday_event_id": "13552542261",
       "event_date": "2026-12-04",
       "slot": "morning",
-      "tier": "marquee"
+      "tier": "marquee",
+      "release_at_utc": "2026-12-05T03:20:00+00:00"
     }
   ]
 }
