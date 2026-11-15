@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-14 21:50 PST - **nothing posted, queue untouched**
+Generated 2026-11-14 21:53 PST - **nothing posted, queue untouched**
 
-Eligible events: **17** - Skipped: **120**
+Eligible events: **18** - Skipped: **120**
 
 ## The Sweet Spot - 2026-11-14  (Marquee)
 0 posts x 2 platforms = **0** queue entries
@@ -120,6 +120,18 @@ Eligible events: **17** - Skipped: **120**
 | Sat Nov 28, 7:00 PM | evening |
 | Mon Nov 30, 11:00 AM | morning |
 | Thu Dec 3, 7:00 PM | evening |
+
+## Speed Friending With Rosie and Michael - 2026-12-04  (Marquee)
+6 posts x 2 platforms = **12** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Nov 17, 11:00 AM | morning |
+| Sun Nov 22, 7:00 PM | evening |
+| Thu Nov 26, 11:00 AM | morning |
+| Sun Nov 29, 7:00 PM | evening |
+| Tue Dec 1, 11:00 AM | morning |
+| Fri Dec 4, 7:00 PM | evening |
 
 ## Drag Me To Christmas - 2026-12-05  (Marquee)
 6 posts x 2 platforms = **12** queue entries
@@ -292,4 +304,4 @@ Eligible events: **17** - Skipped: **120**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 122**
+**Total queue entries that would be created: 134**
