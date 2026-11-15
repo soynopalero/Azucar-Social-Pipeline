@@ -1,14 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-14 21:55 PST - **nothing posted, queue untouched**
+Generated 2026-11-15 12:42 PST - **nothing posted, queue untouched**
 
-Eligible events: **18** - Skipped: **120**
-
-## The Sweet Spot - 2026-11-14  (Marquee)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
+Eligible events: **17** - Skipped: **121**
 
 ## Teen Heart Throb: An All Kings Drag Show - 2026-11-15  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -292,6 +286,7 @@ Eligible events: **18** - Skipped: **120**
 - **Testing out the name** - date in the past, tier 'every week' — covered by the weekly round-up, no flyer
 - **Tha Cookout** - date in the past, phase = Cancelled, no cadence set, no flyer, no price, no description
 - **The Bikini Bottoms** - date in the past
+- **The Sweet Spot** - date in the past
 - **Tricities After Party — Rohla** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Tricities Pride Beer Garden (off-site)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **VIDA AMORE DIVAS SHOW: LA MAS DRAGA** - date in the past
