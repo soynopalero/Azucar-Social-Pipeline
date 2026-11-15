@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-14 21:37 PST - **nothing posted, queue untouched**
+Generated 2026-11-14 21:50 PST - **nothing posted, queue untouched**
 
-Eligible events: **16** - Skipped: **120**
+Eligible events: **17** - Skipped: **120**
 
 ## The Sweet Spot - 2026-11-14  (Marquee)
 0 posts x 2 platforms = **0** queue entries
@@ -97,6 +97,17 @@ Eligible events: **16** - Skipped: **120**
 | Fri Nov 20, 7:00 PM | evening |
 | Sun Nov 22, 11:00 AM | morning |
 | Wed Nov 25, 7:00 PM | evening |
+
+## Reggaeton 2000’s - 2026-11-27  (Marquee)
+5 posts x 2 platforms = **10** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sun Nov 15, 7:00 PM | evening |
+| Thu Nov 19, 11:00 AM | morning |
+| Sun Nov 22, 7:00 PM | evening |
+| Tue Nov 24, 11:00 AM | morning |
+| Fri Nov 27, 7:00 PM | evening |
 
 ## My Little Drag Show - 2026-12-03  (Marquee)
 6 posts x 2 platforms = **12** queue entries
@@ -281,4 +292,4 @@ Eligible events: **16** - Skipped: **120**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 112**
+**Total queue entries that would be created: 122**
