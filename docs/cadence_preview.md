@@ -1,22 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-15 12:42 PST - **nothing posted, queue untouched**
+Generated 2026-11-16 15:56 PST - **nothing posted, queue untouched**
 
-Eligible events: **17** - Skipped: **121**
+Eligible events: **16** - Skipped: **122**
 
-## Teen Heart Throb: An All Kings Drag Show - 2026-11-15  (Marquee)
+## Bachata class & social dance - 2026-11-19  (Marquee)
 1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Nov 15, 7:00 PM | evening |
-
-## Bachata class & social dance - 2026-11-19  (Marquee)
-2 posts x 2 platforms = **4** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Mon Nov 16, 11:00 AM | morning |
 | Thu Nov 19, 7:00 PM | evening |
 
 ## Freaketonas - 2026-11-20  (Launch)
@@ -29,11 +21,10 @@ Eligible events: **17** - Skipped: **121**
 | Fri Nov 20, 11:00 AM | morning |
 
 ## Stuff Your Bass - 2026-11-20  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Nov 15, 7:00 PM | evening |
 | Tue Nov 17, 11:00 AM | morning |
 | Fri Nov 20, 7:00 PM | evening |
 
@@ -93,22 +84,20 @@ Eligible events: **17** - Skipped: **121**
 | Wed Nov 25, 7:00 PM | evening |
 
 ## Reggaeton 2000’s - 2026-11-27  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Nov 15, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 | Tue Nov 24, 11:00 AM | morning |
 | Fri Nov 27, 7:00 PM | evening |
 
 ## My Little Drag Show - 2026-12-03  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Nov 16, 11:00 AM | morning |
 | Sat Nov 21, 7:00 PM | evening |
 | Wed Nov 25, 11:00 AM | morning |
 | Sat Nov 28, 7:00 PM | evening |
@@ -282,6 +271,7 @@ Eligible events: **17** - Skipped: **121**
 - **Speed Friending** - date in the past
 - **Speed friending** - date in the past
 - **Spring into frienship; Diamond Art night** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
+- **Teen Heart Throb: An All Kings Drag Show** - date in the past
 - **Testing for your life** - date in the past, phase = Cancelled, tier 'every week' — covered by the weekly round-up
 - **Testing out the name** - date in the past, tier 'every week' — covered by the weekly round-up, no flyer
 - **Tha Cookout** - date in the past, phase = Cancelled, no cadence set, no flyer, no price, no description
@@ -299,4 +289,4 @@ Eligible events: **17** - Skipped: **121**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 134**
+**Total queue entries that would be created: 124**
