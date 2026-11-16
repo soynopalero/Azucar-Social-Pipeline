@@ -1745,16 +1745,17 @@
       "scheduled_for_utc": "2026-11-16T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13467038230_0.jpg",
       "caption": "Here's the rundown so you don't miss it. 🗒️ Teen Heart Throb: An All Kings Drag Show hits Azucar this Sunday, hosted by Cherry Pop, featuring dancing King Slayonce bringing performances you'll never forget. Doors open at 7pm, the show kicks off at 8pm, and tickets are $10 online or $15 at the door — grab yours ahead of time and skip the line. This one's 18+, so bring your ID, round up your crew, and get to Azucar early to claim your spot before la pista fills up.\n\n🗓️ Sunday, November 15 • Doors 7pm / Show 8pm\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ $10 online / $15 at the door\n🔞 18+\n\n#AzucarPasco #OutAndAbout #TeenHeartThrob #AllKingsDragShow #CherryPop #Slayonce #DragShow #TriCities",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-04T20:17:50.054394+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-16T03:11:07.257232+00:00",
+      "result": "Instagram media id: 17914906107474622",
       "campaign": "cadence_teen_heart_throb__an_all_kings_drag_show",
       "monday_event_id": "13467038230",
       "event_date": "2026-11-15",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-16T03:06:00+00:00"
+      "release_at_utc": "2026-11-16T03:06:00+00:00",
+      "permalink": "https://www.instagram.com/p/DfyXAAZDNQJ/"
     },
     {
       "id": "20261116_030000_ab06c0",
@@ -1762,16 +1763,17 @@
       "scheduled_for_utc": "2026-11-16T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13467038230_0.jpg",
       "caption": "Here's the rundown so you don't miss it. 🗒️ Teen Heart Throb: An All Kings Drag Show hits Azucar this Sunday, hosted by Cherry Pop, featuring dancing King Slayonce bringing performances you'll never forget. Doors open at 7pm, the show kicks off at 8pm, and tickets are $10 online or $15 at the door — grab yours ahead of time and skip the line. This one's 18+, so bring your ID, round up your crew, and get to Azucar early to claim your spot before la pista fills up.\n\n🗓️ Sunday, November 15 • Doors 7pm / Show 8pm\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ $10 online / $15 at the door\n🔞 18+\n\n#AzucarPasco #OutAndAbout #TeenHeartThrob #AllKingsDragShow #CherryPop #Slayonce #DragShow #TriCities",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-04T20:17:50.054394+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-16T03:11:11.007154+00:00",
+      "result": "Facebook post id: 1761113876016736",
       "campaign": "cadence_teen_heart_throb__an_all_kings_drag_show",
       "monday_event_id": "13467038230",
       "event_date": "2026-11-15",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-16T03:06:00+00:00"
+      "release_at_utc": "2026-11-16T03:06:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1761113896016734"
     },
     {
       "id": "20261106_190000_adc1d5",
