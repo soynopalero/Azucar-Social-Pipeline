@@ -4509,16 +4509,17 @@
       "scheduled_for_utc": "2026-11-16T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13549687886_0.jpg",
       "caption": "Cabana Bass is back and this time they're not holding ANYTHING back 🔊🐟 Stuff Your Bass takes over the Ranchero Room and turns your favorite hits into full-on, face-first bass chaos. No brakes, no breathing room, just pure EDM takeover energy from the second the first drop hits. This is the one your group chat's been waiting for — the flyer alone should tell you everything you need to know. Mark Nov 20, clear your schedule, and get ready to feel every single beat in your chest 🎛️💥\n\n📅 Friday, November 20, 2026\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $15 at the door\n🔞 18+\n#AzucarPasco #OutAndAbout #StuffYourBass #CabanaBass #EDM #BassDrop #PascoWA #TriCities",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-14T02:39:22.350550+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-16T04:45:59.003056+00:00",
+      "result": "Instagram media id: 17966958240229431",
       "campaign": "cadence_stuff_your_bass",
       "monday_event_id": "13549687886",
       "event_date": "2026-11-20",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-16T04:42:00+00:00"
+      "release_at_utc": "2026-11-16T04:42:00+00:00",
+      "permalink": "https://www.instagram.com/p/Dfyh3Yij1cY/"
     },
     {
       "id": "20261116_030000_cd4b87",
@@ -4526,16 +4527,17 @@
       "scheduled_for_utc": "2026-11-16T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13549687886_0.jpg",
       "caption": "Cabana Bass is back and this time they're not holding ANYTHING back 🔊🐟 Stuff Your Bass takes over the Ranchero Room and turns your favorite hits into full-on, face-first bass chaos. No brakes, no breathing room, just pure EDM takeover energy from the second the first drop hits. This is the one your group chat's been waiting for — the flyer alone should tell you everything you need to know. Mark Nov 20, clear your schedule, and get ready to feel every single beat in your chest 🎛️💥\n\n📅 Friday, November 20, 2026\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $15 at the door\n🔞 18+\n#AzucarPasco #OutAndAbout #StuffYourBass #CabanaBass #EDM #BassDrop #PascoWA #TriCities",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-14T02:39:22.350550+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-16T04:46:03.138357+00:00",
+      "result": "Facebook post id: 1761208626007261",
       "campaign": "cadence_stuff_your_bass",
       "monday_event_id": "13549687886",
       "event_date": "2026-11-20",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-16T04:42:00+00:00"
+      "release_at_utc": "2026-11-16T04:42:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1761208646007259"
     },
     {
       "id": "20261117_190000_fc1302",
