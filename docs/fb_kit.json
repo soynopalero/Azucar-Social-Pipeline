@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T20:45:03",
+ "generated_at": "2026-11-17T19:13:12",
  "events": [
   {
    "item_id": "13495599426",
@@ -14,6 +14,20 @@
    "eventbrite_url": "https://artwithaubrey.com/event/christmas-baubles-ages-21/?fbclid=IwVERDUAVb195leHRuA2FlbQIxMABwZG9mBWZkaWQWURxUFbqINRnCyFwUfzG7r4Xd0Vxrv3NydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR_HowAOf6IJ0CxcvK_VYf25wrmZYO6Xh4P8GY6HZdy91zVZFr9v7G8n1EwgbQ_aem_Gexu0xFEKZvI0zkvs5L12w",
    "flyer": "media/fb-kit/13495599426_cover.jpg",
    "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13495599426"
+  },
+  {
+   "item_id": "13573473287",
+   "name": "Magic Hunks",
+   "date_iso": "2027-02-19",
+   "date_display": "Feb 19, 2027",
+   "start_time": "9:00 PM",
+   "end_date_display": "Feb 20, 2027",
+   "end_time": "1:00 AM",
+   "location": "327 W Lewis St, Pasco, WA 99301",
+   "description": "Las Vegas' world-famous stage show lands en Pasco, y trust us — the Ranchero Room was built for this kind of fuego. Magic Hunk Jacob headlines a night of world-class choreography, heart-pounding música, and crowd interaction that pulls you straight into the action — no spectators here, mamas, solo participants. Bring the birthday girl, the bachelorette crew, the recently-divorced-and-thriving squad, or just the girls who need a Friday to let loose.\n\nDoors open 8:30PM, showtime hits 9PM sharp — get there con tiempo, because front-row seats and VIP tables desaparecen rápido. VIP admission gets you reserved seating up close y personal, plus a post-show Meet & Greet photo session with the cast — because some memories need proof.\n\nExpect copas flowing, energy altísima, and a room full of mujeres ready to scream, dance, and blush a little. This is The Best Girls Night Ever, Azúcar-style — sensual, wild, unforgettable.\n\n21+ con ID válida. Tag tu crew, lock your tickets, y nos vemos en el Ranchero Room.\n\n🗓️ Viernes 19 de febrero — Show 9:00 PM\n📍 Azúcar at Out & About — 327 W Lewis St, Pasco WA\n🔞 21+ · Cover $20-$60\n\n🎟️ Tickets: https://avenueticket.com/event/pasco",
+   "eventbrite_url": "https://avenueticket.com/event/pasco",
+   "flyer": "media/fb-kit/13573473287_cover.jpg",
+   "monday_url": "https://nopaleros-org.monday.com/boards/18414182966/pulses/13573473287"
   }
  ]
 }
