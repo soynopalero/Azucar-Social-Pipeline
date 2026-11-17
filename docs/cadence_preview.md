@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-17 12:34 PST - **nothing posted, queue untouched**
+Generated 2026-11-17 12:37 PST - **nothing posted, queue untouched**
 
-Eligible events: **18** - Skipped: **122**
+Eligible events: **19** - Skipped: **122**
 
 ## Bachata class & social dance - 2026-11-19  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -170,6 +170,19 @@ Eligible events: **18** - Skipped: **122**
 | Thu Dec 10, 7:00 PM | evening |
 | Sun Dec 13, 7:00 PM | evening |
 
+## Sex Ed Loteria Con Las Reinas - 2026-12-17  (Marquee)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Mon Nov 23, 7:00 PM | evening |
+| Mon Nov 30, 11:00 AM | morning |
+| Sat Dec 5, 7:00 PM | evening |
+| Wed Dec 9, 11:00 AM | morning |
+| Sat Dec 12, 7:00 PM | evening |
+| Mon Dec 14, 11:00 AM | morning |
+| Thu Dec 17, 7:00 PM | evening |
+
 ## Magic Hunks - 2027-02-19  (Marquee)
 7 posts x 2 platforms = **14** queue entries
 
@@ -310,4 +323,4 @@ Eligible events: **18** - Skipped: **122**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 142**
+**Total queue entries that would be created: 156**
