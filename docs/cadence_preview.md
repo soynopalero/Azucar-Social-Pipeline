@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-17 11:19 PST - **nothing posted, queue untouched**
+Generated 2026-11-17 11:24 PST - **nothing posted, queue untouched**
 
-Eligible events: **17** - Skipped: **122**
+Eligible events: **18** - Skipped: **122**
 
 ## Bachata class & social dance - 2026-11-19  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -146,6 +146,19 @@ Eligible events: **17** - Skipped: **122**
 | Tue Dec 1, 7:00 PM | evening |
 | Thu Dec 3, 11:00 AM | morning |
 | Sun Dec 6, 7:00 PM | evening |
+
+## The Brick Who Stole Christmas: Drag Show - 2026-12-11  (Marquee)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Nov 17, 7:00 PM | evening |
+| Tue Nov 24, 11:00 AM | morning |
+| Sun Nov 29, 7:00 PM | evening |
+| Thu Dec 3, 11:00 AM | morning |
+| Sun Dec 6, 7:00 PM | evening |
+| Tue Dec 8, 11:00 AM | morning |
+| Fri Dec 11, 7:00 PM | evening |
 
 ## Lesbians Playing Uno - 2026-12-13  (One-time)
 4 posts x 2 platforms = **8** queue entries
@@ -297,4 +310,4 @@ Eligible events: **17** - Skipped: **122**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 128**
+**Total queue entries that would be created: 142**
