@@ -1,8 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-16 15:56 PST - **nothing posted, queue untouched**
+Generated 2026-11-17 11:13 PST - **nothing posted, queue untouched**
 
-Eligible events: **16** - Skipped: **122**
+Eligible events: **17** - Skipped: **122**
 
 ## Bachata class & social dance - 2026-11-19  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -21,28 +21,25 @@ Eligible events: **16** - Skipped: **122**
 | Fri Nov 20, 11:00 AM | morning |
 
 ## Stuff Your Bass - 2026-11-20  (Marquee)
+1 posts x 2 platforms = **2** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Fri Nov 20, 7:00 PM | evening |
+
+## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
 2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 17, 11:00 AM | morning |
-| Fri Nov 20, 7:00 PM | evening |
-
-## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
-3 posts x 2 platforms = **6** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Mon Nov 16, 7:00 PM | evening |
 | Wed Nov 18, 11:00 AM | morning |
 | Sat Nov 21, 7:00 PM | evening |
 
 ## Rope Jam - 2026-11-21  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Nov 16, 7:00 PM | evening |
 | Wed Nov 18, 11:00 AM | morning |
 | Sat Nov 21, 7:00 PM | evening |
 
@@ -74,11 +71,10 @@ Eligible events: **16** - Skipped: **122**
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Drag Queen Kareoke - 2026-11-25  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 17, 11:00 AM | morning |
 | Fri Nov 20, 7:00 PM | evening |
 | Sun Nov 22, 11:00 AM | morning |
 | Wed Nov 25, 7:00 PM | evening |
@@ -105,11 +101,10 @@ Eligible events: **16** - Skipped: **122**
 | Thu Dec 3, 7:00 PM | evening |
 
 ## Speed Friending With Rosie and Michael - 2026-12-04  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 17, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 | Thu Nov 26, 11:00 AM | morning |
 | Sun Nov 29, 7:00 PM | evening |
@@ -161,6 +156,19 @@ Eligible events: **16** - Skipped: **122**
 | Thu Dec 3, 11:00 AM | morning |
 | Thu Dec 10, 7:00 PM | evening |
 | Sun Dec 13, 7:00 PM | evening |
+
+## Magic Hunks - 2027-02-19  (Marquee)
+7 posts x 2 platforms = **14** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Tue Jan 26, 7:00 PM | evening |
+| Tue Feb 2, 11:00 AM | morning |
+| Sun Feb 7, 7:00 PM | evening |
+| Thu Feb 11, 11:00 AM | morning |
+| Sun Feb 14, 7:00 PM | evening |
+| Tue Feb 16, 11:00 AM | morning |
+| Fri Feb 19, 7:00 PM | evening |
 
 ---
 
@@ -289,4 +297,4 @@ Eligible events: **16** - Skipped: **122**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 124**
+**Total queue entries that would be created: 128**
