@@ -1,0 +1,26 @@
+name: Telegram send (manual)
+
+# Send a one-off message from @AzucarEventsBot to one or more chats.
+# Used when someone can only be reached through this bot (e.g. they haven't opened @AzucarShowBot yet).
+# Run: gh workflow run telegram-send.yml -f chat_ids="8734741621" -f text="..."
+
+on:
+  workflow_dispatch:
+    inputs:
+      chat_ids:
+        description: "Space-separated Telegram chat ids (Pedro 5056319378, Jayme 8734741621)"
+        required: true
+      text:
+        description: "Plain-text message"
+        required: true
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/ops-alert
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          chat_ids: ${{ inputs.chat_ids }}
+          text: ${{ inputs.text }}
