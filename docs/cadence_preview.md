@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-17 15:16 PST - **nothing posted, queue untouched**
+Generated 2026-11-18 14:48 PST - **nothing posted, queue untouched**
 
 Eligible events: **19** - Skipped: **122**
 
@@ -12,11 +12,10 @@ Eligible events: **19** - Skipped: **122**
 | Thu Nov 19, 7:00 PM | evening |
 
 ## Freaketonas - 2026-11-20  (Launch)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 7:00 PM | evening |
 | Fri Nov 20, 11:00 AM | morning |
 
@@ -28,45 +27,40 @@ Eligible events: **19** - Skipped: **122**
 | Fri Nov 20, 7:00 PM | evening |
 
 ## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Nov 18, 11:00 AM | morning |
 | Sat Nov 21, 7:00 PM | evening |
 
 ## Rope Jam - 2026-11-21  (Marquee)
+1 posts x 2 platforms = **2** queue entries
+
+| When (Pacific) | Slot |
+|---|---|
+| Sat Nov 21, 7:00 PM | evening |
+
+## Queersgiving - 2026-11-22  (Marquee)
 2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Nov 18, 11:00 AM | morning |
-| Sat Nov 21, 7:00 PM | evening |
-
-## Queersgiving - 2026-11-22  (Marquee)
-3 posts x 2 platforms = **6** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Cartoon Chaos Drag Show - 2026-11-22  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Paint and Sip with Artwithaubrey - 2026-11-22  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 17, 7:00 PM | evening |
 | Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
@@ -112,11 +106,10 @@ Eligible events: **19** - Skipped: **122**
 | Fri Dec 4, 7:00 PM | evening |
 
 ## Drag Me To Christmas - 2026-12-05  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Nov 18, 11:00 AM | morning |
 | Mon Nov 23, 7:00 PM | evening |
 | Fri Nov 27, 11:00 AM | morning |
 | Mon Nov 30, 7:00 PM | evening |
@@ -148,11 +141,10 @@ Eligible events: **19** - Skipped: **122**
 | Sun Dec 6, 7:00 PM | evening |
 
 ## The Brick Who Stole Christmas: Drag Show - 2026-12-11  (Marquee)
-7 posts x 2 platforms = **14** queue entries
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 17, 7:00 PM | evening |
 | Tue Nov 24, 11:00 AM | morning |
 | Sun Nov 29, 7:00 PM | evening |
 | Thu Dec 3, 11:00 AM | morning |
@@ -323,4 +315,4 @@ Eligible events: **19** - Skipped: **122**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 156**
+**Total queue entries that would be created: 140**
