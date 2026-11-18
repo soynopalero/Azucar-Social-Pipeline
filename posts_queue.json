@@ -2793,16 +2793,17 @@
       "scheduled_for_utc": "2026-11-18T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13495478431_0.jpg",
       "caption": "Come as your favorite character, come as yourself, come however you want — Cartoon Chaos is built for everybody 🫶🎨 This is an all-ages, free night at Azucar made for the Latinx community and anyone who wants in on the joy. Kids, parents, first-timers, regulars who already know the vibe — doesn't matter, there's a seat for you. Our next gen queens are bringing full cartoon energy to the stage, and the room fills up with that same easy warmth every time: strangers cheering together, families laughing, everyone a little starstruck by the color and the confidence up there. No pretending required, just show up and let the afternoon turn into something memorable 💕\n\n🗓️ Sunday, November 22 • Doors 3PM / Show 3:30PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free entry\n🎉 All ages\n#AzucarPasco #OutAndAbout #CartoonChaos #DragShow #LatinxNightlife #PascoWA #TriCities",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-07T09:58:15.934310+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-18T03:26:04.090766+00:00",
+      "result": "Instagram media id: 18141221821725213",
       "campaign": "cadence_cartoon_chaos_drag_show",
       "monday_event_id": "13495478431",
       "event_date": "2026-11-22",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-18T03:25:00+00:00"
+      "release_at_utc": "2026-11-18T03:25:00+00:00",
+      "permalink": "https://www.instagram.com/p/Df3iTnplW1V/"
     },
     {
       "id": "20261118_030000_04c5c4",
@@ -2810,16 +2811,17 @@
       "scheduled_for_utc": "2026-11-18T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13495478431_0.jpg",
       "caption": "Come as your favorite character, come as yourself, come however you want — Cartoon Chaos is built for everybody 🫶🎨 This is an all-ages, free night at Azucar made for the Latinx community and anyone who wants in on the joy. Kids, parents, first-timers, regulars who already know the vibe — doesn't matter, there's a seat for you. Our next gen queens are bringing full cartoon energy to the stage, and the room fills up with that same easy warmth every time: strangers cheering together, families laughing, everyone a little starstruck by the color and the confidence up there. No pretending required, just show up and let the afternoon turn into something memorable 💕\n\n🗓️ Sunday, November 22 • Doors 3PM / Show 3:30PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 Free entry\n🎉 All ages\n#AzucarPasco #OutAndAbout #CartoonChaos #DragShow #LatinxNightlife #PascoWA #TriCities",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-07T09:58:15.934310+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-18T03:25:54.208866+00:00",
+      "result": "Facebook post id: 1763984639062993",
       "campaign": "cadence_cartoon_chaos_drag_show",
       "monday_event_id": "13495478431",
       "event_date": "2026-11-22",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-18T03:25:00+00:00"
+      "release_at_utc": "2026-11-18T03:25:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1763984662396324"
     },
     {
       "id": "20261119_190000_455a71",
