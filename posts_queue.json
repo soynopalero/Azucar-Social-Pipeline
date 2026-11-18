@@ -4772,16 +4772,17 @@
       "scheduled_for_utc": "2026-11-18T19:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13549927287_0.jpg",
       "caption": "Low light. Slow hands. The quiet creak of rope pulling taut. 🪢✨ Rope Jam isn't loud — it's deep. Bobda Rigger guides every knot, every breath, every moment of trust between tier and tied. Feel the focus settle over the room as technique becomes art. This is sensation you can touch, patience you can feel settle in your chest. Come watch, come learn, come let your curiosity lead the way — Azucar sets the scene, Bobda sets the pace. 🔥\n\n📅 Saturday, Nov 21, 2026 — 7:00 PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 Free\n#AzucarPasco #OutAndAbout #RopeJam #ShibariNight #SensoryExperience #PascoWA #LatinxSpace #SlowDownAndFeel",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-14T02:43:02.704905+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-18T19:46:00.504873+00:00",
+      "result": "Instagram media id: 18109139686967650",
       "campaign": "cadence_rope_jam",
       "monday_event_id": "13549927287",
       "event_date": "2026-11-21",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-18T19:43:00+00:00"
+      "release_at_utc": "2026-11-18T19:43:00+00:00",
+      "permalink": "https://www.instagram.com/p/Df5ScpYl_os/"
     },
     {
       "id": "20261118_190000_935fb1",
@@ -4789,16 +4790,17 @@
       "scheduled_for_utc": "2026-11-18T19:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13549927287_0.jpg",
       "caption": "Low light. Slow hands. The quiet creak of rope pulling taut. 🪢✨ Rope Jam isn't loud — it's deep. Bobda Rigger guides every knot, every breath, every moment of trust between tier and tied. Feel the focus settle over the room as technique becomes art. This is sensation you can touch, patience you can feel settle in your chest. Come watch, come learn, come let your curiosity lead the way — Azucar sets the scene, Bobda sets the pace. 🔥\n\n📅 Saturday, Nov 21, 2026 — 7:00 PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 Free\n#AzucarPasco #OutAndAbout #RopeJam #ShibariNight #SensoryExperience #PascoWA #LatinxSpace #SlowDownAndFeel",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-14T02:43:02.704905+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-18T19:46:03.921382+00:00",
+      "result": "Facebook post id: 1764765928984864",
       "campaign": "cadence_rope_jam",
       "monday_event_id": "13549927287",
       "event_date": "2026-11-21",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-18T19:43:00+00:00"
+      "release_at_utc": "2026-11-18T19:43:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1764765955651528"
     },
     {
       "id": "20261122_030000_d74d59",
