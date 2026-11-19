@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-18 14:48 PST - **nothing posted, queue untouched**
+Generated 2026-11-19 14:51 PST - **nothing posted, queue untouched**
 
 Eligible events: **19** - Skipped: **122**
 
@@ -41,27 +41,24 @@ Eligible events: **19** - Skipped: **122**
 | Sat Nov 21, 7:00 PM | evening |
 
 ## Queersgiving - 2026-11-22  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Cartoon Chaos Drag Show - 2026-11-22  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Paint and Sip with Artwithaubrey - 2026-11-22  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Drag Queen Kareoke - 2026-11-25  (Marquee)
@@ -74,11 +71,10 @@ Eligible events: **19** - Skipped: **122**
 | Wed Nov 25, 7:00 PM | evening |
 
 ## Reggaeton 2000’s - 2026-11-27  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 19, 11:00 AM | morning |
 | Sun Nov 22, 7:00 PM | evening |
 | Tue Nov 24, 11:00 AM | morning |
 | Fri Nov 27, 7:00 PM | evening |
@@ -117,11 +113,10 @@ Eligible events: **19** - Skipped: **122**
 | Sat Dec 5, 7:00 PM | evening |
 
 ## Build Your Own Carabiner Night - 2026-12-06  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 19, 11:00 AM | morning |
 | Tue Nov 24, 7:00 PM | evening |
 | Sat Nov 28, 11:00 AM | morning |
 | Tue Dec 1, 7:00 PM | evening |
@@ -129,11 +124,10 @@ Eligible events: **19** - Skipped: **122**
 | Sun Dec 6, 7:00 PM | evening |
 
 ## Sip and Paint with ArtwithAubrey - 2026-12-06  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 19, 11:00 AM | morning |
 | Tue Nov 24, 7:00 PM | evening |
 | Sat Nov 28, 11:00 AM | morning |
 | Tue Dec 1, 7:00 PM | evening |
@@ -315,4 +309,4 @@ Eligible events: **19** - Skipped: **122**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 140**
+**Total queue entries that would be created: 128**
