@@ -4505,7 +4505,7 @@
       "event_date": "2026-11-20",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-21T00:20:00+00:00"
+      "release_at_utc": "2026-11-21T01:12:00+00:00"
     },
     {
       "id": "20261120_190000_630942",
@@ -4523,7 +4523,7 @@
       "event_date": "2026-11-20",
       "slot": "morning",
       "tier": "marquee",
-      "release_at_utc": "2026-11-21T00:20:00+00:00"
+      "release_at_utc": "2026-11-21T01:12:00+00:00"
     },
     {
       "id": "20261118_190000_0486cc",
@@ -7512,7 +7512,8 @@
       "monday_event_id": "13480654044",
       "event_date": "2026-11-20",
       "slot": "afternoon",
-      "tier": "launch"
+      "tier": "launch",
+      "release_at_utc": "2026-11-20T21:32:00+00:00"
     },
     {
       "id": "20261120_230000_a6d025",
@@ -7529,7 +7530,8 @@
       "monday_event_id": "13480654044",
       "event_date": "2026-11-20",
       "slot": "afternoon",
-      "tier": "launch"
+      "tier": "launch",
+      "release_at_utc": "2026-11-20T21:32:00+00:00"
     },
     {
       "id": "20261121_030000_4cdae5",
@@ -7538,15 +7540,17 @@
       "scheduled_for_utc": "2026-11-21T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/stories/13480654044.jpg",
       "caption": "",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-20T22:27:54.166635+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-20T22:31:03.661300+00:00",
+      "result": "Instagram story id: 18179372983454032",
       "campaign": "story_freaketonas",
       "monday_event_id": "13480654044",
       "event_date": "2026-11-20",
       "slot": "evening",
-      "tier": "launch"
+      "tier": "launch",
+      "release_at_utc": "2026-11-20T19:56:00+00:00",
+      "permalink": "https://www.instagram.com/stories/cluboutandabout/4034868690827640370"
     },
     {
       "id": "20261121_030000_9555d0",
@@ -7555,15 +7559,16 @@
       "scheduled_for_utc": "2026-11-21T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/stories/13480654044.jpg",
       "caption": "",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-20T22:27:54.166635+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-20T22:31:09.574593+00:00",
+      "result": "Facebook story id: 1478393210882463",
       "campaign": "story_freaketonas",
       "monday_event_id": "13480654044",
       "event_date": "2026-11-20",
       "slot": "evening",
-      "tier": "launch"
+      "tier": "launch",
+      "release_at_utc": "2026-11-20T19:56:00+00:00"
     }
   ]
 }
