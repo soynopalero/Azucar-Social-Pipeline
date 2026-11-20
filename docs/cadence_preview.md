@@ -1,23 +1,14 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-19 14:51 PST - **nothing posted, queue untouched**
+Generated 2026-11-20 14:27 PST - **nothing posted, queue untouched**
 
-Eligible events: **19** - Skipped: **122**
-
-## Bachata class & social dance - 2026-11-19  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Thu Nov 19, 7:00 PM | evening |
+Eligible events: **18** - Skipped: **123**
 
 ## Freaketonas - 2026-11-20  (Launch)
-2 posts x 2 platforms = **4** queue entries
+0 posts x 2 platforms = **0** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 19, 7:00 PM | evening |
-| Fri Nov 20, 11:00 AM | morning |
 
 ## Stuff Your Bass - 2026-11-20  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -147,11 +138,10 @@ Eligible events: **19** - Skipped: **122**
 | Fri Dec 11, 7:00 PM | evening |
 
 ## Lesbians Playing Uno - 2026-12-13  (One-time)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 19, 7:00 PM | evening |
 | Thu Dec 3, 11:00 AM | morning |
 | Thu Dec 10, 7:00 PM | evening |
 | Sun Dec 13, 7:00 PM | evening |
@@ -195,6 +185,7 @@ Eligible events: **19** - Skipped: **122**
 - **An Open Stage Drag Debut** - date in the past
 - **Aubs Take Over — June** - date in the past, no cadence set, no flyer, no price, no description
 - **Azúcar House Party — DJ Lalique Debut** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
+- **Bachata class & social dance** - date in the past
 - **Beyoncés birthday party drag show** - date in the past
 - **Build you own carabiner** - date in the past
 - **Build your own Carabiner** - date in the past
@@ -309,4 +300,4 @@ Eligible events: **19** - Skipped: **122**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 128**
+**Total queue entries that would be created: 120**
