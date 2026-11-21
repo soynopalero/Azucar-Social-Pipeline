@@ -1,21 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-20 14:27 PST - **nothing posted, queue untouched**
+Generated 2026-11-21 13:23 PST - **nothing posted, queue untouched**
 
-Eligible events: **18** - Skipped: **123**
-
-## Freaketonas - 2026-11-20  (Launch)
-0 posts x 2 platforms = **0** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-
-## Stuff Your Bass - 2026-11-20  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Fri Nov 20, 7:00 PM | evening |
+Eligible events: **16** - Skipped: **125**
 
 ## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -53,11 +40,10 @@ Eligible events: **18** - Skipped: **123**
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Drag Queen Kareoke - 2026-11-25  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Nov 20, 7:00 PM | evening |
 | Sun Nov 22, 11:00 AM | morning |
 | Wed Nov 25, 7:00 PM | evening |
 
@@ -196,13 +182,13 @@ Eligible events: **18** - Skipped: **123**
 - **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - phase = Cancelled, cadence = Off
-- **Candy Shop** - phase = Cancelled, cadence = Off
 - **Candy Shop** - date in the past, tier 'every week' — covered by the weekly round-up
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
 - **Candy Shop** - date in the past
+- **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
 - **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
 - **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
@@ -219,6 +205,7 @@ Eligible events: **18** - Skipped: **123**
 - **Emo-Night Drag Show Edition** - date in the past
 - **End of Summer Blackout Party** - date in the past
 - **Faetalitys birthday show** - date in the past
+- **Freaketonas** - date in the past
 - **Freaketonas** - date in the past
 - **Freaketonas** - date in the past
 - **Frivola — June** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
@@ -282,6 +269,7 @@ Eligible events: **18** - Skipped: **123**
 - **Speed Friending** - date in the past
 - **Speed friending** - date in the past
 - **Spring into frienship; Diamond Art night** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
+- **Stuff Your Bass** - date in the past
 - **Teen Heart Throb: An All Kings Drag Show** - date in the past
 - **Testing for your life** - date in the past, phase = Cancelled, tier 'every week' — covered by the weekly round-up
 - **Testing out the name** - date in the past, tier 'every week' — covered by the weekly round-up, no flyer
@@ -300,4 +288,4 @@ Eligible events: **18** - Skipped: **123**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 120**
+**Total queue entries that would be created: 116**
