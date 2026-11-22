@@ -1,22 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-21 13:23 PST - **nothing posted, queue untouched**
+Generated 2026-11-22 13:26 PST - **nothing posted, queue untouched**
 
-Eligible events: **16** - Skipped: **125**
-
-## Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party) - 2026-11-21  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Nov 21, 7:00 PM | evening |
-
-## Rope Jam - 2026-11-21  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sat Nov 21, 7:00 PM | evening |
+Eligible events: **14** - Skipped: **127**
 
 ## Queersgiving - 2026-11-22  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -40,11 +26,10 @@ Eligible events: **16** - Skipped: **125**
 | Sun Nov 22, 7:00 PM | evening |
 
 ## Drag Queen Kareoke - 2026-11-25  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Nov 22, 11:00 AM | morning |
 | Wed Nov 25, 7:00 PM | evening |
 
 ## Reggaeton 2000’s - 2026-11-27  (Marquee)
@@ -57,11 +42,10 @@ Eligible events: **16** - Skipped: **125**
 | Fri Nov 27, 7:00 PM | evening |
 
 ## My Little Drag Show - 2026-12-03  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sat Nov 21, 7:00 PM | evening |
 | Wed Nov 25, 11:00 AM | morning |
 | Sat Nov 28, 7:00 PM | evening |
 | Mon Nov 30, 11:00 AM | morning |
@@ -257,6 +241,7 @@ Eligible events: **16** - Skipped: **125**
 - **Pumpkin Painting Night** - date in the past
 - **Rocky horror picture drag show** - date in the past
 - **Rop Jams & Kinky Kareoke** - date in the past, no cadence set, no flyer, no price, no description
+- **Rope Jam** - date in the past
 - **Rosie’s Birthday Bash** - date in the past
 - **Royal flush comedy drag show** - date in the past
 - **Rupaul All Stars Finale Viewing Party** - date in the past
@@ -281,6 +266,7 @@ Eligible events: **16** - Skipped: **125**
 - **VIDA AMORE DIVAS SHOW: LA MAS DRAGA** - date in the past
 - **Vida Amore Divas Show Fiesta Patrias** - date in the past
 - **Vida Amore Divas Show: Fiesta Semaforo** - date in the past
+- **Vida Amore Divas Show: Fiesta Semáforo (Stoplight Party)** - date in the past
 - **Vida Amore Practice** - date in the past, no cadence set, no flyer, no price, no description
 - **Vida Amore Show** - date in the past, no cadence set, no flyer, no price, no description
 - **Wednesday Kareoke** - date in the past
@@ -288,4 +274,4 @@ Eligible events: **16** - Skipped: **125**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 116**
+**Total queue entries that would be created: 108**
