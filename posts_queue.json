@@ -620,16 +620,17 @@
       "scheduled_for_utc": "2026-11-22T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13402196158_0.jpg",
       "caption": "Puertas 8:30pm. Show 9:30pm. HOY. 🚦🔥\n\nLa Fiesta Semáforo con Vida Amore y sus Divas es esta noche en Azúcar — el drag show más longevo de Washington, con DJ ShaReal poniendo el beat y las pulseras ya repartiéndose en la puerta. Ponte tu color y entra a la pista.\n\nNo te la pierdas.\n\n🗓️ Hoy, sábado 21 de noviembre • Puertas 8:30pm | Show 9:30pm\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ $20\n🔞 21+\n\n#AzucarPasco #OutAndAbout #VidaAmoreDivas #FiestaSemaforo #EstaNoche #DragShow #TriCities #Pasco",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-10-28T00:37:45.469864+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-22T03:31:12.351799+00:00",
+      "result": "Instagram media id: 18137069483308068",
       "campaign": "cadence_vida_amore_divas_show__fiesta_semáforo__stoplight_party",
       "monday_event_id": "13402196158",
       "event_date": "2026-11-21",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-22T03:26:00+00:00"
+      "release_at_utc": "2026-11-22T03:26:00+00:00",
+      "permalink": "https://www.instagram.com/p/DgB2E9Eko3m/"
     },
     {
       "id": "20261122_030000_3c5a31",
@@ -637,16 +638,17 @@
       "scheduled_for_utc": "2026-11-22T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13402196158_0.jpg",
       "caption": "Puertas 8:30pm. Show 9:30pm. HOY. 🚦🔥\n\nLa Fiesta Semáforo con Vida Amore y sus Divas es esta noche en Azúcar — el drag show más longevo de Washington, con DJ ShaReal poniendo el beat y las pulseras ya repartiéndose en la puerta. Ponte tu color y entra a la pista.\n\nNo te la pierdas.\n\n🗓️ Hoy, sábado 21 de noviembre • Puertas 8:30pm | Show 9:30pm\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ $20\n🔞 21+\n\n#AzucarPasco #OutAndAbout #VidaAmoreDivas #FiestaSemaforo #EstaNoche #DragShow #TriCities #Pasco",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-10-28T00:37:45.469864+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-22T03:31:04.308127+00:00",
+      "result": "Facebook post id: 1768864221908368",
       "campaign": "cadence_vida_amore_divas_show__fiesta_semáforo__stoplight_party",
       "monday_event_id": "13402196158",
       "event_date": "2026-11-21",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-22T03:26:00+00:00"
+      "release_at_utc": "2026-11-22T03:26:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1768864245241699"
     },
     {
       "id": "20261030_180000_8a4f73",
