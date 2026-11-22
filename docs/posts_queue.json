@@ -4063,16 +4063,17 @@
       "scheduled_for_utc": "2026-11-22T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13549927287_0.jpg",
       "caption": "No judgment, no pressure, just rope and community. 🪢💛 Whether you've done this a hundred times or you're walking in wide-eyed and curious, Rope Jam at Azucar is built for every kind of learner. Bobda Rigger keeps it safe, welcoming, and real — this is a space to explore without shame, ask questions without fear, and connect with people who get it. Bring yourself exactly as you are. We'll handle the rest (and the ropes). 🤝\n\n📅 Saturday, Nov 21, 2026 — 7:00 PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 Free\n#AzucarPasco #OutAndAbout #RopeJam #ComeAsYouAre #LatinxCommunity #PascoWA #SafeSpace #ShibariSocial",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-14T02:43:02.704905+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-22T04:51:13.310494+00:00",
+      "result": "Instagram media id: 18239883835318061",
       "campaign": "cadence_rope_jam",
       "monday_event_id": "13549927287",
       "event_date": "2026-11-21",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-22T04:47:00+00:00"
+      "release_at_utc": "2026-11-22T04:47:00+00:00",
+      "permalink": "https://www.instagram.com/p/DgB_OipF2Kv/"
     },
     {
       "id": "20261122_030000_306fac",
@@ -4080,16 +4081,17 @@
       "scheduled_for_utc": "2026-11-22T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13549927287_0.jpg",
       "caption": "No judgment, no pressure, just rope and community. 🪢💛 Whether you've done this a hundred times or you're walking in wide-eyed and curious, Rope Jam at Azucar is built for every kind of learner. Bobda Rigger keeps it safe, welcoming, and real — this is a space to explore without shame, ask questions without fear, and connect with people who get it. Bring yourself exactly as you are. We'll handle the rest (and the ropes). 🤝\n\n📅 Saturday, Nov 21, 2026 — 7:00 PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💸 Free\n#AzucarPasco #OutAndAbout #RopeJam #ComeAsYouAre #LatinxCommunity #PascoWA #SafeSpace #ShibariSocial",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-14T02:43:02.704905+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-22T04:51:01.502354+00:00",
+      "result": "Facebook post id: 1768930245235099",
       "campaign": "cadence_rope_jam",
       "monday_event_id": "13549927287",
       "event_date": "2026-11-21",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-22T04:47:00+00:00"
+      "release_at_utc": "2026-11-22T04:47:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1768930268568430"
     },
     {
       "id": "20261117_190000_3fe25f",
