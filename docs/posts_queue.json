@@ -2939,16 +2939,17 @@
       "scheduled_for_utc": "2026-11-23T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13495527499_0.jpg",
       "caption": "Mark it down — this one's about to sell out your whole Sunday evening 🎨🥂 Art With Aubrey is back at Azucar, walking you step-by-step through a drunken snowman masterpiece that's giving holiday chaos in the BEST way. Zero talent required, zero judgment given — just you, a brush, and a glass in hand. The Ranchero Room's about to turn into your favorite art studio for two hours straight. Grab your ticket before the easels fill up — this is the kind of night that fills your group chat with \"wait did you SEE what I painted\" 😂🖌️\n\n📅 Sunday, November 22, 2026 | 6PM–8PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $33\n#AzucarPasco #OutAndAbout #SipAndPaint #ArtWithAubrey #PascoWA #TriCities #HolidayVibes #PaintNight",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-07T10:06:58.069639+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-23T03:26:12.100398+00:00",
+      "result": "Instagram media id: 17918273130507331",
       "campaign": "cadence_paint_and_sip_with_artwithaubrey",
       "monday_event_id": "13495527499",
       "event_date": "2026-11-22",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-23T03:24:00+00:00"
+      "release_at_utc": "2026-11-23T03:24:00+00:00",
+      "permalink": "https://www.instagram.com/p/DgEaShDktN6/"
     },
     {
       "id": "20261123_030000_505ec4",
@@ -2956,16 +2957,17 @@
       "scheduled_for_utc": "2026-11-23T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13495527499_0.jpg",
       "caption": "Mark it down — this one's about to sell out your whole Sunday evening 🎨🥂 Art With Aubrey is back at Azucar, walking you step-by-step through a drunken snowman masterpiece that's giving holiday chaos in the BEST way. Zero talent required, zero judgment given — just you, a brush, and a glass in hand. The Ranchero Room's about to turn into your favorite art studio for two hours straight. Grab your ticket before the easels fill up — this is the kind of night that fills your group chat with \"wait did you SEE what I painted\" 😂🖌️\n\n📅 Sunday, November 22, 2026 | 6PM–8PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $33\n#AzucarPasco #OutAndAbout #SipAndPaint #ArtWithAubrey #PascoWA #TriCities #HolidayVibes #PaintNight",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-07T10:06:58.069639+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-23T03:26:17.014042+00:00",
+      "result": "Facebook post id: 1770082028453254",
       "campaign": "cadence_paint_and_sip_with_artwithaubrey",
       "monday_event_id": "13495527499",
       "event_date": "2026-11-22",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-23T03:24:00+00:00"
+      "release_at_utc": "2026-11-23T03:24:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1770082061786584"
     },
     {
       "id": "20261107_190000_21d2d5",
