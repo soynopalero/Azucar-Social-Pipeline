@@ -1,29 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-22 13:26 PST - **nothing posted, queue untouched**
+Generated 2026-11-23 18:42 PST - **nothing posted, queue untouched**
 
-Eligible events: **14** - Skipped: **127**
-
-## Queersgiving - 2026-11-22  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Nov 22, 7:00 PM | evening |
-
-## Cartoon Chaos Drag Show - 2026-11-22  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Nov 22, 7:00 PM | evening |
-
-## Paint and Sip with Artwithaubrey - 2026-11-22  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Sun Nov 22, 7:00 PM | evening |
+Eligible events: **11** - Skipped: **130**
 
 ## Drag Queen Kareoke - 2026-11-25  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -33,11 +12,10 @@ Eligible events: **14** - Skipped: **127**
 | Wed Nov 25, 7:00 PM | evening |
 
 ## Reggaeton 2000’s - 2026-11-27  (Marquee)
-3 posts x 2 platforms = **6** queue entries
+2 posts x 2 platforms = **4** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Nov 22, 7:00 PM | evening |
 | Tue Nov 24, 11:00 AM | morning |
 | Fri Nov 27, 7:00 PM | evening |
 
@@ -52,11 +30,10 @@ Eligible events: **14** - Skipped: **127**
 | Thu Dec 3, 7:00 PM | evening |
 
 ## Speed Friending With Rosie and Michael - 2026-12-04  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Sun Nov 22, 7:00 PM | evening |
 | Thu Nov 26, 11:00 AM | morning |
 | Sun Nov 29, 7:00 PM | evening |
 | Tue Dec 1, 11:00 AM | morning |
@@ -175,6 +152,7 @@ Eligible events: **14** - Skipped: **127**
 - **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
 - **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
 - **Candy Shop** - date in the past, phase = Cancelled, cadence = Off
+- **Cartoon Chaos Drag Show** - date in the past
 - **CrossFaded** - date in the past, no cadence set, no flyer, no price, no description
 - **Dolly Parton; A drag Tribute Night** - date in the past
 - **Drag Brunch de Reinas** - date in the past, phase = Cancelled
@@ -237,8 +215,10 @@ Eligible events: **14** - Skipped: **127**
 - **Noche latina** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **PFLAG Summer Pride BBQ** - date in the past, no cadence set, no flyer, no price, no description
 - **Paint and Sip with ArtwithAubrey** - date in the past
+- **Paint and Sip with Artwithaubrey** - date in the past
 - **Pride Karaoke** - date in the past, no cadence set, no flyer, no price, no description
 - **Pumpkin Painting Night** - date in the past
+- **Queersgiving** - date in the past
 - **Rocky horror picture drag show** - date in the past
 - **Rop Jams & Kinky Kareoke** - date in the past, no cadence set, no flyer, no price, no description
 - **Rope Jam** - date in the past
@@ -274,4 +254,4 @@ Eligible events: **14** - Skipped: **127**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 108**
+**Total queue entries that would be created: 98**
