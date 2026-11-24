@@ -6266,16 +6266,17 @@
       "scheduled_for_utc": "2026-11-24T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13574586316_0.jpg",
       "caption": "Mark it, mija — la tarjeta ya salió. 🔥 Abelle Fantasy is hosting SEX-ED LOTERÍA CON LAS REINAS and this one's not your average bingo night. Think drag queens calling the cards, prizes flying, and real talk mixed into every round. Azucar is teaming up with Planned Parenthood for HIV Awareness Month porque la educación también puede ser una fiesta. Grab your tabla, grab your people — este jueves no se repite. 💜\n\nDecember 17, 2026 — 6:30 PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ $10-$15\n🔞 18+\n#AzucarPasco #OutAndAbout #SexEdLoteria #DragBingo #LatinxPasco #HIVAwareness #PlannedParenthood #PascoWA",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-17T20:38:48.006468+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-24T03:25:58.885841+00:00",
+      "result": "Instagram media id: 18116469923133326",
       "campaign": "cadence_sex_ed_loteria_con_las_reinas",
       "monday_event_id": "13574586316",
       "event_date": "2026-12-17",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-24T03:25:00+00:00"
+      "release_at_utc": "2026-11-24T03:25:00+00:00",
+      "permalink": "https://www.instagram.com/p/DgG_EWBoVyc/"
     },
     {
       "id": "20261124_030000_f2cc1a",
@@ -6283,16 +6284,17 @@
       "scheduled_for_utc": "2026-11-24T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13574586316_0.jpg",
       "caption": "Mark it, mija — la tarjeta ya salió. 🔥 Abelle Fantasy is hosting SEX-ED LOTERÍA CON LAS REINAS and this one's not your average bingo night. Think drag queens calling the cards, prizes flying, and real talk mixed into every round. Azucar is teaming up with Planned Parenthood for HIV Awareness Month porque la educación también puede ser una fiesta. Grab your tabla, grab your people — este jueves no se repite. 💜\n\nDecember 17, 2026 — 6:30 PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n🎟️ $10-$15\n🔞 18+\n#AzucarPasco #OutAndAbout #SexEdLoteria #DragBingo #LatinxPasco #HIVAwareness #PlannedParenthood #PascoWA",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-17T20:38:48.006468+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-24T03:26:03.370138+00:00",
+      "result": "Facebook post id: 1771292614998862",
       "campaign": "cadence_sex_ed_loteria_con_las_reinas",
       "monday_event_id": "13574586316",
       "event_date": "2026-12-17",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-24T03:25:00+00:00"
+      "release_at_utc": "2026-11-24T03:25:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1771292638332193"
     },
     {
       "id": "20261206_030000_b3ee42",
