@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-23 18:42 PST - **nothing posted, queue untouched**
+Generated 2026-11-24 16:16 PST - **nothing posted, queue untouched**
 
 Eligible events: **11** - Skipped: **130**
 
@@ -12,11 +12,10 @@ Eligible events: **11** - Skipped: **130**
 | Wed Nov 25, 7:00 PM | evening |
 
 ## Reggaeton 2000’s - 2026-11-27  (Marquee)
-2 posts x 2 platforms = **4** queue entries
+1 posts x 2 platforms = **2** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 24, 11:00 AM | morning |
 | Fri Nov 27, 7:00 PM | evening |
 
 ## My Little Drag Show - 2026-12-03  (Marquee)
@@ -40,11 +39,10 @@ Eligible events: **11** - Skipped: **130**
 | Fri Dec 4, 7:00 PM | evening |
 
 ## Drag Me To Christmas - 2026-12-05  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Nov 23, 7:00 PM | evening |
 | Fri Nov 27, 11:00 AM | morning |
 | Mon Nov 30, 7:00 PM | evening |
 | Wed Dec 2, 11:00 AM | morning |
@@ -73,11 +71,10 @@ Eligible events: **11** - Skipped: **130**
 | Sun Dec 6, 7:00 PM | evening |
 
 ## The Brick Who Stole Christmas: Drag Show - 2026-12-11  (Marquee)
-6 posts x 2 platforms = **12** queue entries
+5 posts x 2 platforms = **10** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 24, 11:00 AM | morning |
 | Sun Nov 29, 7:00 PM | evening |
 | Thu Dec 3, 11:00 AM | morning |
 | Sun Dec 6, 7:00 PM | evening |
@@ -94,11 +91,10 @@ Eligible events: **11** - Skipped: **130**
 | Sun Dec 13, 7:00 PM | evening |
 
 ## Sex Ed Loteria Con Las Reinas - 2026-12-17  (Marquee)
-7 posts x 2 platforms = **14** queue entries
+6 posts x 2 platforms = **12** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Mon Nov 23, 7:00 PM | evening |
 | Mon Nov 30, 11:00 AM | morning |
 | Sat Dec 5, 7:00 PM | evening |
 | Wed Dec 9, 11:00 AM | morning |
@@ -254,4 +250,4 @@ Eligible events: **11** - Skipped: **130**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 98**
+**Total queue entries that would be created: 90**
