@@ -2445,16 +2445,17 @@
       "scheduled_for_utc": "2026-11-25T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13495491962_0.jpg",
       "caption": "Come as you are, leave with something only you could've made 🫶 Build Your Own Carabiner Night at Azucar is for everybody — first-timers who've never beaded a thing in their life, regulars who already have a whole collection, friends looking for a low-key Sunday hang. Jayme's hosting with a cocktail in hand and good energy to match, and the table's stacked with charms and sparkle ready for whatever you're feeling. No pressure, no perfect project required — just good company, a little Christmas magic, and a room that welcomes you exactly as you show up. Plus every ticket helps fund upcoming sapphic events, so you're building community right along with your carabiner 💕 Bring a friend, bring yourself, bring your messiest craft energy — there's a seat at this table for you.\n\n🗓️ Sunday, December 6 • 7PM–10PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $10 Tickets\n#AzucarPasco #OutAndAbout #CarabinerNight #LatinxCommunity #PascoWA #CraftNight #ComeAsYouAre",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-07T10:00:59.075568+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-25T04:31:11.957026+00:00",
+      "result": "Instagram media id: 18121232548800668",
       "campaign": "cadence_build_your_own_carabiner_night",
       "monday_event_id": "13495491962",
       "event_date": "2026-12-06",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-25T04:27:00+00:00"
+      "release_at_utc": "2026-11-25T04:27:00+00:00",
+      "permalink": "https://www.instagram.com/p/DgJrUvRIAKD/"
     },
     {
       "id": "20261125_030000_b13850",
@@ -2462,16 +2463,17 @@
       "scheduled_for_utc": "2026-11-25T03:00:00+00:00",
       "image_url": "https://soynopalero.github.io/Azucar-Social-Pipeline/media/cadence/13495491962_0.jpg",
       "caption": "Come as you are, leave with something only you could've made 🫶 Build Your Own Carabiner Night at Azucar is for everybody — first-timers who've never beaded a thing in their life, regulars who already have a whole collection, friends looking for a low-key Sunday hang. Jayme's hosting with a cocktail in hand and good energy to match, and the table's stacked with charms and sparkle ready for whatever you're feeling. No pressure, no perfect project required — just good company, a little Christmas magic, and a room that welcomes you exactly as you show up. Plus every ticket helps fund upcoming sapphic events, so you're building community right along with your carabiner 💕 Bring a friend, bring yourself, bring your messiest craft energy — there's a seat at this table for you.\n\n🗓️ Sunday, December 6 • 7PM–10PM\n📍 Azucar at Out & About — 327 W Lewis St, Pasco WA\n💵 $10 Tickets\n#AzucarPasco #OutAndAbout #CarabinerNight #LatinxCommunity #PascoWA #CraftNight #ComeAsYouAre",
-      "status": "pending",
+      "status": "posted",
       "created_at": "2026-11-07T10:00:59.075568+00:00",
-      "posted_at": null,
-      "result": null,
+      "posted_at": "2026-11-25T04:31:17.234092+00:00",
+      "result": "Facebook post id: 1772575928203864",
       "campaign": "cadence_build_your_own_carabiner_night",
       "monday_event_id": "13495491962",
       "event_date": "2026-12-06",
       "slot": "evening",
       "tier": "marquee",
-      "release_at_utc": "2026-11-25T04:27:00+00:00"
+      "release_at_utc": "2026-11-25T04:27:00+00:00",
+      "permalink": "https://www.facebook.com/201644454280/posts/1772575958203861"
     },
     {
       "id": "20261128_190000_b38b0a",
