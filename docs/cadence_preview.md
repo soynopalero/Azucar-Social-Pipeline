@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-24 16:16 PST - **nothing posted, queue untouched**
+Generated 2026-11-25 15:56 PST - **nothing posted, queue untouched**
 
 Eligible events: **11** - Skipped: **130**
 
@@ -19,11 +19,10 @@ Eligible events: **11** - Skipped: **130**
 | Fri Nov 27, 7:00 PM | evening |
 
 ## My Little Drag Show - 2026-12-03  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Wed Nov 25, 11:00 AM | morning |
 | Sat Nov 28, 7:00 PM | evening |
 | Mon Nov 30, 11:00 AM | morning |
 | Thu Dec 3, 7:00 PM | evening |
@@ -49,22 +48,20 @@ Eligible events: **11** - Skipped: **130**
 | Sat Dec 5, 7:00 PM | evening |
 
 ## Build Your Own Carabiner Night - 2026-12-06  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 24, 7:00 PM | evening |
 | Sat Nov 28, 11:00 AM | morning |
 | Tue Dec 1, 7:00 PM | evening |
 | Thu Dec 3, 11:00 AM | morning |
 | Sun Dec 6, 7:00 PM | evening |
 
 ## Sip and Paint with ArtwithAubrey - 2026-12-06  (Marquee)
-5 posts x 2 platforms = **10** queue entries
+4 posts x 2 platforms = **8** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Tue Nov 24, 7:00 PM | evening |
 | Sat Nov 28, 11:00 AM | morning |
 | Tue Dec 1, 7:00 PM | evening |
 | Thu Dec 3, 11:00 AM | morning |
@@ -250,4 +247,4 @@ Eligible events: **11** - Skipped: **130**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 90**
+**Total queue entries that would be created: 84**
