@@ -1,15 +1,8 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-25 15:56 PST - **nothing posted, queue untouched**
+Generated 2026-11-26 16:14 PST - **nothing posted, queue untouched**
 
-Eligible events: **11** - Skipped: **130**
-
-## Drag Queen Kareoke - 2026-11-25  (Marquee)
-1 posts x 2 platforms = **2** queue entries
-
-| When (Pacific) | Slot |
-|---|---|
-| Wed Nov 25, 7:00 PM | evening |
+Eligible events: **10** - Skipped: **131**
 
 ## Reggaeton 2000’s - 2026-11-27  (Marquee)
 1 posts x 2 platforms = **2** queue entries
@@ -28,11 +21,10 @@ Eligible events: **11** - Skipped: **130**
 | Thu Dec 3, 7:00 PM | evening |
 
 ## Speed Friending With Rosie and Michael - 2026-12-04  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Thu Nov 26, 11:00 AM | morning |
 | Sun Nov 29, 7:00 PM | evening |
 | Tue Dec 1, 11:00 AM | morning |
 | Fri Dec 4, 7:00 PM | evening |
@@ -150,6 +142,7 @@ Eligible events: **11** - Skipped: **130**
 - **Dolly Parton; A drag Tribute Night** - date in the past
 - **Drag Brunch de Reinas** - date in the past, phase = Cancelled
 - **Drag King Kareoke** - date in the past
+- **Drag Queen Kareoke** - date in the past
 - **Drag Wheel of Pride — Anthem Edition (All Ages)** - date in the past, phase = Completed, no cadence set, no flyer, no price, no description
 - **Drag me to brunch** - date in the past, phase = Cancelled
 - **Drag me to brunch** - date in the past, phase = Cancelled
@@ -247,4 +240,4 @@ Eligible events: **11** - Skipped: **130**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 84**
+**Total queue entries that would be created: 80**
