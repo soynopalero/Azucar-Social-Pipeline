@@ -1,6 +1,6 @@
 # Social cadence - dry-run preview
 
-Generated 2026-11-26 16:14 PST - **nothing posted, queue untouched**
+Generated 2026-11-27 15:51 PST - **nothing posted, queue untouched**
 
 Eligible events: **10** - Skipped: **131**
 
@@ -30,11 +30,10 @@ Eligible events: **10** - Skipped: **131**
 | Fri Dec 4, 7:00 PM | evening |
 
 ## Drag Me To Christmas - 2026-12-05  (Marquee)
-4 posts x 2 platforms = **8** queue entries
+3 posts x 2 platforms = **6** queue entries
 
 | When (Pacific) | Slot |
 |---|---|
-| Fri Nov 27, 11:00 AM | morning |
 | Mon Nov 30, 7:00 PM | evening |
 | Wed Dec 2, 11:00 AM | morning |
 | Sat Dec 5, 7:00 PM | evening |
@@ -240,4 +239,4 @@ Eligible events: **10** - Skipped: **131**
 - **Y2K Drag Show** - date in the past, phase = Cancelled
 - **🌿 JOTERÍA: La Plant House Edition 🌿** - date in the past
 
-**Total queue entries that would be created: 80**
+**Total queue entries that would be created: 78**
